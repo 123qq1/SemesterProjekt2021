@@ -19,10 +19,17 @@ namespace SemesterProjekt2021
 
         private void TestForm_Load(object sender, EventArgs e)
         {
-            bool connectionStatus = DatabaseAccessor.ConnectToDatabase("Semesterproject2021");
+            bool connectionStatus = DatabaseAccessor.ConnectToDatabase("Semesterprojekt2021");
 
             PingResult.Text = connectionStatus.ToString();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bolig b = DatabaseAccessor.ReadBolig(1);
+
+            MessageBox.Show(b.City);
         }
     }
 }
