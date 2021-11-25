@@ -16,13 +16,20 @@ namespace InputValidation
             public static string pureDouble = @"(?!\s*$)(^[0-9,]*)";
 
             // Generic
-            public static string address = @"(?!\s*$)(^[A-Ø a-ø.]+)([A-Ø a-ø.,'\d-]+$)";
+            public static string address = @"(?!\s*$)(^(?:[A-Øa-ø.]+[ ])+)([\d., A-Za-z]+)";
             public static string city = @"(?!\s*$)(^[A-Ø a-ø.]+)([A-Ø a-ø.]+$)";
 
             // Bolig
             public static string boligType = @"(?!\s*$)(^[A-Ø a-ø.]+)([A-Øa-ø]+$)";
             public static string energyLabel = @"(?!\s*$)([A-F])([+]?){1,2}$";
+
+            // Person
+            public static string cpr = @"(?!\s*$)^(([\d][\d][\d][\d][\d][\d])([ -])?([\d][\d][\d][\d]))";
+            public static string phoneNr = @"(?!\s)^(((?:[+][\d]?[\d]?[\d][ ]?)|(?:[\d][\d][\d][\d][ ]))?([(][\d]+[)][ ]?)?((?:(?:[\d]+[ -]?))+))";
+            public static string email = @"(?!\s*$)(?:^[a-z0-9!#$%&'*+/=?^_`{|}~-]+)@(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+).(?:[a-z]+$)";
+
         }
+
         public static class Generic
         {
             public static bool Address(string input)
@@ -162,8 +169,36 @@ namespace InputValidation
 
         public static class Person
         {
+            public static bool CPR(string input)
+            {
+                Regex reg = new Regex(RegExes.pureInt);
+                bool output = false;
 
+                if (!reg.IsMatch(input)) output = false;
+                if (input.Length != 10) output = false;
+
+                return output;
+            }
+
+            public static bool PhoneNr(string input)
+            {
+                Regex reg = new Regex(RegExes.pureInt);
+                bool output = false;
+
+                if (!reg.IsMatch(input)) output = false;
+
+                return output;
+            }
+
+            public static bool Email(string input)
+            {
+                Regex reg = new Regex(RegExes.email);
+                bool output = false;
+
+                if (!reg.IsMatch(input)) output = false;
+
+                return output;
+            }
         }
-
     }
 }
