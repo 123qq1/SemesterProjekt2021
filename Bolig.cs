@@ -27,7 +27,7 @@ namespace SemesterProjekt2021
             Active = active;
             IsSold = isSold;
             SoldDate = soldDate;
-            EnergyLable = energyLable;
+            EnergyLabels = energyLable;
             OfferPrice = offerPrice;
             SellingPrice = sellingPrice;
         }
@@ -52,7 +52,7 @@ namespace SemesterProjekt2021
         public bool Active { get; set; }
         public bool IsSold { get; set; }
         public string SoldDate { get; set; }
-        public string EnergyLable { get; set; }
+        public string EnergyLabels { get; set; }
         public int OfferPrice { get; set; }
         public int SellingPrice { get; set; }
 

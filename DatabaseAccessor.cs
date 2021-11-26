@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
+using System.Reflection;
 
 
 namespace SemesterProjekt2021
@@ -15,7 +16,7 @@ namespace SemesterProjekt2021
         private static SqlConnection currentConnection;
         private static string currentString;
         private static bool connected;
-        private static SqlCommand CurrentCommand;
+        private static SqlCommand currentCommand;
 
         public static bool ConnectToDatabase(string dbName)
         {
@@ -39,7 +40,7 @@ namespace SemesterProjekt2021
                 throw;
             }
 
-            CurrentCommand = new SqlCommand("",currentConnection);
+            currentCommand = new SqlCommand("",currentConnection);
             connected = succes;
             return succes;
         }
@@ -48,11 +49,9 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
+            string sqlString = $"INSERT INTO Bolig VALUES({b.Id},'{b.Type}',{b.Built},{b.InArea},{b.OutArea},{b.Rooms},'{b.City}',{b.Zip},'{b.Address}','{b.EnergyLabels}',{b.OfferPrice},{b.SellingPrice},{Convert.ToInt32(b.Active)},{Convert.ToInt32(b.IsSold)},'{b.SoldDate}',{b.RealtorId},{b.SellerId},{b.BuyerId});";
             
-
-            string sqlString = $"INSERT INTO Bolig VALUES({b.Id},'{b.Type}',{b.Built},{b.InArea},{b.OutArea},{b.Rooms},'{b.City}',{b.Zip},'{b.Address}','{b.EnergyLable}',{b.OfferPrice},{b.SellingPrice},{Convert.ToInt32(b.Active)},{Convert.ToInt32(b.IsSold)},'{b.SoldDate}',{b.RealtorId},{b.SellerId},{b.BuyerId});";
-            
-            CurrentCommand.CommandText = sqlString;
+            currentCommand.CommandText = sqlString;
 
             MessageBox.Show(sqlString);
 
@@ -60,7 +59,7 @@ namespace SemesterProjekt2021
             {
                 currentConnection.Open();
 
-                CurrentCommand.ExecuteNonQuery();
+                currentCommand.ExecuteNonQuery();
 
                 currentConnection.Close();
             }
@@ -70,15 +69,14 @@ namespace SemesterProjekt2021
 
         public static Bolig ReadBolig(int id)
         {
-
             string sqlString = $"SELECT * FROM Bolig WHERE ID = {id};";
-            CurrentCommand.CommandText = sqlString;
+            currentCommand.CommandText = sqlString;
             Bolig b = new Bolig();
 
             if (connected)
             {
                 currentConnection.Open();
-                SqlDataReader reader = CurrentCommand.ExecuteReader();
+                SqlDataReader reader = currentCommand.ExecuteReader();
 
                 while (reader.Read())
                 {
@@ -103,14 +101,73 @@ namespace SemesterProjekt2021
 
                     b = new Bolig(boligId, realtorId, sellerId, buyerId, type, address, city, zip, rooms, inArea, outArea, built, active, isSold, soldDate, energyLable, offerPrice, sellingPrice);
                 }
-
                 reader.Close();
                 currentConnection.Close();
-
             }
-
             return b;
         }
 
+        public static bool UpdateBolig(Bolig b)
+        {
+            bool succes = false;
+
+            Bolig dBolig = ReadBolig(b.Id);
+
+            Type type = b.GetType();
+            PropertyInfo[] props = type.GetProperties();
+            string strconn = "UPDATE Bolig SET ";
+            int loops = 0;
+
+            foreach(PropertyInfo p in props)
+            {
+                var bV = p.GetValue(b);
+                var dbV = p.GetValue(dBolig);
+
+                if (bV.ToString() == dbV.ToString())
+                {
+                    continue;
+                }
+                else
+                {
+                    loops++;
+                    string name = p.Name;
+
+                    string firstLetter = name[0].ToString();
+
+                    name = firstLetter.ToLower() + name.Substring(1);
+
+                    if (name == "realtorId") name = "ejendomsmælgerID";
+                    if (name == "sellerId") name = "sælgerID";
+                    if (name == "buyerId") name = "køberID";
+
+                    if (p.GetType() == typeof(int) || p.GetType() == typeof(bool))
+                        strconn += "" + name + " = " + bV + ", ";
+                    else
+                        strconn += "" + name + " = '" + bV + "', ";
+                }
+            }
+
+            if (loops > 0)
+            {
+                strconn = strconn.Remove(strconn.Length - 2);
+
+                strconn += $" WHERE ID = {b.Id};";
+                MessageBox.Show(strconn);
+
+                currentCommand.CommandText = strconn;
+
+                if (connected)
+                {
+                    currentConnection.Open();
+
+                    currentCommand.ExecuteNonQuery();
+                    succes = true;
+
+                    currentConnection.Close();
+
+                }
+            }
+            return succes;
+        }
     }
 }
