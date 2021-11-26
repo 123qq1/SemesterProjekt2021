@@ -169,5 +169,18 @@ namespace SemesterProjekt2021
             }
             return succes;
         }
+
+        public static bool ArchiveBolig(int id)
+        {
+            bool succes = false;
+
+            Bolig b = ReadBolig(id);
+
+            b.Active = false;
+
+            UpdateBolig(b);
+
+            return succes;
+        }
     }
 }

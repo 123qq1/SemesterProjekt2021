@@ -29,7 +29,9 @@ namespace SemesterProjekt2021
         {
             Bolig b = DatabaseAccessor.ReadBolig(1);
 
-            b.Zip = 7101;
+            b.Zip = 7103;
+            b.Rooms = 10;
+
 
             DatabaseAccessor.UpdateBolig(b);
         }
