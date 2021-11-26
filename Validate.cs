@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace InputValidation
 {
@@ -32,6 +33,16 @@ namespace InputValidation
 
         public static class Generic
         {
+            public static bool ID(string input)
+            {
+                Regex reg = new Regex(RegExes.pureInt);
+                bool output = true;
+
+                if (!reg.IsMatch(input)) output = false;
+
+                return output;
+            }
+
             public static bool Address(string input)
             {
                 Regex reg = new Regex(RegExes.address);
@@ -52,10 +63,10 @@ namespace InputValidation
                 return output;
             }
 
-            public static bool Zip(string input, ref int container)
+            public static bool Zip(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
                 if (input.Length != 4) output = false;
@@ -97,15 +108,15 @@ namespace InputValidation
                 bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
-                if (checkTypes(input)) output = false;
+                if (!checkTypes(input)) output = false;
 
                 return output;
             }
 
-            public static bool Rooms(string input, ref int container)
+            public static bool Rooms(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
                 if (input.Length > 3) output = false;
@@ -113,21 +124,20 @@ namespace InputValidation
                 return output;
             }
 
-            public static bool InArea(string input, ref int container)
+            public static bool InArea(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
 
                 return output;
             }
 
-            public static bool OutArea(string input, ref int container)
+            public static bool OutArea(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
 
@@ -137,7 +147,7 @@ namespace InputValidation
             public static bool EnergyLabel(string input)
             {
                 Regex reg = new Regex(RegExes.energyLabel);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
                 if (input.Length > 3) output = false;
@@ -145,10 +155,10 @@ namespace InputValidation
                 return output;
             }
 
-            public static bool Built(string input, ref int container)
+            public static bool Built(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
                 if (input.Length != 4) output = false;
@@ -156,10 +166,10 @@ namespace InputValidation
                 return output;
             }
 
-            public static bool Price(string input, ref int container)
+            public static bool Price(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
 
@@ -172,7 +182,7 @@ namespace InputValidation
             public static bool CPR(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
                 if (input.Length != 10) output = false;
@@ -183,7 +193,7 @@ namespace InputValidation
             public static bool PhoneNr(string input)
             {
                 Regex reg = new Regex(RegExes.pureInt);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
 
@@ -193,7 +203,7 @@ namespace InputValidation
             public static bool Email(string input)
             {
                 Regex reg = new Regex(RegExes.email);
-                bool output = false;
+                bool output = true;
 
                 if (!reg.IsMatch(input)) output = false;
 

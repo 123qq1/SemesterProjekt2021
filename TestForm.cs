@@ -40,11 +40,13 @@ namespace SemesterProjekt2021
 
         private void Find_Click(object sender, EventArgs e)
         {
+            /*
             int i = Convert.ToInt32(textBox1.Text);
             Bolig b = DatabaseAccessor.ReadBolig(i);
             
             MessageBox.Show($"Id: {b.Id}.\nRealtorId: {b.RealtorId}.\nAdresse: {b.Address}");
             textBox1.Clear();
+            */
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
