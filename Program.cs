@@ -17,7 +17,7 @@ namespace SemesterProjekt2021
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TestForm());
+            Application.Run(new Form1());
 
             
         }

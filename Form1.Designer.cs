@@ -133,6 +133,7 @@ namespace SemesterProjekt2021
             this.ArkiverButton.TabIndex = 27;
             this.ArkiverButton.Text = "Arkiver";
             this.ArkiverButton.UseVisualStyleBackColor = true;
+            this.ArkiverButton.Click += new System.EventHandler(this.ArkiverButton_Click);
             // 
             // OpdaterButton
             // 
@@ -373,6 +374,7 @@ namespace SemesterProjekt2021
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
