@@ -59,9 +59,11 @@ namespace SemesterProjekt2021
             {
                 currentConnection.Open();
 
+                succes = true;
                 currentCommand.ExecuteNonQuery();
 
                 currentConnection.Close();
+                
             }
 
             return succes;
@@ -92,6 +94,8 @@ namespace SemesterProjekt2021
                     p.SetValue(b,objs[i]);
                     i++;
                 }
+
+                succes = true;
 
                 reader.Close();
                 currentConnection.Close();
@@ -132,7 +136,7 @@ namespace SemesterProjekt2021
                     if (p.GetType() == typeof(int) || p.GetType() == typeof(bool))
                         strconn += "" + name + " = " + bV + ", ";
                     else
-                        strconn += "" + name + " = '" + bV + "', ";
+                        strconn += name + " = '" + bV + "', ";
                 }
             }
 
@@ -165,9 +169,131 @@ namespace SemesterProjekt2021
             Bolig b = new Bolig();
             succes = ReadBolig(id,ref b);
 
-            b.Active = false;
+            if (succes)
+            {
+                b.Active = false;
 
-             succes = UpdateBolig(b);
+                succes = UpdateBolig(b);
+            }
+
+            return succes;
+        }
+
+        public static bool CreatePerson(Person p)
+        {
+            bool succes = false;
+
+            string sqlString = $"INSERT INTO Person VALUES({p.ID},'{p.CPR}',{p.City},{p.Zip},{p.Address},{p.Email},'{p.PhoneNr}',{p.FName},'{p.LName}','{p.IsEjendomsmælger}',{p.IsKøber},{p.IsSælger});";
+
+            currentCommand.CommandText = sqlString;
+
+            MessageBox.Show(sqlString);
+
+            if (connected)
+            {
+                currentConnection.Open();
+
+                currentCommand.ExecuteNonQuery();
+
+                succes = true;
+                currentConnection.Close();
+            }
+
+            return succes;
+        }
+
+        public static bool ReadPerson(int id, ref Person p)
+        {
+            bool succes = false;
+            string sqlString = $"SELECT * FROM Bolig WHERE ID = {id};";
+            currentCommand.CommandText = sqlString;
+
+            if (connected)
+            {
+                currentConnection.Open();
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                object[] objs = new object[reader.FieldCount];
+
+                reader.Read();
+                reader.GetValues(objs);
+
+                Type type = p.GetType();
+                PropertyInfo[] props = type.GetProperties();
+                int i = 0;
+                foreach (PropertyInfo prop in props)
+                {
+
+                    prop.SetValue(p, objs[i]);
+                    i++;
+                }
+                succes = true;
+                reader.Close();
+                currentConnection.Close();
+            }
+            return succes;
+        }
+
+        public static bool UpdatePerson(Person p)
+        {
+            bool succes = false;
+
+            Person dPerson = new Person();
+            ReadPerson(p.ID, ref dPerson);
+
+            Type type = p.GetType();
+            PropertyInfo[] props = type.GetProperties();
+            string strconn = "UPDATE Bolig SET ";
+            bool looped = false;
+
+            foreach (PropertyInfo prop in props)
+            {
+                var bV = prop.GetValue(p);
+                var dbV = prop.GetValue(dPerson);
+
+                if (bV.ToString() != dbV.ToString())
+                {
+                    looped = true;
+                    string name = prop.Name;
+
+                    string firstLetter = name[0].ToString();
+
+                    name = firstLetter.ToLower() + name.Substring(1);
+
+                    if (p.GetType() == typeof(int) || p.GetType() == typeof(bool))
+                        strconn += "" + name + " = " + bV + ", ";
+                    else
+                        strconn += name + " = '" + bV + "', ";
+                }
+            }
+
+            if (looped)
+            {
+                strconn = strconn.Remove(strconn.Length - 2);
+
+                strconn += $" WHERE ID = {p.ID};";
+                MessageBox.Show(strconn);
+
+                currentCommand.CommandText = strconn;
+
+                if (connected)
+                {
+                    currentConnection.Open();
+
+                    currentCommand.ExecuteNonQuery();
+                    succes = true;
+
+                    currentConnection.Close();
+                }
+            }
+            return succes;
+        }
+
+        public static bool DeletePerson(int id)
+        {
+            bool succes = false;
+
+            //Delete Person
 
             return succes;
         }
