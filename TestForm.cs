@@ -27,11 +27,13 @@ namespace SemesterProjekt2021
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Bolig b = DatabaseAccessor.ReadBolig(1);
+            Bolig b = new Bolig();
 
-            b.Zip = 7103;
-            b.Rooms = 10;
+            DatabaseAccessor.ReadBolig(1,ref b);
 
+            b.Zip = 7104;
+            b.Rooms = 11;
+            b.IsSold = true;
 
             DatabaseAccessor.UpdateBolig(b);
         }

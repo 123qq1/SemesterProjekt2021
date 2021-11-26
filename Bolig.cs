@@ -38,23 +38,23 @@ namespace SemesterProjekt2021
         }
 
         public int Id { get; set; }
-        public int RealtorId { get; set; }
-        public int SellerId { get; set; }
-        public int BuyerId { get; set; }
         public string Type { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public int Zip { get; set; }
-        public int Rooms { get; set; }
+        public int Built { get; set; }
         public int InArea { get; set; }
         public int OutArea { get; set; }
-        public int Built { get; set; }
-        public bool Active { get; set; }
-        public bool IsSold { get; set; }
-        public string SoldDate { get; set; }
+        public int Rooms { get; set; }
+        public string City { get; set; }
+        public int Zip { get; set; }
+        public string Address { get; set; }
         public string EnergyLabels { get; set; }
         public int OfferPrice { get; set; }
         public int SellingPrice { get; set; }
+        public bool Active { get; set; }
+        public bool IsSold { get; set; }
+        public string SoldDate { get; set; }
+        public int RealtorId { get; set; }
+        public int SellerId { get; set; }
+        public int BuyerId { get; set; }
 
 
     }

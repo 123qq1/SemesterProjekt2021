@@ -49,7 +49,7 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
-            string sqlString = $"INSERT INTO Bolig VALUES({b.Id},'{b.Type}',{b.Built},{b.InArea},{b.OutArea},{b.Rooms},'{b.City}',{b.Zip},'{b.Address}','{b.EnergyLabels}',{b.OfferPrice},{b.SellingPrice},{Convert.ToInt32(b.Active)},{Convert.ToInt32(b.IsSold)},'{b.SoldDate}',{b.RealtorId},{b.SellerId},{b.BuyerId});";
+            string sqlString = $"INSERT INTO Bolig VALUES({b.Id},'{b.Type}',{b.Built},{b.InArea},{b.OutArea},{b.Rooms},'{b.City}',{b.Zip},'{b.Address}','{b.EnergyLabels}',{b.OfferPrice},{b.SellingPrice},'{b.Active}','{b.IsSold}','{b.SoldDate}',{b.RealtorId},{b.SellerId},{b.BuyerId});";
             
             currentCommand.CommandText = sqlString;
 
@@ -67,69 +67,58 @@ namespace SemesterProjekt2021
             return succes;
         }
 
-        public static Bolig ReadBolig(int id)
+        public static bool ReadBolig(int id, ref Bolig b)
         {
+            bool succes = false;
             string sqlString = $"SELECT * FROM Bolig WHERE ID = {id};";
             currentCommand.CommandText = sqlString;
-            Bolig b = new Bolig();
 
             if (connected)
             {
                 currentConnection.Open();
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    int boligId = reader.GetInt32(0);
-                    string type = reader.GetString(1);
-                    int built = reader.GetInt32(2);
-                    int inArea = reader.GetInt32(3);
-                    int outArea = reader.GetInt32(4);
-                    int rooms = reader.GetInt32(5);
-                    string city = reader.GetString(6);
-                    int zip = reader.GetInt32(7);
-                    string address = reader.GetString(8);
-                    string energyLable = reader.GetString(9);
-                    int offerPrice = reader.GetInt32(10);
-                    int sellingPrice = reader.GetInt32(11);
-                    bool active = reader.GetBoolean(12);
-                    bool isSold = reader.GetBoolean(13);
-                    string soldDate = reader.GetString(14);
-                    int realtorId = reader.GetInt32(15);
-                    int sellerId = reader.GetInt32(16);
-                    int buyerId = reader.GetInt32(17);
+                object[] objs = new object[reader.FieldCount];
 
-                    b = new Bolig(boligId, realtorId, sellerId, buyerId, type, address, city, zip, rooms, inArea, outArea, built, active, isSold, soldDate, energyLable, offerPrice, sellingPrice);
+                reader.Read();
+                reader.GetValues(objs);
+
+                Type type = b.GetType();
+                PropertyInfo[] props = type.GetProperties();
+                int i = 0;
+                foreach (PropertyInfo p in props)
+                {
+
+                    p.SetValue(b,objs[i]);
+                    i++;
                 }
+
                 reader.Close();
                 currentConnection.Close();
             }
-            return b;
+            return succes;
         }
 
         public static bool UpdateBolig(Bolig b)
         {
             bool succes = false;
 
-            Bolig dBolig = ReadBolig(b.Id);
+            Bolig dBolig = new Bolig();
+            ReadBolig(b.Id, ref dBolig);
 
             Type type = b.GetType();
             PropertyInfo[] props = type.GetProperties();
             string strconn = "UPDATE Bolig SET ";
-            int loops = 0;
+            bool looped = false;
 
             foreach(PropertyInfo p in props)
             {
                 var bV = p.GetValue(b);
                 var dbV = p.GetValue(dBolig);
 
-                if (bV.ToString() == dbV.ToString())
+                if (bV.ToString() != dbV.ToString())
                 {
-                    continue;
-                }
-                else
-                {
-                    loops++;
+                    looped = true;
                     string name = p.Name;
 
                     string firstLetter = name[0].ToString();
@@ -147,7 +136,7 @@ namespace SemesterProjekt2021
                 }
             }
 
-            if (loops > 0)
+            if (looped)
             {
                 strconn = strconn.Remove(strconn.Length - 2);
 
@@ -164,7 +153,6 @@ namespace SemesterProjekt2021
                     succes = true;
 
                     currentConnection.Close();
-
                 }
             }
             return succes;
@@ -174,11 +162,12 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
-            Bolig b = ReadBolig(id);
+            Bolig b = new Bolig();
+            succes = ReadBolig(id,ref b);
 
             b.Active = false;
 
-            UpdateBolig(b);
+             succes = UpdateBolig(b);
 
             return succes;
         }
