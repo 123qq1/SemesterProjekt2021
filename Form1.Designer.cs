@@ -130,7 +130,7 @@ namespace SemesterProjekt2021
             this.ArkiverButton.Location = new System.Drawing.Point(496, 154);
             this.ArkiverButton.Name = "ArkiverButton";
             this.ArkiverButton.Size = new System.Drawing.Size(96, 60);
-            this.ArkiverButton.TabIndex = 27;
+            this.ArkiverButton.TabIndex = 28;
             this.ArkiverButton.Text = "Arkiver";
             this.ArkiverButton.UseVisualStyleBackColor = true;
             this.ArkiverButton.Click += new System.EventHandler(this.ArkiverButton_Click);
@@ -140,7 +140,7 @@ namespace SemesterProjekt2021
             this.OpdaterButton.Location = new System.Drawing.Point(392, 154);
             this.OpdaterButton.Name = "OpdaterButton";
             this.OpdaterButton.Size = new System.Drawing.Size(97, 60);
-            this.OpdaterButton.TabIndex = 26;
+            this.OpdaterButton.TabIndex = 27;
             this.OpdaterButton.Text = "Opdater";
             this.OpdaterButton.UseVisualStyleBackColor = true;
             // 
@@ -149,7 +149,7 @@ namespace SemesterProjekt2021
             this.FindButton.Location = new System.Drawing.Point(495, 86);
             this.FindButton.Name = "FindButton";
             this.FindButton.Size = new System.Drawing.Size(97, 60);
-            this.FindButton.TabIndex = 25;
+            this.FindButton.TabIndex = 26;
             this.FindButton.Text = "Find";
             this.FindButton.UseVisualStyleBackColor = true;
             // 
@@ -158,7 +158,7 @@ namespace SemesterProjekt2021
             this.OpretButton.Location = new System.Drawing.Point(392, 85);
             this.OpretButton.Name = "OpretButton";
             this.OpretButton.Size = new System.Drawing.Size(97, 61);
-            this.OpretButton.TabIndex = 24;
+            this.OpretButton.TabIndex = 25;
             this.OpretButton.Text = "Opret";
             this.OpretButton.UseVisualStyleBackColor = true;
             // 
@@ -167,35 +167,35 @@ namespace SemesterProjekt2021
             this.BoligområdeTextBox.Location = new System.Drawing.Point(267, 38);
             this.BoligområdeTextBox.Name = "BoligområdeTextBox";
             this.BoligområdeTextBox.Size = new System.Drawing.Size(114, 23);
-            this.BoligområdeTextBox.TabIndex = 23;
+            this.BoligområdeTextBox.TabIndex = 24;
             // 
             // AdresseTextBox
             // 
             this.AdresseTextBox.Location = new System.Drawing.Point(147, 214);
             this.AdresseTextBox.Name = "AdresseTextBox";
             this.AdresseTextBox.Size = new System.Drawing.Size(114, 23);
-            this.AdresseTextBox.TabIndex = 22;
+            this.AdresseTextBox.TabIndex = 23;
             // 
             // PostNummerBox
             // 
             this.PostNummerBox.Location = new System.Drawing.Point(147, 170);
             this.PostNummerBox.Name = "PostNummerBox";
             this.PostNummerBox.Size = new System.Drawing.Size(114, 23);
-            this.PostNummerBox.TabIndex = 21;
+            this.PostNummerBox.TabIndex = 22;
             // 
             // ByTextBox
             // 
             this.ByTextBox.Location = new System.Drawing.Point(147, 126);
             this.ByTextBox.Name = "ByTextBox";
             this.ByTextBox.Size = new System.Drawing.Size(114, 23);
-            this.ByTextBox.TabIndex = 20;
+            this.ByTextBox.TabIndex = 21;
             // 
             // AntalRumTextBox
             // 
             this.AntalRumTextBox.Location = new System.Drawing.Point(147, 82);
             this.AntalRumTextBox.Name = "AntalRumTextBox";
             this.AntalRumTextBox.Size = new System.Drawing.Size(114, 23);
-            this.AntalRumTextBox.TabIndex = 19;
+            this.AntalRumTextBox.TabIndex = 20;
             // 
             // UdeArealTextBox
             // 
@@ -321,14 +321,14 @@ namespace SemesterProjekt2021
             this.IDTextBox.Location = new System.Drawing.Point(24, 38);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(114, 23);
-            this.IDTextBox.TabIndex = 4;
+            this.IDTextBox.TabIndex = 14;
             // 
             // TypeTextBox
             // 
             this.TypeTextBox.Location = new System.Drawing.Point(24, 82);
             this.TypeTextBox.Name = "TypeTextBox";
             this.TypeTextBox.Size = new System.Drawing.Size(114, 23);
-            this.TypeTextBox.TabIndex = 2;
+            this.TypeTextBox.TabIndex = 15;
             // 
             // label1
             // 
@@ -344,7 +344,7 @@ namespace SemesterProjekt2021
             this.ÅrByggetTextBox.Location = new System.Drawing.Point(147, 38);
             this.ÅrByggetTextBox.Name = "ÅrByggetTextBox";
             this.ÅrByggetTextBox.Size = new System.Drawing.Size(114, 23);
-            this.ÅrByggetTextBox.TabIndex = 0;
+            this.ÅrByggetTextBox.TabIndex = 19;
             // 
             // panel2
             // 
