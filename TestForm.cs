@@ -19,7 +19,7 @@ namespace SemesterProjekt2021
 
         private void TestForm_Load(object sender, EventArgs e)
         {
-            bool connectionStatus = DatabaseAccessor.ConnectToDatabase("Semesterprojekt2021");
+            bool connectionStatus = DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021");
 
             PingResult.Text = connectionStatus.ToString();
 
