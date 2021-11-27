@@ -32,18 +32,18 @@ namespace SemesterProjekt2021
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ArkiverButton = new System.Windows.Forms.Button();
+            this.OpdaterButton = new System.Windows.Forms.Button();
+            this.FindButton = new System.Windows.Forms.Button();
+            this.OpretButton = new System.Windows.Forms.Button();
+            this.BoligområdeTextBox = new System.Windows.Forms.TextBox();
+            this.AdresseTextBox = new System.Windows.Forms.TextBox();
+            this.PostNummerBox = new System.Windows.Forms.TextBox();
+            this.ByTextBox = new System.Windows.Forms.TextBox();
+            this.AntalRumTextBox = new System.Windows.Forms.TextBox();
+            this.UdeArealTextBox = new System.Windows.Forms.TextBox();
+            this.IndeArealTextBox = new System.Windows.Forms.TextBox();
+            this.EnergiMærkeTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -55,10 +55,10 @@ namespace SemesterProjekt2021
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.IDTextBox = new System.Windows.Forms.TextBox();
+            this.TypeTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ÅrByggetTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
@@ -92,18 +92,18 @@ namespace SemesterProjekt2021
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(207)))), ((int)(((byte)(93)))));
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox11);
-            this.panel1.Controls.Add(this.textBox10);
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.textBox8);
-            this.panel1.Controls.Add(this.textBox7);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.ArkiverButton);
+            this.panel1.Controls.Add(this.OpdaterButton);
+            this.panel1.Controls.Add(this.FindButton);
+            this.panel1.Controls.Add(this.OpretButton);
+            this.panel1.Controls.Add(this.BoligområdeTextBox);
+            this.panel1.Controls.Add(this.AdresseTextBox);
+            this.panel1.Controls.Add(this.PostNummerBox);
+            this.panel1.Controls.Add(this.ByTextBox);
+            this.panel1.Controls.Add(this.AntalRumTextBox);
+            this.panel1.Controls.Add(this.UdeArealTextBox);
+            this.panel1.Controls.Add(this.IndeArealTextBox);
+            this.panel1.Controls.Add(this.EnergiMærkeTextBox);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
@@ -115,108 +115,109 @@ namespace SemesterProjekt2021
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.IDTextBox);
+            this.panel1.Controls.Add(this.TypeTextBox);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.ÅrByggetTextBox);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(6, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(658, 281);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // ArkiverButton
             // 
-            this.button4.Location = new System.Drawing.Point(496, 154);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 60);
-            this.button4.TabIndex = 27;
-            this.button4.Text = "Arkiver";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ArkiverButton.Location = new System.Drawing.Point(496, 154);
+            this.ArkiverButton.Name = "ArkiverButton";
+            this.ArkiverButton.Size = new System.Drawing.Size(96, 60);
+            this.ArkiverButton.TabIndex = 28;
+            this.ArkiverButton.Text = "Arkiver";
+            this.ArkiverButton.UseVisualStyleBackColor = true;
+            this.ArkiverButton.Click += new System.EventHandler(this.ArkiverButton_Click);
             // 
-            // button3
+            // OpdaterButton
             // 
-            this.button3.Location = new System.Drawing.Point(392, 154);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 60);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Opdater";
-            this.button3.UseVisualStyleBackColor = true;
+            this.OpdaterButton.Location = new System.Drawing.Point(392, 154);
+            this.OpdaterButton.Name = "OpdaterButton";
+            this.OpdaterButton.Size = new System.Drawing.Size(97, 60);
+            this.OpdaterButton.TabIndex = 27;
+            this.OpdaterButton.Text = "Opdater";
+            this.OpdaterButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // FindButton
             // 
-            this.button2.Location = new System.Drawing.Point(495, 86);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 60);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Find";
-            this.button2.UseVisualStyleBackColor = true;
+            this.FindButton.Location = new System.Drawing.Point(495, 86);
+            this.FindButton.Name = "FindButton";
+            this.FindButton.Size = new System.Drawing.Size(97, 60);
+            this.FindButton.TabIndex = 26;
+            this.FindButton.Text = "Find";
+            this.FindButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // OpretButton
             // 
-            this.button1.Location = new System.Drawing.Point(392, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 61);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Opret";
-            this.button1.UseVisualStyleBackColor = true;
+            this.OpretButton.Location = new System.Drawing.Point(392, 85);
+            this.OpretButton.Name = "OpretButton";
+            this.OpretButton.Size = new System.Drawing.Size(97, 61);
+            this.OpretButton.TabIndex = 25;
+            this.OpretButton.Text = "Opret";
+            this.OpretButton.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox11
+            // BoligområdeTextBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(267, 38);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(114, 23);
-            this.textBox11.TabIndex = 23;
+            this.BoligområdeTextBox.Location = new System.Drawing.Point(267, 38);
+            this.BoligområdeTextBox.Name = "BoligområdeTextBox";
+            this.BoligområdeTextBox.Size = new System.Drawing.Size(114, 23);
+            this.BoligområdeTextBox.TabIndex = 24;
             // 
-            // textBox10
+            // AdresseTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(147, 214);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(114, 23);
-            this.textBox10.TabIndex = 22;
+            this.AdresseTextBox.Location = new System.Drawing.Point(147, 214);
+            this.AdresseTextBox.Name = "AdresseTextBox";
+            this.AdresseTextBox.Size = new System.Drawing.Size(114, 23);
+            this.AdresseTextBox.TabIndex = 23;
             // 
-            // textBox9
+            // PostNummerBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(147, 170);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(114, 23);
-            this.textBox9.TabIndex = 21;
+            this.PostNummerBox.Location = new System.Drawing.Point(147, 170);
+            this.PostNummerBox.Name = "PostNummerBox";
+            this.PostNummerBox.Size = new System.Drawing.Size(114, 23);
+            this.PostNummerBox.TabIndex = 22;
             // 
-            // textBox8
+            // ByTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(147, 126);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(114, 23);
-            this.textBox8.TabIndex = 20;
+            this.ByTextBox.Location = new System.Drawing.Point(147, 126);
+            this.ByTextBox.Name = "ByTextBox";
+            this.ByTextBox.Size = new System.Drawing.Size(114, 23);
+            this.ByTextBox.TabIndex = 21;
             // 
-            // textBox7
+            // AntalRumTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(147, 82);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(114, 23);
-            this.textBox7.TabIndex = 19;
+            this.AntalRumTextBox.Location = new System.Drawing.Point(147, 82);
+            this.AntalRumTextBox.Name = "AntalRumTextBox";
+            this.AntalRumTextBox.Size = new System.Drawing.Size(114, 23);
+            this.AntalRumTextBox.TabIndex = 20;
             // 
-            // textBox6
+            // UdeArealTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(24, 214);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(114, 23);
-            this.textBox6.TabIndex = 18;
+            this.UdeArealTextBox.Location = new System.Drawing.Point(24, 214);
+            this.UdeArealTextBox.Name = "UdeArealTextBox";
+            this.UdeArealTextBox.Size = new System.Drawing.Size(114, 23);
+            this.UdeArealTextBox.TabIndex = 18;
             // 
-            // textBox5
+            // IndeArealTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(24, 170);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(114, 23);
-            this.textBox5.TabIndex = 17;
+            this.IndeArealTextBox.Location = new System.Drawing.Point(24, 170);
+            this.IndeArealTextBox.Name = "IndeArealTextBox";
+            this.IndeArealTextBox.Size = new System.Drawing.Size(114, 23);
+            this.IndeArealTextBox.TabIndex = 17;
             // 
-            // textBox4
+            // EnergiMærkeTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(24, 126);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(114, 23);
-            this.textBox4.TabIndex = 16;
+            this.EnergiMærkeTextBox.Location = new System.Drawing.Point(24, 126);
+            this.EnergiMærkeTextBox.Name = "EnergiMærkeTextBox";
+            this.EnergiMærkeTextBox.Size = new System.Drawing.Size(114, 23);
+            this.EnergiMærkeTextBox.TabIndex = 16;
             // 
             // label13
             // 
@@ -316,19 +317,19 @@ namespace SemesterProjekt2021
             this.label3.TabIndex = 5;
             this.label3.Text = "ID";
             // 
-            // textBox3
+            // IDTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(24, 38);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(114, 23);
-            this.textBox3.TabIndex = 4;
+            this.IDTextBox.Location = new System.Drawing.Point(24, 38);
+            this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.Size = new System.Drawing.Size(114, 23);
+            this.IDTextBox.TabIndex = 14;
             // 
-            // textBox2
+            // TypeTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(24, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(114, 23);
-            this.textBox2.TabIndex = 2;
+            this.TypeTextBox.Location = new System.Drawing.Point(24, 82);
+            this.TypeTextBox.Name = "TypeTextBox";
+            this.TypeTextBox.Size = new System.Drawing.Size(114, 23);
+            this.TypeTextBox.TabIndex = 15;
             // 
             // label1
             // 
@@ -339,12 +340,12 @@ namespace SemesterProjekt2021
             this.label1.TabIndex = 1;
             this.label1.Text = "Boligområde";
             // 
-            // textBox1
+            // ÅrByggetTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(147, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 23);
-            this.textBox1.TabIndex = 0;
+            this.ÅrByggetTextBox.Location = new System.Drawing.Point(147, 38);
+            this.ÅrByggetTextBox.Name = "ÅrByggetTextBox";
+            this.ÅrByggetTextBox.Size = new System.Drawing.Size(114, 23);
+            this.ÅrByggetTextBox.TabIndex = 19;
             // 
             // panel2
             // 
@@ -389,19 +390,19 @@ namespace SemesterProjekt2021
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ÅrByggetTextBox;
+        private System.Windows.Forms.Button ArkiverButton;
+        private System.Windows.Forms.Button OpdaterButton;
+        private System.Windows.Forms.Button FindButton;
+        private System.Windows.Forms.Button OpretButton;
+        private System.Windows.Forms.TextBox BoligområdeTextBox;
+        private System.Windows.Forms.TextBox AdresseTextBox;
+        private System.Windows.Forms.TextBox PostNummerBox;
+        private System.Windows.Forms.TextBox ByTextBox;
+        private System.Windows.Forms.TextBox AntalRumTextBox;
+        private System.Windows.Forms.TextBox UdeArealTextBox;
+        private System.Windows.Forms.TextBox IndeArealTextBox;
+        private System.Windows.Forms.TextBox EnergiMærkeTextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -413,8 +414,8 @@ namespace SemesterProjekt2021
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox IDTextBox;
+        private System.Windows.Forms.TextBox TypeTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
     }

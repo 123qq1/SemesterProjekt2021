@@ -42,6 +42,7 @@ namespace SemesterProjekt2021
         {
             /*
             int i = Convert.ToInt32(textBox1.Text);
+            /*
             Bolig b = DatabaseAccessor.ReadBolig(i);
             
             MessageBox.Show($"Id: {b.Id}.\nRealtorId: {b.RealtorId}.\nAdresse: {b.Address}");

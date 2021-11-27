@@ -75,6 +75,11 @@ namespace SemesterProjekt2021
                 MessageBox.Show("Succes!");
         }
 
+        private void ArkiverButton_Click(object sender, EventArgs e)
+        {
+            DatabaseAccessor.ArchiveBolig(Convert.ToInt32(IDTextBox.Text));
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             if (!DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021")) MessageBox.Show("CAN'T CONNECT TO DATABASE YOU MONGOOSE");
