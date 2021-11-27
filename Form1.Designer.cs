@@ -161,6 +161,7 @@ namespace SemesterProjekt2021
             this.OpretButton.TabIndex = 25;
             this.OpretButton.Text = "Opret";
             this.OpretButton.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BoligområdeTextBox
             // 

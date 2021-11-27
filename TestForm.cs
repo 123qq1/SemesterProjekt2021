@@ -40,6 +40,7 @@ namespace SemesterProjekt2021
 
         private void Find_Click(object sender, EventArgs e)
         {
+            /*
             int i = Convert.ToInt32(textBox1.Text);
             /*
             Bolig b = DatabaseAccessor.ReadBolig(i);
