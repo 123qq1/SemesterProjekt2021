@@ -143,6 +143,7 @@ namespace SemesterProjekt2021
             this.OpdaterButton.TabIndex = 27;
             this.OpdaterButton.Text = "Opdater";
             this.OpdaterButton.UseVisualStyleBackColor = true;
+            this.OpdaterButton.Click += new System.EventHandler(this.OpdaterButton_Click);
             // 
             // FindButton
             // 
@@ -152,6 +153,7 @@ namespace SemesterProjekt2021
             this.FindButton.TabIndex = 26;
             this.FindButton.Text = "Find";
             this.FindButton.UseVisualStyleBackColor = true;
+            this.FindButton.Click += new System.EventHandler(this.FindButton_Click);
             // 
             // OpretButton
             // 
@@ -161,7 +163,7 @@ namespace SemesterProjekt2021
             this.OpretButton.TabIndex = 25;
             this.OpretButton.Text = "Opret";
             this.OpretButton.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OpretButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // BoligområdeTextBox
             // 
