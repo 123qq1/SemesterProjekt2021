@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LayeredTestForm));
             this.panelheader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CloseProgramButton = new System.Windows.Forms.Button();
@@ -40,14 +41,17 @@
             this.BoligButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelheader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelside.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelheader
             // 
-            this.panelheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.panelheader.Controls.Add(this.panel2);
             this.panelheader.Controls.Add(this.panelmain);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -69,7 +73,7 @@
             // 
             // CloseProgramButton
             // 
-            this.CloseProgramButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CloseProgramButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.CloseProgramButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CloseProgramButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseProgramButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -89,7 +93,7 @@
             // 
             // MinimizeButton
             // 
-            this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.MinimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MinimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -109,7 +113,7 @@
             // 
             // MaximizeButton
             // 
-            this.MaximizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MaximizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.MaximizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MaximizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximizeButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -139,7 +143,7 @@
             // 
             // panelside
             // 
-            this.panelside.BackColor = System.Drawing.Color.Gray;
+            this.panelside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.panelside.Controls.Add(this.panel1);
             this.panelside.Controls.Add(this.PersonButton);
             this.panelside.Controls.Add(this.BoligButton);
@@ -152,9 +156,9 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.BackgroundImage = global::SemesterProjekt2021.Properties.Resources._8324223_ui_essential_app_avatar_profile_icon1;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -163,14 +167,13 @@
             // 
             // PersonButton
             // 
-            this.PersonButton.BackColor = System.Drawing.Color.DimGray;
+            this.PersonButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
             this.PersonButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PersonButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.PersonButton.FlatAppearance.BorderSize = 0;
             this.PersonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PersonButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PersonButton.ForeColor = System.Drawing.Color.White;
-            this.PersonButton.Image = global::SemesterProjekt2021.Properties.Resources.user;
+            this.PersonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.PersonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PersonButton.Location = new System.Drawing.Point(3, 170);
             this.PersonButton.Name = "PersonButton";
@@ -182,14 +185,13 @@
             // 
             // BoligButton
             // 
-            this.BoligButton.BackColor = System.Drawing.Color.DimGray;
+            this.BoligButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
             this.BoligButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BoligButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.BoligButton.FlatAppearance.BorderSize = 0;
             this.BoligButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BoligButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BoligButton.ForeColor = System.Drawing.Color.White;
-            this.BoligButton.Image = global::SemesterProjekt2021.Properties.Resources.house;
+            this.BoligButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.BoligButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BoligButton.Location = new System.Drawing.Point(3, 129);
             this.BoligButton.Name = "BoligButton";
@@ -201,15 +203,14 @@
             // 
             // HomeButton
             // 
-            this.HomeButton.BackColor = System.Drawing.Color.DimGray;
+            this.HomeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
             this.HomeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.HomeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HomeButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.HomeButton.FlatAppearance.BorderSize = 0;
             this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HomeButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.HomeButton.ForeColor = System.Drawing.Color.White;
-            this.HomeButton.Image = global::SemesterProjekt2021.Properties.Resources.computer;
+            this.HomeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.HomeButton.Location = new System.Drawing.Point(3, 88);
             this.HomeButton.Name = "HomeButton";
@@ -226,6 +227,15 @@
             this.MainPanel.Size = new System.Drawing.Size(647, 443);
             this.MainPanel.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(48, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // LayeredTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -241,6 +251,8 @@
             this.panelheader.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelside.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -259,5 +271,6 @@
         private System.Windows.Forms.Button MaximizeButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

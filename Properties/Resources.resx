@@ -121,22 +121,14 @@
   <data name="house" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\house.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4243324_ux_user_app_basic_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4243324_ux_user_app_basic_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+ 
   <data name="computer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\computer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="8324223_ui_essential_app_avatar_profile_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8324223_ui_essential_app_avatar_profile_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2672699_object_ux_essential_app_house_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2672699_object_ux_essential_app_house_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+ 
+ 
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="8324223_ui_essential_app_avatar_profile_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8324223_ui_essential_app_avatar_profile_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+ 
 </root>
