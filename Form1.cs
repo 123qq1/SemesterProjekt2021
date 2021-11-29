@@ -62,14 +62,8 @@ namespace SemesterProjekt2021
 
             if (InputValidation.Validate.Generic.Address(AdresseTextBox.Text)) b.Address = AdresseTextBox.Text;
 
-            b.RealtorId = 1;
-            b.SellerId = 2;
-            b.BuyerId = 1;
-            b.OfferPrice = 0;
-            b.SellingPrice = 0;
             b.Active = true;
             b.IsSold = false;
-            b.SoldDate = " ";
 
             if (!DatabaseAccessor.CreateBolig(b)) MessageBox.Show("COULD NOT CREATE BOLIG!");
             else
