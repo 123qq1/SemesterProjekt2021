@@ -12,6 +12,7 @@ namespace SemesterProjekt2021
 {
     public partial class LayeredTestForm : Form
     {
+
         public LayeredTestForm()
         {
             InitializeComponent();
@@ -75,6 +76,11 @@ namespace SemesterProjekt2021
                 WindowState = FormWindowState.Maximized;
             else if (WindowState == FormWindowState.Maximized) 
                 WindowState = FormWindowState.Normal;
+        }
+
+        private void panelheader_Paint(object sender, PaintEventArgs e)  // DET HER ER TOP PANEL I LAYERDTESTFORM, HER SKAL INPUTES MOUSE MOVABILITY
+        {
+            
         }
     }
 }

@@ -37,11 +37,11 @@
             this.panelmain = new System.Windows.Forms.Panel();
             this.panelside = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PersonButton = new System.Windows.Forms.Button();
             this.BoligButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelheader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelside.SuspendLayout();
@@ -59,6 +59,7 @@
             this.panelheader.Name = "panelheader";
             this.panelheader.Size = new System.Drawing.Size(810, 35);
             this.panelheader.TabIndex = 0;
+            this.panelheader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelheader_Paint);
             // 
             // panel2
             // 
@@ -165,6 +166,15 @@
             this.panel1.Size = new System.Drawing.Size(157, 79);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(48, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // PersonButton
             // 
             this.PersonButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
@@ -226,15 +236,6 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(647, 443);
             this.MainPanel.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(48, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // LayeredTestForm
             // 
