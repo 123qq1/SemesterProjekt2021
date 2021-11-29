@@ -11,6 +11,9 @@ namespace SemesterProjekt2021
         public Person()
         {
 
+            PhoneNr = -1;
+            Zip = -1;
+
         }
         public int ID { get; set; }
         public int CPR { get; set; }

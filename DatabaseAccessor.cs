@@ -17,7 +17,7 @@ namespace SemesterProjekt2021
         private static string currentString;
         private static bool connected;
         private static SqlCommand currentCommand;
-        private static List<int> usedIDs;
+        private static List<int> usedBoligIDs;
 
 
         public static bool SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
@@ -72,7 +72,7 @@ namespace SemesterProjekt2021
             currentConnection = new SqlConnection(strconn);
 
             string sqlString = $"SELECT ID FROM Bolig;";
-            usedIDs = new List<int>();
+            usedBoligIDs = new List<int>();
 
             try
             {
@@ -87,7 +87,7 @@ namespace SemesterProjekt2021
 
                 while (reader.Read())
                 {
-                    usedIDs.Add(reader.GetInt32(0));
+                    usedBoligIDs.Add(reader.GetInt32(0));
                 }
 
                 currentConnection.Close();
@@ -101,9 +101,9 @@ namespace SemesterProjekt2021
 
             string s = "";
 
-            for (int i = 0; i < usedIDs.Count; i++)
+            for (int i = 0; i < usedBoligIDs.Count; i++)
             {
-                s += usedIDs[i] + " ";
+                s += usedBoligIDs[i] + " ";
             }
 
 
@@ -116,7 +116,7 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
-            if (usedIDs.Contains(b.Id)) return false;
+            if (usedBoligIDs.Contains(b.Id)) return false;
 
             string sqlString = $"INSERT INTO Bolig (";
             
@@ -175,7 +175,7 @@ namespace SemesterProjekt2021
 
                 succes = true;
                 currentCommand.ExecuteNonQuery();
-                usedIDs.Add(b.Id);
+                usedBoligIDs.Add(b.Id);
                 currentConnection.Close();
                 
             }
@@ -302,7 +302,49 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
-            string sqlString = $"INSERT INTO Person VALUES({p.ID},'{p.CPR}',{p.City},{p.Zip},{p.Address},{p.Email},'{p.PhoneNr}',{p.FName},'{p.LName}','{p.IsEjendomsmælger}',{p.IsKøber},{p.IsSælger});";
+            //if (usedIDs.Contains(b.Id)) return false;
+
+            string sqlString = $"INSERT INTO Person (";
+
+            Type type = p.GetType();
+            PropertyInfo[] props = type.GetProperties();
+            List<object> objs = new List<object>();
+
+            foreach (PropertyInfo prop in props)
+            {
+                var bV = prop.GetValue(p);
+
+                if (bV == null) continue;
+
+                if (bV.GetType() == typeof(int))
+                    if ((int)bV < 0) continue;
+
+                objs.Add(bV);
+
+                string name = prop.Name;
+
+                string firstLetter = name[0].ToString();
+
+                name = firstLetter.ToLower() + name.Substring(1);
+
+                sqlString += name + ", ";
+
+            }
+            sqlString = sqlString.Remove(sqlString.Length - 2);
+            sqlString += ") VALUES (";
+
+            for (int i = 0; i < objs.Count; i++)
+            {
+                object o = objs[i];
+                if (o.GetType() == typeof(int))
+                    sqlString += o + ", ";
+                else
+                    sqlString += "'" + o + "'" + ", ";
+
+            }
+
+            sqlString = sqlString.Remove(sqlString.Length - 2);
+            sqlString += ");";
 
             currentCommand.CommandText = sqlString;
 
@@ -324,7 +366,7 @@ namespace SemesterProjekt2021
         public static bool ReadPerson(int id, ref Person p)
         {
             bool succes = false;
-            string sqlString = $"SELECT * FROM Bolig WHERE ID = {id};";
+            string sqlString = $"SELECT * FROM Person WHERE ID = {id};";
             currentCommand.CommandText = sqlString;
 
             if (connected)
@@ -362,13 +404,18 @@ namespace SemesterProjekt2021
 
             Type type = p.GetType();
             PropertyInfo[] props = type.GetProperties();
-            string strconn = "UPDATE Bolig SET ";
+            string strconn = "UPDATE Person SET ";
             bool looped = false;
 
             foreach (PropertyInfo prop in props)
             {
                 var bV = prop.GetValue(p);
                 var dbV = prop.GetValue(dPerson);
+
+                if (bV == null) continue;
+
+                if (bV.GetType() == typeof(int))
+                    if ((int)bV < 0) continue;
 
                 if (bV.ToString() != dbV.ToString())
                 {
