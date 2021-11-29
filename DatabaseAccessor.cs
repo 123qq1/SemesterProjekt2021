@@ -17,6 +17,7 @@ namespace SemesterProjekt2021
         private static string currentString;
         private static bool connected;
         private static SqlCommand currentCommand;
+        private static List<int> usedIDs;
 
 
         public static bool SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
@@ -67,14 +68,28 @@ namespace SemesterProjekt2021
             bool succes = false;
 
             string strconn = @"Data Source=" + Environment.MachineName +";Initial Catalog=" + dbName + ";Integrated Security=True;TrustServerCertificate=True";
-
-            //string strconn = @"Data Source=LAPTOP-1HT927JP;Initial Catalog=Semesterprojekt2021;Integrated Security=True;TrustServerCertificate=True";
-                        
+       
             currentConnection = new SqlConnection(strconn);
-            currentString = strconn;
+
+            string sqlString = $"SELECT ID FROM Bolig;";
+            usedIDs = new List<int>();
+
             try
             {
                 currentConnection.Open();
+                currentCommand = new SqlCommand("", currentConnection);
+                currentCommand.CommandText = sqlString;
+
+                currentString = strconn;
+
+
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usedIDs.Add(reader.GetInt32(0));
+                }
+
                 currentConnection.Close();
 
                 succes = true;
@@ -84,7 +99,15 @@ namespace SemesterProjekt2021
                 throw;
             }
 
-            currentCommand = new SqlCommand("",currentConnection);
+            string s = "";
+
+            for (int i = 0; i < usedIDs.Count; i++)
+            {
+                s += usedIDs[i] + " ";
+            }
+
+
+            MessageBox.Show(s);
             connected = succes;
             return succes;
         }
@@ -92,6 +115,8 @@ namespace SemesterProjekt2021
         public static bool CreateBolig(Bolig b)
         {
             bool succes = false;
+
+            if (usedIDs.Contains(b.Id)) return false;
 
             string sqlString = $"INSERT INTO Bolig (";
             
@@ -150,7 +175,7 @@ namespace SemesterProjekt2021
 
                 succes = true;
                 currentCommand.ExecuteNonQuery();
-
+                usedIDs.Add(b.Id);
                 currentConnection.Close();
                 
             }
@@ -402,6 +427,52 @@ namespace SemesterProjekt2021
             }
 
             return succes;
+        }
+
+        public static bool LinkRealtor(int boligId, int realtorId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.RealtorId = realtorId;
+
+            return UpdateBolig(b);
+        }
+
+        public static bool LinkBuyer(int boligId, int buyerId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.BuyerId = buyerId;
+
+            return UpdateBolig(b);
+        }
+
+        public static bool LinkSeller(int boligId, int sellerId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.SellerId = sellerId;
+
+            return UpdateBolig(b);
+        }
+
+        public static bool LinkAllPeople(int boligId, int realtorId, int buyerId, int sellerId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.RealtorId = realtorId;
+            b.SellerId = sellerId;
+            b.BuyerId = buyerId;
+
+            return UpdateBolig(b);
         }
     }
 }
