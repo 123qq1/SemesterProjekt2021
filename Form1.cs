@@ -24,43 +24,43 @@ namespace SemesterProjekt2021
         {
             Bolig b = new Bolig();
 
-            if (InputValidation.Validate.Generic.ID(IDTextBox.Text)) b.Id = Convert.ToInt32(IDTextBox.Text);
+            if (InputValidation.Generic.ID(IDTextBox.Text)) b.Id = Convert.ToInt32(IDTextBox.Text);
             else
                 MessageBox.Show(error + "\nID");
 
-            if (InputValidation.Validate.Bolig.Type(TypeTextBox.Text)) b.Type = TypeTextBox.Text;
+            if (InputValidation.Bolig.Type(TypeTextBox.Text)) b.Type = TypeTextBox.Text;
             else
                 MessageBox.Show(error + "\nType");
 
-            if (InputValidation.Validate.Bolig.EnergyLabel(EnergiMærkeTextBox.Text)) b.EnergyLabels = EnergiMærkeTextBox.Text;
+            if (InputValidation.Bolig.EnergyLabel(EnergiMærkeTextBox.Text)) b.EnergyLabels = EnergiMærkeTextBox.Text;
             else
                 MessageBox.Show(error + "\nEnergyLabel");
 
-            if (InputValidation.Validate.Bolig.InArea(IndeArealTextBox.Text)) b.InArea = Convert.ToInt32(IndeArealTextBox.Text);
+            if (InputValidation.Bolig.InArea(IndeArealTextBox.Text)) b.InArea = Convert.ToInt32(IndeArealTextBox.Text);
             else
                 MessageBox.Show(error + "\nInArea");
 
-            if (InputValidation.Validate.Bolig.OutArea(UdeArealTextBox.Text)) b.OutArea = Convert.ToInt32(UdeArealTextBox.Text);
+            if (InputValidation.Bolig.OutArea(UdeArealTextBox.Text)) b.OutArea = Convert.ToInt32(UdeArealTextBox.Text);
             else
                 MessageBox.Show(error + "\nOutArea");
 
-            if (InputValidation.Validate.Bolig.Built(ÅrByggetTextBox.Text)) b.Built = Convert.ToInt32(ÅrByggetTextBox.Text);
+            if (InputValidation.Bolig.Built(ÅrByggetTextBox.Text)) b.Built = Convert.ToInt32(ÅrByggetTextBox.Text);
             else
                 MessageBox.Show(error + "\nBuilt");
 
-            if (InputValidation.Validate.Bolig.Rooms(AntalRumTextBox.Text)) b.Rooms = Convert.ToInt32(AntalRumTextBox.Text);
+            if (InputValidation.Bolig.Rooms(AntalRumTextBox.Text)) b.Rooms = Convert.ToInt32(AntalRumTextBox.Text);
             else
                 MessageBox.Show(error + "\nRooms");
 
-            if (InputValidation.Validate.Generic.City(ByTextBox.Text)) b.City = ByTextBox.Text;
+            if (InputValidation.Generic.City(ByTextBox.Text)) b.City = ByTextBox.Text;
             else
                 MessageBox.Show(error + "\nCity");
 
-            if (InputValidation.Validate.Generic.Zip(PostNummerBox.Text)) b.Zip = Convert.ToInt32(PostNummerBox.Text);
+            if (InputValidation.Generic.Zip(PostNummerBox.Text)) b.Zip = Convert.ToInt32(PostNummerBox.Text);
             else
                 MessageBox.Show(error + "\nZip");
 
-            if (InputValidation.Validate.Generic.Address(AdresseTextBox.Text)) b.Address = AdresseTextBox.Text;
+            if (InputValidation.Generic.Address(AdresseTextBox.Text)) b.Address = AdresseTextBox.Text;
 
             b.RealtorId = 1;
             b.SellerId = 2;
@@ -78,7 +78,7 @@ namespace SemesterProjekt2021
 
         private void ArkiverButton_Click(object sender, EventArgs e)
         {
-            if (InputValidation.Validate.Generic.ID(IDTextBox.Text))
+            if (InputValidation.Generic.ID(IDTextBox.Text))
                 if (DatabaseAccessor.ArchiveBolig(Convert.ToInt32(IDTextBox.Text)))
                     MessageBox.Show("Success!");
                 else
@@ -97,7 +97,7 @@ namespace SemesterProjekt2021
             Bolig b = new Bolig();
             int i = 0;
 
-            if (InputValidation.Validate.Generic.ID(IDTextBox.Text))
+            if (InputValidation.Generic.ID(IDTextBox.Text))
                 i = Convert.ToInt32(IDTextBox.Text);
             else
                 MessageBox.Show(error + "\nID");
@@ -113,43 +113,43 @@ namespace SemesterProjekt2021
         {
             Bolig b = new Bolig();
 
-            if (InputValidation.Validate.Generic.ID(IDTextBox.Text)) b.Id = Convert.ToInt32(IDTextBox.Text);
+            if (InputValidation.Generic.ID(IDTextBox.Text)) b.Id = Convert.ToInt32(IDTextBox.Text);
             else
                 MessageBox.Show(error + "\nID");
 
-            if (InputValidation.Validate.Bolig.Type(TypeTextBox.Text)) b.Type = TypeTextBox.Text;
+            if (InputValidation.Bolig.Type(TypeTextBox.Text)) b.Type = TypeTextBox.Text;
             else
                 MessageBox.Show(error + "\nType");
 
-            if (InputValidation.Validate.Bolig.EnergyLabel(EnergiMærkeTextBox.Text)) b.EnergyLabels = EnergiMærkeTextBox.Text;
+            if (InputValidation.Bolig.EnergyLabel(EnergiMærkeTextBox.Text)) b.EnergyLabels = EnergiMærkeTextBox.Text;
             else
                 MessageBox.Show(error + "\nEnergyLabel");
 
-            if (InputValidation.Validate.Bolig.InArea(IndeArealTextBox.Text)) b.InArea = Convert.ToInt32(IndeArealTextBox.Text);
+            if (InputValidation.Bolig.InArea(IndeArealTextBox.Text)) b.InArea = Convert.ToInt32(IndeArealTextBox.Text);
             else
                 MessageBox.Show(error + "\nInArea");
 
-            if (InputValidation.Validate.Bolig.OutArea(UdeArealTextBox.Text)) b.OutArea = Convert.ToInt32(UdeArealTextBox.Text);
+            if (InputValidation.Bolig.OutArea(UdeArealTextBox.Text)) b.OutArea = Convert.ToInt32(UdeArealTextBox.Text);
             else
                 MessageBox.Show(error + "\nOutArea");
 
-            if (InputValidation.Validate.Bolig.Built(ÅrByggetTextBox.Text)) b.Built = Convert.ToInt32(ÅrByggetTextBox.Text);
+            if (InputValidation.Bolig.Built(ÅrByggetTextBox.Text)) b.Built = Convert.ToInt32(ÅrByggetTextBox.Text);
             else
                 MessageBox.Show(error + "\nBuilt");
 
-            if (InputValidation.Validate.Bolig.Rooms(AntalRumTextBox.Text)) b.Rooms = Convert.ToInt32(AntalRumTextBox.Text);
+            if (InputValidation.Bolig.Rooms(AntalRumTextBox.Text)) b.Rooms = Convert.ToInt32(AntalRumTextBox.Text);
             else
                 MessageBox.Show(error + "\nRooms");
 
-            if (InputValidation.Validate.Generic.City(ByTextBox.Text)) b.City = ByTextBox.Text;
+            if (InputValidation.Generic.City(ByTextBox.Text)) b.City = ByTextBox.Text;
             else
                 MessageBox.Show(error + "\nCity");
 
-            if (InputValidation.Validate.Generic.Zip(PostNummerBox.Text)) b.Zip = Convert.ToInt32(PostNummerBox.Text);
+            if (InputValidation.Generic.Zip(PostNummerBox.Text)) b.Zip = Convert.ToInt32(PostNummerBox.Text);
             else
                 MessageBox.Show(error + "\nZip");
 
-            if (InputValidation.Validate.Generic.Address(AdresseTextBox.Text)) b.Address = AdresseTextBox.Text;
+            if (InputValidation.Generic.Address(AdresseTextBox.Text)) b.Address = AdresseTextBox.Text;
 
             b.RealtorId = 1;
             b.SellerId = 2;
