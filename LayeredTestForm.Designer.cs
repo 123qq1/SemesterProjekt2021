@@ -42,6 +42,7 @@
             this.PersonButton = new System.Windows.Forms.Button();
             this.BoligButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
+            this.LocationLabel = new System.Windows.Forms.Label();
             this.panelheader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelside.SuspendLayout();
@@ -52,6 +53,7 @@
             // panelheader
             // 
             this.panelheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
+            this.panelheader.Controls.Add(this.LocationLabel);
             this.panelheader.Controls.Add(this.panel2);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
@@ -136,10 +138,10 @@
             this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainPanel.Location = new System.Drawing.Point(155, 29);
+            this.MainPanel.Location = new System.Drawing.Point(158, 29);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(655, 449);
+            this.MainPanel.Size = new System.Drawing.Size(652, 449);
             this.MainPanel.TabIndex = 2;
             // 
             // panelside
@@ -154,7 +156,7 @@
             this.panelside.Location = new System.Drawing.Point(0, 29);
             this.panelside.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelside.Name = "panelside";
-            this.panelside.Size = new System.Drawing.Size(157, 449);
+            this.panelside.Size = new System.Drawing.Size(163, 449);
             this.panelside.TabIndex = 1;
             // 
             // SearchButton
@@ -167,7 +169,7 @@
             this.SearchButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchButton.Location = new System.Drawing.Point(0, 195);
+            this.SearchButton.Location = new System.Drawing.Point(3, 195);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(157, 33);
             this.SearchButton.TabIndex = 2;
@@ -206,7 +208,7 @@
             this.PersonButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PersonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.PersonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PersonButton.Location = new System.Drawing.Point(0, 157);
+            this.PersonButton.Location = new System.Drawing.Point(3, 157);
             this.PersonButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PersonButton.Name = "PersonButton";
             this.PersonButton.Size = new System.Drawing.Size(157, 33);
@@ -225,7 +227,7 @@
             this.BoligButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BoligButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.BoligButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BoligButton.Location = new System.Drawing.Point(0, 120);
+            this.BoligButton.Location = new System.Drawing.Point(3, 120);
             this.BoligButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BoligButton.Name = "BoligButton";
             this.BoligButton.Size = new System.Drawing.Size(157, 33);
@@ -245,7 +247,7 @@
             this.HomeButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.HomeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HomeButton.Location = new System.Drawing.Point(0, 83);
+            this.HomeButton.Location = new System.Drawing.Point(3, 83);
             this.HomeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(157, 33);
@@ -254,19 +256,31 @@
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
+            // LocationLabel
+            // 
+            this.LocationLabel.AutoSize = true;
+            this.LocationLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LocationLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.LocationLabel.Location = new System.Drawing.Point(3, 4);
+            this.LocationLabel.Name = "LocationLabel";
+            this.LocationLabel.Size = new System.Drawing.Size(62, 25);
+            this.LocationLabel.TabIndex = 5;
+            this.LocationLabel.Text = "Home";
+            // 
             // LayeredTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 478);
-            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.panelside);
             this.Controls.Add(this.panelheader);
+            this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LayeredTestForm";
             this.Text = "UCTestForm";
             this.Load += new System.EventHandler(this.UCTestForm_Load);
             this.panelheader.ResumeLayout(false);
+            this.panelheader.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panelside.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -290,5 +304,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.Label LocationLabel;
     }
 }
