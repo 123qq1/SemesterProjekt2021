@@ -34,7 +34,7 @@
             this.CloseProgramButton = new System.Windows.Forms.Button();
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.MaximizeButton = new System.Windows.Forms.Button();
-            this.panelmain = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.panelside = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,7 +53,7 @@
             // 
             this.panelheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.panelheader.Controls.Add(this.panel2);
-            this.panelheader.Controls.Add(this.panelmain);
+            this.panelheader.Controls.Add(this.MainPanel);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
             this.panelheader.Name = "panelheader";
@@ -134,13 +134,13 @@
             // 
             // panelmain
             // 
-            this.panelmain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelmain.Location = new System.Drawing.Point(166, 35);
-            this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(644, 443);
-            this.panelmain.TabIndex = 2;
+            this.MainPanel.Location = new System.Drawing.Point(166, 35);
+            this.MainPanel.Name = "panelmain";
+            this.MainPanel.Size = new System.Drawing.Size(644, 443);
+            this.MainPanel.TabIndex = 2;
             // 
             // panelside
             // 
@@ -266,12 +266,11 @@
         private System.Windows.Forms.Button PersonButton;
         private System.Windows.Forms.Button BoligButton;
         private System.Windows.Forms.Button HomeButton;
-        private System.Windows.Forms.Panel panelmain;
+        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button CloseProgramButton;
         private System.Windows.Forms.Button MinimizeButton;
         private System.Windows.Forms.Button MaximizeButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
