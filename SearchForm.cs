@@ -60,5 +60,10 @@ namespace SemesterProjekt2021
                 }
             }
         }
+
+        private void SearchForm_Load(object sender, EventArgs e)
+        {
+            //DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021");
+        }
     }
 }
