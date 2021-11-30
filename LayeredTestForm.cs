@@ -43,6 +43,7 @@ namespace SemesterProjekt2021
         private void UCTestForm_Load(object sender, EventArgs e)
         {
             UCTestForm_Load(new HomeForm());
+            DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021");
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -81,6 +82,11 @@ namespace SemesterProjekt2021
         private void panelheader_Paint(object sender, PaintEventArgs e)  // DET HER ER TOP PANEL I LAYERDTESTFORM, HER SKAL INPUTES MOUSE MOVABILITY
         {
             
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            UCTestForm_Load(new SearchForm());
         }
     }
 }

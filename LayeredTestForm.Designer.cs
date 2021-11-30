@@ -36,6 +36,7 @@
             this.MaximizeButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panelside = new System.Windows.Forms.Panel();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PersonButton = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@
             this.panelheader.Controls.Add(this.panel2);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
+            this.panelheader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelheader.Name = "panelheader";
             this.panelheader.Size = new System.Drawing.Size(810, 29);
             this.panelheader.TabIndex = 0;
@@ -65,7 +67,8 @@
             this.panel2.Controls.Add(this.MinimizeButton);
             this.panel2.Controls.Add(this.MaximizeButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(733, 0);
+            this.panel2.Location = new System.Drawing.Point(838, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(77, 29);
             this.panel2.TabIndex = 4;
@@ -82,9 +85,10 @@
             this.CloseProgramButton.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CloseProgramButton.ForeColor = System.Drawing.Color.White;
             this.CloseProgramButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseProgramButton.Location = new System.Drawing.Point(47, 3);
+            this.CloseProgramButton.Location = new System.Drawing.Point(54, 4);
+            this.CloseProgramButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CloseProgramButton.Name = "CloseProgramButton";
-            this.CloseProgramButton.Size = new System.Drawing.Size(26, 26);
+            this.CloseProgramButton.Size = new System.Drawing.Size(30, 35);
             this.CloseProgramButton.TabIndex = 1;
             this.CloseProgramButton.Text = "X";
             this.CloseProgramButton.UseVisualStyleBackColor = false;
@@ -102,9 +106,10 @@
             this.MinimizeButton.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MinimizeButton.ForeColor = System.Drawing.Color.White;
             this.MinimizeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MinimizeButton.Location = new System.Drawing.Point(1, 3);
+            this.MinimizeButton.Location = new System.Drawing.Point(1, 4);
+            this.MinimizeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(26, 26);
+            this.MinimizeButton.Size = new System.Drawing.Size(30, 35);
             this.MinimizeButton.TabIndex = 2;
             this.MinimizeButton.Text = "_";
             this.MinimizeButton.UseVisualStyleBackColor = false;
@@ -122,9 +127,10 @@
             this.MaximizeButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MaximizeButton.ForeColor = System.Drawing.Color.White;
             this.MaximizeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MaximizeButton.Location = new System.Drawing.Point(24, 3);
+            this.MaximizeButton.Location = new System.Drawing.Point(27, 4);
+            this.MaximizeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeButton.Name = "MaximizeButton";
-            this.MaximizeButton.Size = new System.Drawing.Size(26, 26);
+            this.MaximizeButton.Size = new System.Drawing.Size(30, 35);
             this.MaximizeButton.TabIndex = 3;
             this.MaximizeButton.Text = "▭";
             this.MaximizeButton.UseVisualStyleBackColor = false;
@@ -143,6 +149,7 @@
             // panelside
             // 
             this.panelside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.panelside.Controls.Add(this.SearchButton);
             this.panelside.Controls.Add(this.panel1);
             this.panelside.Controls.Add(this.PersonButton);
             this.panelside.Controls.Add(this.BoligButton);
@@ -153,6 +160,25 @@
             this.panelside.Size = new System.Drawing.Size(163, 449);
             this.panelside.TabIndex = 1;
             // 
+            // SearchButton
+            // 
+            this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.SearchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.SearchButton.FlatAppearance.BorderSize = 0;
+            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchButton.Location = new System.Drawing.Point(3, 280);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(179, 44);
+            this.SearchButton.TabIndex = 2;
+            this.SearchButton.Text = "Søg";
+            this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(215)))));
@@ -161,15 +187,16 @@
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(3, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(157, 79);
+            this.panel1.Size = new System.Drawing.Size(179, 105);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(48, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(55, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.Size = new System.Drawing.Size(73, 85);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -185,7 +212,7 @@
             this.PersonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PersonButton.Location = new System.Drawing.Point(3, 167);
             this.PersonButton.Name = "PersonButton";
-            this.PersonButton.Size = new System.Drawing.Size(157, 33);
+            this.PersonButton.Size = new System.Drawing.Size(179, 44);
             this.PersonButton.TabIndex = 1;
             this.PersonButton.Text = "Person";
             this.PersonButton.UseVisualStyleBackColor = false;
@@ -203,7 +230,7 @@
             this.BoligButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BoligButton.Location = new System.Drawing.Point(3, 126);
             this.BoligButton.Name = "BoligButton";
-            this.BoligButton.Size = new System.Drawing.Size(157, 33);
+            this.BoligButton.Size = new System.Drawing.Size(179, 44);
             this.BoligButton.TabIndex = 2;
             this.BoligButton.Text = "Bolig";
             this.BoligButton.UseVisualStyleBackColor = false;
@@ -222,7 +249,7 @@
             this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.HomeButton.Location = new System.Drawing.Point(3, 85);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(157, 33);
+            this.HomeButton.Size = new System.Drawing.Size(179, 44);
             this.HomeButton.TabIndex = 0;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = false;
@@ -230,13 +257,14 @@
             // 
             // LayeredTestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 478);
+            this.ClientSize = new System.Drawing.Size(926, 637);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.panelside);
             this.Controls.Add(this.panelheader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LayeredTestForm";
             this.Text = "UCTestForm";
             this.Load += new System.EventHandler(this.UCTestForm_Load);
@@ -263,5 +291,6 @@
         private System.Windows.Forms.Button MaximizeButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button SearchButton;
     }
 }

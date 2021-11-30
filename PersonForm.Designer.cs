@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DeleteHomeButton = new System.Windows.Forms.Button();
-            this.UpdateHomeButton = new System.Windows.Forms.Button();
-            this.ReadHomeButton = new System.Windows.Forms.Button();
-            this.CreateHomeButton = new System.Windows.Forms.Button();
+            this.DeletePersonButton = new System.Windows.Forms.Button();
+            this.UpdatePersonButton = new System.Windows.Forms.Button();
+            this.ReadPersonButton = new System.Windows.Forms.Button();
+            this.CreatePersonButton = new System.Windows.Forms.Button();
             this.AddresseTextBox = new System.Windows.Forms.TextBox();
             this.ZipTextBox = new System.Windows.Forms.TextBox();
             this.CityTextBox = new System.Windows.Forms.TextBox();
-            this.BuiltTextBox = new System.Windows.Forms.TextBox();
-            this.OutAreaTextBox = new System.Windows.Forms.TextBox();
-            this.InAreaTextBox = new System.Windows.Forms.TextBox();
+            this.LNameTextBox = new System.Windows.Forms.TextBox();
+            this.FNameTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.AddressLabel = new System.Windows.Forms.Label();
             this.ZipLabel = new System.Windows.Forms.Label();
@@ -48,50 +48,54 @@
             this.EnergyLabel = new System.Windows.Forms.Label();
             this.TypeLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CPRTextBox = new System.Windows.Forms.TextBox();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // DeleteHomeButton
+            // DeletePersonButton
             // 
-            this.DeleteHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteHomeButton.Location = new System.Drawing.Point(468, 309);
-            this.DeleteHomeButton.Name = "DeleteHomeButton";
-            this.DeleteHomeButton.Size = new System.Drawing.Size(115, 67);
-            this.DeleteHomeButton.TabIndex = 53;
-            this.DeleteHomeButton.Text = "Slet";
-            this.DeleteHomeButton.UseVisualStyleBackColor = true;
+            this.DeletePersonButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeletePersonButton.Location = new System.Drawing.Point(468, 309);
+            this.DeletePersonButton.Name = "DeletePersonButton";
+            this.DeletePersonButton.Size = new System.Drawing.Size(115, 67);
+            this.DeletePersonButton.TabIndex = 53;
+            this.DeletePersonButton.Text = "Slet";
+            this.DeletePersonButton.UseVisualStyleBackColor = true;
+            this.DeletePersonButton.Click += new System.EventHandler(this.DeletePersonButton_Click);
             // 
-            // UpdateHomeButton
+            // UpdatePersonButton
             // 
-            this.UpdateHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.UpdateHomeButton.Location = new System.Drawing.Point(347, 309);
-            this.UpdateHomeButton.Name = "UpdateHomeButton";
-            this.UpdateHomeButton.Size = new System.Drawing.Size(115, 67);
-            this.UpdateHomeButton.TabIndex = 51;
-            this.UpdateHomeButton.Text = "Opdater";
-            this.UpdateHomeButton.UseVisualStyleBackColor = true;
+            this.UpdatePersonButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.UpdatePersonButton.Location = new System.Drawing.Point(347, 309);
+            this.UpdatePersonButton.Name = "UpdatePersonButton";
+            this.UpdatePersonButton.Size = new System.Drawing.Size(115, 67);
+            this.UpdatePersonButton.TabIndex = 51;
+            this.UpdatePersonButton.Text = "Opdater";
+            this.UpdatePersonButton.UseVisualStyleBackColor = true;
+            this.UpdatePersonButton.Click += new System.EventHandler(this.UpdatePersonButton_Click);
             // 
-            // ReadHomeButton
+            // ReadPersonButton
             // 
-            this.ReadHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReadHomeButton.Location = new System.Drawing.Point(468, 236);
-            this.ReadHomeButton.Name = "ReadHomeButton";
-            this.ReadHomeButton.Size = new System.Drawing.Size(115, 67);
-            this.ReadHomeButton.TabIndex = 50;
-            this.ReadHomeButton.Text = "Find";
-            this.ReadHomeButton.UseVisualStyleBackColor = true;
+            this.ReadPersonButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReadPersonButton.Location = new System.Drawing.Point(468, 236);
+            this.ReadPersonButton.Name = "ReadPersonButton";
+            this.ReadPersonButton.Size = new System.Drawing.Size(115, 67);
+            this.ReadPersonButton.TabIndex = 50;
+            this.ReadPersonButton.Text = "Find";
+            this.ReadPersonButton.UseVisualStyleBackColor = true;
+            this.ReadPersonButton.Click += new System.EventHandler(this.ReadHomeButton_Click);
             // 
-            // CreateHomeButton
+            // CreatePersonButton
             // 
-            this.CreateHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateHomeButton.Location = new System.Drawing.Point(347, 236);
-            this.CreateHomeButton.Name = "CreateHomeButton";
-            this.CreateHomeButton.Size = new System.Drawing.Size(115, 67);
-            this.CreateHomeButton.TabIndex = 49;
-            this.CreateHomeButton.Text = "Opret";
-            this.CreateHomeButton.UseVisualStyleBackColor = true;
+            this.CreatePersonButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CreatePersonButton.Location = new System.Drawing.Point(347, 236);
+            this.CreatePersonButton.Name = "CreatePersonButton";
+            this.CreatePersonButton.Size = new System.Drawing.Size(115, 67);
+            this.CreatePersonButton.TabIndex = 49;
+            this.CreatePersonButton.Text = "Opret";
+            this.CreatePersonButton.UseVisualStyleBackColor = true;
+            this.CreatePersonButton.Click += new System.EventHandler(this.CreateHomeButton_Click);
             // 
             // AddresseTextBox
             // 
@@ -114,26 +118,26 @@
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
             this.CityTextBox.TabIndex = 45;
             // 
-            // BuiltTextBox
+            // LNameTextBox
             // 
-            this.BuiltTextBox.Location = new System.Drawing.Point(45, 339);
-            this.BuiltTextBox.Name = "BuiltTextBox";
-            this.BuiltTextBox.Size = new System.Drawing.Size(216, 23);
-            this.BuiltTextBox.TabIndex = 43;
+            this.LNameTextBox.Location = new System.Drawing.Point(45, 339);
+            this.LNameTextBox.Name = "LNameTextBox";
+            this.LNameTextBox.Size = new System.Drawing.Size(216, 23);
+            this.LNameTextBox.TabIndex = 43;
             // 
-            // OutAreaTextBox
+            // FNameTextBox
             // 
-            this.OutAreaTextBox.Location = new System.Drawing.Point(45, 285);
-            this.OutAreaTextBox.Name = "OutAreaTextBox";
-            this.OutAreaTextBox.Size = new System.Drawing.Size(216, 23);
-            this.OutAreaTextBox.TabIndex = 42;
+            this.FNameTextBox.Location = new System.Drawing.Point(45, 285);
+            this.FNameTextBox.Name = "FNameTextBox";
+            this.FNameTextBox.Size = new System.Drawing.Size(216, 23);
+            this.FNameTextBox.TabIndex = 42;
             // 
-            // InAreaTextBox
+            // PhoneNumberTextBox
             // 
-            this.InAreaTextBox.Location = new System.Drawing.Point(45, 231);
-            this.InAreaTextBox.Name = "InAreaTextBox";
-            this.InAreaTextBox.Size = new System.Drawing.Size(216, 23);
-            this.InAreaTextBox.TabIndex = 41;
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(45, 231);
+            this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(216, 23);
+            this.PhoneNumberTextBox.TabIndex = 41;
             // 
             // IDTextBox
             // 
@@ -232,19 +236,19 @@
             this.IDLabel.TabIndex = 27;
             this.IDLabel.Text = "ID";
             // 
-            // textBox1
+            // CPRTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(45, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 23);
-            this.textBox1.TabIndex = 54;
+            this.CPRTextBox.Location = new System.Drawing.Point(45, 123);
+            this.CPRTextBox.Name = "CPRTextBox";
+            this.CPRTextBox.Size = new System.Drawing.Size(216, 23);
+            this.CPRTextBox.TabIndex = 54;
             // 
-            // textBox2
+            // EmailTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(45, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 23);
-            this.textBox2.TabIndex = 55;
+            this.EmailTextBox.Location = new System.Drawing.Point(45, 177);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(216, 23);
+            this.EmailTextBox.TabIndex = 55;
             // 
             // panel1
             // 
@@ -260,18 +264,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(698, 492);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.DeleteHomeButton);
-            this.Controls.Add(this.UpdateHomeButton);
-            this.Controls.Add(this.ReadHomeButton);
-            this.Controls.Add(this.CreateHomeButton);
+            this.Controls.Add(this.EmailTextBox);
+            this.Controls.Add(this.CPRTextBox);
+            this.Controls.Add(this.DeletePersonButton);
+            this.Controls.Add(this.UpdatePersonButton);
+            this.Controls.Add(this.ReadPersonButton);
+            this.Controls.Add(this.CreatePersonButton);
             this.Controls.Add(this.AddresseTextBox);
             this.Controls.Add(this.ZipTextBox);
             this.Controls.Add(this.CityTextBox);
-            this.Controls.Add(this.BuiltTextBox);
-            this.Controls.Add(this.OutAreaTextBox);
-            this.Controls.Add(this.InAreaTextBox);
+            this.Controls.Add(this.LNameTextBox);
+            this.Controls.Add(this.FNameTextBox);
+            this.Controls.Add(this.PhoneNumberTextBox);
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.ZipLabel);
@@ -293,16 +297,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button DeleteHomeButton;
-        private System.Windows.Forms.Button UpdateHomeButton;
-        private System.Windows.Forms.Button ReadHomeButton;
-        private System.Windows.Forms.Button CreateHomeButton;
+        private System.Windows.Forms.Button DeletePersonButton;
+        private System.Windows.Forms.Button UpdatePersonButton;
+        private System.Windows.Forms.Button ReadPersonButton;
+        private System.Windows.Forms.Button CreatePersonButton;
         private System.Windows.Forms.TextBox AddresseTextBox;
         private System.Windows.Forms.TextBox ZipTextBox;
         private System.Windows.Forms.TextBox CityTextBox;
-        private System.Windows.Forms.TextBox BuiltTextBox;
-        private System.Windows.Forms.TextBox OutAreaTextBox;
-        private System.Windows.Forms.TextBox InAreaTextBox;
+        private System.Windows.Forms.TextBox LNameTextBox;
+        private System.Windows.Forms.TextBox FNameTextBox;
+        private System.Windows.Forms.TextBox PhoneNumberTextBox;
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label ZipLabel;
@@ -313,8 +317,8 @@
         private System.Windows.Forms.Label EnergyLabel;
         private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.Label IDLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CPRTextBox;
+        private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Panel panel1;
     }
 }

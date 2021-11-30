@@ -77,6 +77,7 @@
             this.DeleteHomeButton.TabIndex = 55;
             this.DeleteHomeButton.Text = "Arkiver";
             this.DeleteHomeButton.UseVisualStyleBackColor = true;
+            this.DeleteHomeButton.Click += new System.EventHandler(this.DeleteHomeButton_Click);
             // 
             // SoldHomeButton
             // 
@@ -97,6 +98,7 @@
             this.UpdateHomeButton.TabIndex = 53;
             this.UpdateHomeButton.Text = "Opdater";
             this.UpdateHomeButton.UseVisualStyleBackColor = true;
+            this.UpdateHomeButton.Click += new System.EventHandler(this.UpdateHomeButton_Click);
             // 
             // ReadHomeButton
             // 
@@ -107,6 +109,7 @@
             this.ReadHomeButton.TabIndex = 52;
             this.ReadHomeButton.Text = "Find";
             this.ReadHomeButton.UseVisualStyleBackColor = true;
+            this.ReadHomeButton.Click += new System.EventHandler(this.ReadHomeButton_Click);
             // 
             // CreateHomeButton
             // 
@@ -117,6 +120,7 @@
             this.CreateHomeButton.TabIndex = 51;
             this.CreateHomeButton.Text = "Opret";
             this.CreateHomeButton.UseVisualStyleBackColor = true;
+            this.CreateHomeButton.Click += new System.EventHandler(this.CreateHomeButton_Click);
             // 
             // OfferPriceTextBox
             // 
