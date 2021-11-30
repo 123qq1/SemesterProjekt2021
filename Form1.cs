@@ -13,8 +13,6 @@ namespace SemesterProjekt2021
 {
     public partial class Form1 : Form
     {
-        string error = "Validation error";
-
         public Form1()
         {
             InitializeComponent();
@@ -32,54 +30,65 @@ namespace SemesterProjekt2021
             bool active = false;
             bool subActive = true;
             Bolig b = new Bolig();
+            Result r = null;
 
             // Validate ID
-            if (InputValidation.Generic.ID(IDTextBox.Text))
+            r = InputValidation.Generic.ID(IDTextBox.Text);
+            if (!r.Error)
                 b.Id = Convert.ToInt32(IDTextBox.Text);
             else
             {
-                MessageBox.Show(error + "\nID");
+                MessageBox.Show(r.Message);
                 success = false;
             }
 
             // Validate Type
-            if (InputValidation.Bolig.Type(TypeTextBox.Text)) 
+            r = InputValidation.Bolig.Type(TypeTextBox.Text);
+            if (!r.Error)
                 b.Type = TypeTextBox.Text;
 
             // Validate Energy Label
-            if (InputValidation.Bolig.EnergyLabel(EnergiMærkeTextBox.Text))
+            r = InputValidation.Bolig.EnergyLabel(EnergiMærkeTextBox.Text);
+            if (!r.Error)
                 b.EnergyLabels = EnergiMærkeTextBox.Text;
 
             // Validate InArea
-            if (InputValidation.Bolig.InArea(IndeArealTextBox.Text)) 
+            r = InputValidation.Bolig.Area(IndeArealTextBox.Text);
+            if (!r.Error) 
                 b.InArea = Convert.ToInt32(IndeArealTextBox.Text);
-            
+
             // Validate OutArea
-            if (InputValidation.Bolig.OutArea(UdeArealTextBox.Text)) 
+            r = InputValidation.Bolig.Area(UdeArealTextBox.Text);
+            if (!r.Error) 
                 b.OutArea = Convert.ToInt32(UdeArealTextBox.Text);
-            
+
             // Validate Built
-            if (InputValidation.Bolig.Built(ÅrByggetTextBox.Text))
+            r = InputValidation.Bolig.Built(ÅrByggetTextBox.Text);
+            if (!r.Error)
                 b.Built = Convert.ToInt32(ÅrByggetTextBox.Text);
 
             // Validate Rooms
-            if (InputValidation.Bolig.Rooms(AntalRumTextBox.Text)) 
+            r = InputValidation.Bolig.Rooms(AntalRumTextBox.Text);
+            if (!r.Error) 
                 b.Rooms = Convert.ToInt32(AntalRumTextBox.Text);
 
             // Validate City
-            if (InputValidation.Generic.City(ByTextBox.Text))
+            r = InputValidation.Generic.City(ByTextBox.Text);
+            if (!r.Error)
                 b.City = ByTextBox.Text;
             else
                 subActive = false;
 
             // Validate ZIP
-            if (InputValidation.Generic.Zip(PostNummerBox.Text))
+            r = InputValidation.Generic.Zip(PostNummerBox.Text);
+            if (!r.Error)
                 b.Zip = Convert.ToInt32(PostNummerBox.Text);
             else
                 subActive = false;
 
             // Validate Address
-            if (InputValidation.Generic.Address(AdresseTextBox.Text))
+            r = InputValidation.Generic.Address(AdresseTextBox.Text);
+            if (!r.Error)
                 b.Address = AdresseTextBox.Text;
             else
                 subActive = false;
@@ -96,7 +105,6 @@ namespace SemesterProjekt2021
             b.SellingPrice = 0;
             b.Active = active;
             b.IsSold = false;
-            b.SoldDate = " ";
 
             if (success)
             {
@@ -111,29 +119,42 @@ namespace SemesterProjekt2021
 
         private void ArkiverButton_Click(object sender, EventArgs e)
         {
-            if (InputValidation.Generic.ID(IDTextBox.Text))
+            // Archive Button
+            /* 
+             * Takes ID from IDTextBox and asks DAL to archive Bolig
+            */
+            Result r = InputValidation.Generic.ID(IDTextBox.Text);
+            if (!r.Error)
                 if (DatabaseAccessor.ArchiveBolig(Convert.ToInt32(IDTextBox.Text)))
                     MessageBox.Show("Success!");
                 else
                     MessageBox.Show("DAL Error");
             else
-                MessageBox.Show(error + "\nID is not an integer.");
+                MessageBox.Show(r.Message);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021")) MessageBox.Show("CAN'T CONNECT TO DATABASE YOU MONGOOSE");
+            if (!DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021"))
+                MessageBox.Show("CAN'T CONNECT TO DATABASE YOU MONGOOSE");
         }
 
         private void FindButton_Click(object sender, EventArgs e)
         {
+            // Find Button
+            /* 
+             * Takes ID from IDTextBox and asks DAL to fill in Bolig object
+             * Displays Bolig data in Message Box
+             * Should display more data and in different format, to be fixed once GUI supports it.
+            */
+            Result r = InputValidation.Generic.ID(IDTextBox.Text);
             Bolig b = new Bolig();
             int i = 0;
 
-            if (InputValidation.Generic.ID(IDTextBox.Text))
+            if (!r.Error)
                 i = Convert.ToInt32(IDTextBox.Text);
             else
-                MessageBox.Show(error + "\nID");
+                MessageBox.Show(r.Message);
             
             if (i != 0)
                 if (DatabaseAccessor.ReadBolig(i, ref b))
@@ -144,46 +165,91 @@ namespace SemesterProjekt2021
 
         private void OpdaterButton_Click(object sender, EventArgs e)
         {
+            // Update Button
+            /* 
+             * Creates Bolig from available information. ID is must, as a reference for the database.
+             * Bolig object is send to DAL, which updates information in the database.
+             * If a TextBox is empty, the given field should not update - to be addressed.
+            */
             Bolig b = new Bolig();
+            Result r = null;
+            bool success = false;
 
-            if (InputValidation.Generic.ID(IDTextBox.Text)) b.Id = Convert.ToInt32(IDTextBox.Text);
+            // Validate ID
+            // Check if Bolig exists? if not, ask to create?
+            r = InputValidation.Generic.ID(IDTextBox.Text);
+            if (!r.Error)
+            {
+                success = true;
+                b.Id = Convert.ToInt32(IDTextBox.Text);
+            }
             else
-                MessageBox.Show(error + "\nID");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Bolig.Type(TypeTextBox.Text)) b.Type = TypeTextBox.Text;
+            // Validate Type
+            r = InputValidation.Bolig.Type(TypeTextBox.Text);
+            if (!r.Error)
+                b.Type = TypeTextBox.Text;
             else
-                MessageBox.Show(error + "\nType");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Bolig.EnergyLabel(EnergiMærkeTextBox.Text)) b.EnergyLabels = EnergiMærkeTextBox.Text;
+            // Validate EnergyLabel
+            r = InputValidation.Bolig.EnergyLabel(EnergiMærkeTextBox.Text);
+            if (!r.Error)
+                b.EnergyLabels = EnergiMærkeTextBox.Text;
             else
-                MessageBox.Show(error + "\nEnergyLabel");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Bolig.InArea(IndeArealTextBox.Text)) b.InArea = Convert.ToInt32(IndeArealTextBox.Text);
+            // Validate InArea
+            r = InputValidation.Bolig.Area(IndeArealTextBox.Text);
+            if (!r.Error)
+                b.InArea = Convert.ToInt32(IndeArealTextBox.Text);
             else
-                MessageBox.Show(error + "\nInArea");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Bolig.OutArea(UdeArealTextBox.Text)) b.OutArea = Convert.ToInt32(UdeArealTextBox.Text);
+            // Validate OutArea
+            r = InputValidation.Bolig.Area(UdeArealTextBox.Text);
+            if (!r.Error) 
+                b.OutArea = Convert.ToInt32(UdeArealTextBox.Text);
             else
-                MessageBox.Show(error + "\nOutArea");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Bolig.Built(ÅrByggetTextBox.Text)) b.Built = Convert.ToInt32(ÅrByggetTextBox.Text);
+            // Validate Built
+            r = InputValidation.Bolig.Built(ÅrByggetTextBox.Text);
+            if (!r.Error)
+                b.Built = Convert.ToInt32(ÅrByggetTextBox.Text);
             else
-                MessageBox.Show(error + "\nBuilt");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Bolig.Rooms(AntalRumTextBox.Text)) b.Rooms = Convert.ToInt32(AntalRumTextBox.Text);
+            // Validate Rooms
+            r = InputValidation.Bolig.Rooms(AntalRumTextBox.Text);
+            if (!r.Error) 
+                b.Rooms = Convert.ToInt32(AntalRumTextBox.Text);
             else
-                MessageBox.Show(error + "\nRooms");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Generic.City(ByTextBox.Text)) b.City = ByTextBox.Text;
+            // Validate City
+            r = InputValidation.Generic.City(ByTextBox.Text);
+            if (!r.Error) 
+                b.City = ByTextBox.Text;
             else
-                MessageBox.Show(error + "\nCity");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Generic.Zip(PostNummerBox.Text)) b.Zip = Convert.ToInt32(PostNummerBox.Text);
+            // Validate ZIP
+            r = InputValidation.Generic.Zip(PostNummerBox.Text);
+            if (!r.Error) 
+                b.Zip = Convert.ToInt32(PostNummerBox.Text);
             else
-                MessageBox.Show(error + "\nZip");
+                MessageBox.Show(r.Message);
 
-            if (InputValidation.Generic.Address(AdresseTextBox.Text)) b.Address = AdresseTextBox.Text;
+            // Validate Address
+            r = InputValidation.Generic.Address(AdresseTextBox.Text);
+            if (!r.Error)
+                b.Address = AdresseTextBox.Text;
+            else
+                MessageBox.Show(r.Message);
 
+            // tmp attributes, to be implemented fully
             b.RealtorId = 1;
             b.SellerId = 2;
             b.BuyerId = 1;
@@ -193,10 +259,16 @@ namespace SemesterProjekt2021
             b.IsSold = false;
             b.SoldDate = " ";
 
-            if (DatabaseAccessor.UpdateBolig(b))
-                MessageBox.Show("Success");
+            // Send to DAL if conditions met
+            if (success)
+            {
+                if (DatabaseAccessor.UpdateBolig(b))
+                    MessageBox.Show("Success");
+                else
+                    MessageBox.Show("Error in DAL");
+            }
             else
-                MessageBox.Show("Error in DAL");
+                MessageBox.Show("ID not valid. Can't update a Bolig without a valid ID.");
         }
     }
 }

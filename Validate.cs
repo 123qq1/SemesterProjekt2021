@@ -8,6 +8,40 @@ using System.Windows.Forms;
 
 namespace InputValidation
 {
+    public class Result
+    {
+        private bool error = false;
+        private string type;
+        private string message;
+
+
+        public bool Error { get => this.error; set => this.error = value; }
+        public string Type { get => this.type; set => this.type = value; }
+        public string Message { get => this.message; set => this.message = value; }
+
+
+        public Result() { }
+
+        public Result(string type, string message)
+        {
+            this.error = true;
+            this.type = type;
+            this.Message = type + message;
+        }
+    }
+
+    public static class StdErr
+    {
+        public static string regex = " does not match Regex resctrictions";
+        public static string dig4 = " needs to be 4 digits long.";
+        public static string lng = " is too long.";
+        
+        public static string length(int number, string type)
+        {
+            return $" needs to be exactly {number} {type} long.";
+        }
+    }
+
     public static class RegExes
     {
         // Primary types
@@ -31,45 +65,64 @@ namespace InputValidation
 
     public static class Generic
     {
-        public static bool ID(string input)
+        public static Result ID(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "Generic_ID";
 
-            if (!reg.IsMatch(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+                r = new Result();
 
-            return output;
+            return r;
         }
 
-        public static bool Address(string input)
+        public static Result Address(string input)
         {
             Regex reg = new Regex(RegExes.address);
-            bool output = true;
+            Result r = null;
+            string type = "Generic_Address";
 
-            if (!reg.IsMatch(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+                r = new Result();
 
-            return output;
+            return r;
         }
 
-        public static bool City(string input)
+        public static Result City(string input)
         {
             Regex reg = new Regex(RegExes.city);
-            bool output = true;
+            Result r = null;
+            string type = "Generic_City";
 
-            if (!reg.IsMatch(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+                r = new Result();
 
-            return output;
+            return r;
         }
 
-        public static bool Zip(string input)
+        public static Result Zip(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "ZIP";
 
-            if (!reg.IsMatch(input)) output = false;
-            if (input.Length != 4) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
 
-            return output;
+            else if (input.Length != 4)
+                r = new Result(type, StdErr.dig4);
+
+            else
+                r = new Result();
+
+            return r;
         }
     }
 
@@ -93,119 +146,160 @@ namespace InputValidation
                 if (input == type)
                 {
                     output = true;
-                    break;
                 }
             }
 
             return output;
         }
 
-        public static bool Type(string input)
+        public static Result Type(string input)
         {
             Regex reg = new Regex(RegExes.boligType);
-            bool output = true;
+            Result r = null;
+            string type = "Type";
 
-            if (!reg.IsMatch(input)) output = false;
-            if (!checkTypes(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
 
-            return output;
+            else if (!checkTypes(input))
+                r = new Result(type, " is not a known Bolig type");
+
+            else
+                r = new Result();
+
+            return r;
         }
 
-        public static bool Rooms(string input)
+        public static Result Rooms(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "Rooms";
 
-            if (!reg.IsMatch(input)) output = false;
-            if (input.Length > 3) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
 
-            return output;
+            else if (input.Length > 3)
+                r = new Result(type, StdErr.lng + "\nCannot excede 3 digits");
+
+            else
+                r = new Result();
+
+            return r;
         }
 
-        public static bool InArea(string input)
+        public static Result Area(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "In/Out_Area";
 
-            if (!reg.IsMatch(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+                r = new Result();
 
-            return output;
+            return r;
         }
 
-        public static bool OutArea(string input)
-        {
-            Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
-
-            if (!reg.IsMatch(input)) output = false;
-
-            return output;
-        }
-
-        public static bool EnergyLabel(string input)
+        public static Result EnergyLabel(string input)
         {
             Regex reg = new Regex(RegExes.energyLabel);
-            bool output = true;
+            Result r = null;
+            string type = "EnergyLabel";
 
-            if (!reg.IsMatch(input)) output = false;
-            if (input.Length > 3) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
 
-            return output;
+            else if (input.Length > 3)
+                r = new Result(type, StdErr.lng + "\nCannot excede 3 characters.");
+
+            else
+                r = new Result();
+
+            return r;
         }
 
-        public static bool Built(string input)
+        public static Result Built(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "Built";
 
-            if (!reg.IsMatch(input)) output = false;
-            if (input.Length != 4) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+            {
+                if (input.Length != 4)
+                    r = new Result(type, StdErr.lng + "\nCannot excede 3 characters.");
+                else
+                    r = new Result();
+            }
 
-            return output;
+            return r;
         }
 
-        public static bool Price(string input)
+        public static Result Price(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "Price";
 
-            if (!reg.IsMatch(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
 
-            return output;
+            return r;
         }
     }
 
     public static class Person
     {
-        public static bool CPR(string input)
+        public static Result CPR(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "Person_CPR";
 
-            if (!reg.IsMatch(input)) output = false;
-            if (input.Length != 10) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+            {
+                if (input.Length != 10)
+                    r = new Result(type, StdErr.length(10, "digits"));
+                else
+                    r = new Result();
+            }
 
-            return output;
+            return r;
         }
 
-        public static bool PhoneNr(string input)
+        public static Result PhoneNr(string input)
         {
+            // aktuel
             Regex reg = new Regex(RegExes.pureInt);
-            bool output = true;
+            Result r = null;
+            string type = "Person_PhoneNumber";
 
-            if (!reg.IsMatch(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+                r = new Result();
 
-            return output;
+            return r;
         }
 
-        public static bool Email(string input)
+        public static Result Email(string input)
         {
             Regex reg = new Regex(RegExes.email);
-            bool output = true;
+            Result r = null;
+            string type = "Person_Email";
 
-            if (!reg.IsMatch(input)) output = false;
+            if (!reg.IsMatch(input))
+                r = new Result(type, StdErr.regex);
+            else
+                r = new Result();
 
-            return output;
+            return r;
         }
     }
 }
