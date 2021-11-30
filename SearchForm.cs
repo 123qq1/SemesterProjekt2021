@@ -31,11 +31,11 @@ namespace SemesterProjekt2021
 
             foreach (Bolig j in bs)
             {
-                outputTilTxt += $"ID: {j.Id} ";
-                outputTilTxt += $"Addresse: {j.Address} ";
-                outputTilTxt += $"PostNr.: {j.Zip} ";
-                outputTilTxt += $"By: {j.City} ";
-                outputTilTxt += $"Udbudspris: {j.OfferPrice} ";
+                outputTilTxt += $"ID: {j.Id}, ";
+                outputTilTxt += $"Addresse: {j.Address}, ";
+                outputTilTxt += $"PostNr.: {j.Zip}, ";
+                outputTilTxt += $"By: {j.City}, ";
+                outputTilTxt += $"Udbudspris: {j.OfferPrice}. ";
                 outputTilTxt += $"\r\n";
                 outputTilTxt += $"\r\n";
             }
@@ -84,17 +84,17 @@ namespace SemesterProjekt2021
                     if (b.City == byInputTilSearch.Text && b.SellerId == p.ID)
                     {
                         outputTilTxt += $"Bolig \r\n";
-                        outputTilTxt += $"ID: {b.Id} ";
-                        outputTilTxt += $"Addresse: {b.Address}";
-                        outputTilTxt += $"PostNr.: {b.Zip}";
-                        outputTilTxt += $"By: {b.City}";
-                        outputTilTxt += $"Udbudspris: {b.OfferPrice}";
+                        outputTilTxt += $"ID: {b.Id}, ";
+                        outputTilTxt += $"Addresse: {b.Address}, ";
+                        outputTilTxt += $"PostNr.: {b.Zip}, ";
+                        outputTilTxt += $"By: {b.City}, ";
+                        outputTilTxt += $"Udbudspris: {b.OfferPrice}. ";
                         outputTilTxt += $"\r\n";
                         outputTilTxt += $"Sælger oplysninger\r\n";
-                        outputTilTxt += $"Fornavn: {p.FName} ";
-                        outputTilTxt += $"Efternavn: {p.LName} ";
-                        outputTilTxt += $"Tlf: {p.PhoneNr} ";
-                        outputTilTxt += $"E-mail: {p.Email}";
+                        outputTilTxt += $"Fornavn: {p.FName}, ";
+                        outputTilTxt += $"Efternavn: {p.LName}, ";
+                        outputTilTxt += $"Tlf: {p.PhoneNr}, ";
+                        outputTilTxt += $"E-mail: {p.Email}. ";
                         outputTilTxt += $"\r\n";
                     }
                 }
