@@ -32,8 +32,8 @@
             this.panelheader = new System.Windows.Forms.Panel();
             this.LocationLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.CloseProgramButton = new System.Windows.Forms.Button();
             this.MinimizeButton = new System.Windows.Forms.Button();
+            this.CloseProgramButton = new System.Windows.Forms.Button();
             this.MaximizeButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panelside = new System.Windows.Forms.Panel();
@@ -58,7 +58,7 @@
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
             this.panelheader.Name = "panelheader";
-            this.panelheader.Size = new System.Drawing.Size(810, 29);
+            this.panelheader.Size = new System.Drawing.Size(860, 29);
             this.panelheader.TabIndex = 0;
             this.panelheader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelheader_Paint);
             this.panelheader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelheader_MouseDown);
@@ -78,54 +78,57 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.CloseProgramButton);
             this.panel2.Controls.Add(this.MinimizeButton);
+            this.panel2.Controls.Add(this.CloseProgramButton);
             this.panel2.Controls.Add(this.MaximizeButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(743, 0);
+            this.panel2.Location = new System.Drawing.Point(778, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(67, 29);
+            this.panel2.Size = new System.Drawing.Size(82, 29);
             this.panel2.TabIndex = 4;
-            // 
-            // CloseProgramButton
-            // 
-            this.CloseProgramButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
-            this.CloseProgramButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.CloseProgramButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseProgramButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.CloseProgramButton.FlatAppearance.BorderSize = 0;
-            this.CloseProgramButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.CloseProgramButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseProgramButton.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CloseProgramButton.ForeColor = System.Drawing.Color.White;
-            this.CloseProgramButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseProgramButton.Location = new System.Drawing.Point(41, 3);
-            this.CloseProgramButton.Name = "CloseProgramButton";
-            this.CloseProgramButton.Size = new System.Drawing.Size(26, 26);
-            this.CloseProgramButton.TabIndex = 1;
-            this.CloseProgramButton.Text = "X";
-            this.CloseProgramButton.UseVisualStyleBackColor = false;
-            this.CloseProgramButton.Click += new System.EventHandler(this.CloseProgramButton_Click);
             // 
             // MinimizeButton
             // 
             this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.MinimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MinimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MinimizeButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.MinimizeButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MinimizeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.MinimizeButton.FlatAppearance.BorderSize = 0;
-            this.MinimizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.MinimizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(82)))), ((int)(((byte)(102)))));
             this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeButton.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MinimizeButton.ForeColor = System.Drawing.Color.White;
             this.MinimizeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MinimizeButton.Location = new System.Drawing.Point(-8, 4);
+            this.MinimizeButton.Location = new System.Drawing.Point(0, 0);
             this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(26, 26);
+            this.MinimizeButton.Size = new System.Drawing.Size(26, 29);
             this.MinimizeButton.TabIndex = 2;
-            this.MinimizeButton.Text = "_";
+            this.MinimizeButton.Text = "🗕";
+            this.MinimizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.MinimizeButton.UseVisualStyleBackColor = false;
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            // 
+            // CloseProgramButton
+            // 
+            this.CloseProgramButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
+            this.CloseProgramButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CloseProgramButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseProgramButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CloseProgramButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.CloseProgramButton.FlatAppearance.BorderSize = 0;
+            this.CloseProgramButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(82)))), ((int)(((byte)(102)))));
+            this.CloseProgramButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseProgramButton.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CloseProgramButton.ForeColor = System.Drawing.Color.White;
+            this.CloseProgramButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CloseProgramButton.Location = new System.Drawing.Point(56, 0);
+            this.CloseProgramButton.Name = "CloseProgramButton";
+            this.CloseProgramButton.Size = new System.Drawing.Size(26, 29);
+            this.CloseProgramButton.TabIndex = 1;
+            this.CloseProgramButton.Text = "X";
+            this.CloseProgramButton.UseVisualStyleBackColor = false;
+            this.CloseProgramButton.Click += new System.EventHandler(this.CloseProgramButton_Click);
             // 
             // MaximizeButton
             // 
@@ -134,14 +137,14 @@
             this.MaximizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximizeButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.MaximizeButton.FlatAppearance.BorderSize = 0;
-            this.MaximizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.MaximizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(82)))), ((int)(((byte)(102)))));
             this.MaximizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaximizeButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MaximizeButton.ForeColor = System.Drawing.Color.White;
             this.MaximizeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MaximizeButton.Location = new System.Drawing.Point(15, 3);
+            this.MaximizeButton.Location = new System.Drawing.Point(27, -1);
             this.MaximizeButton.Name = "MaximizeButton";
-            this.MaximizeButton.Size = new System.Drawing.Size(26, 26);
+            this.MaximizeButton.Size = new System.Drawing.Size(26, 29);
             this.MaximizeButton.TabIndex = 3;
             this.MaximizeButton.Text = "▭";
             this.MaximizeButton.UseVisualStyleBackColor = false;
@@ -155,7 +158,7 @@
             this.MainPanel.Location = new System.Drawing.Point(158, 29);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(652, 449);
+            this.MainPanel.Size = new System.Drawing.Size(702, 451);
             this.MainPanel.TabIndex = 2;
             // 
             // panelside
@@ -170,7 +173,7 @@
             this.panelside.Location = new System.Drawing.Point(0, 29);
             this.panelside.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelside.Name = "panelside";
-            this.panelside.Size = new System.Drawing.Size(163, 449);
+            this.panelside.Size = new System.Drawing.Size(163, 451);
             this.panelside.TabIndex = 1;
             // 
             // SearchButton
@@ -274,11 +277,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 478);
+            this.ClientSize = new System.Drawing.Size(860, 480);
             this.Controls.Add(this.panelside);
             this.Controls.Add(this.panelheader);
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(860, 480);
             this.Name = "LayeredTestForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UCTestForm";
