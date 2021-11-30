@@ -27,8 +27,6 @@ namespace SemesterProjekt2021
             */
 
             bool success = true;
-            bool active = false;
-            bool subActive = true;
             Person p = new Person();
             Result r = null;
 
@@ -93,7 +91,8 @@ namespace SemesterProjekt2021
 
             if (success)
             {
-                if (!DatabaseAccessor.CreatePerson(p)) MessageBox.Show("COULD NOT CREATE BOLIG!");
+                Result r2 = DatabaseAccessor.CreatePerson(p);
+                if (r2.Error) MessageBox.Show("COULD NOT CREATE BOLIG!");
                 else
                     MessageBox.Show("Succes!");
             }
@@ -119,8 +118,11 @@ namespace SemesterProjekt2021
                 MessageBox.Show(r.Message);
 
             if (i != 0)
-                if (DatabaseAccessor.ReadPerson(i, ref p))
+            {
+                Result r2 = DatabaseAccessor.ReadPerson(i, ref p);
+                if (!r2.Error)
                     MessageBox.Show($"Id: {p.ID}.\nfName: {p.FName}.\nAdresse: {p.Address}");
+            }
 
             IDTextBox.Clear();
         }
@@ -195,7 +197,8 @@ namespace SemesterProjekt2021
             // Send to DAL if conditions met
             if (success)
             {
-                if (DatabaseAccessor.UpdatePerson(p))
+                Result r2 = DatabaseAccessor.UpdatePerson(p);
+                if (!r2.Error)
                     MessageBox.Show("Success");
                 else
                     MessageBox.Show("Error in DAL");
@@ -213,10 +216,13 @@ namespace SemesterProjekt2021
 
             Result r = InputValidation.Generic.ID(IDTextBox.Text);
             if (!r.Error)
-                if (DatabaseAccessor.DeletePerson(Convert.ToInt32(IDTextBox.Text)))
+            {
+                Result r2 = DatabaseAccessor.DeletePerson(Convert.ToInt32(IDTextBox.Text));
+                if (!r2.Error)
                     MessageBox.Show("Success!");
                 else
                     MessageBox.Show("DAL Error");
+            }
             else
                 MessageBox.Show(r.Message);
         }
