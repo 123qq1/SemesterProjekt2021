@@ -41,7 +41,7 @@
             this.PersonButton = new System.Windows.Forms.Button();
             this.BoligButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
-            this.MainPanel = new System.Windows.Forms.Panel();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.panelheader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelside.SuspendLayout();
@@ -53,7 +53,6 @@
             // 
             this.panelheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.panelheader.Controls.Add(this.panel2);
-            this.panelheader.Controls.Add(this.MainPanel);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
             this.panelheader.Name = "panelheader";
@@ -132,19 +131,20 @@
             this.MaximizeButton.UseVisualStyleBackColor = false;
             this.MaximizeButton.Click += new System.EventHandler(this.MaximizeButton_Click);
             // 
-            // panelmain
+            // MainPanel
             // 
             this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainPanel.Location = new System.Drawing.Point(166, 35);
-            this.MainPanel.Name = "panelmain";
-            this.MainPanel.Size = new System.Drawing.Size(644, 443);
+            this.MainPanel.Location = new System.Drawing.Point(163, 35);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(647, 443);
             this.MainPanel.TabIndex = 2;
             // 
             // panelside
             // 
             this.panelside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.panelside.Controls.Add(this.SearchButton);
             this.panelside.Controls.Add(this.panel1);
             this.panelside.Controls.Add(this.PersonButton);
             this.panelside.Controls.Add(this.BoligButton);
@@ -230,12 +230,22 @@
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
-            // MainPanel
+            // SearchButton
             // 
-            this.MainPanel.Location = new System.Drawing.Point(163, 35);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(647, 443);
-            this.MainPanel.TabIndex = 2;
+            this.SearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.SearchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.SearchButton.FlatAppearance.BorderSize = 0;
+            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.SearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchButton.Location = new System.Drawing.Point(3, 210);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(157, 33);
+            this.SearchButton.TabIndex = 2;
+            this.SearchButton.Text = "Søg";
+            this.SearchButton.UseVisualStyleBackColor = false;
             // 
             // LayeredTestForm
             // 
@@ -272,5 +282,6 @@
         private System.Windows.Forms.Button MaximizeButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button SearchButton;
     }
 }
