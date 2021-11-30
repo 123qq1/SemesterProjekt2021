@@ -27,7 +27,7 @@ namespace SemesterProjekt2021
         private void PrintAll_Click(object sender, EventArgs e)
         {
             Bolig[] bs = new Bolig[1];
-            Result r = DatabaseAccessor.ReadAllBolig(bs);
+            Result r = DatabaseAccessor.ReadAllBolig(ref bs);
             string outputTilTxt = "";
 
             foreach (Bolig j in bs)

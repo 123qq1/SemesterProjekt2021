@@ -107,7 +107,7 @@ namespace SemesterProjekt2021
 
             if (success)
             {
-                if (!DatabaseAccessor.CreateBolig(b)) MessageBox.Show("COULD NOT CREATE BOLIG!");
+                if (DatabaseAccessor.CreateBolig(b).Error) MessageBox.Show("COULD NOT CREATE BOLIG!");
                 else
                     MessageBox.Show("Succes!");
             }
@@ -124,7 +124,7 @@ namespace SemesterProjekt2021
             */
             Result r = InputValidation.Generic.ID(IDTextBox.Text);
             if (!r.Error)
-                if (DatabaseAccessor.ArchiveBolig(Convert.ToInt32(IDTextBox.Text)))
+                if (!DatabaseAccessor.ArchiveBolig(Convert.ToInt32(IDTextBox.Text)).Error)
                     MessageBox.Show("Success!");
                 else
                     MessageBox.Show("DAL Error");
@@ -134,7 +134,7 @@ namespace SemesterProjekt2021
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021"))
+            if (DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021").Error)
                 MessageBox.Show("CAN'T CONNECT TO DATABASE YOU MONGOOSE");
         }
 
@@ -156,7 +156,7 @@ namespace SemesterProjekt2021
                 MessageBox.Show(r.Message);
             
             if (i != 0)
-                if (DatabaseAccessor.ReadBolig(i, ref b))
+                if (!DatabaseAccessor.ReadBolig(i, ref b).Error)
                     MessageBox.Show($"Id: {b.Id}.\nRealtorId: {b.RealtorId}.\nAdresse: {b.Address}");
 
             IDTextBox.Clear();
@@ -261,7 +261,7 @@ namespace SemesterProjekt2021
             // Send to DAL if conditions met
             if (success)
             {
-                if (DatabaseAccessor.UpdateBolig(b))
+                if (!DatabaseAccessor.UpdateBolig(b).Error)
                     MessageBox.Show("Success");
                 else
                     MessageBox.Show("Error in DAL");
