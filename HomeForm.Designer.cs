@@ -192,6 +192,16 @@
             // EnergyComboBox
             // 
             this.EnergyComboBox.FormattingEnabled = true;
+            this.EnergyComboBox.Items.AddRange(new object[] {
+            "A++",
+            "A+",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"});
             this.EnergyComboBox.Location = new System.Drawing.Point(66, 163);
             this.EnergyComboBox.Name = "EnergyComboBox";
             this.EnergyComboBox.Size = new System.Drawing.Size(216, 23);
