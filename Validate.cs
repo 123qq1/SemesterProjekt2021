@@ -35,7 +35,8 @@ namespace InputValidation
         public static string regex = " does not match Regex resctrictions";
         public static string dig4 = " needs to be 4 digits long.";
         public static string lng = " is too long.";
-        
+        public static string blckList = " cannot contain character such as: \"<>*'{}:;-\" or newlines.";
+
         public static string length(int number, string type)
         {
             return $" needs to be exactly {number} {type} long.";
@@ -61,6 +62,8 @@ namespace InputValidation
         public static string phoneNr = @"(?!\s)^(((?:[+][\d]?[\d]?[\d][ ]?)|(?:[\d][\d][\d][\d][ ]))?([(][\d]+[)][ ]?)?((?:(?:[\d]+[ -]?))+))";
         public static string email = @"(?!\s*$)(?:^[a-z0-9!#$%&'*+/=?^_`{|}~-]+)@(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+).(?:[a-z]+$)";
 
+        // Blacklist
+        public static string name = @"([\n<>*'{}:;-]+)";
     }
 
     public static class Generic
@@ -254,6 +257,21 @@ namespace InputValidation
 
     public static class Person
     {
+        public static Result Name(string input)
+        {
+            Regex reg = new Regex(RegExes.name);
+            Result r = null;
+            string type = "Person_Name";
+
+            // This is a blacklist scenarie
+            if (reg.IsMatch(input))
+                r = new Result(type, StdErr.blckList);
+            else
+                r = new Result();
+
+            return r;
+        }
+
         public static Result CPR(string input)
         {
             Regex reg = new Regex(RegExes.pureInt);
