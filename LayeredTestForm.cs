@@ -49,16 +49,19 @@ namespace SemesterProjekt2021
         private void HomeButton_Click(object sender, EventArgs e)
         {
             UCTestForm_Load(new HomeForm());
+            LocationLabel.Text = "Home";
         }
 
         private void BoligButton_Click(object sender, EventArgs e)
         {
             UCTestForm_Load(new BoligForm());
+            LocationLabel.Text = "Bolig";
         }
 
         private void PersonButton_Click(object sender, EventArgs e)
         {
             UCTestForm_Load(new PersonForm());
+            LocationLabel.Text = "Person";
         }
 
         private void CloseProgramButton_Click(object sender, EventArgs e)
@@ -87,6 +90,7 @@ namespace SemesterProjekt2021
         private void SearchButton_Click(object sender, EventArgs e)
         {
             UCTestForm_Load(new SearchForm());
+            LocationLabel.Text = "Søg";
         }
     }
 }
