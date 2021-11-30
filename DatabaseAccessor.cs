@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
 using System.Reflection;
+using InputValidation;
 
 
 namespace SemesterProjekt2021
@@ -19,12 +20,12 @@ namespace SemesterProjekt2021
         private static SqlCommand currentCommand;
         private static List<int> usedBoligIDs;
 
-        public static bool ConnectToDatabase(string dbName)
+        public static Result ConnectToDatabase(string dbName)
         {
-            bool succes = false;
+            Result r = new Result();
 
-            string strconn = @"Data Source=" + Environment.MachineName +";Initial Catalog=" + dbName + ";Integrated Security=True;TrustServerCertificate=True";
-       
+            string strconn = @"Data Source=" + Environment.MachineName + ";Initial Catalog=" + dbName + ";Integrated Security=True;TrustServerCertificate=True";
+
             currentConnection = new SqlConnection(strconn);
 
             string sqlString = $"SELECT ID FROM Bolig;";
@@ -48,10 +49,12 @@ namespace SemesterProjekt2021
 
                 currentConnection.Close();
 
-                succes = true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                r.Message = e.Message;
+                r.Type = e.GetType().ToString();
+                r.Error = true;
                 throw;
             }
 
@@ -64,13 +67,13 @@ namespace SemesterProjekt2021
 
 
             MessageBox.Show(s);
-            connected = succes;
-            return succes;
+            connected = !r.Error;
+            return r;
         }
 
-        public static bool SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
+        public static Result SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
         {
-            bool succes = false;
+            Result res = new Result();
 
             string sqlString = $"SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
             currentCommand.CommandText = sqlString;
@@ -83,7 +86,7 @@ namespace SemesterProjekt2021
                 object[] objs = new object[reader.FieldCount];
                 List<Bolig> blst = new List<Bolig>();
 
-                while (reader.Read()) 
+                while (reader.Read())
                 {
                     Bolig b = new Bolig();
                     reader.GetValues(objs);
@@ -100,25 +103,33 @@ namespace SemesterProjekt2021
                     blst.Add(b);
                 }
 
-                succes = true;
-
                 result = blst.ToArray();
 
                 reader.Close();
                 currentConnection.Close();
             }
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+            }
 
-            return succes;
+            return res;
         }
 
-        public static bool CreateBolig(Bolig b)
+        public static Result CreateBolig(Bolig b)
         {
-            bool succes = false;
+            Result res = new Result();
 
-            if (usedBoligIDs.Contains(b.Id)) return false;
+            if (usedBoligIDs.Contains(b.Id))
+            {
+                res.Error = true;
+                res.Type = " Multiple ID's";
+                res.Message = "ID already exists";
+            }
 
             string sqlString = $"INSERT INTO Bolig (";
-            
+
 
             Type type = b.GetType();
             PropertyInfo[] props = type.GetProperties();
@@ -157,8 +168,8 @@ namespace SemesterProjekt2021
                 if (o.GetType() == typeof(int))
                     sqlString += o + ", ";
                 else
-                    sqlString += "'" + o + "'" + ", "; 
-                
+                    sqlString += "'" + o + "'" + ", ";
+
             }
 
             sqlString = sqlString.Remove(sqlString.Length - 2);
@@ -168,23 +179,77 @@ namespace SemesterProjekt2021
 
             MessageBox.Show(sqlString);
 
-            if (connected) 
+            if (connected)
             {
                 currentConnection.Open();
 
-                succes = true;
                 currentCommand.ExecuteNonQuery();
                 usedBoligIDs.Add(b.Id);
                 currentConnection.Close();
-                
+
+            }
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+                res.Type = "ConnectionError";
             }
 
-            return succes;
+            return res;
         }
 
-        public static bool ReadBolig(int id, ref Bolig b)
+        public static Result ReadAllBolig(ref Bolig[] bs)
         {
-            bool succes = false;
+            Result res = new Result();
+
+            List<Bolig> blst = new List<Bolig>();
+
+            string sqlString = $"SELECT * FROM Bolig";
+            currentCommand.CommandText = sqlString;
+
+            if (connected)
+            {
+                currentConnection.Open();
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                object[] objs = new object[reader.FieldCount];
+
+                while (reader.Read())
+                {
+                    Bolig b = new Bolig();
+                    reader.GetValues(objs);
+
+                    Type type = b.GetType();
+                    PropertyInfo[] props = type.GetProperties();
+                    int i = 0;
+                    foreach (PropertyInfo p in props)
+                    {
+                        if (objs[i].GetType() != typeof(DBNull))
+                            p.SetValue(b, objs[i]);
+                        i++;
+                    }
+                    blst.Add(b);
+                }
+
+                bs = blst.ToArray();
+
+                reader.Close();
+                currentConnection.Close();
+            }
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+                res.Type = "ConnectionError";
+            }
+            return res;
+
+        }
+
+        public static Result ReadBolig(int id, ref Bolig b)
+        {
+            Result res = new Result();
+
             string sqlString = $"SELECT * FROM Bolig WHERE ID = {id};";
             currentCommand.CommandText = sqlString;
 
@@ -204,21 +269,25 @@ namespace SemesterProjekt2021
                 foreach (PropertyInfo p in props)
                 {
                     if (objs[i].GetType() != typeof(DBNull))
-                        p.SetValue(b,objs[i]);
+                        p.SetValue(b, objs[i]);
                     i++;
                 }
-
-                succes = true;
 
                 reader.Close();
                 currentConnection.Close();
             }
-            return succes;
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+                res.Type = "ConnectionError";
+            }
+            return res;
         }
 
-        public static bool UpdateBolig(Bolig b)
+        public static Result UpdateBolig(Bolig b)
         {
-            bool succes = false;
+            Result res = new Result();
 
             Bolig dBolig = new Bolig();
             ReadBolig(b.Id, ref dBolig);
@@ -228,12 +297,12 @@ namespace SemesterProjekt2021
             string strconn = "UPDATE Bolig SET ";
             bool looped = false;
 
-            foreach(PropertyInfo p in props)
+            foreach (PropertyInfo p in props)
             {
                 var bV = p.GetValue(b);
                 var dbV = p.GetValue(dBolig);
 
-                if(bV == null) continue;
+                if (bV == null) continue;
 
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
@@ -272,34 +341,39 @@ namespace SemesterProjekt2021
                     currentConnection.Open();
 
                     currentCommand.ExecuteNonQuery();
-                    succes = true;
 
                     currentConnection.Close();
                 }
+                else
+                {
+                    res.Error = true;
+                    res.Message = "Database not connected";
+                    res.Type = "ConnectionError";
+                }
             }
-            return succes;
+            return res;
         }
 
-        public static bool ArchiveBolig(int id)
+        public static Result ArchiveBolig(int id)
         {
-            bool succes = false;
+            Result res = new Result();
 
             Bolig b = new Bolig();
-            succes = ReadBolig(id,ref b);
+            res = ReadBolig(id, ref b);
 
-            if (succes)
+            if (!res.Error)
             {
                 b.Active = false;
 
-                succes = UpdateBolig(b);
+                res = UpdateBolig(b);
             }
 
-            return succes;
+            return res;
         }
 
-        public static bool CreatePerson(Person p)
+        public static Result CreatePerson(Person p)
         {
-            bool succes = false;
+            Result res = new Result();
 
             //if (usedIDs.Contains(b.Id)) return false;
 
@@ -355,16 +429,65 @@ namespace SemesterProjekt2021
 
                 currentCommand.ExecuteNonQuery();
 
-                succes = true;
                 currentConnection.Close();
             }
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+                res.Type = "ConnectionError";
+            }
 
-            return succes;
+            return res;
         }
 
-        public static bool ReadPerson(int id, ref Person p)
+        public static Result ReadAllPerson(ref Person[] ps)
         {
-            bool succes = false;
+            Result res = new Result();
+            string sqlString = $"SELECT * FROM Person;";
+            currentCommand.CommandText = sqlString;
+            List<Person> plst = new List<Person>();
+
+            if (connected)
+            {
+                currentConnection.Open();
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                object[] objs = new object[reader.FieldCount];
+
+                while (reader.Read())
+                {
+                    Person p = new Person();
+
+                    reader.GetValues(objs);
+
+                    Type type = p.GetType();
+                    PropertyInfo[] props = type.GetProperties();
+                    int i = 0;
+                    foreach (PropertyInfo prop in props)
+                    {
+                        if (objs[i].GetType() != typeof(DBNull))
+                            prop.SetValue(p, objs[i]);
+                        i++;
+                    }
+                    plst.Add(p);
+                }
+                ps = plst.ToArray();
+                reader.Close();
+                currentConnection.Close();
+            }
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+                res.Type = "ConnectionError";
+            }
+            return res;
+        }
+
+        public static Result ReadPerson(int id, ref Person p)
+        {
+            Result res = new Result();
             string sqlString = $"SELECT * FROM Person WHERE ID = {id};";
             currentCommand.CommandText = sqlString;
 
@@ -387,16 +510,21 @@ namespace SemesterProjekt2021
                         prop.SetValue(p, objs[i]);
                     i++;
                 }
-                succes = true;
                 reader.Close();
                 currentConnection.Close();
             }
-            return succes;
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+                res.Type = "ConnectionError";
+            }
+            return res;
         }
 
-        public static bool UpdatePerson(Person p)
+        public static Result UpdatePerson(Person p)
         {
-            bool succes = false;
+            Result res = new Result();
 
             Person dPerson = new Person();
             ReadPerson(p.ID, ref dPerson);
@@ -446,17 +574,22 @@ namespace SemesterProjekt2021
                     currentConnection.Open();
 
                     currentCommand.ExecuteNonQuery();
-                    succes = true;
 
                     currentConnection.Close();
                 }
+                else
+                {
+                    res.Error = true;
+                    res.Message = "Database not connected";
+                    res.Type = "ConnectionError";
+                }
             }
-            return succes;
+            return res;
         }
 
-        public static bool DeletePerson(int id)
+        public static Result DeletePerson(int id)
         {
-            bool succes = false;
+            Result res = new Result();
 
             string strconn = $"DELETE FROM Person WHERE ID = {id};";
             
@@ -467,15 +600,20 @@ namespace SemesterProjekt2021
                 currentConnection.Open();
 
                 currentCommand.ExecuteNonQuery();
-                succes = true;
 
                 currentConnection.Close();
             }
+            else
+            {
+                res.Error = true;
+                res.Message = "Database not connected";
+                res.Type = "Connection";
+            }
 
-            return succes;
+            return res;
         }
 
-        public static bool LinkRealtor(int boligId, int realtorId)
+        public static Result LinkRealtor(int boligId, int realtorId)
         {
             Bolig b = new Bolig();
 
@@ -486,7 +624,7 @@ namespace SemesterProjekt2021
             return UpdateBolig(b);
         }
 
-        public static bool LinkBuyer(int boligId, int buyerId)
+        public static Result LinkBuyer(int boligId, int buyerId)
         {
             Bolig b = new Bolig();
 
@@ -497,7 +635,7 @@ namespace SemesterProjekt2021
             return UpdateBolig(b);
         }
 
-        public static bool LinkSeller(int boligId, int sellerId)
+        public static Result LinkSeller(int boligId, int sellerId)
         {
             Bolig b = new Bolig();
 
@@ -508,7 +646,7 @@ namespace SemesterProjekt2021
             return UpdateBolig(b);
         }
 
-        public static bool LinkAllPeople(int boligId, int realtorId, int buyerId, int sellerId)
+        public static Result LinkAllPeople(int boligId, int realtorId, int buyerId, int sellerId)
         {
             Bolig b = new Bolig();
 
