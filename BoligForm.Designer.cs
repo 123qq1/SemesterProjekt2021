@@ -63,7 +63,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(274, 333);
+            this.panel2.Location = new System.Drawing.Point(278, 351);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(86, 95);
             this.panel2.TabIndex = 28;
@@ -71,7 +71,7 @@
             // DeleteHomeButton
             // 
             this.DeleteHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteHomeButton.Location = new System.Drawing.Point(487, 333);
+            this.DeleteHomeButton.Location = new System.Drawing.Point(491, 351);
             this.DeleteHomeButton.Name = "DeleteHomeButton";
             this.DeleteHomeButton.Size = new System.Drawing.Size(115, 67);
             this.DeleteHomeButton.TabIndex = 55;
@@ -81,7 +81,7 @@
             // SoldHomeButton
             // 
             this.SoldHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SoldHomeButton.Location = new System.Drawing.Point(366, 333);
+            this.SoldHomeButton.Location = new System.Drawing.Point(370, 351);
             this.SoldHomeButton.Name = "SoldHomeButton";
             this.SoldHomeButton.Size = new System.Drawing.Size(115, 67);
             this.SoldHomeButton.TabIndex = 54;
@@ -91,7 +91,7 @@
             // UpdateHomeButton
             // 
             this.UpdateHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.UpdateHomeButton.Location = new System.Drawing.Point(546, 260);
+            this.UpdateHomeButton.Location = new System.Drawing.Point(550, 278);
             this.UpdateHomeButton.Name = "UpdateHomeButton";
             this.UpdateHomeButton.Size = new System.Drawing.Size(115, 67);
             this.UpdateHomeButton.TabIndex = 53;
@@ -101,7 +101,7 @@
             // ReadHomeButton
             // 
             this.ReadHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReadHomeButton.Location = new System.Drawing.Point(425, 260);
+            this.ReadHomeButton.Location = new System.Drawing.Point(429, 278);
             this.ReadHomeButton.Name = "ReadHomeButton";
             this.ReadHomeButton.Size = new System.Drawing.Size(115, 67);
             this.ReadHomeButton.TabIndex = 52;
@@ -111,7 +111,7 @@
             // CreateHomeButton
             // 
             this.CreateHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateHomeButton.Location = new System.Drawing.Point(304, 260);
+            this.CreateHomeButton.Location = new System.Drawing.Point(308, 278);
             this.CreateHomeButton.Name = "CreateHomeButton";
             this.CreateHomeButton.Size = new System.Drawing.Size(115, 67);
             this.CreateHomeButton.TabIndex = 51;
@@ -120,56 +120,56 @@
             // 
             // OfferPriceTextBox
             // 
-            this.OfferPriceTextBox.Location = new System.Drawing.Point(366, 209);
+            this.OfferPriceTextBox.Location = new System.Drawing.Point(370, 227);
             this.OfferPriceTextBox.Name = "OfferPriceTextBox";
             this.OfferPriceTextBox.Size = new System.Drawing.Size(216, 23);
             this.OfferPriceTextBox.TabIndex = 50;
             // 
             // AddresseTextBox
             // 
-            this.AddresseTextBox.Location = new System.Drawing.Point(366, 155);
+            this.AddresseTextBox.Location = new System.Drawing.Point(370, 173);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
             this.AddresseTextBox.TabIndex = 49;
             // 
             // ZipTextBox
             // 
-            this.ZipTextBox.Location = new System.Drawing.Point(366, 101);
+            this.ZipTextBox.Location = new System.Drawing.Point(370, 119);
             this.ZipTextBox.Name = "ZipTextBox";
             this.ZipTextBox.Size = new System.Drawing.Size(216, 23);
             this.ZipTextBox.TabIndex = 48;
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(366, 47);
+            this.CityTextBox.Location = new System.Drawing.Point(370, 65);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
             this.CityTextBox.TabIndex = 47;
             // 
             // RoomsTextBox
             // 
-            this.RoomsTextBox.Location = new System.Drawing.Point(52, 371);
+            this.RoomsTextBox.Location = new System.Drawing.Point(56, 389);
             this.RoomsTextBox.Name = "RoomsTextBox";
             this.RoomsTextBox.Size = new System.Drawing.Size(216, 23);
             this.RoomsTextBox.TabIndex = 46;
             // 
             // BuiltTextBox
             // 
-            this.BuiltTextBox.Location = new System.Drawing.Point(52, 317);
+            this.BuiltTextBox.Location = new System.Drawing.Point(56, 335);
             this.BuiltTextBox.Name = "BuiltTextBox";
             this.BuiltTextBox.Size = new System.Drawing.Size(216, 23);
             this.BuiltTextBox.TabIndex = 45;
             // 
             // OutAreaTextBox
             // 
-            this.OutAreaTextBox.Location = new System.Drawing.Point(52, 263);
+            this.OutAreaTextBox.Location = new System.Drawing.Point(56, 281);
             this.OutAreaTextBox.Name = "OutAreaTextBox";
             this.OutAreaTextBox.Size = new System.Drawing.Size(216, 23);
             this.OutAreaTextBox.TabIndex = 44;
             // 
             // InAreaTextBox
             // 
-            this.InAreaTextBox.Location = new System.Drawing.Point(52, 209);
+            this.InAreaTextBox.Location = new System.Drawing.Point(56, 227);
             this.InAreaTextBox.Name = "InAreaTextBox";
             this.InAreaTextBox.Size = new System.Drawing.Size(216, 23);
             this.InAreaTextBox.TabIndex = 43;
@@ -187,7 +187,7 @@
             "E",
             "F",
             "G"});
-            this.EnergyComboBox.Location = new System.Drawing.Point(52, 155);
+            this.EnergyComboBox.Location = new System.Drawing.Point(56, 173);
             this.EnergyComboBox.Name = "EnergyComboBox";
             this.EnergyComboBox.Size = new System.Drawing.Size(216, 23);
             this.EnergyComboBox.TabIndex = 42;
@@ -202,14 +202,14 @@
             "Ideel anpart",
             "Andelsbolig",
             "Lejlighed"});
-            this.TypeComboBox.Location = new System.Drawing.Point(52, 101);
+            this.TypeComboBox.Location = new System.Drawing.Point(56, 119);
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(216, 23);
             this.TypeComboBox.TabIndex = 41;
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(52, 47);
+            this.IDTextBox.Location = new System.Drawing.Point(56, 65);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(216, 23);
             this.IDTextBox.TabIndex = 40;
@@ -218,7 +218,7 @@
             // 
             this.OfferPriceLabel.AutoSize = true;
             this.OfferPriceLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OfferPriceLabel.Location = new System.Drawing.Point(366, 181);
+            this.OfferPriceLabel.Location = new System.Drawing.Point(370, 199);
             this.OfferPriceLabel.Name = "OfferPriceLabel";
             this.OfferPriceLabel.Size = new System.Drawing.Size(113, 25);
             this.OfferPriceLabel.TabIndex = 39;
@@ -228,7 +228,7 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddressLabel.Location = new System.Drawing.Point(366, 127);
+            this.AddressLabel.Location = new System.Drawing.Point(370, 145);
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(78, 25);
             this.AddressLabel.TabIndex = 38;
@@ -238,7 +238,7 @@
             // 
             this.ZipLabel.AutoSize = true;
             this.ZipLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ZipLabel.Location = new System.Drawing.Point(366, 73);
+            this.ZipLabel.Location = new System.Drawing.Point(370, 91);
             this.ZipLabel.Name = "ZipLabel";
             this.ZipLabel.Size = new System.Drawing.Size(123, 25);
             this.ZipLabel.TabIndex = 37;
@@ -248,7 +248,7 @@
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CityLabel.Location = new System.Drawing.Point(366, 19);
+            this.CityLabel.Location = new System.Drawing.Point(370, 37);
             this.CityLabel.Name = "CityLabel";
             this.CityLabel.Size = new System.Drawing.Size(32, 25);
             this.CityLabel.TabIndex = 36;
@@ -258,7 +258,7 @@
             // 
             this.RoomsLabel.AutoSize = true;
             this.RoomsLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RoomsLabel.Location = new System.Drawing.Point(53, 343);
+            this.RoomsLabel.Location = new System.Drawing.Point(57, 361);
             this.RoomsLabel.Name = "RoomsLabel";
             this.RoomsLabel.Size = new System.Drawing.Size(95, 25);
             this.RoomsLabel.TabIndex = 35;
@@ -268,7 +268,7 @@
             // 
             this.BuiltLabel.AutoSize = true;
             this.BuiltLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BuiltLabel.Location = new System.Drawing.Point(52, 289);
+            this.BuiltLabel.Location = new System.Drawing.Point(56, 307);
             this.BuiltLabel.Name = "BuiltLabel";
             this.BuiltLabel.Size = new System.Drawing.Size(94, 25);
             this.BuiltLabel.TabIndex = 34;
@@ -278,7 +278,7 @@
             // 
             this.OutAreaLabel.AutoSize = true;
             this.OutAreaLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OutAreaLabel.Location = new System.Drawing.Point(53, 235);
+            this.OutAreaLabel.Location = new System.Drawing.Point(57, 253);
             this.OutAreaLabel.Name = "OutAreaLabel";
             this.OutAreaLabel.Size = new System.Drawing.Size(93, 25);
             this.OutAreaLabel.TabIndex = 33;
@@ -288,7 +288,7 @@
             // 
             this.InAreaLabel.AutoSize = true;
             this.InAreaLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InAreaLabel.Location = new System.Drawing.Point(53, 181);
+            this.InAreaLabel.Location = new System.Drawing.Point(57, 199);
             this.InAreaLabel.Name = "InAreaLabel";
             this.InAreaLabel.Size = new System.Drawing.Size(96, 25);
             this.InAreaLabel.TabIndex = 32;
@@ -298,7 +298,7 @@
             // 
             this.EnergyLabel.AutoSize = true;
             this.EnergyLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EnergyLabel.Location = new System.Drawing.Point(53, 127);
+            this.EnergyLabel.Location = new System.Drawing.Point(57, 145);
             this.EnergyLabel.Name = "EnergyLabel";
             this.EnergyLabel.Size = new System.Drawing.Size(129, 25);
             this.EnergyLabel.TabIndex = 31;
@@ -308,7 +308,7 @@
             // 
             this.TypeLabel.AutoSize = true;
             this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TypeLabel.Location = new System.Drawing.Point(53, 73);
+            this.TypeLabel.Location = new System.Drawing.Point(57, 91);
             this.TypeLabel.Name = "TypeLabel";
             this.TypeLabel.Size = new System.Drawing.Size(51, 25);
             this.TypeLabel.TabIndex = 30;
@@ -318,7 +318,7 @@
             // 
             this.IDLabel.AutoSize = true;
             this.IDLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.IDLabel.Location = new System.Drawing.Point(53, 19);
+            this.IDLabel.Location = new System.Drawing.Point(57, 37);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(30, 25);
             this.IDLabel.TabIndex = 29;
@@ -328,7 +328,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(296, 250);
+            this.panel1.Location = new System.Drawing.Point(300, 268);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(376, 157);
             this.panel1.TabIndex = 56;

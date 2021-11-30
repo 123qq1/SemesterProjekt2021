@@ -41,7 +41,6 @@
             this.PersonButton = new System.Windows.Forms.Button();
             this.BoligButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
-            this.MainPanel = new System.Windows.Forms.Panel();
             this.panelheader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelside.SuspendLayout();
@@ -51,13 +50,12 @@
             // 
             // panelheader
             // 
-            this.panelheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.panelheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.panelheader.Controls.Add(this.panel2);
-            this.panelheader.Controls.Add(this.MainPanel);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
             this.panelheader.Name = "panelheader";
-            this.panelheader.Size = new System.Drawing.Size(810, 35);
+            this.panelheader.Size = new System.Drawing.Size(810, 29);
             this.panelheader.TabIndex = 0;
             this.panelheader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelheader_Paint);
             // 
@@ -69,12 +67,12 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(733, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(77, 35);
+            this.panel2.Size = new System.Drawing.Size(77, 29);
             this.panel2.TabIndex = 4;
             // 
             // CloseProgramButton
             // 
-            this.CloseProgramButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.CloseProgramButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.CloseProgramButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CloseProgramButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseProgramButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -94,7 +92,7 @@
             // 
             // MinimizeButton
             // 
-            this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.MinimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MinimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -114,32 +112,32 @@
             // 
             // MaximizeButton
             // 
-            this.MaximizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.MaximizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.MaximizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MaximizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximizeButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.MaximizeButton.FlatAppearance.BorderSize = 0;
             this.MaximizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.MaximizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MaximizeButton.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MaximizeButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MaximizeButton.ForeColor = System.Drawing.Color.White;
             this.MaximizeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MaximizeButton.Location = new System.Drawing.Point(24, 3);
             this.MaximizeButton.Name = "MaximizeButton";
             this.MaximizeButton.Size = new System.Drawing.Size(26, 26);
             this.MaximizeButton.TabIndex = 3;
-            this.MaximizeButton.Text = "M";
+            this.MaximizeButton.Text = "▭";
             this.MaximizeButton.UseVisualStyleBackColor = false;
             this.MaximizeButton.Click += new System.EventHandler(this.MaximizeButton_Click);
             // 
-            // panelmain
+            // MainPanel
             // 
             this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainPanel.Location = new System.Drawing.Point(166, 35);
-            this.MainPanel.Name = "panelmain";
-            this.MainPanel.Size = new System.Drawing.Size(644, 443);
+            this.MainPanel.Location = new System.Drawing.Point(163, 29);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(647, 449);
             this.MainPanel.TabIndex = 2;
             // 
             // panelside
@@ -150,18 +148,18 @@
             this.panelside.Controls.Add(this.BoligButton);
             this.panelside.Controls.Add(this.HomeButton);
             this.panelside.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelside.Location = new System.Drawing.Point(0, 35);
+            this.panelside.Location = new System.Drawing.Point(0, 29);
             this.panelside.Name = "panelside";
-            this.panelside.Size = new System.Drawing.Size(163, 443);
+            this.panelside.Size = new System.Drawing.Size(163, 449);
             this.panelside.TabIndex = 1;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(150)))), ((int)(((byte)(171)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(157, 79);
             this.panel1.TabIndex = 0;
@@ -185,7 +183,7 @@
             this.PersonButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PersonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.PersonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PersonButton.Location = new System.Drawing.Point(3, 170);
+            this.PersonButton.Location = new System.Drawing.Point(3, 167);
             this.PersonButton.Name = "PersonButton";
             this.PersonButton.Size = new System.Drawing.Size(157, 33);
             this.PersonButton.TabIndex = 1;
@@ -203,7 +201,7 @@
             this.BoligButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BoligButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.BoligButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BoligButton.Location = new System.Drawing.Point(3, 129);
+            this.BoligButton.Location = new System.Drawing.Point(3, 126);
             this.BoligButton.Name = "BoligButton";
             this.BoligButton.Size = new System.Drawing.Size(157, 33);
             this.BoligButton.TabIndex = 2;
@@ -222,20 +220,13 @@
             this.HomeButton.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.HomeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HomeButton.Location = new System.Drawing.Point(3, 88);
+            this.HomeButton.Location = new System.Drawing.Point(3, 85);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(157, 33);
             this.HomeButton.TabIndex = 0;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Location = new System.Drawing.Point(163, 35);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(647, 443);
-            this.MainPanel.TabIndex = 2;
             // 
             // LayeredTestForm
             // 
