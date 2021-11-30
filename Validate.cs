@@ -14,6 +14,7 @@ namespace InputValidation
         private string type;
         private string message;
 
+
         public bool Error { get => this.error; set => this.error = value; }
         public string Type { get => this.type; set => this.type = value; }
         public string Message { get => this.message; set => this.message = value; }
