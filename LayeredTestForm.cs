@@ -82,5 +82,10 @@ namespace SemesterProjekt2021
         {
             
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            UCTestForm_Load(new SearchForm());
+        }
     }
 }
