@@ -17,20 +17,35 @@ namespace SemesterProjekt2021
         private static string currentString;
         private static bool connected;
         private static SqlCommand currentCommand;
+        private static List<int> usedBoligIDs;
 
         public static bool ConnectToDatabase(string dbName)
         {
             bool succes = false;
 
             string strconn = @"Data Source=" + Environment.MachineName +";Initial Catalog=" + dbName + ";Integrated Security=True;TrustServerCertificate=True";
-
-            //string strconn = @"Data Source=LAPTOP-1HT927JP;Initial Catalog=Semesterprojekt2021;Integrated Security=True;TrustServerCertificate=True";
-                        
+       
             currentConnection = new SqlConnection(strconn);
-            currentString = strconn;
+
+            string sqlString = $"SELECT ID FROM Bolig;";
+            usedBoligIDs = new List<int>();
+
             try
             {
                 currentConnection.Open();
+                currentCommand = new SqlCommand("", currentConnection);
+                currentCommand.CommandText = sqlString;
+
+                currentString = strconn;
+
+
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usedBoligIDs.Add(reader.GetInt32(0));
+                }
+
                 currentConnection.Close();
 
                 succes = true;
@@ -40,8 +55,59 @@ namespace SemesterProjekt2021
                 throw;
             }
 
-            currentCommand = new SqlCommand("",currentConnection);
+            string s = "";
+
+            for (int i = 0; i < usedBoligIDs.Count; i++)
+            {
+                s += usedBoligIDs[i] + " ";
+            }
+
+
+            MessageBox.Show(s);
             connected = succes;
+            return succes;
+        }
+
+        public static bool SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
+        {
+            bool succes = false;
+
+            string sqlString = $"SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
+            currentCommand.CommandText = sqlString;
+
+            if (connected)
+            {
+                currentConnection.Open();
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                object[] objs = new object[reader.FieldCount];
+                List<Bolig> blst = new List<Bolig>();
+
+                while (reader.Read()) 
+                {
+                    Bolig b = new Bolig();
+                    reader.GetValues(objs);
+
+                    Type type = result.GetType();
+                    PropertyInfo[] props = type.GetProperties();
+                    int i = 0;
+                    foreach (PropertyInfo p in props)
+                    {
+
+                        p.SetValue(b, objs[i]);
+                        i++;
+                    }
+                    blst.Add(b);
+                }
+
+                succes = true;
+
+                result = blst.ToArray();
+
+                reader.Close();
+                currentConnection.Close();
+            }
+
             return succes;
         }
 
@@ -49,8 +115,55 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
-            string sqlString = $"INSERT INTO Bolig VALUES({b.Id},'{b.Type}',{b.Built},{b.InArea},{b.OutArea},{b.Rooms},'{b.City}',{b.Zip},'{b.Address}','{b.EnergyLabels}',{b.OfferPrice},{b.SellingPrice},'{b.Active}','{b.IsSold}','{b.SoldDate}',{b.RealtorId},{b.SellerId},{b.BuyerId});";
+            if (usedBoligIDs.Contains(b.Id)) return false;
+
+            string sqlString = $"INSERT INTO Bolig (";
             
+
+            Type type = b.GetType();
+            PropertyInfo[] props = type.GetProperties();
+            List<object> objs = new List<object>();
+
+            foreach (PropertyInfo p in props)
+            {
+                var bV = p.GetValue(b);
+
+                if (bV == null) continue;
+
+                if (bV.GetType() == typeof(int))
+                    if ((int)bV < 0) continue;
+
+                objs.Add(bV);
+
+                string name = p.Name;
+
+                string firstLetter = name[0].ToString();
+
+                name = firstLetter.ToLower() + name.Substring(1);
+
+                if (name == "realtorId") name = "ejendomsmælgerID";
+                if (name == "sellerId") name = "sælgerID";
+                if (name == "buyerId") name = "køberID";
+
+                sqlString += name + ", ";
+
+            }
+            sqlString = sqlString.Remove(sqlString.Length - 2);
+            sqlString += ") VALUES (";
+
+            for (int i = 0; i < objs.Count; i++)
+            {
+                object o = objs[i];
+                if (o.GetType() == typeof(int))
+                    sqlString += o + ", ";
+                else
+                    sqlString += "'" + o + "'" + ", "; 
+                
+            }
+
+            sqlString = sqlString.Remove(sqlString.Length - 2);
+            sqlString += ");";
+
             currentCommand.CommandText = sqlString;
 
             MessageBox.Show(sqlString);
@@ -61,7 +174,7 @@ namespace SemesterProjekt2021
 
                 succes = true;
                 currentCommand.ExecuteNonQuery();
-
+                usedBoligIDs.Add(b.Id);
                 currentConnection.Close();
                 
             }
@@ -90,8 +203,8 @@ namespace SemesterProjekt2021
                 int i = 0;
                 foreach (PropertyInfo p in props)
                 {
-
-                    p.SetValue(b,objs[i]);
+                    if (objs[i].GetType() != typeof(DBNull))
+                        p.SetValue(b,objs[i]);
                     i++;
                 }
 
@@ -119,6 +232,11 @@ namespace SemesterProjekt2021
             {
                 var bV = p.GetValue(b);
                 var dbV = p.GetValue(dBolig);
+
+                if(bV == null) continue;
+
+                if (bV.GetType() == typeof(int))
+                    if ((int)bV < 0) continue;
 
                 if (bV.ToString() != dbV.ToString())
                 {
@@ -183,7 +301,49 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
-            string sqlString = $"INSERT INTO Person VALUES({p.ID},'{p.CPR}',{p.City},{p.Zip},{p.Address},{p.Email},'{p.PhoneNr}',{p.FName},'{p.LName}','{p.IsEjendomsmælger}',{p.IsKøber},{p.IsSælger});";
+            //if (usedIDs.Contains(b.Id)) return false;
+
+            string sqlString = $"INSERT INTO Person (";
+
+            Type type = p.GetType();
+            PropertyInfo[] props = type.GetProperties();
+            List<object> objs = new List<object>();
+
+            foreach (PropertyInfo prop in props)
+            {
+                var bV = prop.GetValue(p);
+
+                if (bV == null) continue;
+
+                if (bV.GetType() == typeof(int))
+                    if ((int)bV < 0) continue;
+
+                objs.Add(bV);
+
+                string name = prop.Name;
+
+                string firstLetter = name[0].ToString();
+
+                name = firstLetter.ToLower() + name.Substring(1);
+
+                sqlString += name + ", ";
+
+            }
+            sqlString = sqlString.Remove(sqlString.Length - 2);
+            sqlString += ") VALUES (";
+
+            for (int i = 0; i < objs.Count; i++)
+            {
+                object o = objs[i];
+                if (o.GetType() == typeof(int))
+                    sqlString += o + ", ";
+                else
+                    sqlString += "'" + o + "'" + ", ";
+
+            }
+
+            sqlString = sqlString.Remove(sqlString.Length - 2);
+            sqlString += ");";
 
             currentCommand.CommandText = sqlString;
 
@@ -205,7 +365,7 @@ namespace SemesterProjekt2021
         public static bool ReadPerson(int id, ref Person p)
         {
             bool succes = false;
-            string sqlString = $"SELECT * FROM Bolig WHERE ID = {id};";
+            string sqlString = $"SELECT * FROM Person WHERE ID = {id};";
             currentCommand.CommandText = sqlString;
 
             if (connected)
@@ -223,8 +383,8 @@ namespace SemesterProjekt2021
                 int i = 0;
                 foreach (PropertyInfo prop in props)
                 {
-
-                    prop.SetValue(p, objs[i]);
+                    if (objs[i].GetType() != typeof(DBNull))
+                        prop.SetValue(p, objs[i]);
                     i++;
                 }
                 succes = true;
@@ -243,13 +403,18 @@ namespace SemesterProjekt2021
 
             Type type = p.GetType();
             PropertyInfo[] props = type.GetProperties();
-            string strconn = "UPDATE Bolig SET ";
+            string strconn = "UPDATE Person SET ";
             bool looped = false;
 
             foreach (PropertyInfo prop in props)
             {
                 var bV = prop.GetValue(p);
                 var dbV = prop.GetValue(dPerson);
+
+                if (bV == null) continue;
+
+                if (bV.GetType() == typeof(int))
+                    if ((int)bV < 0) continue;
 
                 if (bV.ToString() != dbV.ToString())
                 {
@@ -260,7 +425,7 @@ namespace SemesterProjekt2021
 
                     name = firstLetter.ToLower() + name.Substring(1);
 
-                    if (p.GetType() == typeof(int) || p.GetType() == typeof(bool))
+                    if (p.GetType() == typeof(int))
                         strconn += "" + name + " = " + bV + ", ";
                     else
                         strconn += name + " = '" + bV + "', ";
@@ -293,9 +458,67 @@ namespace SemesterProjekt2021
         {
             bool succes = false;
 
-            //Delete Person
+            string strconn = $"DELETE FROM Person WHERE ID = {id};";
+            
+            currentCommand.CommandText = strconn;
+
+            if (connected)
+            {
+                currentConnection.Open();
+
+                currentCommand.ExecuteNonQuery();
+                succes = true;
+
+                currentConnection.Close();
+            }
 
             return succes;
+        }
+
+        public static bool LinkRealtor(int boligId, int realtorId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.RealtorId = realtorId;
+
+            return UpdateBolig(b);
+        }
+
+        public static bool LinkBuyer(int boligId, int buyerId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.BuyerId = buyerId;
+
+            return UpdateBolig(b);
+        }
+
+        public static bool LinkSeller(int boligId, int sellerId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.SellerId = sellerId;
+
+            return UpdateBolig(b);
+        }
+
+        public static bool LinkAllPeople(int boligId, int realtorId, int buyerId, int sellerId)
+        {
+            Bolig b = new Bolig();
+
+            b.Id = boligId;
+
+            b.RealtorId = realtorId;
+            b.SellerId = sellerId;
+            b.BuyerId = buyerId;
+
+            return UpdateBolig(b);
         }
     }
 }

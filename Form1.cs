@@ -97,7 +97,6 @@ namespace SemesterProjekt2021
             if (subActive)
                 active = true;
 
-
             b.RealtorId = 1;
             b.SellerId = 2;
             b.BuyerId = 1;

@@ -34,7 +34,16 @@ namespace SemesterProjekt2021
 
         public Bolig()
         {
-
+            Built = -1;
+            InArea = -1;
+            OutArea = -1;
+            Rooms = -1;
+            Zip = -1;
+            OfferPrice = -1;
+            SellingPrice = -1;
+            RealtorId = -1;
+            SellerId = -1;
+            BuyerId = -1;
         }
 
         public int Id { get; set; }
