@@ -19,50 +19,6 @@ namespace SemesterProjekt2021
         private static SqlCommand currentCommand;
         private static List<int> usedBoligIDs;
 
-
-        public static bool SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
-        {
-            bool succes = false;
-
-            string sqlString = $"SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
-            currentCommand.CommandText = sqlString;
-
-            if (connected)
-            {
-                currentConnection.Open();
-                SqlDataReader reader = currentCommand.ExecuteReader();
-
-                object[] objs = new object[reader.FieldCount];
-                List<Bolig> blst = new List<Bolig>();
-
-                while (reader.Read()) 
-                {
-                    Bolig b = new Bolig();
-                    reader.GetValues(objs);
-
-                    Type type = result.GetType();
-                    PropertyInfo[] props = type.GetProperties();
-                    int i = 0;
-                    foreach (PropertyInfo p in props)
-                    {
-
-                        p.SetValue(b, objs[i]);
-                        i++;
-                    }
-                    blst.Add(b);
-                }
-
-                succes = true;
-
-                result = blst.ToArray();
-
-                reader.Close();
-                currentConnection.Close();
-            }
-
-            return succes;
-        }
-
         public static bool ConnectToDatabase(string dbName)
         {
             bool succes = false;
@@ -109,6 +65,49 @@ namespace SemesterProjekt2021
 
             MessageBox.Show(s);
             connected = succes;
+            return succes;
+        }
+
+        public static bool SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
+        {
+            bool succes = false;
+
+            string sqlString = $"SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
+            currentCommand.CommandText = sqlString;
+
+            if (connected)
+            {
+                currentConnection.Open();
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                object[] objs = new object[reader.FieldCount];
+                List<Bolig> blst = new List<Bolig>();
+
+                while (reader.Read()) 
+                {
+                    Bolig b = new Bolig();
+                    reader.GetValues(objs);
+
+                    Type type = result.GetType();
+                    PropertyInfo[] props = type.GetProperties();
+                    int i = 0;
+                    foreach (PropertyInfo p in props)
+                    {
+
+                        p.SetValue(b, objs[i]);
+                        i++;
+                    }
+                    blst.Add(b);
+                }
+
+                succes = true;
+
+                result = blst.ToArray();
+
+                reader.Close();
+                currentConnection.Close();
+            }
+
             return succes;
         }
 
@@ -204,8 +203,8 @@ namespace SemesterProjekt2021
                 int i = 0;
                 foreach (PropertyInfo p in props)
                 {
-
-                    p.SetValue(b,objs[i]);
+                    if (objs[i].GetType() != typeof(DBNull))
+                        p.SetValue(b,objs[i]);
                     i++;
                 }
 
@@ -384,8 +383,8 @@ namespace SemesterProjekt2021
                 int i = 0;
                 foreach (PropertyInfo prop in props)
                 {
-
-                    prop.SetValue(p, objs[i]);
+                    if (objs[i].GetType() != typeof(DBNull))
+                        prop.SetValue(p, objs[i]);
                     i++;
                 }
                 succes = true;
@@ -426,7 +425,7 @@ namespace SemesterProjekt2021
 
                     name = firstLetter.ToLower() + name.Substring(1);
 
-                    if (p.GetType() == typeof(int) || p.GetType() == typeof(bool))
+                    if (p.GetType() == typeof(int))
                         strconn += "" + name + " = " + bV + ", ";
                     else
                         strconn += name + " = '" + bV + "', ";
