@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LayeredTestForm));
             this.panelheader = new System.Windows.Forms.Panel();
+            this.LocationLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CloseProgramButton = new System.Windows.Forms.Button();
             this.MinimizeButton = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.PersonButton = new System.Windows.Forms.Button();
             this.BoligButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
-            this.LocationLabel = new System.Windows.Forms.Label();
             this.panelheader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelside.SuspendLayout();
@@ -61,6 +61,20 @@
             this.panelheader.Size = new System.Drawing.Size(810, 29);
             this.panelheader.TabIndex = 0;
             this.panelheader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelheader_Paint);
+            this.panelheader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelheader_MouseDown);
+            this.panelheader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelheader_MouseMove);
+            this.panelheader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelheader_MouseUp);
+            // 
+            // LocationLabel
+            // 
+            this.LocationLabel.AutoSize = true;
+            this.LocationLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LocationLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.LocationLabel.Location = new System.Drawing.Point(3, 4);
+            this.LocationLabel.Name = "LocationLabel";
+            this.LocationLabel.Size = new System.Drawing.Size(62, 25);
+            this.LocationLabel.TabIndex = 5;
+            this.LocationLabel.Text = "Home";
             // 
             // panel2
             // 
@@ -256,17 +270,6 @@
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
-            // LocationLabel
-            // 
-            this.LocationLabel.AutoSize = true;
-            this.LocationLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LocationLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.LocationLabel.Location = new System.Drawing.Point(3, 4);
-            this.LocationLabel.Name = "LocationLabel";
-            this.LocationLabel.Size = new System.Drawing.Size(62, 25);
-            this.LocationLabel.TabIndex = 5;
-            this.LocationLabel.Text = "Home";
-            // 
             // LayeredTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -277,6 +280,7 @@
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LayeredTestForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UCTestForm";
             this.Load += new System.EventHandler(this.UCTestForm_Load);
             this.panelheader.ResumeLayout(false);

@@ -92,5 +92,32 @@ namespace SemesterProjekt2021
             UCTestForm_Load(new SearchForm());
             LocationLabel.Text = "Søg";
         }
+
+
+        // Makes panelheader where people can move window from
+        private bool mouseDown;
+        private Point lastLocation;
+
+        private void panelheader_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void panelheader_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void panelheader_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
     }
 }
