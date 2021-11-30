@@ -55,6 +55,10 @@
             this.UpdateHomeButton = new System.Windows.Forms.Button();
             this.SoldHomeButton = new System.Windows.Forms.Button();
             this.DeleteHomeButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // IDLabel
@@ -313,12 +317,37 @@
             this.DeleteHomeButton.Text = "Arkiver";
             this.DeleteHomeButton.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Location = new System.Drawing.Point(310, 258);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(376, 157);
+            this.panel1.TabIndex = 27;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Location = new System.Drawing.Point(314, 83);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(86, 95);
+            this.panel3.TabIndex = 28;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(288, 341);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(86, 95);
+            this.panel2.TabIndex = 0;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(731, 461);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.DeleteHomeButton);
             this.Controls.Add(this.SoldHomeButton);
             this.Controls.Add(this.UpdateHomeButton);
@@ -346,9 +375,11 @@
             this.Controls.Add(this.EnergyLabel);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.IDLabel);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HomeForm";
             this.Text = "HomeForm";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,5 +414,8 @@
         private System.Windows.Forms.Button UpdateHomeButton;
         private System.Windows.Forms.Button SoldHomeButton;
         private System.Windows.Forms.Button DeleteHomeButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
     }
 }

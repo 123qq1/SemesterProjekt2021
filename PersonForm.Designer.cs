@@ -50,6 +50,7 @@
             this.IDLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // DeleteHomeButton
@@ -245,6 +246,14 @@
             this.textBox2.Size = new System.Drawing.Size(216, 23);
             this.textBox2.TabIndex = 55;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.panel1.Location = new System.Drawing.Point(340, 231);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(252, 154);
+            this.panel1.TabIndex = 56;
+            // 
             // PersonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -273,6 +282,7 @@
             this.Controls.Add(this.EnergyLabel);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.IDLabel);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PersonForm";
             this.Text = "PersonForm";
@@ -305,5 +315,6 @@
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
