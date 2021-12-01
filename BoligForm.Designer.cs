@@ -58,6 +58,7 @@
             this.IDLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.MessageboxClearButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -345,12 +346,23 @@
             this.panel3.Size = new System.Drawing.Size(86, 95);
             this.panel3.TabIndex = 28;
             // 
+            // MessageboxClearButton
+            // 
+            this.MessageboxClearButton.Location = new System.Drawing.Point(56, 419);
+            this.MessageboxClearButton.Name = "MessageboxClearButton";
+            this.MessageboxClearButton.Size = new System.Drawing.Size(98, 23);
+            this.MessageboxClearButton.TabIndex = 57;
+            this.MessageboxClearButton.Text = "Slet alt tekst";
+            this.MessageboxClearButton.UseVisualStyleBackColor = true;
+            this.MessageboxClearButton.Click += new System.EventHandler(this.MessageboxClearButton_Click);
+            // 
             // BoligForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(733, 483);
+            this.Controls.Add(this.MessageboxClearButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DeleteHomeButton);
             this.Controls.Add(this.SoldHomeButton);
@@ -421,5 +433,6 @@
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button MessageboxClearButton;
     }
 }
