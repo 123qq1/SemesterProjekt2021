@@ -70,7 +70,7 @@
             // 
             // DeleteHomeButton
             // 
-            this.DeleteHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DeleteHomeButton.Location = new System.Drawing.Point(491, 351);
             this.DeleteHomeButton.Name = "DeleteHomeButton";
             this.DeleteHomeButton.Size = new System.Drawing.Size(115, 67);
@@ -81,7 +81,7 @@
             // 
             // SoldHomeButton
             // 
-            this.SoldHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SoldHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SoldHomeButton.Location = new System.Drawing.Point(370, 351);
             this.SoldHomeButton.Name = "SoldHomeButton";
             this.SoldHomeButton.Size = new System.Drawing.Size(115, 67);
@@ -91,7 +91,7 @@
             // 
             // UpdateHomeButton
             // 
-            this.UpdateHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.UpdateHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.UpdateHomeButton.Location = new System.Drawing.Point(550, 278);
             this.UpdateHomeButton.Name = "UpdateHomeButton";
             this.UpdateHomeButton.Size = new System.Drawing.Size(115, 67);
@@ -102,7 +102,7 @@
             // 
             // ReadHomeButton
             // 
-            this.ReadHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReadHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReadHomeButton.Location = new System.Drawing.Point(429, 278);
             this.ReadHomeButton.Name = "ReadHomeButton";
             this.ReadHomeButton.Size = new System.Drawing.Size(115, 67);
@@ -113,7 +113,7 @@
             // 
             // CreateHomeButton
             // 
-            this.CreateHomeButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CreateHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CreateHomeButton.Location = new System.Drawing.Point(308, 278);
             this.CreateHomeButton.Name = "CreateHomeButton";
             this.CreateHomeButton.Size = new System.Drawing.Size(115, 67);
@@ -221,110 +221,110 @@
             // OfferPriceLabel
             // 
             this.OfferPriceLabel.AutoSize = true;
-            this.OfferPriceLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OfferPriceLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OfferPriceLabel.Location = new System.Drawing.Point(370, 199);
             this.OfferPriceLabel.Name = "OfferPriceLabel";
-            this.OfferPriceLabel.Size = new System.Drawing.Size(113, 25);
+            this.OfferPriceLabel.Size = new System.Drawing.Size(94, 21);
             this.OfferPriceLabel.TabIndex = 39;
             this.OfferPriceLabel.Text = "Udbuds pris";
             // 
             // AddressLabel
             // 
             this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddressLabel.Location = new System.Drawing.Point(370, 145);
             this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(78, 25);
+            this.AddressLabel.Size = new System.Drawing.Size(65, 21);
             this.AddressLabel.TabIndex = 38;
             this.AddressLabel.Text = "Adresse";
             // 
             // ZipLabel
             // 
             this.ZipLabel.AutoSize = true;
-            this.ZipLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ZipLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ZipLabel.Location = new System.Drawing.Point(370, 91);
             this.ZipLabel.Name = "ZipLabel";
-            this.ZipLabel.Size = new System.Drawing.Size(123, 25);
+            this.ZipLabel.Size = new System.Drawing.Size(103, 21);
             this.ZipLabel.TabIndex = 37;
             this.ZipLabel.Text = "Post nummer";
             // 
             // CityLabel
             // 
             this.CityLabel.AutoSize = true;
-            this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CityLabel.Location = new System.Drawing.Point(370, 37);
             this.CityLabel.Name = "CityLabel";
-            this.CityLabel.Size = new System.Drawing.Size(32, 25);
+            this.CityLabel.Size = new System.Drawing.Size(27, 21);
             this.CityLabel.TabIndex = 36;
             this.CityLabel.Text = "By";
             // 
             // RoomsLabel
             // 
             this.RoomsLabel.AutoSize = true;
-            this.RoomsLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RoomsLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RoomsLabel.Location = new System.Drawing.Point(57, 361);
             this.RoomsLabel.Name = "RoomsLabel";
-            this.RoomsLabel.Size = new System.Drawing.Size(95, 25);
+            this.RoomsLabel.Size = new System.Drawing.Size(79, 21);
             this.RoomsLabel.TabIndex = 35;
             this.RoomsLabel.Text = "Antal rum";
             // 
             // BuiltLabel
             // 
             this.BuiltLabel.AutoSize = true;
-            this.BuiltLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BuiltLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BuiltLabel.Location = new System.Drawing.Point(56, 307);
             this.BuiltLabel.Name = "BuiltLabel";
-            this.BuiltLabel.Size = new System.Drawing.Size(94, 25);
+            this.BuiltLabel.Size = new System.Drawing.Size(78, 21);
             this.BuiltLabel.TabIndex = 34;
             this.BuiltLabel.Text = "År bygget";
             // 
             // OutAreaLabel
             // 
             this.OutAreaLabel.AutoSize = true;
-            this.OutAreaLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OutAreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OutAreaLabel.Location = new System.Drawing.Point(57, 253);
             this.OutAreaLabel.Name = "OutAreaLabel";
-            this.OutAreaLabel.Size = new System.Drawing.Size(93, 25);
+            this.OutAreaLabel.Size = new System.Drawing.Size(76, 21);
             this.OutAreaLabel.TabIndex = 33;
             this.OutAreaLabel.Text = "Ude areal";
             // 
             // InAreaLabel
             // 
             this.InAreaLabel.AutoSize = true;
-            this.InAreaLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InAreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.InAreaLabel.Location = new System.Drawing.Point(57, 199);
             this.InAreaLabel.Name = "InAreaLabel";
-            this.InAreaLabel.Size = new System.Drawing.Size(96, 25);
+            this.InAreaLabel.Size = new System.Drawing.Size(78, 21);
             this.InAreaLabel.TabIndex = 32;
             this.InAreaLabel.Text = "Inde areal";
             // 
             // EnergyLabel
             // 
             this.EnergyLabel.AutoSize = true;
-            this.EnergyLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EnergyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.EnergyLabel.Location = new System.Drawing.Point(57, 145);
             this.EnergyLabel.Name = "EnergyLabel";
-            this.EnergyLabel.Size = new System.Drawing.Size(129, 25);
+            this.EnergyLabel.Size = new System.Drawing.Size(107, 21);
             this.EnergyLabel.TabIndex = 31;
             this.EnergyLabel.Text = "Energi mærke";
             // 
             // TypeLabel
             // 
             this.TypeLabel.AutoSize = true;
-            this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TypeLabel.Location = new System.Drawing.Point(57, 91);
             this.TypeLabel.Name = "TypeLabel";
-            this.TypeLabel.Size = new System.Drawing.Size(51, 25);
+            this.TypeLabel.Size = new System.Drawing.Size(42, 21);
             this.TypeLabel.TabIndex = 30;
             this.TypeLabel.Text = "Type";
             // 
             // IDLabel
             // 
             this.IDLabel.AutoSize = true;
-            this.IDLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.IDLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.IDLabel.Location = new System.Drawing.Point(57, 37);
             this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(30, 25);
+            this.IDLabel.Size = new System.Drawing.Size(25, 21);
             this.IDLabel.TabIndex = 29;
             this.IDLabel.Text = "ID";
             // 
