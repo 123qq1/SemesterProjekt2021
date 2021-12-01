@@ -154,5 +154,70 @@ namespace SemesterProjekt2021
         {
 
         }
+
+        private void printMellemDatoer_Click(object sender, EventArgs e)
+        {
+            DateTime date1 = DateTime.Parse(dateTimePicker1.Value.ToString());
+            DateTime date2 = DateTime.Parse(dateTimePicker2.Value.ToString());
+            
+            Person[] ps = new Person[1];
+            Bolig[] bs = new Bolig[1];
+            InputValidation.Result r1 = DatabaseAccessor.ReadAllBolig(ref bs);
+            InputValidation.Result r2 = DatabaseAccessor.ReadAllBolig(ref bs);
+            InputValidation.Result r3 = InputValidation.Bolig.Price(inputBeløbTilWeirdSearch.Text);
+
+
+            if (r1.Error)
+            {
+                MessageBox.Show(r1.Message);
+            }
+            else if (r2.Error)
+            {
+                MessageBox.Show(r2.Message);
+            }
+            else if (r3.Error)
+            {
+                MessageBox.Show(r3.Message);
+            }
+            else
+            {
+                int i = 0;
+                foreach (Person p in ps)
+                {
+                    if (p.IsSælger)
+                    {
+                        i = (int)MathF.Max(i, p.ID);
+                    }
+                }
+                List<Bolig>[] boligList = new List<Bolig>[i];
+                List<Bolig> boligs = new List<Bolig>(); 
+                foreach (Bolig b in bs)
+                {
+                    if (b.IsSold)
+                    {
+                        DateTime dt = DateTime.Parse(b.SoldDate);
+                        if (date1 < dt && date2 > dt)
+                        {
+                            boligList[b.SellerId].Add(b);
+                            if (b.SellingPrice > Convert.ToInt32(inputBeløbTilWeirdSearch.Text))
+                            {
+                                boligs.Add(b);
+                            }
+                        }
+                    }
+                }
+                if (boligs.Count == 0)
+                {
+                    MessageBox.Show("Der blev ikke fundet boliger.");
+                }
+                else
+                {
+                    foreach (Bolig c in boligs)
+                    {
+                        MessageBox.Show(c.Address + "," + c.City);
+                    }
+                }
+            }
+        }
     }
 }
