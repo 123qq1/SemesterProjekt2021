@@ -31,6 +31,10 @@ namespace SemesterProjekt2021
         {
             this.label1 = new System.Windows.Forms.Label();
             this.PrintAll = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PrintSome = new System.Windows.Forms.Button();
+            this.byInputTilSearch = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -45,7 +49,7 @@ namespace SemesterProjekt2021
             // 
             // PrintAll
             // 
-            this.PrintAll.Location = new System.Drawing.Point(250, 55);
+            this.PrintAll.Location = new System.Drawing.Point(88, 78);
             this.PrintAll.Name = "PrintAll";
             this.PrintAll.Size = new System.Drawing.Size(94, 29);
             this.PrintAll.TabIndex = 1;
@@ -53,11 +57,51 @@ namespace SemesterProjekt2021
             this.PrintAll.UseVisualStyleBackColor = true;
             this.PrintAll.Click += new System.EventHandler(this.PrintAll_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(88, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(333, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Udskriv alle boliger fra by med tilhørende sælger";
+            // 
+            // PrintSome
+            // 
+            this.PrintSome.Location = new System.Drawing.Point(327, 181);
+            this.PrintSome.Name = "PrintSome";
+            this.PrintSome.Size = new System.Drawing.Size(94, 29);
+            this.PrintSome.TabIndex = 5;
+            this.PrintSome.Text = "Print";
+            this.PrintSome.UseVisualStyleBackColor = true;
+            this.PrintSome.Click += new System.EventHandler(this.PrintSome_Click);
+            // 
+            // byInputTilSearch
+            // 
+            this.byInputTilSearch.Location = new System.Drawing.Point(175, 183);
+            this.byInputTilSearch.Name = "byInputTilSearch";
+            this.byInputTilSearch.Size = new System.Drawing.Size(125, 27);
+            this.byInputTilSearch.TabIndex = 6;
+            this.byInputTilSearch.TextChanged += new System.EventHandler(this.byInputTilSearch_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(88, 186);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Indtast by: ";
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.byInputTilSearch);
+            this.Controls.Add(this.PrintSome);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.PrintAll);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -73,5 +117,9 @@ namespace SemesterProjekt2021
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button PrintAll;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button PrintSome;
+        private System.Windows.Forms.TextBox byInputTilSearch;
+        private System.Windows.Forms.Label label3;
     }
 }
