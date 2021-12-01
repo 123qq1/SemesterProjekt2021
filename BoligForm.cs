@@ -243,7 +243,7 @@ namespace SemesterProjekt2021
             if (success)
             {
                 Result r2 = DatabaseAccessor.UpdateBolig(b);
-                if (!r.Error)
+                if (!r2.Error)
                     MessageBox.Show("Success");
                 else
                     MessageBox.Show("Error in DAL");

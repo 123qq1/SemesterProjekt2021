@@ -74,12 +74,25 @@ namespace SemesterProjekt2021
             WindowState = FormWindowState.Minimized;
         }
 
+        bool maximized = false;
+
         private void MaximizeButton_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Normal)
-                WindowState = FormWindowState.Maximized;
-            else if (WindowState == FormWindowState.Maximized) 
-                WindowState = FormWindowState.Normal;
+            if (!maximized)
+            {
+                Width = Screen.PrimaryScreen.WorkingArea.Width;
+                Height = Screen.PrimaryScreen.WorkingArea.Height;
+                maximized = true;
+                Location = new Point(0, 0);
+            }
+            else
+            {
+                Width = this.DefaultMinimumSize.Width;
+                Height = this.DefaultMinimumSize.Height;
+                maximized = false;
+                Location = new Point(60, 90);
+            }
+
         }
 
         private void panelheader_Paint(object sender, PaintEventArgs e)  // DET HER ER TOP PANEL I LAYERDTESTFORM, HER SKAL INPUTES MOUSE MOVABILITY
@@ -91,6 +104,33 @@ namespace SemesterProjekt2021
         {
             UCTestForm_Load(new SearchForm());
             LocationLabel.Text = "Søg";
+        }
+
+
+        // Makes panelheader where people can move window from
+        private bool mouseDown;
+        private Point lastLocation;
+
+        private void panelheader_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void panelheader_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void panelheader_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }
