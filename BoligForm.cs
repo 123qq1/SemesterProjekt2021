@@ -270,5 +270,20 @@ namespace SemesterProjekt2021
             else
                 MessageBox.Show(r.Message);
         }
+
+        private void MessageboxClearButton_Click(object sender, EventArgs e)
+        {
+            IDTextBox.Clear();
+            TypeComboBox.ResetText();
+            EnergyComboBox.ResetText();
+            InAreaTextBox.Clear();
+            OutAreaTextBox.Clear();
+            BuiltTextBox.Clear();
+            RoomsTextBox.Clear();
+            CityTextBox.Clear();
+            ZipTextBox.Clear();
+            AddresseTextBox.Clear();
+            OfferPriceTextBox.Clear();
+        }
     }
 }

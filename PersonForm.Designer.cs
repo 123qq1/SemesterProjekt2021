@@ -51,6 +51,7 @@
             this.CPRTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.MessageboxClearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DeletePersonButton
@@ -258,12 +259,23 @@
             this.panel1.Size = new System.Drawing.Size(252, 154);
             this.panel1.TabIndex = 56;
             // 
+            // MessageboxClearButton
+            // 
+            this.MessageboxClearButton.Location = new System.Drawing.Point(46, 369);
+            this.MessageboxClearButton.Name = "MessageboxClearButton";
+            this.MessageboxClearButton.Size = new System.Drawing.Size(102, 23);
+            this.MessageboxClearButton.TabIndex = 57;
+            this.MessageboxClearButton.Text = "Slet alt tekst";
+            this.MessageboxClearButton.UseVisualStyleBackColor = true;
+            this.MessageboxClearButton.Click += new System.EventHandler(this.MessageboxClearButton_Click);
+            // 
             // PersonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(698, 492);
+            this.Controls.Add(this.MessageboxClearButton);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.CPRTextBox);
             this.Controls.Add(this.DeletePersonButton);
@@ -320,5 +332,6 @@
         private System.Windows.Forms.TextBox CPRTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button MessageboxClearButton;
     }
 }
