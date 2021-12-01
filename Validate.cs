@@ -250,6 +250,8 @@ namespace InputValidation
 
             if (!reg.IsMatch(input))
                 r = new Result(type, StdErr.regex);
+            else
+                r = new Result();
 
             return r;
         }
