@@ -50,8 +50,8 @@ namespace SemesterProjekt2021
                     }
                     if (outputTilTxt == "")
                     {
-                        outputTilTxt = "Der findes ikke boliger i den valgte by.";
-                        MessageBox.Show("Der findes ikke boliger i den valgte by. ");
+                        outputTilTxt = "Der findes ikke boliger i databasen.";
+                        MessageBox.Show("Der findes ikke boliger i databasen. ");
                     }
                     stream = new StreamWriter(filLokal); // open file
                     stream.Write(outputTilTxt);
