@@ -42,11 +42,11 @@
             this.AddressLabel = new System.Windows.Forms.Label();
             this.ZipLabel = new System.Windows.Forms.Label();
             this.CityLabel = new System.Windows.Forms.Label();
-            this.BuiltLabel = new System.Windows.Forms.Label();
-            this.OutAreaLabel = new System.Windows.Forms.Label();
-            this.InAreaLabel = new System.Windows.Forms.Label();
-            this.EnergyLabel = new System.Windows.Forms.Label();
-            this.TypeLabel = new System.Windows.Forms.Label();
+            this.LastNameLabel = new System.Windows.Forms.Label();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
+            this.TelefonNummerLabel = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.CPRLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.CPRTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
@@ -176,55 +176,55 @@
             this.CityLabel.TabIndex = 34;
             this.CityLabel.Text = "By";
             // 
-            // BuiltLabel
+            // LastNameLabel
             // 
-            this.BuiltLabel.AutoSize = true;
-            this.BuiltLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BuiltLabel.Location = new System.Drawing.Point(45, 311);
-            this.BuiltLabel.Name = "BuiltLabel";
-            this.BuiltLabel.Size = new System.Drawing.Size(76, 21);
-            this.BuiltLabel.TabIndex = 32;
-            this.BuiltLabel.Text = "Efternavn";
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LastNameLabel.Location = new System.Drawing.Point(45, 311);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(76, 21);
+            this.LastNameLabel.TabIndex = 32;
+            this.LastNameLabel.Text = "Efternavn";
             // 
-            // OutAreaLabel
+            // FirstNameLabel
             // 
-            this.OutAreaLabel.AutoSize = true;
-            this.OutAreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OutAreaLabel.Location = new System.Drawing.Point(46, 257);
-            this.OutAreaLabel.Name = "OutAreaLabel";
-            this.OutAreaLabel.Size = new System.Drawing.Size(67, 21);
-            this.OutAreaLabel.TabIndex = 31;
-            this.OutAreaLabel.Text = "Fornavn";
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstNameLabel.Location = new System.Drawing.Point(46, 257);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(67, 21);
+            this.FirstNameLabel.TabIndex = 31;
+            this.FirstNameLabel.Text = "Fornavn";
             // 
-            // InAreaLabel
+            // TelefonNummerLabel
             // 
-            this.InAreaLabel.AutoSize = true;
-            this.InAreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InAreaLabel.Location = new System.Drawing.Point(46, 203);
-            this.InAreaLabel.Name = "InAreaLabel";
-            this.InAreaLabel.Size = new System.Drawing.Size(123, 21);
-            this.InAreaLabel.TabIndex = 30;
-            this.InAreaLabel.Text = "Telefon nummer";
+            this.TelefonNummerLabel.AutoSize = true;
+            this.TelefonNummerLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TelefonNummerLabel.Location = new System.Drawing.Point(46, 203);
+            this.TelefonNummerLabel.Name = "TelefonNummerLabel";
+            this.TelefonNummerLabel.Size = new System.Drawing.Size(123, 21);
+            this.TelefonNummerLabel.TabIndex = 30;
+            this.TelefonNummerLabel.Text = "Telefon nummer";
             // 
-            // EnergyLabel
+            // EmailLabel
             // 
-            this.EnergyLabel.AutoSize = true;
-            this.EnergyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EnergyLabel.Location = new System.Drawing.Point(46, 149);
-            this.EnergyLabel.Name = "EnergyLabel";
-            this.EnergyLabel.Size = new System.Drawing.Size(48, 21);
-            this.EnergyLabel.TabIndex = 29;
-            this.EnergyLabel.Text = "Email";
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EmailLabel.Location = new System.Drawing.Point(46, 149);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(48, 21);
+            this.EmailLabel.TabIndex = 29;
+            this.EmailLabel.Text = "Email";
             // 
-            // TypeLabel
+            // CPRLabel
             // 
-            this.TypeLabel.AutoSize = true;
-            this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TypeLabel.Location = new System.Drawing.Point(46, 95);
-            this.TypeLabel.Name = "TypeLabel";
-            this.TypeLabel.Size = new System.Drawing.Size(39, 21);
-            this.TypeLabel.TabIndex = 28;
-            this.TypeLabel.Text = "CPR";
+            this.CPRLabel.AutoSize = true;
+            this.CPRLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CPRLabel.Location = new System.Drawing.Point(46, 95);
+            this.CPRLabel.Name = "CPRLabel";
+            this.CPRLabel.Size = new System.Drawing.Size(39, 21);
+            this.CPRLabel.TabIndex = 28;
+            this.CPRLabel.Text = "CPR";
             // 
             // IDLabel
             // 
@@ -280,11 +280,11 @@
             this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.ZipLabel);
             this.Controls.Add(this.CityLabel);
-            this.Controls.Add(this.BuiltLabel);
-            this.Controls.Add(this.OutAreaLabel);
-            this.Controls.Add(this.InAreaLabel);
-            this.Controls.Add(this.EnergyLabel);
-            this.Controls.Add(this.TypeLabel);
+            this.Controls.Add(this.LastNameLabel);
+            this.Controls.Add(this.FirstNameLabel);
+            this.Controls.Add(this.TelefonNummerLabel);
+            this.Controls.Add(this.EmailLabel);
+            this.Controls.Add(this.CPRLabel);
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -311,11 +311,11 @@
         private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label ZipLabel;
         private System.Windows.Forms.Label CityLabel;
-        private System.Windows.Forms.Label BuiltLabel;
-        private System.Windows.Forms.Label OutAreaLabel;
-        private System.Windows.Forms.Label InAreaLabel;
-        private System.Windows.Forms.Label EnergyLabel;
-        private System.Windows.Forms.Label TypeLabel;
+        private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.Label FirstNameLabel;
+        private System.Windows.Forms.Label TelefonNummerLabel;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.Label CPRLabel;
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.TextBox CPRTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
