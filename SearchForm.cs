@@ -163,7 +163,7 @@ namespace SemesterProjekt2021
             Person[] ps = new Person[1];
             Bolig[] bs = new Bolig[1];
             InputValidation.Result r1 = DatabaseAccessor.ReadAllBolig(ref bs);
-            InputValidation.Result r2 = DatabaseAccessor.ReadAllBolig(ref bs);
+            InputValidation.Result r2 = DatabaseAccessor.ReadAllPerson(ref ps);
             InputValidation.Result r3 = InputValidation.Bolig.Price(inputBeløbTilWeirdSearch.Text);
 
 
@@ -196,10 +196,10 @@ namespace SemesterProjekt2021
                     if (b.IsSold)
                     {
                         DateTime dt = DateTime.Parse(b.SoldDate);
-                        if (date1 < dt && date2 > dt)
+                        if (date1 <= dt && date2 >= dt)
                         {
                             boligList[b.SellerId].Add(b);
-                            if (b.SellingPrice > Convert.ToInt32(inputBeløbTilWeirdSearch.Text))
+                            if (b.SellingPrice >= Convert.ToInt32(inputBeløbTilWeirdSearch.Text))
                             {
                                 boligs.Add(b);
                             }
