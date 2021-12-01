@@ -73,7 +73,7 @@ namespace SemesterProjekt2021
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        
         bool maximized = false;
 
         private void MaximizeButton_Click(object sender, EventArgs e)
