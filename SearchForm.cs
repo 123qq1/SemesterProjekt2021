@@ -35,7 +35,7 @@ namespace SemesterProjekt2021
             else
             {
                 StreamWriter stream = null;
-                String filLokal = $@"c:\USERS\{Environment.UserName}\AllBolig.txt";
+                String filLokal = $@"c:\USERS\{Environment.UserName}\Documents\AllBolig.txt";
                 try
                 {
                     foreach (Bolig j in bs)
@@ -102,7 +102,7 @@ namespace SemesterProjekt2021
                 string outputTilTxt = "";
 
                 StreamWriter stream = null;
-                String filLokal = $@"c:\USERS\{Environment.UserName}\BoligByMedSælger.txt";
+                String filLokal = $@"c:\USERS\{Environment.UserName}\Documents\BoligByMedSælger.txt";
                 try
                 {
                     foreach (Bolig b in bs)
