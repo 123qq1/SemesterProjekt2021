@@ -28,35 +28,45 @@ namespace SemesterProjekt2021
             Bolig[] bs = new Bolig[1];
             InputValidation.Result r = DatabaseAccessor.ReadAllBolig(ref bs);
             string outputTilTxt = "";
-
-            foreach (Bolig j in bs)
+            if (r.Error)
             {
-                outputTilTxt += $"ID: {j.Id}, ";
-                outputTilTxt += $"Addresse: {j.Address}, ";
-                outputTilTxt += $"PostNr.: {j.Zip}, ";
-                outputTilTxt += $"By: {j.City}, ";
-                outputTilTxt += $"Udbudspris: {j.OfferPrice}. ";
-                outputTilTxt += $"\r\n";
-                outputTilTxt += $"\r\n";
+                MessageBox.Show(r.Message);
             }
-
-            StreamWriter stream = null;
-            String filLokal = $@"c:\USERS\{Environment.UserName}\AllBolig.txt";
-            try
+            else
             {
-                stream = new StreamWriter(filLokal, true); // open file
-                stream.Write(outputTilTxt);
-                MessageBox.Show("Succes! Filen er placeret: " + filLokal);
-            }
-            catch (IOException x)
-            {
-                MessageBox.Show(x.Message);
-            }
-            finally
-            {
-                if(stream != null)
+                StreamWriter stream = null;
+                String filLokal = $@"c:\USERS\{Environment.UserName}\AllBolig.txt";
+                try
                 {
-                    stream.Close();
+                    foreach (Bolig j in bs)
+                    {
+                        outputTilTxt += $"ID: {j.Id}, ";
+                        outputTilTxt += $"Addresse: {j.Address}, ";
+                        outputTilTxt += $"PostNr.: {j.Zip}, ";
+                        outputTilTxt += $"By: {j.City}, ";
+                        outputTilTxt += $"Udbudspris: {j.OfferPrice}. ";
+                        outputTilTxt += $"\r\n";
+                        outputTilTxt += $"\r\n";
+                    }
+                    if (outputTilTxt == "")
+                    {
+                        outputTilTxt = "Der findes ikke boliger i den valgte by.";
+                        MessageBox.Show("Der findes ikke boliger i den valgte by. ");
+                    }
+                    stream = new StreamWriter(filLokal); // open file
+                    stream.Write(outputTilTxt);
+                    MessageBox.Show("Succes! Filen er placeret: " + filLokal);
+                }
+                catch (IOException x)
+                {
+                    MessageBox.Show(x.Message);
+                }
+                finally
+                {
+                    if (stream != null)
+                    {
+                        stream.Close();
+                    }
                 }
             }
         }
@@ -73,50 +83,69 @@ namespace SemesterProjekt2021
 
             InputValidation.Result r1 = DatabaseAccessor.ReadAllBolig(ref bs);
             InputValidation.Result r2 = DatabaseAccessor.ReadAllPerson(ref ps);
-            
-            string outputTilTxt = "";
+            InputValidation.Result r3 = InputValidation.Generic.City(byInputTilSearch.Text);
 
-            
-            foreach (Bolig b in bs)
+            if (r1.Error)
             {
-                foreach (Person p in ps)
+                MessageBox.Show(r1.Message);
+            }
+            else if (r2.Error)
+            {
+                MessageBox.Show(r2.Message);
+            }
+            else if (r3.Error)
+            {
+                MessageBox.Show(r3.Message);
+            }
+            else
+            {
+                string outputTilTxt = "";
+
+                StreamWriter stream = null;
+                String filLokal = $@"c:\USERS\{Environment.UserName}\BoligByMedSælger.txt";
+                try
                 {
-                    if (b.City == byInputTilSearch.Text && b.SellerId == p.ID)
+                    foreach (Bolig b in bs)
                     {
-                        outputTilTxt += $"Bolig \r\n";
-                        outputTilTxt += $"ID: {b.Id}, ";
-                        outputTilTxt += $"Addresse: {b.Address}, ";
-                        outputTilTxt += $"PostNr.: {b.Zip}, ";
-                        outputTilTxt += $"By: {b.City}, ";
-                        outputTilTxt += $"Udbudspris: {b.OfferPrice}. ";
-                        outputTilTxt += $"\r\n";
-                        outputTilTxt += $"Sælger oplysninger\r\n";
-                        outputTilTxt += $"Fornavn: {p.FName}, ";
-                        outputTilTxt += $"Efternavn: {p.LName}, ";
-                        outputTilTxt += $"Tlf: {p.PhoneNr}, ";
-                        outputTilTxt += $"E-mail: {p.Email}. ";
-                        outputTilTxt += $"\r\n";
+                        foreach (Person p in ps)
+                        {
+                            if (b.City == byInputTilSearch.Text && b.SellerId == p.ID)
+                            {
+                                outputTilTxt += $"Bolig \r\n";
+                                outputTilTxt += $"ID: {b.Id}, ";
+                                outputTilTxt += $"Addresse: {b.Address}, ";
+                                outputTilTxt += $"PostNr.: {b.Zip}, ";
+                                outputTilTxt += $"By: {b.City}, ";
+                                outputTilTxt += $"Udbudspris: {b.OfferPrice}. ";
+                                outputTilTxt += $"\r\n";
+                                outputTilTxt += $"Sælger oplysninger\r\n";
+                                outputTilTxt += $"Fornavn: {p.FName}, ";
+                                outputTilTxt += $"Efternavn: {p.LName}, ";
+                                outputTilTxt += $"Tlf: {p.PhoneNr}, ";
+                                outputTilTxt += $"E-mail: {p.Email}. ";
+                                outputTilTxt += $"\r\n";
+                            }
+                        }
                     }
+                    if (outputTilTxt == "")
+                    {
+                        outputTilTxt = "Der findes ikke boliger i den valgte by.";
+                        MessageBox.Show("Der findes ikke boliger i den valgte by. ");
+                    }
+                    stream = new StreamWriter(filLokal); // open file
+                    stream.Write(outputTilTxt);
+                    MessageBox.Show("Succes! Filen er placeret: " + filLokal);
                 }
-            }
-
-            StreamWriter stream = null;
-            String filLokal = $@"c:\USERS\{Environment.UserName}\BoligByMedSælger.txt";
-            try
-            {
-                stream = new StreamWriter(filLokal, true); // open file
-                stream.Write(outputTilTxt);
-                MessageBox.Show("Succes! Filen er placeret: " + filLokal);
-            }
-            catch (IOException x)
-            {
-                MessageBox.Show(x.Message);
-            }
-            finally
-            {
-                if (stream != null)
+                catch (IOException x)
                 {
-                    stream.Close();
+                    MessageBox.Show(x.Message);
+                }
+                finally
+                {
+                    if (stream != null)
+                    {
+                        stream.Close();
+                    }
                 }
             }
         }
