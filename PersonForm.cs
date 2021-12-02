@@ -161,12 +161,12 @@ namespace SemesterProjekt2021
 
             // Validate fName
             r = InputValidation.Person.Name(FNameTextBox.Text);
-            if (!r.Error)
+            if (!r.Error && FNameTextBox.Text != "")
                 p.FName = FNameTextBox.Text;
 
             // Validate lNane
             r = InputValidation.Person.Name(LNameTextBox.Text);
-            if (!r.Error)
+            if (!r.Error && LNameTextBox.Text != "")
                 p.LName = LNameTextBox.Text;
 
             // Validate City
