@@ -309,6 +309,9 @@ namespace SemesterProjekt2021
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
+                if (prop.Name == "ID")
+                    continue;
+
                 if (dbV == null || (bV.ToString() != dbV.ToString()))
                 {
                     looped = true;
@@ -553,6 +556,12 @@ namespace SemesterProjekt2021
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
+                if (prop.Name == "CPR")
+                    continue;
+
+                if (prop.Name == "ID")
+                    continue;
+
                 if (bV.ToString() != dbV.ToString())
                 {
                     looped = true;
@@ -563,6 +572,7 @@ namespace SemesterProjekt2021
                     name = firstLetter.ToLower() + name.Substring(1);
 
                     sqlString += name + " = @" + name + ", ";
+                    currentCommand.Parameters.AddWithValue("@" + name, bV);
                 }
             }
 

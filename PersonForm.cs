@@ -137,22 +137,12 @@ namespace SemesterProjekt2021
             */
             Person p = new Person();
             Result r = null;
-            bool success = false;
+            bool success = true;
 
             // Validate ID
             r = InputValidation.Generic.ID(IDTextBox.Text);
             if (!r.Error)
                 p.ID = Convert.ToInt32(IDTextBox.Text);
-            else
-            {
-                MessageBox.Show(r.Message);
-                success = false;
-            }
-
-            // Validate CPR
-            r = InputValidation.Person.CPR(CPRTextBox.Text);
-            if (!r.Error)
-                p.CPR = Convert.ToInt32(CPRTextBox.Text);
             else
             {
                 MessageBox.Show(r.Message);
