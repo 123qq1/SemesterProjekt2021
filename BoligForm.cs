@@ -427,9 +427,16 @@ namespace SemesterProjekt2021
             }
             else
             {
-                int bId = Convert.ToInt32(IDTextBox.Text);
-                sælgBolig sælgBolig = new sælgBolig(bId);
-                sælgBolig.Show();
+                if (true)  // Hvis bolig id ikke findes. 
+                {
+                    MessageBox.Show("Bolig Id findes ikke.");
+                }
+                else
+                {
+                    int bId = Convert.ToInt32(IDTextBox.Text);
+                    sælgBolig sælgBolig = new sælgBolig(bId);
+                    sælgBolig.Show();
+                }
             }
         }
     }
