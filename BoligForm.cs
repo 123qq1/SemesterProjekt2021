@@ -419,9 +419,18 @@ namespace SemesterProjekt2021
 
         private void SoldHomeButton_Click(object sender, EventArgs e)
         {
-            int bId = Convert.ToInt32(IDTextBox.Text);
-            sælgBolig sælgBolig = new sælgBolig(bId);
-            sælgBolig.Show();
+            string bIds = IDTextBox.Text;
+            InputValidation.Result r = InputValidation.Generic.ID(bIds);
+            if (r.Error)
+            {
+                MessageBox.Show(r.Message);
+            }
+            else
+            {
+                int bId = Convert.ToInt32(IDTextBox.Text);
+                sælgBolig sælgBolig = new sælgBolig(bId);
+                sælgBolig.Show();
+            }
         }
     }
 }
