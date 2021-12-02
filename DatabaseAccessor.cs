@@ -633,6 +633,7 @@ namespace SemesterProjekt2021
             b.BuyerId = buyerId;
             b.SellingPrice = sellingPrice;
             b.SoldDate = soldDate;
+            b.IsSold = true;
 
             return UpdateBolig(b);
         }
