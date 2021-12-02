@@ -43,7 +43,7 @@ namespace SemesterProjekt2021
             // Validate CPR
             r = InputValidation.Person.CPR(CPRTextBox.Text);
             if (!r.Error)
-                p.CPR = Convert.ToInt32(CPRTextBox.Text);
+                p.CPR = Convert.ToInt64(CPRTextBox.Text);
             else
             {
                 MessageBox.Show(r.Message);
