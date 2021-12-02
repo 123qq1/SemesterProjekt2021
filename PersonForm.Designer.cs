@@ -52,12 +52,15 @@
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MessageboxClearButton = new System.Windows.Forms.Button();
+            this.BuyerCheckbox = new System.Windows.Forms.CheckBox();
+            this.SellerCheckbox = new System.Windows.Forms.CheckBox();
+            this.RealtorCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // DeletePersonButton
             // 
             this.DeletePersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeletePersonButton.Location = new System.Drawing.Point(468, 309);
+            this.DeletePersonButton.Location = new System.Drawing.Point(468, 349);
             this.DeletePersonButton.Name = "DeletePersonButton";
             this.DeletePersonButton.Size = new System.Drawing.Size(115, 67);
             this.DeletePersonButton.TabIndex = 53;
@@ -68,10 +71,10 @@
             // UpdatePersonButton
             // 
             this.UpdatePersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.UpdatePersonButton.Location = new System.Drawing.Point(347, 309);
+            this.UpdatePersonButton.Location = new System.Drawing.Point(347, 349);
             this.UpdatePersonButton.Name = "UpdatePersonButton";
             this.UpdatePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.UpdatePersonButton.TabIndex = 51;
+            this.UpdatePersonButton.TabIndex = 52;
             this.UpdatePersonButton.Text = "Opdater";
             this.UpdatePersonButton.UseVisualStyleBackColor = true;
             this.UpdatePersonButton.Click += new System.EventHandler(this.UpdatePersonButton_Click);
@@ -79,10 +82,10 @@
             // ReadPersonButton
             // 
             this.ReadPersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReadPersonButton.Location = new System.Drawing.Point(468, 236);
+            this.ReadPersonButton.Location = new System.Drawing.Point(468, 276);
             this.ReadPersonButton.Name = "ReadPersonButton";
             this.ReadPersonButton.Size = new System.Drawing.Size(115, 67);
-            this.ReadPersonButton.TabIndex = 50;
+            this.ReadPersonButton.TabIndex = 51;
             this.ReadPersonButton.Text = "Find";
             this.ReadPersonButton.UseVisualStyleBackColor = true;
             this.ReadPersonButton.Click += new System.EventHandler(this.ReadHomeButton_Click);
@@ -90,34 +93,34 @@
             // CreatePersonButton
             // 
             this.CreatePersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreatePersonButton.Location = new System.Drawing.Point(347, 236);
+            this.CreatePersonButton.Location = new System.Drawing.Point(347, 276);
             this.CreatePersonButton.Name = "CreatePersonButton";
             this.CreatePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.CreatePersonButton.TabIndex = 49;
+            this.CreatePersonButton.TabIndex = 50;
             this.CreatePersonButton.Text = "Opret";
             this.CreatePersonButton.UseVisualStyleBackColor = true;
             this.CreatePersonButton.Click += new System.EventHandler(this.CreateHomeButton_Click);
             // 
             // AddresseTextBox
             // 
-            this.AddresseTextBox.Location = new System.Drawing.Point(359, 177);
+            this.AddresseTextBox.Location = new System.Drawing.Point(347, 177);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
-            this.AddresseTextBox.TabIndex = 47;
+            this.AddresseTextBox.TabIndex = 46;
             // 
             // ZipTextBox
             // 
-            this.ZipTextBox.Location = new System.Drawing.Point(359, 123);
+            this.ZipTextBox.Location = new System.Drawing.Point(347, 123);
             this.ZipTextBox.Name = "ZipTextBox";
             this.ZipTextBox.Size = new System.Drawing.Size(216, 23);
-            this.ZipTextBox.TabIndex = 46;
+            this.ZipTextBox.TabIndex = 45;
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(359, 69);
+            this.CityTextBox.Location = new System.Drawing.Point(347, 69);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CityTextBox.TabIndex = 45;
+            this.CityTextBox.TabIndex = 44;
             // 
             // LNameTextBox
             // 
@@ -151,7 +154,7 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddressLabel.Location = new System.Drawing.Point(359, 149);
+            this.AddressLabel.Location = new System.Drawing.Point(347, 149);
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(65, 21);
             this.AddressLabel.TabIndex = 36;
@@ -161,7 +164,7 @@
             // 
             this.ZipLabel.AutoSize = true;
             this.ZipLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ZipLabel.Location = new System.Drawing.Point(359, 95);
+            this.ZipLabel.Location = new System.Drawing.Point(347, 95);
             this.ZipLabel.Name = "ZipLabel";
             this.ZipLabel.Size = new System.Drawing.Size(103, 21);
             this.ZipLabel.TabIndex = 35;
@@ -171,7 +174,7 @@
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CityLabel.Location = new System.Drawing.Point(359, 41);
+            this.CityLabel.Location = new System.Drawing.Point(347, 41);
             this.CityLabel.Name = "CityLabel";
             this.CityLabel.Size = new System.Drawing.Size(27, 21);
             this.CityLabel.TabIndex = 34;
@@ -242,19 +245,19 @@
             this.CPRTextBox.Location = new System.Drawing.Point(45, 123);
             this.CPRTextBox.Name = "CPRTextBox";
             this.CPRTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CPRTextBox.TabIndex = 54;
+            this.CPRTextBox.TabIndex = 39;
             // 
             // EmailTextBox
             // 
             this.EmailTextBox.Location = new System.Drawing.Point(45, 177);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(216, 23);
-            this.EmailTextBox.TabIndex = 55;
+            this.EmailTextBox.TabIndex = 40;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
-            this.panel1.Location = new System.Drawing.Point(340, 231);
+            this.panel1.Location = new System.Drawing.Point(340, 271);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(252, 154);
             this.panel1.TabIndex = 56;
@@ -264,10 +267,40 @@
             this.MessageboxClearButton.Location = new System.Drawing.Point(46, 369);
             this.MessageboxClearButton.Name = "MessageboxClearButton";
             this.MessageboxClearButton.Size = new System.Drawing.Size(102, 23);
-            this.MessageboxClearButton.TabIndex = 57;
+            this.MessageboxClearButton.TabIndex = 54;
             this.MessageboxClearButton.Text = "Slet alt tekst";
             this.MessageboxClearButton.UseVisualStyleBackColor = true;
             this.MessageboxClearButton.Click += new System.EventHandler(this.MessageboxClearButton_Click);
+            // 
+            // BuyerCheckbox
+            // 
+            this.BuyerCheckbox.AutoSize = true;
+            this.BuyerCheckbox.Location = new System.Drawing.Point(342, 221);
+            this.BuyerCheckbox.Name = "BuyerCheckbox";
+            this.BuyerCheckbox.Size = new System.Drawing.Size(57, 19);
+            this.BuyerCheckbox.TabIndex = 47;
+            this.BuyerCheckbox.Text = "Køber";
+            this.BuyerCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // SellerCheckbox
+            // 
+            this.SellerCheckbox.AutoSize = true;
+            this.SellerCheckbox.Location = new System.Drawing.Point(405, 221);
+            this.SellerCheckbox.Name = "SellerCheckbox";
+            this.SellerCheckbox.Size = new System.Drawing.Size(62, 19);
+            this.SellerCheckbox.TabIndex = 48;
+            this.SellerCheckbox.Text = "Sælger";
+            this.SellerCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // RealtorCheckbox
+            // 
+            this.RealtorCheckbox.AutoSize = true;
+            this.RealtorCheckbox.Location = new System.Drawing.Point(473, 221);
+            this.RealtorCheckbox.Name = "RealtorCheckbox";
+            this.RealtorCheckbox.Size = new System.Drawing.Size(119, 19);
+            this.RealtorCheckbox.TabIndex = 49;
+            this.RealtorCheckbox.Text = "Ejendomsmælger";
+            this.RealtorCheckbox.UseVisualStyleBackColor = true;
             // 
             // PersonForm
             // 
@@ -275,6 +308,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(698, 492);
+            this.Controls.Add(this.RealtorCheckbox);
+            this.Controls.Add(this.SellerCheckbox);
+            this.Controls.Add(this.BuyerCheckbox);
             this.Controls.Add(this.MessageboxClearButton);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.CPRTextBox);
@@ -333,5 +369,8 @@
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button MessageboxClearButton;
+        private System.Windows.Forms.CheckBox BuyerCheckbox;
+        private System.Windows.Forms.CheckBox SellerCheckbox;
+        private System.Windows.Forms.CheckBox RealtorCheckbox;
     }
 }
