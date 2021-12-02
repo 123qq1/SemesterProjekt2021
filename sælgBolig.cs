@@ -72,12 +72,12 @@ namespace SemesterProjekt2021
                     }
                     else
                     {
-                        MessageBox.Show("Succes!");
+                        MessageBox.Show($"Succes! PERSON KØBER ID:{buyerId} har nu købt bolig ID:{boligId}");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Dette ID tilhører ikke en sælger.");
+                    MessageBox.Show($"Dette ID:{buyerId} tilhører ikke en PERSON KØBER jesus.");
                 }
             }
         }
