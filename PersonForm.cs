@@ -16,6 +16,128 @@ namespace SemesterProjekt2021
         public PersonForm()
         {
             InitializeComponent();
+
+            ToolTip IDTooltip = new ToolTip(); // ID TEXTBOX TOOLTIP
+            IDTooltip.AutoPopDelay = 0;
+            IDTooltip.InitialDelay = 0;
+            IDTooltip.ReshowDelay = 100;
+            IDTooltip.ShowAlways = true;
+            IDTooltip.SetToolTip(this.IDTextBox, "Indtast ID, skal være heltal");
+
+            ToolTip CPRTooltip = new ToolTip(); // CPR TEXTBOX TOOLTIP
+            CPRTooltip.AutoPopDelay = 0;
+            CPRTooltip.InitialDelay = 0;
+            CPRTooltip.ReshowDelay = 100;
+            CPRTooltip.ShowAlways = true;
+            CPRTooltip.SetToolTip(this.CPRTextBox, "Indtast CPR nummer");
+
+            ToolTip EmailTooltip = new ToolTip(); // EMAIL TEXTBOX TOOLTIP
+            EmailTooltip.AutoPopDelay = 0;
+            EmailTooltip.InitialDelay = 0;
+            EmailTooltip.ReshowDelay = 100;
+            EmailTooltip.ShowAlways = true;
+            EmailTooltip.SetToolTip(this.EmailTextBox, "Indtast email");
+
+            ToolTip PhoneTooltip = new ToolTip(); // TELEFON NUMMER TEXTBOX TOOLTIP
+            PhoneTooltip.AutoPopDelay = 0;
+            PhoneTooltip.InitialDelay = 0;
+            PhoneTooltip.ReshowDelay = 100;
+            PhoneTooltip.ShowAlways = true;
+            PhoneTooltip.SetToolTip(this.PhoneNumberTextBox, "Indtast telefon nummer");
+
+            ToolTip FNameTooltip = new ToolTip(); // FORNAVN TEXTBOX TOOLTIP
+            FNameTooltip.AutoPopDelay = 0;
+            FNameTooltip.InitialDelay = 0;
+            FNameTooltip.ReshowDelay = 100;
+            FNameTooltip.ShowAlways = true;
+            FNameTooltip.SetToolTip(this.FNameTextBox, "Indtast fornavn");
+
+            ToolTip LNameTooltip = new ToolTip(); // EFTERNAVN TEXTBOX TOOLTIP
+            LNameTooltip.AutoPopDelay = 0;
+            LNameTooltip.InitialDelay = 0;
+            LNameTooltip.ReshowDelay = 100;
+            LNameTooltip.ShowAlways = true;
+            LNameTooltip.SetToolTip(this.LNameTextBox, "Indtast efternavn");
+
+            ToolTip CityTooltip = new ToolTip(); // BY TEXTBOX TOOLTIP
+            CityTooltip.AutoPopDelay = 0;
+            CityTooltip.InitialDelay = 0;
+            CityTooltip.ReshowDelay = 100;
+            CityTooltip.ShowAlways = true;
+            CityTooltip.SetToolTip(this.CityTextBox, "Indtast by navn");
+
+            ToolTip ZipTooltip = new ToolTip(); // POST NUMMER TEXTBOX TOOLTIP
+            ZipTooltip.AutoPopDelay = 0;
+            ZipTooltip.InitialDelay = 0;
+            ZipTooltip.ReshowDelay = 100;
+            ZipTooltip.ShowAlways = true;
+            ZipTooltip.SetToolTip(this.ZipTextBox, "Indsæt post nummer");
+
+            ToolTip AdresseTooltip = new ToolTip(); // ADDRESSE TEXTBOX TOOLTIP
+            AdresseTooltip.AutoPopDelay = 0;
+            AdresseTooltip.InitialDelay = 0;
+            AdresseTooltip.ReshowDelay = 100;
+            AdresseTooltip.ShowAlways = true;
+            AdresseTooltip.SetToolTip(this.AddresseTextBox, "Indsæt addresse");
+
+            ToolTip BuyerTooltip= new ToolTip(); // KØBER CHECKBOX TOOLTIP
+            BuyerTooltip.AutoPopDelay = 0;
+            BuyerTooltip.InitialDelay = 0;
+            BuyerTooltip.ReshowDelay = 100;
+            BuyerTooltip.ShowAlways = true;
+            BuyerTooltip.SetToolTip(this.BuyerCheckbox, "Markerer om personen er en køber");
+
+            ToolTip SellerTooltip = new ToolTip(); // SÆLGER CHECKBOX TOOLTIP
+            SellerTooltip.AutoPopDelay = 0;
+            SellerTooltip.InitialDelay = 0;
+            SellerTooltip.ReshowDelay = 100;
+            SellerTooltip.ShowAlways = true;
+            SellerTooltip.SetToolTip(this.SellerCheckbox, "Markerer om personen er en sælger");
+
+            ToolTip RealtorTooltip = new ToolTip(); // EJENDOMSMÆLGER CHECKBOX TOOLTIP
+            RealtorTooltip.AutoPopDelay = 0;
+            RealtorTooltip.InitialDelay = 0;
+            RealtorTooltip.ReshowDelay = 100;
+            RealtorTooltip.ShowAlways = true;
+            RealtorTooltip.SetToolTip(this.RealtorCheckbox, "Markerer om personen er en ejendomsmælger");
+
+            ToolTip CreateTooltip = new ToolTip(); // OPRET TEXTBOX TOOLTIP
+            CreateTooltip.AutoPopDelay = 0;
+            CreateTooltip.InitialDelay = 0;
+            CreateTooltip.ReshowDelay = 100;
+            CreateTooltip.ShowAlways = true;
+            CreateTooltip.SetToolTip(this.CreatePersonButton, "Opretter person ud fra alle parametre");
+
+            ToolTip ReadTooltip = new ToolTip(); // FIND TEXTBOX TOOLTIP
+            ReadTooltip.AutoPopDelay = 0;
+            ReadTooltip.InitialDelay = 0;
+            ReadTooltip.ReshowDelay = 100;
+            ReadTooltip.ShowAlways = true;
+            ReadTooltip.SetToolTip(this.ReadPersonButton, "Finder information om person ud fra ID");
+
+            ToolTip UpdateTooltip = new ToolTip(); // OPDATER TEXTBOX TOOLTIP
+            UpdateTooltip.AutoPopDelay = 0;
+            UpdateTooltip.InitialDelay = 0;
+            UpdateTooltip.ReshowDelay = 100;
+            UpdateTooltip.ShowAlways = true;
+            UpdateTooltip.SetToolTip(this.UpdatePersonButton, "Opdaterer information om person ud fra ID");
+
+            ToolTip DeleteTooltip = new ToolTip(); // SLET TEXTBOX TOOLTIP
+            DeleteTooltip.AutoPopDelay = 0;
+            DeleteTooltip.InitialDelay = 0;
+            DeleteTooltip.ReshowDelay = 100;
+            DeleteTooltip.ShowAlways = true;
+            DeleteTooltip.SetToolTip(this.DeletePersonButton, "Sletter information om person ud fra ID");
+
+            ToolTip DeleteAllTooltip = new ToolTip(); // SLET ALT TEKSTs BUTTON TOOLTIP
+            DeleteAllTooltip.AutoPopDelay = 0;
+            DeleteAllTooltip.InitialDelay = 0;
+            DeleteAllTooltip.ReshowDelay = 100;
+            DeleteAllTooltip.ShowAlways = true;
+            DeleteAllTooltip.SetToolTip(this.MessageboxClearButton, "Sletter alt indtastet information i tekstbokse");
+
+
+
         }
 
         private void CreateHomeButton_Click(object sender, EventArgs e)

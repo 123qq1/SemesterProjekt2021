@@ -22,7 +22,7 @@ namespace SemesterProjekt2021
         {
 
         }
-
+        
         private void PrintAll_Click(object sender, EventArgs e)
         {
             Bolig[] bs = new Bolig[1];
