@@ -94,6 +94,13 @@ namespace SemesterProjekt2021
             OfferPriceTooltip.ShowAlways = true;
             OfferPriceTooltip.SetToolTip(this.OfferPriceTextBox, "Indtast udbudsprisen, skal være heltal");
 
+            ToolTip RealtorIDTooltip = new ToolTip(); // EJENDOMSMÆLGER ID TEXTBOX TOOLTIP
+            RealtorIDTooltip.AutoPopDelay = 0;
+            RealtorIDTooltip.InitialDelay = 0;
+            RealtorIDTooltip.ReshowDelay = 100;
+            RealtorIDTooltip.ShowAlways = true;
+            RealtorIDTooltip.SetToolTip(this.RealtorTextbox, "Indtast ID på ejendomsmælgeren der administrerer boligen");
+
             ToolTip CreateTooltip= new ToolTip(); // OPRET BUTTON TOOLTIP
             CreateTooltip.AutoPopDelay = 0;
             CreateTooltip.InitialDelay = 0;

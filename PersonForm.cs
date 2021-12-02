@@ -80,6 +80,27 @@ namespace SemesterProjekt2021
             AdresseTooltip.ShowAlways = true;
             AdresseTooltip.SetToolTip(this.AddresseTextBox, "Indsæt addresse");
 
+            ToolTip BuyerTooltip= new ToolTip(); // KØBER CHECKBOX TOOLTIP
+            BuyerTooltip.AutoPopDelay = 0;
+            BuyerTooltip.InitialDelay = 0;
+            BuyerTooltip.ReshowDelay = 100;
+            BuyerTooltip.ShowAlways = true;
+            BuyerTooltip.SetToolTip(this.BuyerCheckbox, "Markerer om personen er en køber");
+
+            ToolTip SellerTooltip = new ToolTip(); // SÆLGER CHECKBOX TOOLTIP
+            SellerTooltip.AutoPopDelay = 0;
+            SellerTooltip.InitialDelay = 0;
+            SellerTooltip.ReshowDelay = 100;
+            SellerTooltip.ShowAlways = true;
+            SellerTooltip.SetToolTip(this.SellerCheckbox, "Markerer om personen er en sælger");
+
+            ToolTip RealtorTooltip = new ToolTip(); // EJENDOMSMÆLGER CHECKBOX TOOLTIP
+            RealtorTooltip.AutoPopDelay = 0;
+            RealtorTooltip.InitialDelay = 0;
+            RealtorTooltip.ReshowDelay = 100;
+            RealtorTooltip.ShowAlways = true;
+            RealtorTooltip.SetToolTip(this.RealtorCheckbox, "Markerer om personen er en ejendomsmælger");
+
             ToolTip CreateTooltip = new ToolTip(); // OPRET TEXTBOX TOOLTIP
             CreateTooltip.AutoPopDelay = 0;
             CreateTooltip.InitialDelay = 0;
