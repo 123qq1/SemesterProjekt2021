@@ -77,7 +77,7 @@ namespace SemesterProjekt2021
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
-            string sqlString = "SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
+            string sqlString = $"SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
             currentCommand.CommandText = sqlString;
 
             if (connected)
@@ -309,7 +309,7 @@ namespace SemesterProjekt2021
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
-                if (prop.Name == "ID")
+                if (p.Name == "ID")
                     continue;
 
                 if (dbV == null || (bV.ToString() != dbV.ToString()))
