@@ -189,7 +189,7 @@
             this.SearchButton.Location = new System.Drawing.Point(3, 195);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(157, 33);
-            this.SearchButton.TabIndex = 2;
+            this.SearchButton.TabIndex = 3;
             this.SearchButton.Text = "Søg";
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
@@ -229,7 +229,7 @@
             this.PersonButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PersonButton.Name = "PersonButton";
             this.PersonButton.Size = new System.Drawing.Size(157, 33);
-            this.PersonButton.TabIndex = 1;
+            this.PersonButton.TabIndex = 2;
             this.PersonButton.Text = "Person";
             this.PersonButton.UseVisualStyleBackColor = false;
             this.PersonButton.Click += new System.EventHandler(this.PersonButton_Click);
@@ -248,7 +248,7 @@
             this.BoligButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BoligButton.Name = "BoligButton";
             this.BoligButton.Size = new System.Drawing.Size(157, 33);
-            this.BoligButton.TabIndex = 2;
+            this.BoligButton.TabIndex = 1;
             this.BoligButton.Text = "Bolig";
             this.BoligButton.UseVisualStyleBackColor = false;
             this.BoligButton.Click += new System.EventHandler(this.BoligButton_Click);

@@ -16,6 +16,130 @@ namespace SemesterProjekt2021
         public BoligForm()
         {
             InitializeComponent();
+
+            ToolTip IDTooltip = new ToolTip();  //ID TEXTBOX TOOLTIP
+            IDTooltip.AutoPopDelay = 0;
+            IDTooltip.InitialDelay =0;
+            IDTooltip.ReshowDelay = 100;
+            IDTooltip.ShowAlways = true;
+            IDTooltip.SetToolTip(this.IDTextBox, "Indtast ID, skal være heltal");
+
+            ToolTip TypeTooltip = new ToolTip(); //TYPE COMBOBOX TOOLTIP
+            TypeTooltip.AutoPopDelay = 0;
+            TypeTooltip.InitialDelay = 0;
+            TypeTooltip.ReshowDelay = 100;
+            TypeTooltip.ShowAlways = true;
+            TypeTooltip.SetToolTip(this.TypeComboBox, "Vælg hvilken type boligen er");
+
+            ToolTip EnergimærkeTooltip = new ToolTip(); //ENERGIMÆRKE TEXTBOX TOOLTIP
+            EnergimærkeTooltip.AutoPopDelay = 0;
+            EnergimærkeTooltip.InitialDelay = 0;
+            EnergimærkeTooltip.ReshowDelay = 100;
+            EnergimærkeTooltip.ShowAlways = true;
+            EnergimærkeTooltip.SetToolTip(this.EnergyComboBox, "Vælg energimærket for boligen");
+
+            ToolTip InAreaTooltip = new ToolTip(); // INDEAREAL TEXTBOX TOOLTIP
+            InAreaTooltip.AutoPopDelay = 0;
+            InAreaTooltip.InitialDelay = 0;
+            InAreaTooltip.ReshowDelay = 100;
+            InAreaTooltip.ShowAlways = true;
+            InAreaTooltip.SetToolTip(this.InAreaTextBox, "Indtast indendørs areal, skal være heltal");
+
+            ToolTip OutAreaTooltip = new ToolTip(); // UDEAREAL TEXTBOX TOOLTIP
+            OutAreaTooltip.AutoPopDelay = 0;
+            OutAreaTooltip.InitialDelay = 0;
+            OutAreaTooltip.ReshowDelay = 100;
+            OutAreaTooltip.ShowAlways = true;
+            OutAreaTooltip.SetToolTip(this.OutAreaTextBox, "Indtast udendørs areal, skal være heltal");
+
+            ToolTip BuiltTooltip = new ToolTip(); // ÅR BYGGET TEXTBOX TOOLTIP
+            BuiltTooltip.AutoPopDelay = 0;
+            BuiltTooltip.InitialDelay = 0;
+            BuiltTooltip.ReshowDelay = 100;
+            BuiltTooltip.ShowAlways = true;
+            BuiltTooltip.SetToolTip(this.BuiltTextBox, "Indtast året som boligen er bygget i");
+
+            ToolTip RoomsTooltip = new ToolTip(); // ANTAL RUM TEXTBOX TOOLTIP
+            RoomsTooltip.AutoPopDelay = 0;
+            RoomsTooltip.InitialDelay = 0;
+            RoomsTooltip.ReshowDelay = 100;
+            RoomsTooltip.ShowAlways = true;
+            RoomsTooltip.SetToolTip(this.RoomsTextBox, "Indtast hvor mange rum boligen har");
+
+            ToolTip CityTooltip = new ToolTip(); // BY TEXTBOX TOOLTIP
+            CityTooltip.AutoPopDelay = 0;
+            CityTooltip.InitialDelay = 0;
+            CityTooltip.ReshowDelay = 100;
+            CityTooltip.ShowAlways = true;
+            CityTooltip.SetToolTip(this.CityTextBox, "Indtast by navn");
+
+            ToolTip ZipTooltip = new ToolTip(); // POST NUMMER TEXTBOX TOOLTIP
+            ZipTooltip.AutoPopDelay = 0;
+            ZipTooltip.InitialDelay = 0;
+            ZipTooltip.ReshowDelay = 100;
+            ZipTooltip.ShowAlways = true;
+            ZipTooltip.SetToolTip(this.ZipTextBox, "Indtast post nummer");
+
+            ToolTip AddresseTooltip = new ToolTip(); // ADRESSE TEXTBOX TOOLTIP
+            AddresseTooltip.AutoPopDelay = 0;
+            AddresseTooltip.InitialDelay = 0;
+            AddresseTooltip.ReshowDelay = 100;
+            AddresseTooltip.ShowAlways = true;
+            AddresseTooltip.SetToolTip(this.AddresseTextBox, "Indtast adresse for boligen");
+
+            ToolTip OfferPriceTooltip= new ToolTip(); // UDBUDSPRIS TEXTBOX TOOLTIP
+            OfferPriceTooltip.AutoPopDelay = 0;
+            OfferPriceTooltip.InitialDelay = 0;
+            OfferPriceTooltip.ReshowDelay = 100;
+            OfferPriceTooltip.ShowAlways = true;
+            OfferPriceTooltip.SetToolTip(this.OfferPriceTextBox, "Indtast udbudsprisen, skal være heltal");
+
+            ToolTip CreateTooltip= new ToolTip(); // OPRET BUTTON TOOLTIP
+            CreateTooltip.AutoPopDelay = 0;
+            CreateTooltip.InitialDelay = 0;
+            CreateTooltip.ReshowDelay = 100;
+            CreateTooltip.ShowAlways = true;
+            CreateTooltip.SetToolTip(this.CreateHomeButton, "Indsætter bolig i databasen ud fra alle parametre");
+
+            ToolTip ReadTooltip = new ToolTip(); // FIND BUTTON TOOLTIP
+            ReadTooltip.AutoPopDelay = 0;
+            ReadTooltip.InitialDelay = 0;
+            ReadTooltip.ReshowDelay = 100;
+            ReadTooltip.ShowAlways = true;
+            ReadTooltip.SetToolTip(this.ReadHomeButton, "Henter information om specefik bolig ud fra ID");
+
+            ToolTip UpdateTooltip = new ToolTip(); // OPDATER BUTTON TOOLTIP
+            UpdateTooltip.AutoPopDelay = 0;
+            UpdateTooltip.InitialDelay = 0;
+            UpdateTooltip.ReshowDelay = 100;
+            UpdateTooltip.ShowAlways = true;
+            UpdateTooltip.SetToolTip(this.UpdateHomeButton, "Opdaterer salgsprisen for boligen ud fra ID");
+
+            ToolTip SoldTooltip = new ToolTip(); // SÆLG BUTTON TOOLTIP
+            SoldTooltip.AutoPopDelay = 0;
+            SoldTooltip.InitialDelay = 0;
+            SoldTooltip.ReshowDelay = 100;
+            SoldTooltip.ShowAlways = true;
+            SoldTooltip.SetToolTip(this.SoldHomeButton, "Sælger bolig ud fra ID");
+
+            ToolTip ArchiveTooltip = new ToolTip(); // ARKIVER BUTTON TOOLTIP
+            ArchiveTooltip.AutoPopDelay = 0;
+            ArchiveTooltip.InitialDelay = 0;
+            ArchiveTooltip.ReshowDelay = 100;
+            ArchiveTooltip.ShowAlways = true;
+            ArchiveTooltip.SetToolTip(this.DeleteHomeButton, "Arkiverer bolig ud fra ID, kan stadigvæk findes i databasen");
+
+            ToolTip DeleteAllTooltip = new ToolTip(); // SLET ALT TEKST BUTTON TOOLTIP
+            DeleteAllTooltip.AutoPopDelay = 0;
+            DeleteAllTooltip.InitialDelay = 0;
+            DeleteAllTooltip.ReshowDelay = 100;
+            DeleteAllTooltip.ShowAlways = true;
+            DeleteAllTooltip.SetToolTip(this.MessageboxClearButton, "Sletter alt indtastet information i tekstbokse");
+
+
+
+
+
         }
 
         private void CreateHomeButton_Click(object sender, EventArgs e)

@@ -60,7 +60,7 @@
             this.DeletePersonButton.Location = new System.Drawing.Point(468, 309);
             this.DeletePersonButton.Name = "DeletePersonButton";
             this.DeletePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.DeletePersonButton.TabIndex = 53;
+            this.DeletePersonButton.TabIndex = 50;
             this.DeletePersonButton.Text = "Slet";
             this.DeletePersonButton.UseVisualStyleBackColor = true;
             this.DeletePersonButton.Click += new System.EventHandler(this.DeletePersonButton_Click);
@@ -71,7 +71,7 @@
             this.UpdatePersonButton.Location = new System.Drawing.Point(347, 309);
             this.UpdatePersonButton.Name = "UpdatePersonButton";
             this.UpdatePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.UpdatePersonButton.TabIndex = 51;
+            this.UpdatePersonButton.TabIndex = 49;
             this.UpdatePersonButton.Text = "Opdater";
             this.UpdatePersonButton.UseVisualStyleBackColor = true;
             this.UpdatePersonButton.Click += new System.EventHandler(this.UpdatePersonButton_Click);
@@ -82,7 +82,7 @@
             this.ReadPersonButton.Location = new System.Drawing.Point(468, 236);
             this.ReadPersonButton.Name = "ReadPersonButton";
             this.ReadPersonButton.Size = new System.Drawing.Size(115, 67);
-            this.ReadPersonButton.TabIndex = 50;
+            this.ReadPersonButton.TabIndex = 48;
             this.ReadPersonButton.Text = "Find";
             this.ReadPersonButton.UseVisualStyleBackColor = true;
             this.ReadPersonButton.Click += new System.EventHandler(this.ReadHomeButton_Click);
@@ -93,7 +93,7 @@
             this.CreatePersonButton.Location = new System.Drawing.Point(347, 236);
             this.CreatePersonButton.Name = "CreatePersonButton";
             this.CreatePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.CreatePersonButton.TabIndex = 49;
+            this.CreatePersonButton.TabIndex = 47;
             this.CreatePersonButton.Text = "Opret";
             this.CreatePersonButton.UseVisualStyleBackColor = true;
             this.CreatePersonButton.Click += new System.EventHandler(this.CreateHomeButton_Click);
@@ -103,21 +103,21 @@
             this.AddresseTextBox.Location = new System.Drawing.Point(359, 177);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
-            this.AddresseTextBox.TabIndex = 47;
+            this.AddresseTextBox.TabIndex = 46;
             // 
             // ZipTextBox
             // 
             this.ZipTextBox.Location = new System.Drawing.Point(359, 123);
             this.ZipTextBox.Name = "ZipTextBox";
             this.ZipTextBox.Size = new System.Drawing.Size(216, 23);
-            this.ZipTextBox.TabIndex = 46;
+            this.ZipTextBox.TabIndex = 45;
             // 
             // CityTextBox
             // 
             this.CityTextBox.Location = new System.Drawing.Point(359, 69);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CityTextBox.TabIndex = 45;
+            this.CityTextBox.TabIndex = 44;
             // 
             // LNameTextBox
             // 
@@ -242,14 +242,14 @@
             this.CPRTextBox.Location = new System.Drawing.Point(45, 123);
             this.CPRTextBox.Name = "CPRTextBox";
             this.CPRTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CPRTextBox.TabIndex = 54;
+            this.CPRTextBox.TabIndex = 39;
             // 
             // EmailTextBox
             // 
             this.EmailTextBox.Location = new System.Drawing.Point(45, 177);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(216, 23);
-            this.EmailTextBox.TabIndex = 55;
+            this.EmailTextBox.TabIndex = 40;
             // 
             // panel1
             // 
@@ -264,7 +264,7 @@
             this.MessageboxClearButton.Location = new System.Drawing.Point(46, 369);
             this.MessageboxClearButton.Name = "MessageboxClearButton";
             this.MessageboxClearButton.Size = new System.Drawing.Size(102, 23);
-            this.MessageboxClearButton.TabIndex = 57;
+            this.MessageboxClearButton.TabIndex = 51;
             this.MessageboxClearButton.Text = "Slet alt tekst";
             this.MessageboxClearButton.UseVisualStyleBackColor = true;
             this.MessageboxClearButton.Click += new System.EventHandler(this.MessageboxClearButton_Click);
