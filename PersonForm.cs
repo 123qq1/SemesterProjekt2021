@@ -165,7 +165,7 @@ namespace SemesterProjekt2021
             // Validate CPR
             r = InputValidation.Person.CPR(CPRTextBox.Text);
             if (!r.Error)
-                p.CPR = Convert.ToInt32(CPRTextBox.Text);
+                p.CPR = Convert.ToInt64(CPRTextBox.Text);
             else
             {
                 MessageBox.Show(r.Message);
@@ -259,22 +259,12 @@ namespace SemesterProjekt2021
             */
             Person p = new Person();
             Result r = null;
-            bool success = false;
+            bool success = true;
 
             // Validate ID
             r = InputValidation.Generic.ID(IDTextBox.Text);
             if (!r.Error)
                 p.ID = Convert.ToInt32(IDTextBox.Text);
-            else
-            {
-                MessageBox.Show(r.Message);
-                success = false;
-            }
-
-            // Validate CPR
-            r = InputValidation.Person.CPR(CPRTextBox.Text);
-            if (!r.Error)
-                p.CPR = Convert.ToInt32(CPRTextBox.Text);
             else
             {
                 MessageBox.Show(r.Message);
@@ -293,12 +283,12 @@ namespace SemesterProjekt2021
 
             // Validate fName
             r = InputValidation.Person.Name(FNameTextBox.Text);
-            if (!r.Error)
+            if (!r.Error && FNameTextBox.Text != "")
                 p.FName = FNameTextBox.Text;
 
             // Validate lNane
             r = InputValidation.Person.Name(LNameTextBox.Text);
-            if (!r.Error)
+            if (!r.Error && LNameTextBox.Text != "")
                 p.LName = LNameTextBox.Text;
 
             // Validate City

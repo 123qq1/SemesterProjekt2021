@@ -16,7 +16,7 @@ namespace SemesterProjekt2021
 
         }
         public int ID { get; set; }
-        public int CPR { get; set; }
+        public long CPR { get; set; }
         public string City { get; set; }
         public int Zip { get; set; }
         public string Address { get; set; }

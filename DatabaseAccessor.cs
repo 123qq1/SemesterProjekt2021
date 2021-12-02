@@ -28,7 +28,7 @@ namespace SemesterProjekt2021
 
             currentConnection = new SqlConnection(strconn);
 
-            string sqlString = $"SELECT ID FROM Bolig;";
+            string sqlString = "SELECT ID FROM Bolig;";
             usedBoligIDs = new List<int>();
 
             try
@@ -71,11 +71,13 @@ namespace SemesterProjekt2021
             return r;
         }
 
+        // Missing parameters
         public static Result SearchBoligBy(string parameter, string value, string condition, ref Bolig[] result)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
-            string sqlString = $"SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
+            string sqlString = "SELECT * FROM Bolig WHERE {parameter} {condition} {value};";
             currentCommand.CommandText = sqlString;
 
             if (connected)
@@ -120,6 +122,7 @@ namespace SemesterProjekt2021
         public static Result CreateBolig(Bolig b)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
             if (usedBoligIDs.Contains(b.Id))
             {
@@ -128,12 +131,14 @@ namespace SemesterProjekt2021
                 res.Message = "ID already exists";
             }
 
-            string sqlString = $"INSERT INTO Bolig (";
+            string sqlStringF = "INSERT INTO Bolig (";
+            string sqlStringL = ") VALUES (";
 
 
             Type type = b.GetType();
             PropertyInfo[] props = type.GetProperties();
             List<object> objs = new List<object>();
+            List<string> pNames = new List<string>();
 
             foreach (PropertyInfo p in props)
             {
@@ -156,26 +161,20 @@ namespace SemesterProjekt2021
                 if (name == "sellerId") name = "sælgerID";
                 if (name == "buyerId") name = "køberID";
 
-                sqlString += name + ", ";
+                sqlStringF += name + ", ";
+                sqlStringL += "@" + name + ", ";
+                pNames.Add("@" + name);
 
             }
-            sqlString = sqlString.Remove(sqlString.Length - 2);
-            sqlString += ") VALUES (";
+            sqlStringF = sqlStringF.Remove(sqlStringF.Length - 2);
+            sqlStringL = sqlStringL.Remove(sqlStringL.Length - 2);
 
-            for (int i = 0; i < objs.Count; i++)
-            {
-                object o = objs[i];
-                if (o.GetType() == typeof(int))
-                    sqlString += o + ", ";
-                else
-                    sqlString += "'" + o + "'" + ", ";
-
-            }
-
-            sqlString = sqlString.Remove(sqlString.Length - 2);
-            sqlString += ");";
+            string sqlString = sqlStringF + sqlStringL + ");";
 
             currentCommand.CommandText = sqlString;
+
+            for (int i = 0; i < objs.Count; i++)
+                currentCommand.Parameters.AddWithValue(pNames[i], objs[i]);
 
             MessageBox.Show(sqlString);
 
@@ -201,10 +200,11 @@ namespace SemesterProjekt2021
         public static Result ReadAllBolig(ref Bolig[] bs)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
             List<Bolig> blst = new List<Bolig>();
 
-            string sqlString = $"SELECT * FROM Bolig";
+            string sqlString = "SELECT * FROM Bolig";
             currentCommand.CommandText = sqlString;
 
             if (connected)
@@ -250,8 +250,9 @@ namespace SemesterProjekt2021
         {
             Result res = new Result();
 
-            string sqlString = $"SELECT * FROM Bolig WHERE ID = {id};";
-            currentCommand.CommandText = sqlString;
+            string sqlString = "SELECT * FROM Bolig WHERE ID = @ID;";
+            currentCommand = new SqlCommand(sqlString, currentConnection);
+            currentCommand.Parameters.AddWithValue("@ID", id);
 
             if (connected)
             {
@@ -288,13 +289,14 @@ namespace SemesterProjekt2021
         public static Result UpdateBolig(Bolig b)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
             Bolig dBolig = new Bolig();
             ReadBolig(b.Id, ref dBolig);
 
             Type type = b.GetType();
             PropertyInfo[] props = type.GetProperties();
-            string strconn = "UPDATE Bolig SET ";
+            string sqlString = "UPDATE Bolig SET ";
             bool looped = false;
 
             foreach (PropertyInfo p in props)
@@ -307,7 +309,10 @@ namespace SemesterProjekt2021
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
-                if (bV.ToString() != dbV.ToString())
+                if (prop.Name == "ID")
+                    continue;
+
+                if (dbV == null || (bV.ToString() != dbV.ToString()))
                 {
                     looped = true;
                     string name = p.Name;
@@ -320,21 +325,19 @@ namespace SemesterProjekt2021
                     if (name == "sellerId") name = "sælgerID";
                     if (name == "buyerId") name = "køberID";
 
-                    if (p.GetType() == typeof(int) || p.GetType() == typeof(bool))
-                        strconn += "" + name + " = " + bV + ", ";
-                    else
-                        strconn += name + " = '" + bV + "', ";
+                    sqlString += name + " = @" + name + ", ";
+                    currentCommand.Parameters.AddWithValue("@" + name, bV);
                 }
             }
 
             if (looped)
             {
-                strconn = strconn.Remove(strconn.Length - 2);
+                sqlString = sqlString.Remove(sqlString.Length - 2);
 
-                strconn += $" WHERE ID = {b.Id};";
-                MessageBox.Show(strconn);
+                sqlString += " WHERE ID = @BID;";
+                MessageBox.Show(sqlString);
 
-                currentCommand.CommandText = strconn;
+                currentCommand.CommandText = sqlString;
 
                 if (connected)
                 {
@@ -351,12 +354,19 @@ namespace SemesterProjekt2021
                     res.Type = "ConnectionError";
                 }
             }
+            else
+            {
+                res.Error = true;
+                res.Message = "No information given beyond ID";
+                res.Type = "LackingData";
+            }
             return res;
         }
 
         public static Result ArchiveBolig(int id)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
             Bolig b = new Bolig();
             res = ReadBolig(id, ref b);
@@ -374,14 +384,18 @@ namespace SemesterProjekt2021
         public static Result CreatePerson(Person p)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
-            //if (usedIDs.Contains(b.Id)) return false;
+            // if (usedIDs.Contains(b.Id)) return false;
+            // if (usedCPRs.Contain(p.CPR)) return false;
 
-            string sqlString = $"INSERT INTO Person (";
+            string sqlStringF = "INSERT INTO Person (";
+            string sqlStringL = ") VALUES (";
 
             Type type = p.GetType();
             PropertyInfo[] props = type.GetProperties();
             List<object> objs = new List<object>();
+            List<string> pNames = new List<string>();
 
             foreach (PropertyInfo prop in props)
             {
@@ -400,26 +414,20 @@ namespace SemesterProjekt2021
 
                 name = firstLetter.ToLower() + name.Substring(1);
 
-                sqlString += name + ", ";
+                sqlStringF += name + ", ";
+                sqlStringL += "@" + name + ", ";
+                pNames.Add("@" + name);
 
             }
-            sqlString = sqlString.Remove(sqlString.Length - 2);
-            sqlString += ") VALUES (";
+            sqlStringF = sqlStringF.Remove(sqlStringF.Length - 2);
+            sqlStringL = sqlStringL.Remove(sqlStringL.Length - 2);
 
-            for (int i = 0; i < objs.Count; i++)
-            {
-                object o = objs[i];
-                if (o.GetType() == typeof(int))
-                    sqlString += o + ", ";
-                else
-                    sqlString += "'" + o + "'" + ", ";
-
-            }
-
-            sqlString = sqlString.Remove(sqlString.Length - 2);
-            sqlString += ");";
+            string sqlString = sqlStringF + sqlStringL + ");";
 
             currentCommand.CommandText = sqlString;
+
+            for (int i = 0; i < objs.Count; i++)
+                currentCommand.Parameters.AddWithValue(pNames[i], objs[i]);
 
             MessageBox.Show(sqlString);
 
@@ -444,7 +452,8 @@ namespace SemesterProjekt2021
         public static Result ReadAllPerson(ref Person[] ps)
         {
             Result res = new Result();
-            string sqlString = $"SELECT * FROM Person;";
+            currentCommand = new SqlCommand("", currentConnection);
+            string sqlString = "SELECT * FROM Person;";
             currentCommand.CommandText = sqlString;
             List<Person> plst = new List<Person>();
 
@@ -488,7 +497,9 @@ namespace SemesterProjekt2021
         public static Result ReadPerson(int id, ref Person p)
         {
             Result res = new Result();
-            string sqlString = $"SELECT * FROM Person WHERE ID = {id};";
+            currentCommand = new SqlCommand("", currentConnection);
+            string sqlString = "SELECT * FROM Person WHERE ID = @ID;";
+            currentCommand.Parameters.AddWithValue("@ID", id);
             currentCommand.CommandText = sqlString;
 
             if (connected)
@@ -525,13 +536,14 @@ namespace SemesterProjekt2021
         public static Result UpdatePerson(Person p)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
             Person dPerson = new Person();
             ReadPerson(p.ID, ref dPerson);
 
             Type type = p.GetType();
             PropertyInfo[] props = type.GetProperties();
-            string strconn = "UPDATE Person SET ";
+            string sqlString = "UPDATE Person SET ";
             bool looped = false;
 
             foreach (PropertyInfo prop in props)
@@ -544,6 +556,12 @@ namespace SemesterProjekt2021
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
+                if (prop.Name == "CPR")
+                    continue;
+
+                if (prop.Name == "ID")
+                    continue;
+
                 if (bV.ToString() != dbV.ToString())
                 {
                     looped = true;
@@ -553,21 +571,19 @@ namespace SemesterProjekt2021
 
                     name = firstLetter.ToLower() + name.Substring(1);
 
-                    if (p.GetType() == typeof(int))
-                        strconn += "" + name + " = " + bV + ", ";
-                    else
-                        strconn += name + " = '" + bV + "', ";
+                    sqlString += name + " = @" + name + ", ";
+                    currentCommand.Parameters.AddWithValue("@" + name, bV);
                 }
             }
 
             if (looped)
             {
-                strconn = strconn.Remove(strconn.Length - 2);
+                sqlString = sqlString.Remove(sqlString.Length - 2);
 
-                strconn += $" WHERE ID = {p.ID};";
-                MessageBox.Show(strconn);
+                sqlString += " WHERE ID = @ID;";
+                MessageBox.Show(sqlString);
 
-                currentCommand.CommandText = strconn;
+                currentCommand.CommandText = sqlString;
 
                 if (connected)
                 {
@@ -584,15 +600,22 @@ namespace SemesterProjekt2021
                     res.Type = "ConnectionError";
                 }
             }
+            else
+            {
+                res.Error = true;
+                res.Message = "No information given beyond ID";
+                res.Type = "LackingData";
+            }
             return res;
         }
 
         public static Result DeletePerson(int id)
         {
             Result res = new Result();
+            currentCommand = new SqlCommand("", currentConnection);
 
-            string strconn = $"DELETE FROM Person WHERE ID = {id};";
-            
+            string strconn = "DELETE FROM Person WHERE ID = @ID;";
+            currentCommand.Parameters.AddWithValue("@ID", id);
             currentCommand.CommandText = strconn;
 
             if (connected)
