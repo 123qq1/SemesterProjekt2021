@@ -285,5 +285,12 @@ namespace SemesterProjekt2021
             AddresseTextBox.Clear();
             OfferPriceTextBox.Clear();
         }
+
+        private void SoldHomeButton_Click(object sender, EventArgs e)
+        {
+            int bId = Convert.ToInt32(IDTextBox.Text);
+            sælgBolig sælgBolig = new sælgBolig(bId);
+            sælgBolig.Show();
+        }
     }
 }

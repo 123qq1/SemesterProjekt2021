@@ -64,17 +64,19 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(278, 351);
+            this.panel2.Location = new System.Drawing.Point(318, 468);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(86, 95);
+            this.panel2.Size = new System.Drawing.Size(98, 127);
             this.panel2.TabIndex = 28;
             // 
             // DeleteHomeButton
             // 
             this.DeleteHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteHomeButton.Location = new System.Drawing.Point(491, 351);
+            this.DeleteHomeButton.Location = new System.Drawing.Point(561, 468);
+            this.DeleteHomeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DeleteHomeButton.Name = "DeleteHomeButton";
-            this.DeleteHomeButton.Size = new System.Drawing.Size(115, 67);
+            this.DeleteHomeButton.Size = new System.Drawing.Size(131, 89);
             this.DeleteHomeButton.TabIndex = 55;
             this.DeleteHomeButton.Text = "Arkiver";
             this.DeleteHomeButton.UseVisualStyleBackColor = true;
@@ -83,19 +85,22 @@
             // SoldHomeButton
             // 
             this.SoldHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SoldHomeButton.Location = new System.Drawing.Point(370, 351);
+            this.SoldHomeButton.Location = new System.Drawing.Point(423, 468);
+            this.SoldHomeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SoldHomeButton.Name = "SoldHomeButton";
-            this.SoldHomeButton.Size = new System.Drawing.Size(115, 67);
+            this.SoldHomeButton.Size = new System.Drawing.Size(131, 89);
             this.SoldHomeButton.TabIndex = 54;
             this.SoldHomeButton.Text = "Sælg";
             this.SoldHomeButton.UseVisualStyleBackColor = true;
+            this.SoldHomeButton.Click += new System.EventHandler(this.SoldHomeButton_Click);
             // 
             // UpdateHomeButton
             // 
             this.UpdateHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.UpdateHomeButton.Location = new System.Drawing.Point(550, 278);
+            this.UpdateHomeButton.Location = new System.Drawing.Point(629, 371);
+            this.UpdateHomeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UpdateHomeButton.Name = "UpdateHomeButton";
-            this.UpdateHomeButton.Size = new System.Drawing.Size(115, 67);
+            this.UpdateHomeButton.Size = new System.Drawing.Size(131, 89);
             this.UpdateHomeButton.TabIndex = 53;
             this.UpdateHomeButton.Text = "Opdater";
             this.UpdateHomeButton.UseVisualStyleBackColor = true;
@@ -104,9 +109,10 @@
             // ReadHomeButton
             // 
             this.ReadHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReadHomeButton.Location = new System.Drawing.Point(429, 278);
+            this.ReadHomeButton.Location = new System.Drawing.Point(490, 371);
+            this.ReadHomeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ReadHomeButton.Name = "ReadHomeButton";
-            this.ReadHomeButton.Size = new System.Drawing.Size(115, 67);
+            this.ReadHomeButton.Size = new System.Drawing.Size(131, 89);
             this.ReadHomeButton.TabIndex = 52;
             this.ReadHomeButton.Text = "Find";
             this.ReadHomeButton.UseVisualStyleBackColor = true;
@@ -115,9 +121,10 @@
             // CreateHomeButton
             // 
             this.CreateHomeButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateHomeButton.Location = new System.Drawing.Point(308, 278);
+            this.CreateHomeButton.Location = new System.Drawing.Point(352, 371);
+            this.CreateHomeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateHomeButton.Name = "CreateHomeButton";
-            this.CreateHomeButton.Size = new System.Drawing.Size(115, 67);
+            this.CreateHomeButton.Size = new System.Drawing.Size(131, 89);
             this.CreateHomeButton.TabIndex = 51;
             this.CreateHomeButton.Text = "Opret";
             this.CreateHomeButton.UseVisualStyleBackColor = true;
@@ -125,58 +132,66 @@
             // 
             // OfferPriceTextBox
             // 
-            this.OfferPriceTextBox.Location = new System.Drawing.Point(370, 227);
+            this.OfferPriceTextBox.Location = new System.Drawing.Point(423, 303);
+            this.OfferPriceTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OfferPriceTextBox.Name = "OfferPriceTextBox";
-            this.OfferPriceTextBox.Size = new System.Drawing.Size(216, 23);
+            this.OfferPriceTextBox.Size = new System.Drawing.Size(246, 27);
             this.OfferPriceTextBox.TabIndex = 50;
             // 
             // AddresseTextBox
             // 
-            this.AddresseTextBox.Location = new System.Drawing.Point(370, 173);
+            this.AddresseTextBox.Location = new System.Drawing.Point(423, 231);
+            this.AddresseTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddresseTextBox.Name = "AddresseTextBox";
-            this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
+            this.AddresseTextBox.Size = new System.Drawing.Size(246, 27);
             this.AddresseTextBox.TabIndex = 49;
             // 
             // ZipTextBox
             // 
-            this.ZipTextBox.Location = new System.Drawing.Point(370, 119);
+            this.ZipTextBox.Location = new System.Drawing.Point(423, 159);
+            this.ZipTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ZipTextBox.Name = "ZipTextBox";
-            this.ZipTextBox.Size = new System.Drawing.Size(216, 23);
+            this.ZipTextBox.Size = new System.Drawing.Size(246, 27);
             this.ZipTextBox.TabIndex = 48;
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(370, 65);
+            this.CityTextBox.Location = new System.Drawing.Point(423, 87);
+            this.CityTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(216, 23);
+            this.CityTextBox.Size = new System.Drawing.Size(246, 27);
             this.CityTextBox.TabIndex = 47;
             // 
             // RoomsTextBox
             // 
-            this.RoomsTextBox.Location = new System.Drawing.Point(56, 389);
+            this.RoomsTextBox.Location = new System.Drawing.Point(64, 519);
+            this.RoomsTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RoomsTextBox.Name = "RoomsTextBox";
-            this.RoomsTextBox.Size = new System.Drawing.Size(216, 23);
+            this.RoomsTextBox.Size = new System.Drawing.Size(246, 27);
             this.RoomsTextBox.TabIndex = 46;
             // 
             // BuiltTextBox
             // 
-            this.BuiltTextBox.Location = new System.Drawing.Point(56, 335);
+            this.BuiltTextBox.Location = new System.Drawing.Point(64, 447);
+            this.BuiltTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BuiltTextBox.Name = "BuiltTextBox";
-            this.BuiltTextBox.Size = new System.Drawing.Size(216, 23);
+            this.BuiltTextBox.Size = new System.Drawing.Size(246, 27);
             this.BuiltTextBox.TabIndex = 45;
             // 
             // OutAreaTextBox
             // 
-            this.OutAreaTextBox.Location = new System.Drawing.Point(56, 281);
+            this.OutAreaTextBox.Location = new System.Drawing.Point(64, 375);
+            this.OutAreaTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OutAreaTextBox.Name = "OutAreaTextBox";
-            this.OutAreaTextBox.Size = new System.Drawing.Size(216, 23);
+            this.OutAreaTextBox.Size = new System.Drawing.Size(246, 27);
             this.OutAreaTextBox.TabIndex = 44;
             // 
             // InAreaTextBox
             // 
-            this.InAreaTextBox.Location = new System.Drawing.Point(56, 227);
+            this.InAreaTextBox.Location = new System.Drawing.Point(64, 303);
+            this.InAreaTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InAreaTextBox.Name = "InAreaTextBox";
-            this.InAreaTextBox.Size = new System.Drawing.Size(216, 23);
+            this.InAreaTextBox.Size = new System.Drawing.Size(246, 27);
             this.InAreaTextBox.TabIndex = 43;
             // 
             // EnergyComboBox
@@ -192,9 +207,10 @@
             "E",
             "F",
             "G"});
-            this.EnergyComboBox.Location = new System.Drawing.Point(56, 173);
+            this.EnergyComboBox.Location = new System.Drawing.Point(64, 231);
+            this.EnergyComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EnergyComboBox.Name = "EnergyComboBox";
-            this.EnergyComboBox.Size = new System.Drawing.Size(216, 23);
+            this.EnergyComboBox.Size = new System.Drawing.Size(246, 28);
             this.EnergyComboBox.TabIndex = 42;
             // 
             // TypeComboBox
@@ -207,25 +223,27 @@
             "Ideel anpart",
             "Andelsbolig",
             "Lejlighed"});
-            this.TypeComboBox.Location = new System.Drawing.Point(56, 119);
+            this.TypeComboBox.Location = new System.Drawing.Point(64, 159);
+            this.TypeComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TypeComboBox.Name = "TypeComboBox";
-            this.TypeComboBox.Size = new System.Drawing.Size(216, 23);
+            this.TypeComboBox.Size = new System.Drawing.Size(246, 28);
             this.TypeComboBox.TabIndex = 41;
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(56, 65);
+            this.IDTextBox.Location = new System.Drawing.Point(64, 87);
+            this.IDTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(216, 23);
+            this.IDTextBox.Size = new System.Drawing.Size(246, 27);
             this.IDTextBox.TabIndex = 40;
             // 
             // OfferPriceLabel
             // 
             this.OfferPriceLabel.AutoSize = true;
             this.OfferPriceLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OfferPriceLabel.Location = new System.Drawing.Point(370, 199);
+            this.OfferPriceLabel.Location = new System.Drawing.Point(423, 265);
             this.OfferPriceLabel.Name = "OfferPriceLabel";
-            this.OfferPriceLabel.Size = new System.Drawing.Size(94, 21);
+            this.OfferPriceLabel.Size = new System.Drawing.Size(118, 28);
             this.OfferPriceLabel.TabIndex = 39;
             this.OfferPriceLabel.Text = "Udbuds pris";
             // 
@@ -233,9 +251,9 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddressLabel.Location = new System.Drawing.Point(370, 145);
+            this.AddressLabel.Location = new System.Drawing.Point(423, 193);
             this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(65, 21);
+            this.AddressLabel.Size = new System.Drawing.Size(80, 28);
             this.AddressLabel.TabIndex = 38;
             this.AddressLabel.Text = "Adresse";
             // 
@@ -243,9 +261,9 @@
             // 
             this.ZipLabel.AutoSize = true;
             this.ZipLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ZipLabel.Location = new System.Drawing.Point(370, 91);
+            this.ZipLabel.Location = new System.Drawing.Point(423, 121);
             this.ZipLabel.Name = "ZipLabel";
-            this.ZipLabel.Size = new System.Drawing.Size(103, 21);
+            this.ZipLabel.Size = new System.Drawing.Size(127, 28);
             this.ZipLabel.TabIndex = 37;
             this.ZipLabel.Text = "Post nummer";
             // 
@@ -253,9 +271,9 @@
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CityLabel.Location = new System.Drawing.Point(370, 37);
+            this.CityLabel.Location = new System.Drawing.Point(423, 49);
             this.CityLabel.Name = "CityLabel";
-            this.CityLabel.Size = new System.Drawing.Size(27, 21);
+            this.CityLabel.Size = new System.Drawing.Size(33, 28);
             this.CityLabel.TabIndex = 36;
             this.CityLabel.Text = "By";
             // 
@@ -263,9 +281,9 @@
             // 
             this.RoomsLabel.AutoSize = true;
             this.RoomsLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RoomsLabel.Location = new System.Drawing.Point(57, 361);
+            this.RoomsLabel.Location = new System.Drawing.Point(65, 481);
             this.RoomsLabel.Name = "RoomsLabel";
-            this.RoomsLabel.Size = new System.Drawing.Size(79, 21);
+            this.RoomsLabel.Size = new System.Drawing.Size(98, 28);
             this.RoomsLabel.TabIndex = 35;
             this.RoomsLabel.Text = "Antal rum";
             // 
@@ -273,9 +291,9 @@
             // 
             this.BuiltLabel.AutoSize = true;
             this.BuiltLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BuiltLabel.Location = new System.Drawing.Point(56, 307);
+            this.BuiltLabel.Location = new System.Drawing.Point(64, 409);
             this.BuiltLabel.Name = "BuiltLabel";
-            this.BuiltLabel.Size = new System.Drawing.Size(78, 21);
+            this.BuiltLabel.Size = new System.Drawing.Size(100, 28);
             this.BuiltLabel.TabIndex = 34;
             this.BuiltLabel.Text = "År bygget";
             // 
@@ -283,9 +301,9 @@
             // 
             this.OutAreaLabel.AutoSize = true;
             this.OutAreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OutAreaLabel.Location = new System.Drawing.Point(57, 253);
+            this.OutAreaLabel.Location = new System.Drawing.Point(65, 337);
             this.OutAreaLabel.Name = "OutAreaLabel";
-            this.OutAreaLabel.Size = new System.Drawing.Size(76, 21);
+            this.OutAreaLabel.Size = new System.Drawing.Size(95, 28);
             this.OutAreaLabel.TabIndex = 33;
             this.OutAreaLabel.Text = "Ude areal";
             // 
@@ -293,9 +311,9 @@
             // 
             this.InAreaLabel.AutoSize = true;
             this.InAreaLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InAreaLabel.Location = new System.Drawing.Point(57, 199);
+            this.InAreaLabel.Location = new System.Drawing.Point(65, 265);
             this.InAreaLabel.Name = "InAreaLabel";
-            this.InAreaLabel.Size = new System.Drawing.Size(78, 21);
+            this.InAreaLabel.Size = new System.Drawing.Size(97, 28);
             this.InAreaLabel.TabIndex = 32;
             this.InAreaLabel.Text = "Inde areal";
             // 
@@ -303,9 +321,9 @@
             // 
             this.EnergyLabel.AutoSize = true;
             this.EnergyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EnergyLabel.Location = new System.Drawing.Point(57, 145);
+            this.EnergyLabel.Location = new System.Drawing.Point(65, 193);
             this.EnergyLabel.Name = "EnergyLabel";
-            this.EnergyLabel.Size = new System.Drawing.Size(107, 21);
+            this.EnergyLabel.Size = new System.Drawing.Size(133, 28);
             this.EnergyLabel.TabIndex = 31;
             this.EnergyLabel.Text = "Energi mærke";
             // 
@@ -313,9 +331,9 @@
             // 
             this.TypeLabel.AutoSize = true;
             this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TypeLabel.Location = new System.Drawing.Point(57, 91);
+            this.TypeLabel.Location = new System.Drawing.Point(65, 121);
             this.TypeLabel.Name = "TypeLabel";
-            this.TypeLabel.Size = new System.Drawing.Size(42, 21);
+            this.TypeLabel.Size = new System.Drawing.Size(53, 28);
             this.TypeLabel.TabIndex = 30;
             this.TypeLabel.Text = "Type";
             // 
@@ -323,9 +341,9 @@
             // 
             this.IDLabel.AutoSize = true;
             this.IDLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.IDLabel.Location = new System.Drawing.Point(57, 37);
+            this.IDLabel.Location = new System.Drawing.Point(65, 49);
             this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(25, 21);
+            this.IDLabel.Size = new System.Drawing.Size(31, 28);
             this.IDLabel.TabIndex = 29;
             this.IDLabel.Text = "ID";
             // 
@@ -333,24 +351,27 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(300, 268);
+            this.panel1.Location = new System.Drawing.Point(343, 357);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 157);
+            this.panel1.Size = new System.Drawing.Size(430, 209);
             this.panel1.TabIndex = 56;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Location = new System.Drawing.Point(314, 83);
+            this.panel3.Location = new System.Drawing.Point(359, 111);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(86, 95);
+            this.panel3.Size = new System.Drawing.Size(98, 127);
             this.panel3.TabIndex = 28;
             // 
             // MessageboxClearButton
             // 
-            this.MessageboxClearButton.Location = new System.Drawing.Point(56, 419);
+            this.MessageboxClearButton.Location = new System.Drawing.Point(64, 559);
+            this.MessageboxClearButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MessageboxClearButton.Name = "MessageboxClearButton";
-            this.MessageboxClearButton.Size = new System.Drawing.Size(98, 23);
+            this.MessageboxClearButton.Size = new System.Drawing.Size(112, 31);
             this.MessageboxClearButton.TabIndex = 57;
             this.MessageboxClearButton.Text = "Slet alt tekst";
             this.MessageboxClearButton.UseVisualStyleBackColor = true;
@@ -358,10 +379,10 @@
             // 
             // BoligForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(733, 483);
+            this.ClientSize = new System.Drawing.Size(838, 644);
             this.Controls.Add(this.MessageboxClearButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DeleteHomeButton);
@@ -393,6 +414,7 @@
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "BoligForm";
             this.Text = "BoligForm";
             this.panel1.ResumeLayout(false);
