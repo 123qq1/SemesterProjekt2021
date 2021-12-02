@@ -624,13 +624,15 @@ namespace SemesterProjekt2021
             return UpdateBolig(b);
         }
 
-        public static Result LinkBuyer(int boligId, int buyerId)
+        public static Result SellBolig(int boligId, int buyerId, int sellingPrice, string soldDate)
         {
             Bolig b = new Bolig();
 
             b.Id = boligId;
 
             b.BuyerId = buyerId;
+            b.SellingPrice = sellingPrice;
+            b.SoldDate = soldDate;
 
             return UpdateBolig(b);
         }
