@@ -18,7 +18,7 @@ namespace SemesterProjekt2021
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             LayeredTestForm entry = new LayeredTestForm();
-            Application.Run(new LayeredTestForm());
+            Application.Run(new TestPrice());
 
         
         }
