@@ -101,6 +101,13 @@ namespace SemesterProjekt2021
             RealtorIDTooltip.ShowAlways = true;
             RealtorIDTooltip.SetToolTip(this.RealtorTextbox, "Indtast ID på ejendomsmælgeren der administrerer boligen");
 
+            ToolTip SellerTooltip = new ToolTip(); // SÆLGER ID TEXTBOX TOOLTIP
+            SellerTooltip.AutoPopDelay = 0;
+            SellerTooltip.InitialDelay = 0;
+            SellerTooltip.ReshowDelay = 100;
+            SellerTooltip.ShowAlways = true;
+            SellerTooltip.SetToolTip(this.SellerIDTextbox, "Indtast ID på person der sælger boligen");
+
             ToolTip CreateTooltip= new ToolTip(); // OPRET BUTTON TOOLTIP
             CreateTooltip.AutoPopDelay = 0;
             CreateTooltip.InitialDelay = 0;
@@ -431,6 +438,8 @@ namespace SemesterProjekt2021
             ZipTextBox.Clear();
             AddresseTextBox.Clear();
             OfferPriceTextBox.Clear();
+            RealtorTextbox.Clear();
+            SellerIDTextbox.Clear();
             ActiveCheckbox.Checked = false;
         }
 
