@@ -380,6 +380,9 @@ namespace SemesterProjekt2021
             CityTextBox.Clear();
             ZipTextBox.Clear();
             AddresseTextBox.Clear();
+            BuyerCheckbox.Checked = false;
+            SellerCheckbox.Checked = false;
+            RealtorCheckbox.Checked = false;
         }
     }
 }
