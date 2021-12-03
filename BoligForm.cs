@@ -438,15 +438,8 @@ namespace SemesterProjekt2021
                 }
                 else
                 {
-                    if (b.Id.ToString() == null)
-                    {
-                        MessageBox.Show("Bolig ID findes ikke, heckin' mongoos"); // virker ikke maybe im mongoos sad
-                    }
-                    else
-                    {
-                        sælgBolig sælgBolig = new sælgBolig(boligId);
-                        sælgBolig.Show();
-                    }
+                    sælgBolig sælgBolig = new sælgBolig(boligId);
+                    sælgBolig.Show();
                 }
             }
         }

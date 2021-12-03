@@ -63,7 +63,7 @@ namespace SemesterProjekt2021
             }
             else
             {
-                if (p.IsSælger == true)
+                if (p.IsKøber)
                 {
                     InputValidation.Result r5 = DatabaseAccessor.SellBolig(boligId, buyerId, soldPrice, dt.ToString());
                     if (r5.Error)
