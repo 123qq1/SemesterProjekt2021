@@ -429,21 +429,25 @@ namespace SemesterProjekt2021
         private void SoldHomeButton_Click(object sender, EventArgs e)
         {
             string bIds = IDTextBox.Text;
-            InputValidation.Result r = InputValidation.Generic.ID(bIds);
-            if (r.Error)
+            InputValidation.Result r1 = InputValidation.Generic.ID(bIds);
+            if (r1.Error)
             {
-                MessageBox.Show(r.Message);
+                MessageBox.Show(r1.Message);
             }
             else
             {
-                if (true)  // Hvis bolig id ikke findes. 
+                int boligId = Convert.ToInt32(bIds);
+                Bolig b = new Bolig();
+
+                InputValidation.Result r2 = DatabaseAccessor.ReadBolig(boligId, ref b);
+
+                if (r2.Error)
                 {
-                    MessageBox.Show("Bolig Id findes ikke.");
+                    MessageBox.Show(r2.Message);
                 }
                 else
                 {
-                    int bId = Convert.ToInt32(IDTextBox.Text);
-                    sælgBolig sælgBolig = new sælgBolig(bId);
+                    sælgBolig sælgBolig = new sælgBolig(boligId);
                     sælgBolig.Show();
                 }
             }
