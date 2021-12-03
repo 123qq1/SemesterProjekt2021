@@ -344,7 +344,7 @@ namespace SemesterProjekt2021
             {
                 sqlString = sqlString.Remove(sqlString.Length - 2);
 
-                sqlString += " WHERE ID = @BID;";
+                sqlString += " WHERE ID = @ID;";
                 MessageBox.Show(sqlString);
 
                 currentCommand.CommandText = sqlString;
@@ -676,6 +676,7 @@ namespace SemesterProjekt2021
             b.SellingPrice = sellingPrice;
             b.SoldDate = soldDate;
             b.IsSold = true;
+            b.Active = false;
 
             return UpdateBolig(b);
         }
