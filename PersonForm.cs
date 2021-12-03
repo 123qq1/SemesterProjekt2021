@@ -207,9 +207,14 @@ namespace SemesterProjekt2021
             if (!r.Error)
                 p.Address = AddresseTextBox.Text;
 
-            p.IsEjendomsmælger = false;
-            p.IsKøber = true;
-            p.IsSælger = true;
+            if (RealtorCheckbox.Checked == true) 
+                p.IsEjendomsmælger = true;
+
+            if (BuyerCheckbox.Checked == true)
+                p.IsKøber = true;
+
+            if (SellerCheckbox.Checked == true)
+                p.IsSælger = true;
 
             if (success)
             {
@@ -241,12 +246,28 @@ namespace SemesterProjekt2021
 
             if (i != 0)
             {
-                Result r2 = DatabaseAccessor.ReadPerson(i, ref p);
-                if (!r2.Error)
-                    MessageBox.Show($"Id: {p.ID}.\nfName: {p.FName}.\nAdresse: {p.Address}");
-            }
+                r = DatabaseAccessor.ReadPerson(i, ref p);
+                if (!r.Error)
+                {
+                    CPRTextBox.Text = p.CPR.ToString();
+                    EmailTextBox.Text = p.Email;
+                    PhoneNumberTextBox.Text = p.PhoneNr.ToString();
+                    FNameTextBox.Text = p.FName;
+                    LNameTextBox.Text = p.LName;
+                    CityTextBox.Text = p.City;
+                    ZipTextBox.Text = p.Zip.ToString();
+                    AddresseTextBox.Text = p.Address;
 
-            IDTextBox.Clear();
+                    if (p.IsEjendomsmælger)
+                        RealtorCheckbox.Checked = true;
+
+                    if (p.IsKøber)
+                        BuyerCheckbox.Checked = true;
+
+                    if (p.IsSælger)
+                        SellerCheckbox.Checked = true;
+                }
+            }
         }
 
         private void UpdatePersonButton_Click(object sender, EventArgs e)
@@ -305,6 +326,15 @@ namespace SemesterProjekt2021
             r = InputValidation.Generic.Address(AddresseTextBox.Text);
             if (!r.Error)
                 p.Address = AddresseTextBox.Text;
+
+            if (RealtorCheckbox.Checked == true)
+                p.IsEjendomsmælger = true;
+
+            if (BuyerCheckbox.Checked == true)
+                p.IsKøber = true;
+
+            if (SellerCheckbox.Checked == true)
+                p.IsSælger = true;
 
             // Send to DAL if conditions met
             if (success)

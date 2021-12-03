@@ -13,6 +13,9 @@ namespace SemesterProjekt2021
 
             PhoneNr = -1;
             Zip = -1;
+            IsEjendomsmælger = false;
+            IsKøber = false;
+            IsSælger = false;
 
         }
         public int ID { get; set; }

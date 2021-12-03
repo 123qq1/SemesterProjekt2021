@@ -266,12 +266,21 @@ namespace SemesterProjekt2021
 
             if (i != 0)
             {
-                Result r2 = DatabaseAccessor.ReadBolig(i, ref b);
+                r = DatabaseAccessor.ReadBolig(i, ref b);
                 if (!r.Error)
-                    MessageBox.Show($"Id: {b.Id}.\nRealtorId: {b.RealtorId}.\nAdresse: {b.Address}");
+                {
+                    TypeComboBox.Text = b.Type;
+                    EnergyComboBox.Text = b.EnergyLabels;
+                    InAreaTextBox.Text = b.InArea.ToString();
+                    OutAreaTextBox.Text = b.OutArea.ToString();
+                    BuiltTextBox.Text = b.Built.ToString();
+                    RoomsTextBox.Text = b.Rooms.ToString();
+                    CityTextBox.Text = b.City;
+                    ZipTextBox.Text = b.Zip.ToString();
+                    AddresseTextBox.Text = b.Address;
+                    OfferPriceTextBox.Text = b.OfferPrice.ToString();
+                }
             }
-
-            IDTextBox.Clear();
         }
 
         private void UpdateHomeButton_Click(object sender, EventArgs e)
