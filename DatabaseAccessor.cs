@@ -129,6 +129,7 @@ namespace SemesterProjekt2021
                 res.Error = true;
                 res.Type = " Multiple ID's";
                 res.Message = "ID already exists";
+                return res;
             }
 
             string sqlStringF = "INSERT INTO Bolig (";
@@ -261,19 +262,26 @@ namespace SemesterProjekt2021
 
                 object[] objs = new object[reader.FieldCount];
 
-                reader.Read();
-                reader.GetValues(objs);
-
-                Type type = b.GetType();
-                PropertyInfo[] props = type.GetProperties();
-                int i = 0;
-                foreach (PropertyInfo p in props)
+                if (reader.Read())
                 {
-                    if (objs[i].GetType() != typeof(DBNull))
-                        p.SetValue(b, objs[i]);
-                    i++;
-                }
+                    reader.GetValues(objs);
 
+                    Type type = b.GetType();
+                    PropertyInfo[] props = type.GetProperties();
+                    int i = 0;
+                    foreach (PropertyInfo p in props)
+                    {
+                        if (objs[i].GetType() != typeof(DBNull))
+                            p.SetValue(b, objs[i]);
+                        i++;
+                    }
+                }
+                else
+                {
+                    res.Error = true;
+                    res.Message = "Bolig with ID not found";
+                    res.Type = "IDNotFound";
+                }
                 reader.Close();
                 currentConnection.Close();
             }
@@ -292,7 +300,9 @@ namespace SemesterProjekt2021
             currentCommand = new SqlCommand("", currentConnection);
 
             Bolig dBolig = new Bolig();
-            ReadBolig(b.Id, ref dBolig);
+            Result readRes = ReadBolig(b.Id, ref dBolig);
+            if (readRes.Error) return readRes;
+
 
             Type type = b.GetType();
             PropertyInfo[] props = type.GetProperties();
@@ -509,17 +519,25 @@ namespace SemesterProjekt2021
 
                 object[] objs = new object[reader.FieldCount];
 
-                reader.Read();
-                reader.GetValues(objs);
-
-                Type type = p.GetType();
-                PropertyInfo[] props = type.GetProperties();
-                int i = 0;
-                foreach (PropertyInfo prop in props)
+                if (reader.Read())
                 {
-                    if (objs[i].GetType() != typeof(DBNull))
-                        prop.SetValue(p, objs[i]);
-                    i++;
+                    reader.GetValues(objs);
+
+                    Type type = p.GetType();
+                    PropertyInfo[] props = type.GetProperties();
+                    int i = 0;
+                    foreach (PropertyInfo prop in props)
+                    {
+                        if (objs[i].GetType() != typeof(DBNull))
+                            prop.SetValue(p, objs[i]);
+                        i++;
+                    }
+                }
+                else
+                {
+                    res.Error = true;
+                    res.Message = "Person with ID not found";
+                    res.Type = "IDNotFound";
                 }
                 reader.Close();
                 currentConnection.Close();
@@ -539,7 +557,8 @@ namespace SemesterProjekt2021
             currentCommand = new SqlCommand("", currentConnection);
 
             Person dPerson = new Person();
-            ReadPerson(p.ID, ref dPerson);
+            Result readRes = ReadPerson(p.ID, ref dPerson);
+            if (readRes.Error) return readRes;
 
             Type type = p.GetType();
             PropertyInfo[] props = type.GetProperties();
