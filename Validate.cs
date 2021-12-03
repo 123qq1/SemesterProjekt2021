@@ -55,7 +55,7 @@ namespace InputValidation
 
         // Bolig
         public static string boligType = @"(?!\s*$)(^[A-Ø a-ø.]+)([A-Øa-ø]+$)";
-        public static string energyLabel = @"(?!\s*$)([A-F])([+]?){1,2}$";
+        public static string energyLabel = @"(?!\s*$)([A-G])([+]?){1,2}$";
 
         // Person
         public static string cpr = @"(?!\s*$)^(([\d][\d][\d][\d][\d][\d])([ -])?([\d][\d][\d][\d]))";
