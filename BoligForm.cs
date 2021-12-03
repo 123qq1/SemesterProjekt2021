@@ -143,6 +143,13 @@ namespace SemesterProjekt2021
             DeleteAllTooltip.ShowAlways = true;
             DeleteAllTooltip.SetToolTip(this.MessageboxClearButton, "Sletter alt indtastet information i tekstbokse");
 
+            ToolTip ActiveTooltip= new ToolTip(); // AKTIV CHECKBOX TOOLTIP
+            ActiveTooltip.AutoPopDelay = 0;
+            ActiveTooltip.InitialDelay = 0;
+            ActiveTooltip.ReshowDelay = 100;
+            ActiveTooltip.ShowAlways = true;
+            ActiveTooltip.SetToolTip(this.ActiveCheckbox, "Markerer om boligen er på markedet");
+
 
 
 
@@ -424,6 +431,7 @@ namespace SemesterProjekt2021
             ZipTextBox.Clear();
             AddresseTextBox.Clear();
             OfferPriceTextBox.Clear();
+            ActiveCheckbox.Checked = false;
         }
 
         private void SoldHomeButton_Click(object sender, EventArgs e)
