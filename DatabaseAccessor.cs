@@ -279,7 +279,7 @@ namespace SemesterProjekt2021
                 else
                 {
                     res.Error = true;
-                    res.Message = "Bolig with ID not found";
+                    res.Message = "Bolig with ID not found. Try Create instead.";
                     res.Type = "IDNotFound";
                 }
                 reader.Close();
@@ -367,7 +367,7 @@ namespace SemesterProjekt2021
             else
             {
                 res.Error = true;
-                res.Message = "No information given beyond ID";
+                res.Message = "No new information given.";
                 res.Type = "LackingData";
             }
             return res;
