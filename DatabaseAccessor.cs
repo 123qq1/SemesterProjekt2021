@@ -15,10 +15,11 @@ namespace SemesterProjekt2021
     {
 
         private static SqlConnection currentConnection;
-        private static string currentString;
         private static bool connected;
         private static SqlCommand currentCommand;
         private static List<int> usedBoligIDs;
+        private static List<int> usedPersonIDs;
+        private static List<long> usedPersonCPRs;
 
         public static Result ConnectToDatabase(string dbName)
         {
@@ -30,15 +31,14 @@ namespace SemesterProjekt2021
 
             string sqlString = "SELECT ID FROM Bolig;";
             usedBoligIDs = new List<int>();
+            usedPersonIDs = new List<int>();
+            usedPersonCPRs = new List<long>();
 
             try
             {
                 currentConnection.Open();
                 currentCommand = new SqlCommand("", currentConnection);
                 currentCommand.CommandText = sqlString;
-
-                currentString = strconn;
-
 
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
@@ -55,18 +55,63 @@ namespace SemesterProjekt2021
                 r.Message = e.Message;
                 r.Type = e.GetType().ToString();
                 r.Error = true;
-                throw;
             }
 
+            try
+            {
+                currentConnection.Open();
+                sqlString = "SELECT ID FROM Person;";
+                currentCommand = new SqlCommand(sqlString, currentConnection);
+                currentCommand.CommandText = "SELECT ID FROM Person;";
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usedPersonIDs.Add(reader.GetInt32(0));
+                }
+
+                currentConnection.Close();
+            }
+            catch (Exception e)
+            {
+                r.Message = e.Message;
+                r.Type = e.GetType().ToString();
+                r.Error = true;
+            }
+
+            try
+            {
+                currentConnection.Open();
+                currentCommand = new SqlCommand("", currentConnection);
+                currentCommand.CommandText = "SELECT CPR FROM Person;";
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usedPersonCPRs.Add(reader.GetInt64(0));
+                }
+
+                currentConnection.Close();
+            }
+            catch (Exception e)
+            {
+                r.Message = e.Message;
+                r.Type = e.GetType().ToString();
+                r.Error = true;
+            }
+
+            /*
             string s = "";
 
-            for (int i = 0; i < usedBoligIDs.Count; i++)
+            for (int i = 0; i < usedPersonCPRs.Count; i++)
             {
-                s += usedBoligIDs[i] + " ";
+                s += usedPersonCPRs[i] + "\n";
             }
 
 
             MessageBox.Show(s);
+            */
+
             connected = !r.Error;
             return r;
         }
@@ -396,8 +441,21 @@ namespace SemesterProjekt2021
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
-            // if (usedIDs.Contains(b.Id)) return false;
-            // if (usedCPRs.Contain(p.CPR)) return false;
+            if (usedPersonIDs.Contains(p.ID))
+            {
+                res.Error = true;
+                res.Type = " Multiple ID's";
+                res.Message = "ID already exists";
+                return res;
+            }
+
+            if (usedPersonCPRs.Contains(p.CPR))
+            {
+                res.Error = true;
+                res.Type = " Multiple CPR's";
+                res.Message = "CPR already exists";
+                return res;
+            }
 
             string sqlStringF = "INSERT INTO Person (";
             string sqlStringL = ") VALUES (";

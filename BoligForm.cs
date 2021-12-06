@@ -253,7 +253,7 @@ namespace SemesterProjekt2021
                 if (!r2.Error) 
                     MessageBox.Show("Success!");
                 else
-                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                    MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
         }
 
