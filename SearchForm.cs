@@ -226,8 +226,8 @@ namespace SemesterProjekt2021
                         {
                             if (p.IsSælger && (p.ID == c.SellerId))
                             {
-                                output = output + (c.Address + "," + c.City) + "\n"
-                                + p.ID + ", " + p.FName + " " + p.LName;
+                                output = output + ("Bolig ID: " + c.Id + ", Address: " + c.Address + ", City: " + c.City + ", PostNr: " + c.Zip) + "\n"
+                                + "Boligen tilhøre sælger: " + p.ID + ", Fornavn: " + p.FName + ", Efternavn: " + p.LName + "\n\n";
                             }
                         }
                     }
