@@ -668,5 +668,10 @@ namespace SemesterProjekt2021
             else
                 MessageBox.Show("Cannot calculate price without valid input for InArea, OutArea and Rooms.");
         }
+
+        private void ValidBoligID_Click(object sender, EventArgs e)
+        {
+            IDTextBox.Text = DatabaseAccessor.ValidBoligID().ToString();
+        }
     }
 }

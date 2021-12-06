@@ -63,6 +63,7 @@
             this.ActiveCheckbox = new System.Windows.Forms.CheckBox();
             this.SellerLabel = new System.Windows.Forms.Label();
             this.SellerIDTextbox = new System.Windows.Forms.TextBox();
+            this.ValidBoligID = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,7 +216,7 @@
             // 
             this.IDTextBox.Location = new System.Drawing.Point(16, 42);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(216, 23);
+            this.IDTextBox.Size = new System.Drawing.Size(139, 23);
             this.IDTextBox.TabIndex = 40;
             // 
             // OfferPriceLabel
@@ -401,10 +402,20 @@
             // 
             // SellerIDTextbox
             // 
-            this.SellerIDTextbox.Location = new System.Drawing.Point(297, 289);
+            this.SellerIDTextbox.Location = new System.Drawing.Point(297, 288);
             this.SellerIDTextbox.Name = "SellerIDTextbox";
             this.SellerIDTextbox.Size = new System.Drawing.Size(216, 23);
             this.SellerIDTextbox.TabIndex = 53;
+            // 
+            // ValidBoligID
+            // 
+            this.ValidBoligID.Location = new System.Drawing.Point(157, 42);
+            this.ValidBoligID.Name = "ValidBoligID";
+            this.ValidBoligID.Size = new System.Drawing.Size(75, 23);
+            this.ValidBoligID.TabIndex = 61;
+            this.ValidBoligID.Text = "Valid ID";
+            this.ValidBoligID.UseVisualStyleBackColor = true;
+            this.ValidBoligID.Click += new System.EventHandler(this.ValidBoligID_Click);
             // 
             // BoligForm
             // 
@@ -412,6 +423,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(700, 500);
+            this.Controls.Add(this.ValidBoligID);
             this.Controls.Add(this.SellerIDTextbox);
             this.Controls.Add(this.SellerLabel);
             this.Controls.Add(this.ActiveCheckbox);
@@ -489,5 +501,6 @@
         private System.Windows.Forms.Button PriceEvalButton;
         private System.Windows.Forms.Label SellerLabel;
         private System.Windows.Forms.TextBox SellerIDTextbox;
+        private System.Windows.Forms.Button ValidBoligID;
     }
 }

@@ -55,6 +55,7 @@
             this.BuyerCheckbox = new System.Windows.Forms.CheckBox();
             this.SellerCheckbox = new System.Windows.Forms.CheckBox();
             this.RealtorCheckbox = new System.Windows.Forms.CheckBox();
+            this.ValidPersonID = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DeletePersonButton
@@ -124,7 +125,7 @@
             // 
             // LNameTextBox
             // 
-            this.LNameTextBox.Location = new System.Drawing.Point(17, 292);
+            this.LNameTextBox.Location = new System.Drawing.Point(16, 292);
             this.LNameTextBox.Name = "LNameTextBox";
             this.LNameTextBox.Size = new System.Drawing.Size(216, 23);
             this.LNameTextBox.TabIndex = 43;
@@ -145,9 +146,9 @@
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(16, 42);
+            this.IDTextBox.Location = new System.Drawing.Point(17, 42);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(216, 23);
+            this.IDTextBox.Size = new System.Drawing.Size(139, 23);
             this.IDTextBox.TabIndex = 38;
             // 
             // AddressLabel
@@ -302,12 +303,23 @@
             this.RealtorCheckbox.Text = "Ejendomsmælger";
             this.RealtorCheckbox.UseVisualStyleBackColor = true;
             // 
+            // ValidPersonID
+            // 
+            this.ValidPersonID.Location = new System.Drawing.Point(157, 42);
+            this.ValidPersonID.Name = "ValidPersonID";
+            this.ValidPersonID.Size = new System.Drawing.Size(75, 23);
+            this.ValidPersonID.TabIndex = 57;
+            this.ValidPersonID.Text = "Valid ID";
+            this.ValidPersonID.UseVisualStyleBackColor = true;
+            this.ValidPersonID.Click += new System.EventHandler(this.ValidPersonID_Click);
+            // 
             // PersonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(700, 500);
+            this.Controls.Add(this.ValidPersonID);
             this.Controls.Add(this.RealtorCheckbox);
             this.Controls.Add(this.SellerCheckbox);
             this.Controls.Add(this.BuyerCheckbox);
@@ -372,5 +384,6 @@
         private System.Windows.Forms.CheckBox BuyerCheckbox;
         private System.Windows.Forms.CheckBox SellerCheckbox;
         private System.Windows.Forms.CheckBox RealtorCheckbox;
+        private System.Windows.Forms.Button ValidPersonID;
     }
 }

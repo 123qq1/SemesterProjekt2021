@@ -488,5 +488,10 @@ namespace SemesterProjekt2021
                     break;
             }
         }
+
+        private void ValidPersonID_Click(object sender, EventArgs e)
+        {
+            IDTextBox.Text = DatabaseAccessor.ValidPersonID().ToString();
+        }
     }
 }
