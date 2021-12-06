@@ -218,10 +218,21 @@ namespace SemesterProjekt2021
                 }
                 else
                 {
+                    string output = "";
+
                     foreach (Bolig c in boligs)
                     {
-                        MessageBox.Show(c.Address + "," + c.City);
+                        foreach (Person p in ps)
+                        {
+                            if (p.IsSælger && (p.ID == c.SellerId))
+                            {
+                                output = output + (c.Address + "," + c.City) + "\n"
+                                + p.ID + ", " + p.FName + " " + p.LName;
+                            }
+                        }
                     }
+
+                    MessageBox.Show(output);
                 }
             }
         }
