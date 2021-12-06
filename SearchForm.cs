@@ -190,7 +190,7 @@ namespace SemesterProjekt2021
                     }
                 }
 
-                List<Bolig>[] boligList = new List<Bolig>[i];
+                List<Bolig>[] boligList = new List<Bolig>[i + 1];
                 for (int j = 0; j < boligList.Length; j++)
                 {
                     boligList[j] = new List<Bolig>();
