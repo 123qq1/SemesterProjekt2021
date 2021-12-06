@@ -348,6 +348,7 @@
             this.PriceEvalButton.TabIndex = 59;
             this.PriceEvalButton.Text = "Vurder";
             this.PriceEvalButton.UseVisualStyleBackColor = true;
+            this.PriceEvalButton.Click += new System.EventHandler(this.PriceEvalButton_Click);
             // 
             // MessageboxClearButton
             // 

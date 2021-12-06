@@ -149,63 +149,56 @@ namespace SemesterProjekt2021
             */
 
             bool success = true;
+            bool subsuccess = true;
             Person p = new Person();
             Result r = null;
+            string text = null;
 
             // Validate ID
-            r = InputValidation.Generic.ID(IDTextBox.Text);
-            if (!r.Error)
-                p.ID = Convert.ToInt32(IDTextBox.Text);
-            else
-            {
-                MessageBox.Show(r.Message);
-                success = false;
-            }
+            text = IDTextBox.Text;
+            if (!Validate(p, text, "ID"))
+                subsuccess = false;
+            
 
             // Validate CPR
-            r = InputValidation.Person.CPR(CPRTextBox.Text);
-            if (!r.Error)
-                p.CPR = Convert.ToInt64(CPRTextBox.Text);
-            else
-            {
-                MessageBox.Show(r.Message);
-                success = false;
-            }
+            text = CPRTextBox.Text;
+            if (!Validate(p, text, "CPR"))
+                subsuccess = false;
 
             // Validate Email
-            r = InputValidation.Person.Email(EmailTextBox.Text);
-            if (!r.Error)
-                p.Email = EmailTextBox.Text;
+            text = EmailTextBox.Text;
+            if (!Validate(p, text, "Email"))
+                success = false;
 
             // Validate PhoneNr
-            r = InputValidation.Person.PhoneNr(PhoneNumberTextBox.Text);
-            if (!r.Error)
-                p.PhoneNr = Convert.ToInt32(PhoneNumberTextBox.Text);
+            text = PhoneNumberTextBox.Text;
+            if (!Validate(p, text, "PhoneNr"))
+                success = false;
 
             // Validate fName
-            r = InputValidation.Person.Name(FNameTextBox.Text);
-            if (!r.Error)
-                p.FName = FNameTextBox.Text;
+            text = FNameTextBox.Text;
+            if (!Validate(p, text, "FName"))
+                success = false;
 
             // Validate lNane
-            r = InputValidation.Person.Name(LNameTextBox.Text);
-            if (!r.Error)
-                p.LName = LNameTextBox.Text;
+            text = LNameTextBox.Text;
+            if (!Validate(p, text, "LName"))
+                success = false;
 
             // Validate City
-            r = InputValidation.Generic.City(CityTextBox.Text);
-            if (!r.Error)
-                p.City = CityTextBox.Text;
+            text = CityTextBox.Text;
+            if (!Validate(p, text, "City"))
+                success = false;
 
             // Validate ZIP
-            r = InputValidation.Generic.Zip(ZipTextBox.Text);
-            if (!r.Error)
-                p.Zip = Convert.ToInt32(ZipTextBox.Text);
+            text = ZipTextBox.Text;
+            if (!Validate(p, text, "ZIP"))
+                success = false;
 
             // Validate Address
-            r = InputValidation.Generic.Address(AddresseTextBox.Text);
-            if (!r.Error)
-                p.Address = AddresseTextBox.Text;
+            text = AddresseTextBox.Text;
+            if (!Validate(p, text, "Address"))
+                success = false;
 
             if (RealtorCheckbox.Checked == true) 
                 p.IsEjendomsmælger = true;
@@ -216,15 +209,17 @@ namespace SemesterProjekt2021
             if (SellerCheckbox.Checked == true)
                 p.IsSælger = true;
 
-            if (success)
+            if (success && subsuccess)
             {
-                Result r2 = DatabaseAccessor.CreatePerson(p);
-                if (r2.Error) MessageBox.Show("COULD NOT CREATE BOLIG!");
-                else
+                r = DatabaseAccessor.CreatePerson(p);
+                if (!r.Error)
                     MessageBox.Show("Succes!");
+                else
+                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
-            else
-                MessageBox.Show("Cannot create Person without valid ID and CPR.");
+            else if (success && !subsuccess)
+                MessageBox.Show("Cannot create Person without a valid ID and CPR.");
+            
         }
 
         private void ReadHomeButton_Click(object sender, EventArgs e)
@@ -257,15 +252,9 @@ namespace SemesterProjekt2021
                     CityTextBox.Text = p.City;
                     ZipTextBox.Text = p.Zip.ToString();
                     AddresseTextBox.Text = p.Address;
-
-                    if (p.IsEjendomsmælger)
-                        RealtorCheckbox.Checked = true;
-
-                    if (p.IsKøber)
-                        BuyerCheckbox.Checked = true;
-
-                    if (p.IsSælger)
-                        SellerCheckbox.Checked = true;
+                    RealtorCheckbox.Checked = p.IsEjendomsmælger;
+                    SellerCheckbox.Checked = p.IsSælger;
+                    BuyerCheckbox.Checked = p.IsKøber;
                 }
             }
         }
@@ -281,51 +270,47 @@ namespace SemesterProjekt2021
             Person p = new Person();
             Result r = null;
             bool success = true;
+            string text = null;
 
             // Validate ID
-            r = InputValidation.Generic.ID(IDTextBox.Text);
-            if (!r.Error)
-                p.ID = Convert.ToInt32(IDTextBox.Text);
-            else
-            {
-                MessageBox.Show(r.Message);
+            text = IDTextBox.Text;
+            if (!Validate(p, text, "ID"))
                 success = false;
-            }
 
             // Validate Email
-            r = InputValidation.Person.Email(EmailTextBox.Text);
-            if (!r.Error)
-                p.Email = EmailTextBox.Text;
+            text = EmailTextBox.Text;
+            if (!Validate(p, text, "Email"))
+                success = false;
 
             // Validate PhoneNr
-            r = InputValidation.Person.PhoneNr(PhoneNumberTextBox.Text);
-            if (!r.Error)
-                p.PhoneNr = Convert.ToInt32(PhoneNumberTextBox.Text);
+            text = PhoneNumberTextBox.Text;
+            if (!Validate(p, text, "PhoneNr"))
+                success = false;
 
             // Validate fName
-            r = InputValidation.Person.Name(FNameTextBox.Text);
-            if (!r.Error && FNameTextBox.Text != "")
-                p.FName = FNameTextBox.Text;
+            text = FNameTextBox.Text;
+            if (!Validate(p, text, "FName"))
+                success = false;
 
             // Validate lNane
-            r = InputValidation.Person.Name(LNameTextBox.Text);
-            if (!r.Error && LNameTextBox.Text != "")
-                p.LName = LNameTextBox.Text;
+            text = LNameTextBox.Text;
+            if (!Validate(p, text, "LName"))
+                success = false;
 
             // Validate City
-            r = InputValidation.Generic.City(CityTextBox.Text);
-            if (!r.Error)
-                p.City = CityTextBox.Text;
+            text = CityTextBox.Text;
+            if (!Validate(p, text, "City"))
+                success = false;
 
             // Validate ZIP
-            r = InputValidation.Generic.Zip(ZipTextBox.Text);
-            if (!r.Error)
-                p.Zip = Convert.ToInt32(ZipTextBox.Text);
+            text = ZipTextBox.Text;
+            if (!Validate(p, text, "ZIP"))
+                success = false;
 
             // Validate Address
-            r = InputValidation.Generic.Address(AddresseTextBox.Text);
-            if (!r.Error)
-                p.Address = AddresseTextBox.Text;
+            text = AddresseTextBox.Text;
+            if (!Validate(p, text, "Address"))
+                success = false;
 
             if (RealtorCheckbox.Checked == true)
                 p.IsEjendomsmælger = true;
@@ -345,8 +330,6 @@ namespace SemesterProjekt2021
                 else
                     MessageBox.Show("Error in DAL");
             }
-            else
-                MessageBox.Show("ID not valid. Can't update a Bolig without a valid ID.");
         }
 
         private void DeletePersonButton_Click(object sender, EventArgs e)
@@ -383,6 +366,127 @@ namespace SemesterProjekt2021
             BuyerCheckbox.Checked = false;
             SellerCheckbox.Checked = false;
             RealtorCheckbox.Checked = false;
+        }
+
+        private bool Validate(Person p, string text, string type)
+        {
+            bool output = true;
+            Result r = null;
+
+            if (type != "ID" && text != "")
+            {
+                r = VbyType(text, type);
+                if (!r.Error)
+                    AssertByType(p, text, type);
+                else
+                {
+                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                    output = false;
+                }
+            }
+            else if ((type == "ID" || type == "CPR") && text != "")
+            {
+                r = VbyType(text, type);
+                if (!r.Error)
+                    AssertByType(p, text, type);
+                else
+                {
+                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                    output = false;
+                }
+            }
+            else if ((type == "ID" || type == "CPR") && text == "")
+                output = false;
+
+            return output;
+        }
+
+        private Result VbyType(string text, string type)
+        {
+            Result r = null;
+
+            switch (type)
+            {
+                case "ID":
+                    r = InputValidation.Generic.ID(text);
+                    break;
+
+                case "CPR":
+                    r = InputValidation.Person.CPR(text);
+                    break;
+
+                case "Email":
+                    r = InputValidation.Person.Email(text);
+                    break;
+
+                case "PhoneNr":
+                    r = InputValidation.Person.PhoneNr(text);
+                    break;
+
+                case "FName":
+                    r = InputValidation.Person.Name(text);
+                    break;
+
+                case "LName":
+                    r = InputValidation.Person.Name(text);
+                    break;
+
+                case "City":
+                    r = InputValidation.Generic.City(text);
+                    break;
+
+                case "ZIP":
+                    r = InputValidation.Generic.Zip(text);
+                    break;
+
+                case "Address":
+                    r = InputValidation.Generic.Address(text);
+                    break;
+            }
+
+            return r;
+        }
+
+        private void AssertByType(Person p, string text, string type)
+        {
+            switch (type)
+            {
+                case "ID":
+                    p.ID = Convert.ToInt32(text);
+                    break;
+
+                case "CPR":
+                    p.CPR = Convert.ToInt64(text);
+                    break;
+
+                case "Email":
+                    p.Email = text;
+                    break;
+
+                case "PhoneNr":
+                    p.PhoneNr = Convert.ToInt32(text);
+                    break;
+
+                case "FName":
+                    p.FName = text;
+                    break;
+
+                case "LName":
+                    p.LName = text;
+                    break;
+
+                case "City":
+                    p.City = text;
+                    break;
+
+                case "ZIP":
+                    p.Zip = Convert.ToInt32(text);
+                    break;
+
+                case "Address":
+                    p.Address = text;
+                    break;
+            }
         }
     }
 }
