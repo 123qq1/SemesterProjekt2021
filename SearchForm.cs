@@ -189,7 +189,13 @@ namespace SemesterProjekt2021
                         i = (int)MathF.Max(i, p.ID);
                     }
                 }
+
                 List<Bolig>[] boligList = new List<Bolig>[i];
+                for (int j = 0; j < boligList.Length; j++)
+                {
+                    boligList[j] = new List<Bolig>();
+                }
+
                 List<Bolig> boligs = new List<Bolig>(); 
                 foreach (Bolig b in bs)
                 {
