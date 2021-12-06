@@ -60,7 +60,7 @@
             // DeletePersonButton
             // 
             this.DeletePersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeletePersonButton.Location = new System.Drawing.Point(412, 289);
+            this.DeletePersonButton.Location = new System.Drawing.Point(466, 291);
             this.DeletePersonButton.Name = "DeletePersonButton";
             this.DeletePersonButton.Size = new System.Drawing.Size(115, 67);
             this.DeletePersonButton.TabIndex = 53;
@@ -71,7 +71,7 @@
             // UpdatePersonButton
             // 
             this.UpdatePersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.UpdatePersonButton.Location = new System.Drawing.Point(291, 289);
+            this.UpdatePersonButton.Location = new System.Drawing.Point(345, 291);
             this.UpdatePersonButton.Name = "UpdatePersonButton";
             this.UpdatePersonButton.Size = new System.Drawing.Size(115, 67);
             this.UpdatePersonButton.TabIndex = 52;
@@ -82,7 +82,7 @@
             // ReadPersonButton
             // 
             this.ReadPersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReadPersonButton.Location = new System.Drawing.Point(412, 216);
+            this.ReadPersonButton.Location = new System.Drawing.Point(466, 218);
             this.ReadPersonButton.Name = "ReadPersonButton";
             this.ReadPersonButton.Size = new System.Drawing.Size(115, 67);
             this.ReadPersonButton.TabIndex = 51;
@@ -93,7 +93,7 @@
             // CreatePersonButton
             // 
             this.CreatePersonButton.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreatePersonButton.Location = new System.Drawing.Point(291, 216);
+            this.CreatePersonButton.Location = new System.Drawing.Point(345, 218);
             this.CreatePersonButton.Name = "CreatePersonButton";
             this.CreatePersonButton.Size = new System.Drawing.Size(115, 67);
             this.CreatePersonButton.TabIndex = 50;
@@ -103,49 +103,49 @@
             // 
             // AddresseTextBox
             // 
-            this.AddresseTextBox.Location = new System.Drawing.Point(297, 142);
+            this.AddresseTextBox.Location = new System.Drawing.Point(351, 144);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
             this.AddresseTextBox.TabIndex = 46;
             // 
             // ZipTextBox
             // 
-            this.ZipTextBox.Location = new System.Drawing.Point(297, 92);
+            this.ZipTextBox.Location = new System.Drawing.Point(351, 94);
             this.ZipTextBox.Name = "ZipTextBox";
             this.ZipTextBox.Size = new System.Drawing.Size(216, 23);
             this.ZipTextBox.TabIndex = 45;
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(297, 42);
+            this.CityTextBox.Location = new System.Drawing.Point(351, 44);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
             this.CityTextBox.TabIndex = 44;
             // 
             // LNameTextBox
             // 
-            this.LNameTextBox.Location = new System.Drawing.Point(17, 292);
+            this.LNameTextBox.Location = new System.Drawing.Point(71, 294);
             this.LNameTextBox.Name = "LNameTextBox";
             this.LNameTextBox.Size = new System.Drawing.Size(216, 23);
             this.LNameTextBox.TabIndex = 43;
             // 
             // FNameTextBox
             // 
-            this.FNameTextBox.Location = new System.Drawing.Point(16, 242);
+            this.FNameTextBox.Location = new System.Drawing.Point(70, 244);
             this.FNameTextBox.Name = "FNameTextBox";
             this.FNameTextBox.Size = new System.Drawing.Size(216, 23);
             this.FNameTextBox.TabIndex = 42;
             // 
             // PhoneNumberTextBox
             // 
-            this.PhoneNumberTextBox.Location = new System.Drawing.Point(16, 192);
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(70, 194);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(216, 23);
             this.PhoneNumberTextBox.TabIndex = 41;
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(16, 42);
+            this.IDTextBox.Location = new System.Drawing.Point(70, 44);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(216, 23);
             this.IDTextBox.TabIndex = 38;
@@ -154,7 +154,7 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddressLabel.Location = new System.Drawing.Point(297, 118);
+            this.AddressLabel.Location = new System.Drawing.Point(351, 120);
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(65, 21);
             this.AddressLabel.TabIndex = 36;
@@ -164,17 +164,17 @@
             // 
             this.ZipLabel.AutoSize = true;
             this.ZipLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ZipLabel.Location = new System.Drawing.Point(297, 68);
+            this.ZipLabel.Location = new System.Drawing.Point(351, 70);
             this.ZipLabel.Name = "ZipLabel";
-            this.ZipLabel.Size = new System.Drawing.Size(103, 21);
+            this.ZipLabel.Size = new System.Drawing.Size(99, 21);
             this.ZipLabel.TabIndex = 35;
-            this.ZipLabel.Text = "Post nummer";
+            this.ZipLabel.Text = "Postnummer";
             // 
             // CityLabel
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CityLabel.Location = new System.Drawing.Point(297, 18);
+            this.CityLabel.Location = new System.Drawing.Point(351, 20);
             this.CityLabel.Name = "CityLabel";
             this.CityLabel.Size = new System.Drawing.Size(27, 21);
             this.CityLabel.TabIndex = 34;
@@ -184,7 +184,7 @@
             // 
             this.LastNameLabel.AutoSize = true;
             this.LastNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LastNameLabel.Location = new System.Drawing.Point(16, 268);
+            this.LastNameLabel.Location = new System.Drawing.Point(70, 270);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(76, 21);
             this.LastNameLabel.TabIndex = 32;
@@ -194,7 +194,7 @@
             // 
             this.FirstNameLabel.AutoSize = true;
             this.FirstNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstNameLabel.Location = new System.Drawing.Point(17, 218);
+            this.FirstNameLabel.Location = new System.Drawing.Point(71, 220);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(67, 21);
             this.FirstNameLabel.TabIndex = 31;
@@ -204,7 +204,7 @@
             // 
             this.TelefonNummerLabel.AutoSize = true;
             this.TelefonNummerLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TelefonNummerLabel.Location = new System.Drawing.Point(16, 168);
+            this.TelefonNummerLabel.Location = new System.Drawing.Point(70, 170);
             this.TelefonNummerLabel.Name = "TelefonNummerLabel";
             this.TelefonNummerLabel.Size = new System.Drawing.Size(123, 21);
             this.TelefonNummerLabel.TabIndex = 30;
@@ -214,7 +214,7 @@
             // 
             this.EmailLabel.AutoSize = true;
             this.EmailLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmailLabel.Location = new System.Drawing.Point(16, 118);
+            this.EmailLabel.Location = new System.Drawing.Point(70, 120);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(48, 21);
             this.EmailLabel.TabIndex = 29;
@@ -224,7 +224,7 @@
             // 
             this.CPRLabel.AutoSize = true;
             this.CPRLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CPRLabel.Location = new System.Drawing.Point(16, 68);
+            this.CPRLabel.Location = new System.Drawing.Point(70, 70);
             this.CPRLabel.Name = "CPRLabel";
             this.CPRLabel.Size = new System.Drawing.Size(39, 21);
             this.CPRLabel.TabIndex = 28;
@@ -234,7 +234,7 @@
             // 
             this.IDLabel.AutoSize = true;
             this.IDLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.IDLabel.Location = new System.Drawing.Point(16, 18);
+            this.IDLabel.Location = new System.Drawing.Point(70, 20);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(25, 21);
             this.IDLabel.TabIndex = 27;
@@ -242,14 +242,14 @@
             // 
             // CPRTextBox
             // 
-            this.CPRTextBox.Location = new System.Drawing.Point(16, 92);
+            this.CPRTextBox.Location = new System.Drawing.Point(70, 94);
             this.CPRTextBox.Name = "CPRTextBox";
             this.CPRTextBox.Size = new System.Drawing.Size(216, 23);
             this.CPRTextBox.TabIndex = 39;
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.Location = new System.Drawing.Point(16, 142);
+            this.EmailTextBox.Location = new System.Drawing.Point(70, 144);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(216, 23);
             this.EmailTextBox.TabIndex = 40;
@@ -257,14 +257,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
-            this.panel1.Location = new System.Drawing.Point(284, 211);
+            this.panel1.Location = new System.Drawing.Point(338, 213);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(252, 154);
             this.panel1.TabIndex = 56;
             // 
             // MessageboxClearButton
             // 
-            this.MessageboxClearButton.Location = new System.Drawing.Point(17, 321);
+            this.MessageboxClearButton.Location = new System.Drawing.Point(71, 323);
             this.MessageboxClearButton.Name = "MessageboxClearButton";
             this.MessageboxClearButton.Size = new System.Drawing.Size(102, 23);
             this.MessageboxClearButton.TabIndex = 54;
@@ -275,7 +275,7 @@
             // BuyerCheckbox
             // 
             this.BuyerCheckbox.AutoSize = true;
-            this.BuyerCheckbox.Location = new System.Drawing.Point(286, 179);
+            this.BuyerCheckbox.Location = new System.Drawing.Point(340, 181);
             this.BuyerCheckbox.Name = "BuyerCheckbox";
             this.BuyerCheckbox.Size = new System.Drawing.Size(57, 19);
             this.BuyerCheckbox.TabIndex = 47;
@@ -285,7 +285,7 @@
             // SellerCheckbox
             // 
             this.SellerCheckbox.AutoSize = true;
-            this.SellerCheckbox.Location = new System.Drawing.Point(349, 179);
+            this.SellerCheckbox.Location = new System.Drawing.Point(403, 181);
             this.SellerCheckbox.Name = "SellerCheckbox";
             this.SellerCheckbox.Size = new System.Drawing.Size(62, 19);
             this.SellerCheckbox.TabIndex = 48;
@@ -295,7 +295,7 @@
             // RealtorCheckbox
             // 
             this.RealtorCheckbox.AutoSize = true;
-            this.RealtorCheckbox.Location = new System.Drawing.Point(417, 179);
+            this.RealtorCheckbox.Location = new System.Drawing.Point(471, 181);
             this.RealtorCheckbox.Name = "RealtorCheckbox";
             this.RealtorCheckbox.Size = new System.Drawing.Size(119, 19);
             this.RealtorCheckbox.TabIndex = 49;

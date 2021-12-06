@@ -73,12 +73,12 @@ namespace SemesterProjekt2021
             CityTooltip.ShowAlways = true;
             CityTooltip.SetToolTip(this.CityTextBox, "Indtast by navn");
 
-            ToolTip ZipTooltip = new ToolTip(); // POST NUMMER TEXTBOX TOOLTIP
+            ToolTip ZipTooltip = new ToolTip(); // POSTNUMMER TEXTBOX TOOLTIP
             ZipTooltip.AutoPopDelay = 0;
             ZipTooltip.InitialDelay = 0;
             ZipTooltip.ReshowDelay = 100;
             ZipTooltip.ShowAlways = true;
-            ZipTooltip.SetToolTip(this.ZipTextBox, "Indtast post nummer");
+            ZipTooltip.SetToolTip(this.ZipTextBox, "Indtast postnummer");
 
             ToolTip AddresseTooltip = new ToolTip(); // ADRESSE TEXTBOX TOOLTIP
             AddresseTooltip.AutoPopDelay = 0;
@@ -143,12 +143,19 @@ namespace SemesterProjekt2021
             ArchiveTooltip.ShowAlways = true;
             ArchiveTooltip.SetToolTip(this.DeleteHomeButton, "Arkiverer bolig ud fra ID, kan stadigvæk findes i databasen");
 
+            ToolTip PriceEvalTooltip = new ToolTip(); // VURDER BUTTON TOOLTIP
+            PriceEvalTooltip.AutoPopDelay = 0;
+            PriceEvalTooltip.InitialDelay = 0;
+            PriceEvalTooltip.ReshowDelay = 100;
+            PriceEvalTooltip.ShowAlways = true;
+            PriceEvalTooltip.SetToolTip(this.PriceEvalButton, "Laver en prisvurdering ud fra alle solgte boliger");
+
             ToolTip DeleteAllTooltip = new ToolTip(); // SLET ALT TEKST BUTTON TOOLTIP
             DeleteAllTooltip.AutoPopDelay = 0;
             DeleteAllTooltip.InitialDelay = 0;
             DeleteAllTooltip.ReshowDelay = 100;
             DeleteAllTooltip.ShowAlways = true;
-            DeleteAllTooltip.SetToolTip(this.MessageboxClearButton, "Sletter alt indtastet information i tekstbokse");
+            DeleteAllTooltip.SetToolTip(this.MessageboxClearButton, "Sletter alt indtastet information");
 
             ToolTip ActiveTooltip= new ToolTip(); // AKTIV CHECKBOX TOOLTIP
             ActiveTooltip.AutoPopDelay = 0;
