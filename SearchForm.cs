@@ -189,7 +189,13 @@ namespace SemesterProjekt2021
                         i = (int)MathF.Max(i, p.ID);
                     }
                 }
-                List<Bolig>[] boligList = new List<Bolig>[i];
+
+                List<Bolig>[] boligList = new List<Bolig>[i + 1];
+                for (int j = 0; j < boligList.Length; j++)
+                {
+                    boligList[j] = new List<Bolig>();
+                }
+
                 List<Bolig> boligs = new List<Bolig>(); 
                 foreach (Bolig b in bs)
                 {
@@ -212,10 +218,21 @@ namespace SemesterProjekt2021
                 }
                 else
                 {
+                    string output = "";
+
                     foreach (Bolig c in boligs)
                     {
-                        MessageBox.Show(c.Address + "," + c.City);
+                        foreach (Person p in ps)
+                        {
+                            if (p.IsSælger && (p.ID == c.SellerId))
+                            {
+                                output = output + ("Bolig ID: " + c.Id + ", Address: " + c.Address + ", City: " + c.City + ", PostNr: " + c.Zip) + "\n"
+                                + "Boligen tilhøre sælger: " + p.ID + ", Fornavn: " + p.FName + ", Efternavn: " + p.LName + "\n\n";
+                            }
+                        }
                     }
+
+                    MessageBox.Show(output);
                 }
             }
         }

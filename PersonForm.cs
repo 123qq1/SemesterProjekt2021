@@ -66,19 +66,19 @@ namespace SemesterProjekt2021
             CityTooltip.ShowAlways = true;
             CityTooltip.SetToolTip(this.CityTextBox, "Indtast by navn");
 
-            ToolTip ZipTooltip = new ToolTip(); // POST NUMMER TEXTBOX TOOLTIP
+            ToolTip ZipTooltip = new ToolTip(); // POSTNUMMER TEXTBOX TOOLTIP
             ZipTooltip.AutoPopDelay = 0;
             ZipTooltip.InitialDelay = 0;
             ZipTooltip.ReshowDelay = 100;
             ZipTooltip.ShowAlways = true;
-            ZipTooltip.SetToolTip(this.ZipTextBox, "Indsæt post nummer");
+            ZipTooltip.SetToolTip(this.ZipTextBox, "Indtast postnummer");
 
             ToolTip AdresseTooltip = new ToolTip(); // ADDRESSE TEXTBOX TOOLTIP
             AdresseTooltip.AutoPopDelay = 0;
             AdresseTooltip.InitialDelay = 0;
             AdresseTooltip.ReshowDelay = 100;
             AdresseTooltip.ShowAlways = true;
-            AdresseTooltip.SetToolTip(this.AddresseTextBox, "Indsæt addresse");
+            AdresseTooltip.SetToolTip(this.AddresseTextBox, "Indtast addresse for personen");
 
             ToolTip BuyerTooltip= new ToolTip(); // KØBER CHECKBOX TOOLTIP
             BuyerTooltip.AutoPopDelay = 0;
@@ -134,7 +134,7 @@ namespace SemesterProjekt2021
             DeleteAllTooltip.InitialDelay = 0;
             DeleteAllTooltip.ReshowDelay = 100;
             DeleteAllTooltip.ShowAlways = true;
-            DeleteAllTooltip.SetToolTip(this.MessageboxClearButton, "Sletter alt indtastet information i tekstbokse");
+            DeleteAllTooltip.SetToolTip(this.MessageboxClearButton, "Sletter alt indtastet information");
 
 
 
