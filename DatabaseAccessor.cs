@@ -166,9 +166,11 @@ namespace SemesterProjekt2021
 
         public static Result CreateBolig(Bolig b)
         {
+            //Create Reault object for error handling, 
             Result res = new Result();
-            currentCommand = new SqlCommand("", currentConnection);
+            //currentCommand = new SqlCommand("", currentConnection);
 
+            //Check if the id of the supplied bolig is already in use
             if (usedBoligIDs.Contains(b.Id))
             {
                 res.Error = true;
@@ -177,68 +179,97 @@ namespace SemesterProjekt2021
                 return res;
             }
 
+            //Create a two part SQL string so the names and values for the columns can be filled all at once
             string sqlStringF = "INSERT INTO Bolig (";
             string sqlStringL = ") VALUES (";
 
-
+            //Create an array of properties that is a decomposition of the class bolig
             Type type = b.GetType();
             PropertyInfo[] props = type.GetProperties();
-            List<object> objs = new List<object>();
-            List<string> pNames = new List<string>();
 
+            //Loop over all the properties in the class Bolig
             foreach (PropertyInfo p in props)
-            {
+            { 
+                //Get the value of the currdnt propertie from the supplied Bolig
                 var bV = p.GetValue(b);
 
+                //Check if the values of the propertie is null
                 if (bV == null) continue;
-
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
-                objs.Add(bV);
-
+                //Change the first letter of the propertie name to lovercase
                 string name = p.Name;
-
                 string firstLetter = name[0].ToString();
-
                 name = firstLetter.ToLower() + name.Substring(1);
 
+                //Translate from English properties
                 if (name == "realtorId") name = "ejendomsmælgerID";
                 if (name == "sellerId") name = "sælgerID";
                 if (name == "buyerId") name = "køberID";
 
+                //Compile the SQL string with the name of the propertie, and add its value as a paramater
                 sqlStringF += name + ", ";
                 sqlStringL += "@" + name + ", ";
-                pNames.Add("@" + name);
+                currentCommand.Parameters.AddWithValue("@" + name, bV);
 
             }
+
+            //Remove the last "," from the SQL fragments
             sqlStringF = sqlStringF.Remove(sqlStringF.Length - 2);
             sqlStringL = sqlStringL.Remove(sqlStringL.Length - 2);
 
+            //Concat the 2 parts of the SQL string with ending, and adds it to the command
             string sqlString = sqlStringF + sqlStringL + ");";
-
             currentCommand.CommandText = sqlString;
 
-            for (int i = 0; i < objs.Count; i++)
-                currentCommand.Parameters.AddWithValue(pNames[i], objs[i]);
-
+            //Debug the current command
             MessageBox.Show(sqlString);
 
+            //Send the compiled command
+            Result conRes = SendCommand();
+            
+            //Check if the command gave error
+            if (conRes.Error)
+            {
+                res.Error = true;
+                res.Message = conRes.Message;
+                res.Type = conRes.Type;
+            }
+            else
+            {
+                //If no errors add the id of the added bolig to th list of used ids
+                usedBoligIDs.Add(b.Id);
+            }
+
+            //Return the result
+            return res;
+        }
+
+        private static Result SendCommand()
+        {
+            Result res = new Result();
+            //Execute query if there is a connection
             if (connected)
             {
+                //Open connection, Execute Query
                 currentConnection.Open();
-
                 currentCommand.ExecuteNonQuery();
-                usedBoligIDs.Add(b.Id);
+
+                //Close the connection
                 currentConnection.Close();
 
             }
             else
             {
+                //If there is no connection compile an error message
                 res.Error = true;
                 res.Message = "Database not connected";
                 res.Type = "ConnectionError";
             }
+
+            //Clear all residgual parameters so the command is ready for use again
+            currentCommand.Parameters.Clear();
 
             return res;
         }
@@ -504,6 +535,8 @@ namespace SemesterProjekt2021
                 currentConnection.Open();
 
                 currentCommand.ExecuteNonQuery();
+                usedPersonIDs.Add(p.ID);
+                usedPersonCPRs.Add(p.CPR);
 
                 currentConnection.Close();
             }
