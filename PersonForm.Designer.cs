@@ -55,6 +55,7 @@
             this.BuyerCheckbox = new System.Windows.Forms.CheckBox();
             this.SellerCheckbox = new System.Windows.Forms.CheckBox();
             this.RealtorCheckbox = new System.Windows.Forms.CheckBox();
+            this.ValidPersonID = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DeletePersonButton
@@ -63,7 +64,7 @@
             this.DeletePersonButton.Location = new System.Drawing.Point(466, 291);
             this.DeletePersonButton.Name = "DeletePersonButton";
             this.DeletePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.DeletePersonButton.TabIndex = 53;
+            this.DeletePersonButton.TabIndex = 54;
             this.DeletePersonButton.Text = "Slet";
             this.DeletePersonButton.UseVisualStyleBackColor = true;
             this.DeletePersonButton.Click += new System.EventHandler(this.DeletePersonButton_Click);
@@ -74,7 +75,7 @@
             this.UpdatePersonButton.Location = new System.Drawing.Point(345, 291);
             this.UpdatePersonButton.Name = "UpdatePersonButton";
             this.UpdatePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.UpdatePersonButton.TabIndex = 52;
+            this.UpdatePersonButton.TabIndex = 53;
             this.UpdatePersonButton.Text = "Opdater";
             this.UpdatePersonButton.UseVisualStyleBackColor = true;
             this.UpdatePersonButton.Click += new System.EventHandler(this.UpdatePersonButton_Click);
@@ -85,7 +86,7 @@
             this.ReadPersonButton.Location = new System.Drawing.Point(466, 218);
             this.ReadPersonButton.Name = "ReadPersonButton";
             this.ReadPersonButton.Size = new System.Drawing.Size(115, 67);
-            this.ReadPersonButton.TabIndex = 51;
+            this.ReadPersonButton.TabIndex = 52;
             this.ReadPersonButton.Text = "Find";
             this.ReadPersonButton.UseVisualStyleBackColor = true;
             this.ReadPersonButton.Click += new System.EventHandler(this.ReadHomeButton_Click);
@@ -96,7 +97,7 @@
             this.CreatePersonButton.Location = new System.Drawing.Point(345, 218);
             this.CreatePersonButton.Name = "CreatePersonButton";
             this.CreatePersonButton.Size = new System.Drawing.Size(115, 67);
-            this.CreatePersonButton.TabIndex = 50;
+            this.CreatePersonButton.TabIndex = 51;
             this.CreatePersonButton.Text = "Opret";
             this.CreatePersonButton.UseVisualStyleBackColor = true;
             this.CreatePersonButton.Click += new System.EventHandler(this.CreateHomeButton_Click);
@@ -106,48 +107,48 @@
             this.AddresseTextBox.Location = new System.Drawing.Point(351, 144);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
-            this.AddresseTextBox.TabIndex = 46;
+            this.AddresseTextBox.TabIndex = 47;
             // 
             // ZipTextBox
             // 
             this.ZipTextBox.Location = new System.Drawing.Point(351, 94);
             this.ZipTextBox.Name = "ZipTextBox";
             this.ZipTextBox.Size = new System.Drawing.Size(216, 23);
-            this.ZipTextBox.TabIndex = 45;
+            this.ZipTextBox.TabIndex = 46;
             // 
             // CityTextBox
             // 
             this.CityTextBox.Location = new System.Drawing.Point(351, 44);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CityTextBox.TabIndex = 44;
+            this.CityTextBox.TabIndex = 45;
             // 
             // LNameTextBox
             // 
-            this.LNameTextBox.Location = new System.Drawing.Point(71, 294);
+            this.LNameTextBox.Location = new System.Drawing.Point(16, 292);
             this.LNameTextBox.Name = "LNameTextBox";
             this.LNameTextBox.Size = new System.Drawing.Size(216, 23);
-            this.LNameTextBox.TabIndex = 43;
+            this.LNameTextBox.TabIndex = 44;
             // 
             // FNameTextBox
             // 
             this.FNameTextBox.Location = new System.Drawing.Point(70, 244);
             this.FNameTextBox.Name = "FNameTextBox";
             this.FNameTextBox.Size = new System.Drawing.Size(216, 23);
-            this.FNameTextBox.TabIndex = 42;
+            this.FNameTextBox.TabIndex = 43;
             // 
             // PhoneNumberTextBox
             // 
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(70, 194);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(216, 23);
-            this.PhoneNumberTextBox.TabIndex = 41;
+            this.PhoneNumberTextBox.TabIndex = 42;
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(70, 44);
+            this.IDTextBox.Location = new System.Drawing.Point(17, 42);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(216, 23);
+            this.IDTextBox.Size = new System.Drawing.Size(139, 23);
             this.IDTextBox.TabIndex = 38;
             // 
             // AddressLabel
@@ -245,14 +246,14 @@
             this.CPRTextBox.Location = new System.Drawing.Point(70, 94);
             this.CPRTextBox.Name = "CPRTextBox";
             this.CPRTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CPRTextBox.TabIndex = 39;
+            this.CPRTextBox.TabIndex = 40;
             // 
             // EmailTextBox
             // 
             this.EmailTextBox.Location = new System.Drawing.Point(70, 144);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(216, 23);
-            this.EmailTextBox.TabIndex = 40;
+            this.EmailTextBox.TabIndex = 41;
             // 
             // panel1
             // 
@@ -267,7 +268,7 @@
             this.MessageboxClearButton.Location = new System.Drawing.Point(71, 323);
             this.MessageboxClearButton.Name = "MessageboxClearButton";
             this.MessageboxClearButton.Size = new System.Drawing.Size(102, 23);
-            this.MessageboxClearButton.TabIndex = 54;
+            this.MessageboxClearButton.TabIndex = 55;
             this.MessageboxClearButton.Text = "Slet alt tekst";
             this.MessageboxClearButton.UseVisualStyleBackColor = true;
             this.MessageboxClearButton.Click += new System.EventHandler(this.MessageboxClearButton_Click);
@@ -278,7 +279,7 @@
             this.BuyerCheckbox.Location = new System.Drawing.Point(340, 181);
             this.BuyerCheckbox.Name = "BuyerCheckbox";
             this.BuyerCheckbox.Size = new System.Drawing.Size(57, 19);
-            this.BuyerCheckbox.TabIndex = 47;
+            this.BuyerCheckbox.TabIndex = 48;
             this.BuyerCheckbox.Text = "Køber";
             this.BuyerCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -288,7 +289,7 @@
             this.SellerCheckbox.Location = new System.Drawing.Point(403, 181);
             this.SellerCheckbox.Name = "SellerCheckbox";
             this.SellerCheckbox.Size = new System.Drawing.Size(62, 19);
-            this.SellerCheckbox.TabIndex = 48;
+            this.SellerCheckbox.TabIndex = 49;
             this.SellerCheckbox.Text = "Sælger";
             this.SellerCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -298,9 +299,19 @@
             this.RealtorCheckbox.Location = new System.Drawing.Point(471, 181);
             this.RealtorCheckbox.Name = "RealtorCheckbox";
             this.RealtorCheckbox.Size = new System.Drawing.Size(119, 19);
-            this.RealtorCheckbox.TabIndex = 49;
+            this.RealtorCheckbox.TabIndex = 50;
             this.RealtorCheckbox.Text = "Ejendomsmælger";
             this.RealtorCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // ValidPersonID
+            // 
+            this.ValidPersonID.Location = new System.Drawing.Point(157, 42);
+            this.ValidPersonID.Name = "ValidPersonID";
+            this.ValidPersonID.Size = new System.Drawing.Size(75, 23);
+            this.ValidPersonID.TabIndex = 39;
+            this.ValidPersonID.Text = "Valid ID";
+            this.ValidPersonID.UseVisualStyleBackColor = true;
+            this.ValidPersonID.Click += new System.EventHandler(this.ValidPersonID_Click);
             // 
             // PersonForm
             // 
@@ -308,6 +319,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(700, 500);
+            this.Controls.Add(this.ValidPersonID);
             this.Controls.Add(this.RealtorCheckbox);
             this.Controls.Add(this.SellerCheckbox);
             this.Controls.Add(this.BuyerCheckbox);
@@ -372,5 +384,6 @@
         private System.Windows.Forms.CheckBox BuyerCheckbox;
         private System.Windows.Forms.CheckBox SellerCheckbox;
         private System.Windows.Forms.CheckBox RealtorCheckbox;
+        private System.Windows.Forms.Button ValidPersonID;
     }
 }

@@ -63,6 +63,7 @@
             this.ActiveCheckbox = new System.Windows.Forms.CheckBox();
             this.SellerLabel = new System.Windows.Forms.Label();
             this.SellerIDTextbox = new System.Windows.Forms.TextBox();
+            this.ValidBoligID = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +73,7 @@
             this.DeleteHomeButton.Location = new System.Drawing.Point(113, 62);
             this.DeleteHomeButton.Name = "DeleteHomeButton";
             this.DeleteHomeButton.Size = new System.Drawing.Size(101, 50);
-            this.DeleteHomeButton.TabIndex = 58;
+            this.DeleteHomeButton.TabIndex = 59;
             this.DeleteHomeButton.Text = "Arkiver";
             this.DeleteHomeButton.UseVisualStyleBackColor = true;
             this.DeleteHomeButton.Click += new System.EventHandler(this.DeleteHomeButton_Click);
@@ -83,7 +84,7 @@
             this.SoldHomeButton.Location = new System.Drawing.Point(8, 62);
             this.SoldHomeButton.Name = "SoldHomeButton";
             this.SoldHomeButton.Size = new System.Drawing.Size(101, 50);
-            this.SoldHomeButton.TabIndex = 57;
+            this.SoldHomeButton.TabIndex = 58;
             this.SoldHomeButton.Text = "Sælg";
             this.SoldHomeButton.UseVisualStyleBackColor = true;
             this.SoldHomeButton.Click += new System.EventHandler(this.SoldHomeButton_Click);
@@ -94,7 +95,7 @@
             this.UpdateHomeButton.Location = new System.Drawing.Point(531, 327);
             this.UpdateHomeButton.Name = "UpdateHomeButton";
             this.UpdateHomeButton.Size = new System.Drawing.Size(101, 50);
-            this.UpdateHomeButton.TabIndex = 56;
+            this.UpdateHomeButton.TabIndex = 57;
             this.UpdateHomeButton.Text = "Opdater";
             this.UpdateHomeButton.UseVisualStyleBackColor = true;
             this.UpdateHomeButton.Click += new System.EventHandler(this.UpdateHomeButton_Click);
@@ -105,7 +106,7 @@
             this.ReadHomeButton.Location = new System.Drawing.Point(425, 327);
             this.ReadHomeButton.Name = "ReadHomeButton";
             this.ReadHomeButton.Size = new System.Drawing.Size(101, 50);
-            this.ReadHomeButton.TabIndex = 55;
+            this.ReadHomeButton.TabIndex = 56;
             this.ReadHomeButton.Text = "Find";
             this.ReadHomeButton.UseVisualStyleBackColor = true;
             this.ReadHomeButton.Click += new System.EventHandler(this.ReadHomeButton_Click);
@@ -116,7 +117,7 @@
             this.CreateHomeButton.Location = new System.Drawing.Point(320, 327);
             this.CreateHomeButton.Name = "CreateHomeButton";
             this.CreateHomeButton.Size = new System.Drawing.Size(101, 50);
-            this.CreateHomeButton.TabIndex = 54;
+            this.CreateHomeButton.TabIndex = 55;
             this.CreateHomeButton.Text = "Opret";
             this.CreateHomeButton.UseVisualStyleBackColor = true;
             this.CreateHomeButton.Click += new System.EventHandler(this.CreateHomeButton_Click);
@@ -126,14 +127,14 @@
             this.OfferPriceTextBox.Location = new System.Drawing.Point(351, 192);
             this.OfferPriceTextBox.Name = "OfferPriceTextBox";
             this.OfferPriceTextBox.Size = new System.Drawing.Size(216, 23);
-            this.OfferPriceTextBox.TabIndex = 51;
+            this.OfferPriceTextBox.TabIndex = 52;
             // 
             // AddresseTextBox
             // 
             this.AddresseTextBox.Location = new System.Drawing.Point(351, 142);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
-            this.AddresseTextBox.TabIndex = 50;
+            this.AddresseTextBox.TabIndex = 51;
             // 
             // ZipTextBox
             // 
@@ -141,42 +142,42 @@
             this.ZipTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ZipTextBox.Name = "ZipTextBox";
             this.ZipTextBox.Size = new System.Drawing.Size(216, 23);
-            this.ZipTextBox.TabIndex = 49;
+            this.ZipTextBox.TabIndex = 50;
             // 
             // CityTextBox
             // 
             this.CityTextBox.Location = new System.Drawing.Point(351, 44);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CityTextBox.TabIndex = 48;
+            this.CityTextBox.TabIndex = 49;
             // 
             // RoomsTextBox
             // 
             this.RoomsTextBox.Location = new System.Drawing.Point(70, 344);
             this.RoomsTextBox.Name = "RoomsTextBox";
             this.RoomsTextBox.Size = new System.Drawing.Size(216, 23);
-            this.RoomsTextBox.TabIndex = 46;
+            this.RoomsTextBox.TabIndex = 47;
             // 
             // BuiltTextBox
             // 
             this.BuiltTextBox.Location = new System.Drawing.Point(70, 294);
             this.BuiltTextBox.Name = "BuiltTextBox";
             this.BuiltTextBox.Size = new System.Drawing.Size(216, 23);
-            this.BuiltTextBox.TabIndex = 45;
+            this.BuiltTextBox.TabIndex = 46;
             // 
             // OutAreaTextBox
             // 
             this.OutAreaTextBox.Location = new System.Drawing.Point(70, 244);
             this.OutAreaTextBox.Name = "OutAreaTextBox";
             this.OutAreaTextBox.Size = new System.Drawing.Size(216, 23);
-            this.OutAreaTextBox.TabIndex = 44;
+            this.OutAreaTextBox.TabIndex = 45;
             // 
             // InAreaTextBox
             // 
             this.InAreaTextBox.Location = new System.Drawing.Point(70, 194);
             this.InAreaTextBox.Name = "InAreaTextBox";
             this.InAreaTextBox.Size = new System.Drawing.Size(216, 23);
-            this.InAreaTextBox.TabIndex = 43;
+            this.InAreaTextBox.TabIndex = 44;
             // 
             // EnergyComboBox
             // 
@@ -194,7 +195,7 @@
             this.EnergyComboBox.Location = new System.Drawing.Point(70, 144);
             this.EnergyComboBox.Name = "EnergyComboBox";
             this.EnergyComboBox.Size = new System.Drawing.Size(216, 23);
-            this.EnergyComboBox.TabIndex = 42;
+            this.EnergyComboBox.TabIndex = 43;
             // 
             // TypeComboBox
             // 
@@ -209,13 +210,13 @@
             this.TypeComboBox.Location = new System.Drawing.Point(70, 94);
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(216, 23);
-            this.TypeComboBox.TabIndex = 41;
+            this.TypeComboBox.TabIndex = 42;
             // 
             // IDTextBox
             // 
             this.IDTextBox.Location = new System.Drawing.Point(70, 44);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(216, 23);
+            this.IDTextBox.Size = new System.Drawing.Size(139, 23);
             this.IDTextBox.TabIndex = 40;
             // 
             // OfferPriceLabel
@@ -345,7 +346,7 @@
             this.PriceEvalButton.Location = new System.Drawing.Point(219, 62);
             this.PriceEvalButton.Name = "PriceEvalButton";
             this.PriceEvalButton.Size = new System.Drawing.Size(101, 50);
-            this.PriceEvalButton.TabIndex = 59;
+            this.PriceEvalButton.TabIndex = 60;
             this.PriceEvalButton.Text = "Vurder";
             this.PriceEvalButton.UseVisualStyleBackColor = true;
             this.PriceEvalButton.Click += new System.EventHandler(this.PriceEvalButton_Click);
@@ -355,7 +356,7 @@
             this.MessageboxClearButton.Location = new System.Drawing.Point(70, 373);
             this.MessageboxClearButton.Name = "MessageboxClearButton";
             this.MessageboxClearButton.Size = new System.Drawing.Size(98, 23);
-            this.MessageboxClearButton.TabIndex = 60;
+            this.MessageboxClearButton.TabIndex = 61;
             this.MessageboxClearButton.Text = "Slet alt tekst";
             this.MessageboxClearButton.UseVisualStyleBackColor = true;
             this.MessageboxClearButton.Click += new System.EventHandler(this.MessageboxClearButton_Click);
@@ -376,7 +377,7 @@
             this.RealtorTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RealtorTextbox.Name = "RealtorTextbox";
             this.RealtorTextbox.Size = new System.Drawing.Size(216, 23);
-            this.RealtorTextbox.TabIndex = 52;
+            this.RealtorTextbox.TabIndex = 53;
             // 
             // ActiveCheckbox
             // 
@@ -385,7 +386,7 @@
             this.ActiveCheckbox.Location = new System.Drawing.Point(174, 373);
             this.ActiveCheckbox.Name = "ActiveCheckbox";
             this.ActiveCheckbox.Size = new System.Drawing.Size(128, 23);
-            this.ActiveCheckbox.TabIndex = 47;
+            this.ActiveCheckbox.TabIndex = 48;
             this.ActiveCheckbox.Text = "Er boligen aktiv?";
             this.ActiveCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -401,10 +402,20 @@
             // 
             // SellerIDTextbox
             // 
-            this.SellerIDTextbox.Location = new System.Drawing.Point(351, 291);
+            this.SellerIDTextbox.Location = new System.Drawing.Point(297, 288);
             this.SellerIDTextbox.Name = "SellerIDTextbox";
             this.SellerIDTextbox.Size = new System.Drawing.Size(216, 23);
-            this.SellerIDTextbox.TabIndex = 53;
+            this.SellerIDTextbox.TabIndex = 54;
+            // 
+            // ValidBoligID
+            // 
+            this.ValidBoligID.Location = new System.Drawing.Point(157, 42);
+            this.ValidBoligID.Name = "ValidBoligID";
+            this.ValidBoligID.Size = new System.Drawing.Size(75, 23);
+            this.ValidBoligID.TabIndex = 41;
+            this.ValidBoligID.Text = "Valid ID";
+            this.ValidBoligID.UseVisualStyleBackColor = true;
+            this.ValidBoligID.Click += new System.EventHandler(this.ValidBoligID_Click);
             // 
             // BoligForm
             // 
@@ -412,6 +423,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(700, 500);
+            this.Controls.Add(this.ValidBoligID);
             this.Controls.Add(this.SellerIDTextbox);
             this.Controls.Add(this.SellerLabel);
             this.Controls.Add(this.ActiveCheckbox);
@@ -489,5 +501,6 @@
         private System.Windows.Forms.Button PriceEvalButton;
         private System.Windows.Forms.Label SellerLabel;
         private System.Windows.Forms.TextBox SellerIDTextbox;
+        private System.Windows.Forms.Button ValidBoligID;
     }
 }

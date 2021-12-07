@@ -762,5 +762,29 @@ namespace SemesterProjekt2021
 
             return UpdateBolig(b);
         }
+
+        public static int ValidPersonID()
+        {
+            if (usedPersonIDs.Count>0)
+            {
+                return usedPersonIDs.Max() + 1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        public static int ValidBoligID()
+        {
+            if (usedBoligIDs.Count>0)
+            {
+                return usedBoligIDs.Max() + 1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
     }
 }
