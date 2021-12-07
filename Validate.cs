@@ -60,7 +60,7 @@ namespace InputValidation
         // Person
         public static string cpr = @"(?!\s*$)^(([\d][\d][\d][\d][\d][\d])([ -])?([\d][\d][\d][\d]))";
         public static string phoneNr = @"(?!\s)^(((?:[+][\d]?[\d]?[\d][ ]?)|(?:[\d][\d][\d][\d][ ]))?([(][\d]+[)][ ]?)?((?:(?:[\d]+[ -]?))+))";
-        public static string email = @"(?!\s*$)(?:^[a-z0-9!#$%&'*+/=?^_`{|}~-]+)@(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+).(?:[a-z]+$)";
+        public static string email = @"(?!\s*$)(?:^[a-z0-9!#$%&'*+/=?^_`{|}~-]+)@(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+)(?:[.])(?:[a-z]+$)";
 
         // Blacklist
         public static string name = @"([\n<>*'{}:;-]+)";
