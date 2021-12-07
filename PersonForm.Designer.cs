@@ -56,6 +56,9 @@
             this.SellerCheckbox = new System.Windows.Forms.CheckBox();
             this.RealtorCheckbox = new System.Windows.Forms.CheckBox();
             this.ValidPersonID = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // DeletePersonButton
@@ -148,7 +151,7 @@
             // 
             this.IDTextBox.Location = new System.Drawing.Point(71, 44);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(139, 23);
+            this.IDTextBox.Size = new System.Drawing.Size(133, 23);
             this.IDTextBox.TabIndex = 38;
             // 
             // AddressLabel
@@ -276,32 +279,35 @@
             // BuyerCheckbox
             // 
             this.BuyerCheckbox.AutoSize = true;
+            this.BuyerCheckbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(215)))));
             this.BuyerCheckbox.Location = new System.Drawing.Point(340, 181);
             this.BuyerCheckbox.Name = "BuyerCheckbox";
             this.BuyerCheckbox.Size = new System.Drawing.Size(57, 19);
             this.BuyerCheckbox.TabIndex = 48;
             this.BuyerCheckbox.Text = "Køber";
-            this.BuyerCheckbox.UseVisualStyleBackColor = true;
+            this.BuyerCheckbox.UseVisualStyleBackColor = false;
             // 
             // SellerCheckbox
             // 
             this.SellerCheckbox.AutoSize = true;
+            this.SellerCheckbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(215)))));
             this.SellerCheckbox.Location = new System.Drawing.Point(403, 181);
             this.SellerCheckbox.Name = "SellerCheckbox";
             this.SellerCheckbox.Size = new System.Drawing.Size(62, 19);
             this.SellerCheckbox.TabIndex = 49;
             this.SellerCheckbox.Text = "Sælger";
-            this.SellerCheckbox.UseVisualStyleBackColor = true;
+            this.SellerCheckbox.UseVisualStyleBackColor = false;
             // 
             // RealtorCheckbox
             // 
             this.RealtorCheckbox.AutoSize = true;
+            this.RealtorCheckbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(215)))));
             this.RealtorCheckbox.Location = new System.Drawing.Point(471, 181);
             this.RealtorCheckbox.Name = "RealtorCheckbox";
             this.RealtorCheckbox.Size = new System.Drawing.Size(119, 19);
             this.RealtorCheckbox.TabIndex = 50;
             this.RealtorCheckbox.Text = "Ejendomsmælger";
-            this.RealtorCheckbox.UseVisualStyleBackColor = true;
+            this.RealtorCheckbox.UseVisualStyleBackColor = false;
             // 
             // ValidPersonID
             // 
@@ -309,9 +315,34 @@
             this.ValidPersonID.Name = "ValidPersonID";
             this.ValidPersonID.Size = new System.Drawing.Size(75, 23);
             this.ValidPersonID.TabIndex = 39;
-            this.ValidPersonID.Text = "Valid ID";
+            this.ValidPersonID.Text = "Næste ID";
             this.ValidPersonID.UseVisualStyleBackColor = true;
             this.ValidPersonID.Click += new System.EventHandler(this.ValidPersonID_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.panel2.Location = new System.Drawing.Point(208, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(82, 33);
+            this.panel2.TabIndex = 101;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(215)))));
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.Location = new System.Drawing.Point(69, 320);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(107, 30);
+            this.panel3.TabIndex = 102;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(215)))));
+            this.panel4.Location = new System.Drawing.Point(335, 177);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(255, 27);
+            this.panel4.TabIndex = 103;
             // 
             // PersonForm
             // 
@@ -347,6 +378,9 @@
             this.Controls.Add(this.CPRLabel);
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PersonForm";
             this.Text = "PersonForm";
@@ -385,5 +419,8 @@
         private System.Windows.Forms.CheckBox SellerCheckbox;
         private System.Windows.Forms.CheckBox RealtorCheckbox;
         private System.Windows.Forms.Button ValidPersonID;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
