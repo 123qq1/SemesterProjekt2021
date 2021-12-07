@@ -703,11 +703,35 @@ namespace SemesterProjekt2021
 
             if (connected)
             {
-                currentConnection.Open();
+                try
+                {
+                    currentConnection.Open();
 
-                currentCommand.ExecuteNonQuery();
+                    currentCommand.ExecuteNonQuery();
 
-                currentConnection.Close();
+                    currentConnection.Close();
+                }
+                catch (Exception e)
+                {
+                    if (e.GetType().ToString() == "Microsoft.Data.SqlClient.SqlException")
+                    {
+                        res.Error = true;
+                        res.Message = "Cannot delete a person linked to a Bolig in the database.";
+                        res.Type = "LinkError";
+                    }
+                    else
+                    {
+                        res.Error = true;
+                        res.Message = e.Message;
+                        res.Type = e.GetType().ToString();
+                    }
+                }
+                finally
+                {
+                    if (currentConnection.State == System.Data.ConnectionState.Open)
+                        currentConnection.Close();
+                }
+                
             }
             else
             {
