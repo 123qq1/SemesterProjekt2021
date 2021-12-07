@@ -426,11 +426,17 @@ namespace SemesterProjekt2021
             Bolig b = new Bolig();
             res = ReadBolig(id, ref b);
 
-            if (!res.Error)
+            if (!res.Error && b.Active)
             {
                 b.Active = false;
 
                 res = UpdateBolig(b);
+            }
+            else
+            {
+                res.Error = true;
+                res.Type = "AlreadyArchived";
+                res.Message = "The Bolig with the given ID has already been archived.";
             }
 
             return res;
@@ -594,7 +600,7 @@ namespace SemesterProjekt2021
                 else
                 {
                     res.Error = true;
-                    res.Message = "Person with ID not found";
+                    res.Message = "Person with ID not found. Try Create instead.";
                     res.Type = "IDNotFound";
                 }
                 reader.Close();

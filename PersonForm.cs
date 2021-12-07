@@ -237,7 +237,7 @@ namespace SemesterProjekt2021
             if (!r.Error)
                 i = Convert.ToInt32(IDTextBox.Text);
             else
-                MessageBox.Show(r.Message);
+                MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
 
             if (i != 0)
             {
@@ -256,6 +256,8 @@ namespace SemesterProjekt2021
                     SellerCheckbox.Checked = p.IsSælger;
                     BuyerCheckbox.Checked = p.IsKøber;
                 }
+                else
+                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
         }
 
@@ -328,7 +330,7 @@ namespace SemesterProjekt2021
                 if (!r2.Error)
                     MessageBox.Show("Success");
                 else
-                    MessageBox.Show("Error in DAL");
+                    MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
         }
 
@@ -346,10 +348,10 @@ namespace SemesterProjekt2021
                 if (!r2.Error)
                     MessageBox.Show("Success!");
                 else
-                    MessageBox.Show("DAL Error");
+                    MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
             else
-                MessageBox.Show(r.Message);
+                MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
         }
 
         private void MessageboxClearButton_Click(object sender, EventArgs e)
