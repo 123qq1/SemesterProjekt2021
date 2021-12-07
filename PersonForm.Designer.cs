@@ -125,7 +125,7 @@
             // 
             // LNameTextBox
             // 
-            this.LNameTextBox.Location = new System.Drawing.Point(16, 292);
+            this.LNameTextBox.Location = new System.Drawing.Point(70, 291);
             this.LNameTextBox.Name = "LNameTextBox";
             this.LNameTextBox.Size = new System.Drawing.Size(216, 23);
             this.LNameTextBox.TabIndex = 44;
@@ -146,7 +146,7 @@
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(17, 42);
+            this.IDTextBox.Location = new System.Drawing.Point(71, 44);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(139, 23);
             this.IDTextBox.TabIndex = 38;
@@ -305,7 +305,7 @@
             // 
             // ValidPersonID
             // 
-            this.ValidPersonID.Location = new System.Drawing.Point(157, 42);
+            this.ValidPersonID.Location = new System.Drawing.Point(211, 44);
             this.ValidPersonID.Name = "ValidPersonID";
             this.ValidPersonID.Size = new System.Drawing.Size(75, 23);
             this.ValidPersonID.TabIndex = 39;

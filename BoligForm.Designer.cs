@@ -402,14 +402,14 @@
             // 
             // SellerIDTextbox
             // 
-            this.SellerIDTextbox.Location = new System.Drawing.Point(297, 288);
+            this.SellerIDTextbox.Location = new System.Drawing.Point(351, 290);
             this.SellerIDTextbox.Name = "SellerIDTextbox";
             this.SellerIDTextbox.Size = new System.Drawing.Size(216, 23);
             this.SellerIDTextbox.TabIndex = 54;
             // 
             // ValidBoligID
             // 
-            this.ValidBoligID.Location = new System.Drawing.Point(157, 42);
+            this.ValidBoligID.Location = new System.Drawing.Point(211, 44);
             this.ValidBoligID.Name = "ValidBoligID";
             this.ValidBoligID.Size = new System.Drawing.Size(75, 23);
             this.ValidBoligID.TabIndex = 41;
