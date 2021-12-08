@@ -388,7 +388,7 @@ namespace SemesterProjekt2021
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
-            //Read the current values of the bolig with the id ssupplies
+            //Read the current values of the bolig with the id supplied
             Bolig dBolig = new Bolig();
             Result readRes = ReadBolig(b.Id, ref dBolig);
 
@@ -459,8 +459,8 @@ namespace SemesterProjekt2021
                 //Set the command text of the command to the SQL string
                 currentCommand.CommandText = sqlString;
 
-                Result conRes = new Result();
-                conRes = SendCommand();
+                //Error is the command could not be sent
+                Result conRes = SendCommand();
                 if (conRes.Error) res = conRes;
             }
             else
@@ -685,72 +685,80 @@ namespace SemesterProjekt2021
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
-            
+            //Read the current values of the person with the id supplied
             Person dPerson = new Person();
             Result readRes = ReadPerson(p.ID, ref dPerson);
+
+            //If the read failed return the error from the read
             if (readRes.Error) return readRes;
 
+            //Create an array of properties that corrospond with the properties of person
             Type type = p.GetType();
             PropertyInfo[] props = type.GetProperties();
+
+            //Create a string to contain the SQL string which updates the person
             string sqlString = "UPDATE Person SET ";
+
+            //Create a bool to check whether any info was updated
             bool looped = false;
 
+            //Loop through all the properties in person
             foreach (PropertyInfo prop in props)
             {
+                //Read the values of the old and new person into variables
                 var bV = prop.GetValue(p);
                 var dbV = prop.GetValue(dPerson);
 
+                //Check if the new value is null, where strings are null, and ints are negativ
                 if (bV == null) continue;
-
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
+                //Dont update the cpr or id value
                 if (prop.Name == "CPR")
                     continue;
-
                 if (prop.Name == "ID")
                     continue;
 
-                if (bV.ToString() != dbV.ToString())
+                //If the old and new data are different perfom an update
+                if (dbV == null ||bV.ToString() != dbV.ToString())
                 {
+                    //Set looped to true now that an update has taken place
                     looped = true;
+
+                    //Set the name og the propertie to a variable for easy access
                     string name = prop.Name;
 
+                    //Set the first letter of the name to lowercase
                     string firstLetter = name[0].ToString();
-
                     name = firstLetter.ToLower() + name.Substring(1);
 
+                    //Compile the SQL sentence to update person with the propertie names and values as parameters
                     sqlString += name + " = @" + name + ", ";
                     currentCommand.Parameters.AddWithValue("@" + name, bV);
                 }
             }
-
+            //Only send message of there was values to update
             if (looped)
             {
+                //Remove the last ", " from the string
                 sqlString = sqlString.Remove(sqlString.Length - 2);
 
+                //Finalize the SQL string with the supplied id
                 sqlString += " WHERE ID = @ID;";
+                //Debug the current SQL string
                 MessageBox.Show(sqlString);
 
+                //Set the command text of the command to the SQL string
                 currentCommand.CommandText = sqlString;
 
-                if (connected)
-                {
-                    currentConnection.Open();
-
-                    currentCommand.ExecuteNonQuery();
-
-                    currentConnection.Close();
-                }
-                else
-                {
-                    res.Error = true;
-                    res.Message = "Database not connected";
-                    res.Type = "ConnectionError";
-                }
+                //Error is the command could not be sent
+                Result conRes = SendCommand();
+                if (conRes.Error) res = conRes;
             }
             else
             {
+                //If no data needs to updated compile an error
                 res.Error = true;
                 res.Message = "No information given beyond ID";
                 res.Type = "LackingData";
@@ -760,103 +768,86 @@ namespace SemesterProjekt2021
 
         public static Result DeletePerson(int id)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
+            //Compile SQL string to delete person with supplied id
             string strconn = "DELETE FROM Person WHERE ID = @ID;";
             currentCommand.Parameters.AddWithValue("@ID", id);
             currentCommand.CommandText = strconn;
 
-            if (connected)
-            {
-                currentConnection.Open();
-
-                currentCommand.ExecuteNonQuery();
-
-                currentConnection.Close();
-            }
-            else
-            {
-                res.Error = true;
-                res.Message = "Database not connected";
-                res.Type = "Connection";
-            }
+            //Error is the command could not be sent
+            Result conRes = SendCommand();
+            if (conRes.Error) res = conRes;
 
             return res;
         }
 
         public static Result LinkRealtor(int boligId, int realtorId)
         {
+            //Create a bolig with given id and realtor
             Bolig b = new Bolig();
-
             b.Id = boligId;
-
             b.RealtorId = realtorId;
 
+            //Update the given bolig
             return UpdateBolig(b);
         }
 
         public static Result SellBolig(int boligId, int buyerId, int sellingPrice, string soldDate)
         {
+            //Create a bolig with given id, buyer sellingprice and sold date
             Bolig b = new Bolig();
-
             b.Id = boligId;
-
             b.BuyerId = buyerId;
             b.SellingPrice = sellingPrice;
             b.SoldDate = soldDate;
+
+            //Set bolig to sold and inactive
             b.IsSold = true;
             b.Active = false;
 
+            //Update the given bolig
             return UpdateBolig(b);
         }
 
         public static Result LinkSeller(int boligId, int sellerId)
         {
+            //Create a bolig with given id and seller
             Bolig b = new Bolig();
-
             b.Id = boligId;
-
             b.SellerId = sellerId;
 
+            //Update the given bolig
             return UpdateBolig(b);
         }
 
         public static Result LinkAllPeople(int boligId, int realtorId, int buyerId, int sellerId)
         {
+            //Create a bolig with given id, seller, buyer and realtor
             Bolig b = new Bolig();
-
             b.Id = boligId;
-
             b.RealtorId = realtorId;
             b.SellerId = sellerId;
             b.BuyerId = buyerId;
 
+            //Update the given bolig
             return UpdateBolig(b);
         }
 
         public static int ValidPersonID()
         {
-            if (usedPersonIDs.Count>0)
-            {
-                return usedPersonIDs.Max() + 1;
-            }
-            else
-            {
-                return 1;
-            }
+            //If there are elements in the list, return the biggest plus 1, otherwise return 1
+            if (usedPersonIDs.Count>0) return usedPersonIDs.Max() + 1;
+            return 1;
         }
 
         public static int ValidBoligID()
         {
-            if (usedBoligIDs.Count>0)
-            {
-                return usedBoligIDs.Max() + 1;
-            }
-            else
-            {
-                return 1;
-            }
+            //If there are elements in the list, return the biggest plus 1, otherwise return 1
+            if (usedBoligIDs.Count>0) return usedBoligIDs.Max() + 1;
+            return 1;
         }
     }
 }
