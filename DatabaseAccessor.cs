@@ -168,7 +168,7 @@ namespace SemesterProjekt2021
         {
             //Create Reault object for error handling, 
             Result res = new Result();
-            //currentCommand = new SqlCommand("", currentConnection);
+            currentCommand = new SqlCommand("", currentConnection);
 
             //Check if the id of the supplied bolig is already in use
             if (usedBoligIDs.Contains(b.Id))
@@ -197,22 +197,15 @@ namespace SemesterProjekt2021
                 if (bV == null) continue;
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
-
-                //Change the first letter of the propertie name to lovercase
                 string name = p.Name;
-                string firstLetter = name[0].ToString();
-                name = firstLetter.ToLower() + name.Substring(1);
 
                 //Translate from English properties
-                if (name == "realtorId") name = "ejendomsmælgerID";
-                if (name == "sellerId") name = "sælgerID";
-                if (name == "buyerId") name = "køberID";
+                if (name == "RealtorId") name = "ejendomsmælgerID";
+                if (name == "SellerId") name = "sælgerID";
+                if (name == "BuyerId") name = "køberID";
 
-                //Compile the SQL string with the name of the propertie, and add its value as a paramater
-                sqlStringF += name + ", ";
-                sqlStringL += "@" + name + ", ";
-                currentCommand.Parameters.AddWithValue("@" + name, bV);
-
+                //Compile SQL string with name and value
+                CompileCreateString(name, bV, ref sqlStringF, ref sqlStringL);
             }
 
             //Remove the last "," from the SQL fragments
@@ -232,9 +225,7 @@ namespace SemesterProjekt2021
             //Check if the command gave error
             if (conRes.Error)
             {
-                res.Error = true;
-                res.Message = conRes.Message;
-                res.Type = conRes.Type;
+                res = conRes;
             }
             else
             {
@@ -268,10 +259,19 @@ namespace SemesterProjekt2021
                 res.Type = "ConnectionError";
             }
 
-            //Clear all residgual parameters so the command is ready for use again
-            currentCommand.Parameters.Clear();
-
             return res;
+        }
+
+        private static void CompileCreateString(string name, object v, ref string f, ref string l)
+        {
+            //Change the first letter of the propertie name to lovercase
+            string firstLetter = name[0].ToString();
+            name = firstLetter.ToLower() + name.Substring(1);
+
+            //Compile the SQL string with the name of the propertie, and add its value as a paramater
+            f += name + ", ";
+            l += "@" + name + ", ";
+            currentCommand.Parameters.AddWithValue("@" + name, v);
         }
 
         public static Result ReadAllBolig(ref Bolig[] bs)
@@ -325,44 +325,56 @@ namespace SemesterProjekt2021
 
         public static Result ReadBolig(int id, ref Bolig b)
         {
+            //Create a result object for error catching
             Result res = new Result();
 
+            //Construct SQL query to get bolig that matches id supplied
             string sqlString = "SELECT * FROM Bolig WHERE ID = @ID;";
             currentCommand = new SqlCommand(sqlString, currentConnection);
             currentCommand.Parameters.AddWithValue("@ID", id);
 
+            //Check if there is a connection to the database
             if (connected)
             {
+                //Open the current connection, and read the data of the bolig
                 currentConnection.Open();
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
+                //Create an array of objects which length is the number of column of the database
                 object[] objs = new object[reader.FieldCount];
 
+                //Check whether there is any data to read
                 if (reader.Read())
                 {
+                    //Read the data into the array of objects
                     reader.GetValues(objs);
 
+                    //Create an array of properties that corrospond with the properties of bolig
                     Type type = b.GetType();
                     PropertyInfo[] props = type.GetProperties();
-                    int i = 0;
-                    foreach (PropertyInfo p in props)
+
+                    //For all properties in the propertie array
+                    for (int i = 0; i < props.Length; i++)
                     {
+                        //If the value from the database is not null, load the value into the bolig object
                         if (objs[i].GetType() != typeof(DBNull))
-                            p.SetValue(b, objs[i]);
-                        i++;
+                            props[i].SetValue(b, objs[i]);
                     }
                 }
                 else
                 {
+                    //Compile error is there was no data to be read
                     res.Error = true;
                     res.Message = "Bolig with ID not found. Try Create instead.";
                     res.Type = "IDNotFound";
                 }
+                //If a connection was opened, always close the reader and the connection
                 reader.Close();
                 currentConnection.Close();
             }
             else
             {
+                //Compile error if no connection can be established
                 res.Error = true;
                 res.Message = "Database not connected";
                 res.Type = "ConnectionError";
@@ -372,76 +384,88 @@ namespace SemesterProjekt2021
 
         public static Result UpdateBolig(Bolig b)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
+            //Read the current values of the bolig with the id ssupplies
             Bolig dBolig = new Bolig();
             Result readRes = ReadBolig(b.Id, ref dBolig);
+
+            //If the read failed return the error from the read
             if (readRes.Error) return readRes;
 
-
+            //Create an array of properties that corrospond with the properties of bolig
             Type type = b.GetType();
             PropertyInfo[] props = type.GetProperties();
+
+            //Create a string to contain the SQL string which updates the bolig
             string sqlString = "UPDATE Bolig SET ";
+
+            //Create a bool to check whether any info was updated
             bool looped = false;
 
+            //Loop through all the properties in bolig
             foreach (PropertyInfo p in props)
             {
+                //Read the values of the old and new bolig into variables
                 var bV = p.GetValue(b);
                 var dbV = p.GetValue(dBolig);
 
+                //Check if the new value is null, where strings are null, and ints are negativ
                 if (bV == null) continue;
-
                 if (bV.GetType() == typeof(int))
                     if ((int)bV < 0) continue;
 
+                //Dont update the id value
                 if (p.Name == "ID")
                     continue;
 
+                //If the old and new data are different perfom an update
                 if (dbV == null || (bV.ToString() != dbV.ToString()))
                 {
+                    //Set looped to true now that an update has taken place
                     looped = true;
+
+                    //Set the name og the propertie to a variable for easy access
                     string name = p.Name;
 
+                    //Set the first letter of the name to lowercase
                     string firstLetter = name[0].ToString();
-
                     name = firstLetter.ToLower() + name.Substring(1);
 
+                    //Translate specifik names form english to danish
                     if (name == "realtorId") name = "ejendomsmælgerID";
                     if (name == "sellerId") name = "sælgerID";
                     if (name == "buyerId") name = "køberID";
 
+                    //Compile the SQL sentence to update bolig with the propertie names and values as parameters
                     sqlString += name + " = @" + name + ", ";
                     currentCommand.Parameters.AddWithValue("@" + name, bV);
                 }
             }
 
+            //Only send message of there was values to update
             if (looped)
             {
+                //Remove the last ", " from the string
                 sqlString = sqlString.Remove(sqlString.Length - 2);
 
+                //Finalize the SQL string with the supplied id
                 sqlString += " WHERE ID = @ID;";
+                //Debug the current SQL string
                 MessageBox.Show(sqlString);
 
+                //Set the command text of the command to the SQL string
                 currentCommand.CommandText = sqlString;
 
-                if (connected)
-                {
-                    currentConnection.Open();
-
-                    currentCommand.ExecuteNonQuery();
-
-                    currentConnection.Close();
-                }
-                else
-                {
-                    res.Error = true;
-                    res.Message = "Database not connected";
-                    res.Type = "ConnectionError";
-                }
+                Result conRes = new Result();
+                conRes = SendCommand();
+                if (conRes.Error) res = conRes;
             }
             else
             {
+                //If no data needs to updated compile an error
                 res.Error = true;
                 res.Message = "No new information given.";
                 res.Type = "LackingData";
@@ -451,16 +475,19 @@ namespace SemesterProjekt2021
 
         public static Result ArchiveBolig(int id)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
+            //Read the current values from the bolig with the supplied id
             Bolig b = new Bolig();
             res = ReadBolig(id, ref b);
 
+            //If the read didnt give errors
             if (!res.Error)
             {
+                //Update the bolig to be inactive
                 b.Active = false;
-
                 res = UpdateBolig(b);
             }
 
@@ -469,9 +496,11 @@ namespace SemesterProjekt2021
 
         public static Result CreatePerson(Person p)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
+            //Check whether the id is already in use, an return error if it does
             if (usedPersonIDs.Contains(p.ID))
             {
                 res.Error = true;
@@ -480,6 +509,7 @@ namespace SemesterProjekt2021
                 return res;
             }
 
+            //Check whether the CPR is already in use, an return error if it does
             if (usedPersonCPRs.Contains(p.CPR))
             {
                 res.Error = true;
@@ -488,63 +518,56 @@ namespace SemesterProjekt2021
                 return res;
             }
 
+            //Create a two part SQL string to compile values and names simultaneously
             string sqlStringF = "INSERT INTO Person (";
             string sqlStringL = ") VALUES (";
 
+            //Create array of properties based on bolig
             Type type = p.GetType();
             PropertyInfo[] props = type.GetProperties();
-            List<object> objs = new List<object>();
-            List<string> pNames = new List<string>();
 
+            //Loop through all properties in bolig
             foreach (PropertyInfo prop in props)
             {
-                var bV = prop.GetValue(p);
+                //Read the value of person into variable for easy access
+                var pV = prop.GetValue(p);
 
-                if (bV == null) continue;
+                //Check if the value is null, where strings are null, and ints are negativ
+                if (pV == null) continue;
+                if (pV.GetType() == typeof(int))
+                    if ((int)pV < 0) continue;
 
-                if (bV.GetType() == typeof(int))
-                    if ((int)bV < 0) continue;
-
-                objs.Add(bV);
-
+                //Read the name of the propertie into variable for easy access
                 string name = prop.Name;
 
-                string firstLetter = name[0].ToString();
-
-                name = firstLetter.ToLower() + name.Substring(1);
-
-                sqlStringF += name + ", ";
-                sqlStringL += "@" + name + ", ";
-                pNames.Add("@" + name);
+                //Compile SQL string with name and value
+                CompileCreateString(name, pV, ref sqlStringF, ref sqlStringL);
 
             }
+            //Remove  the last ", " from the SQL strings
             sqlStringF = sqlStringF.Remove(sqlStringF.Length - 2);
             sqlStringL = sqlStringL.Remove(sqlStringL.Length - 2);
 
+            //Compile the final SQL string
             string sqlString = sqlStringF + sqlStringL + ");";
 
+            //Set the current command text to be the SQL string
             currentCommand.CommandText = sqlString;
-
-            for (int i = 0; i < objs.Count; i++)
-                currentCommand.Parameters.AddWithValue(pNames[i], objs[i]);
-
+            
+            //Debug the SQL string
             MessageBox.Show(sqlString);
 
-            if (connected)
+            Result conRes = new Result();
+
+            conRes = SendCommand();
+            if (conRes.Error)
             {
-                currentConnection.Open();
-
-                currentCommand.ExecuteNonQuery();
-                usedPersonIDs.Add(p.ID);
-                usedPersonCPRs.Add(p.CPR);
-
-                currentConnection.Close();
+                res = conRes;
             }
             else
             {
-                res.Error = true;
-                res.Message = "Database not connected";
-                res.Type = "ConnectionError";
+                usedPersonIDs.Add(p.ID);
+                usedPersonCPRs.Add(p.CPR);
             }
 
             return res;
@@ -597,44 +620,58 @@ namespace SemesterProjekt2021
 
         public static Result ReadPerson(int id, ref Person p)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
+
+            //Create a SQL string to read the bolig with the given id
             string sqlString = "SELECT * FROM Person WHERE ID = @ID;";
             currentCommand.Parameters.AddWithValue("@ID", id);
             currentCommand.CommandText = sqlString;
 
+            //Check whether a connection is able to be astablished
             if (connected)
             {
+                //Open the connection and read the information from the database
                 currentConnection.Open();
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
+                //Create an array of objects which length is the number of column of the database
                 object[] objs = new object[reader.FieldCount];
 
+                //If there is any data to be read
                 if (reader.Read())
                 {
+                    //read all the values into the object area
                     reader.GetValues(objs);
 
+                    //Create propertie array based on person
                     Type type = p.GetType();
                     PropertyInfo[] props = type.GetProperties();
-                    int i = 0;
-                    foreach (PropertyInfo prop in props)
+
+                    //Loop through each propertie in person
+                    for (int i = 0; i < props.Length; i++)
                     {
+                        //If the value read is not null read it into the p object
                         if (objs[i].GetType() != typeof(DBNull))
-                            prop.SetValue(p, objs[i]);
-                        i++;
+                            props[i].SetValue(p, objs[i]);
                     }
                 }
                 else
                 {
+                    //If no info avaliable to read compile error
                     res.Error = true;
                     res.Message = "Person with ID not found";
                     res.Type = "IDNotFound";
                 }
+
+                //Always close connection
                 reader.Close();
                 currentConnection.Close();
             }
             else
             {
+                //If no connection could be astablished compile error
                 res.Error = true;
                 res.Message = "Database not connected";
                 res.Type = "ConnectionError";
@@ -644,9 +681,11 @@ namespace SemesterProjekt2021
 
         public static Result UpdatePerson(Person p)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
+            
             Person dPerson = new Person();
             Result readRes = ReadPerson(p.ID, ref dPerson);
             if (readRes.Error) return readRes;
