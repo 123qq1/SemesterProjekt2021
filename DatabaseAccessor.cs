@@ -276,45 +276,62 @@ namespace SemesterProjekt2021
 
         public static Result ReadAllBolig(ref Bolig[] bs)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
-            List<Bolig> blst = new List<Bolig>();
-
+            //Create a SQL string to read all bolig
             string sqlString = "SELECT * FROM Bolig";
             currentCommand.CommandText = sqlString;
 
+            //Create list to contain all read bolig
+            List<Bolig> blst = new List<Bolig>();
+
+            //Check whether a connection is able to be astablished
             if (connected)
             {
+                //Open the connection and read the information from the database
                 currentConnection.Open();
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
+                //Create an array of objects which length is the number of column of the database
                 object[] objs = new object[reader.FieldCount];
 
+                //While there is any data to be read
                 while (reader.Read())
                 {
+                    //Create bolig to hold data
                     Bolig b = new Bolig();
+
+                    //read all the values into the object array
                     reader.GetValues(objs);
 
+                    //Create propertie array based on bolig
                     Type type = b.GetType();
                     PropertyInfo[] props = type.GetProperties();
-                    int i = 0;
-                    foreach (PropertyInfo p in props)
+
+                    //Loop through each propertie in bolig
+                    for (int i = 0; i < props.Length; i++)
                     {
+                        //If the value read is not null read it into the b object
                         if (objs[i].GetType() != typeof(DBNull))
-                            p.SetValue(b, objs[i]);
-                        i++;
+                            props[i].SetValue(b, objs[i]);
                     }
+
+                    //Add b object to bolig list
                     blst.Add(b);
                 }
 
+                //Copy list into ref array
                 bs = blst.ToArray();
 
+                //Always close connection
                 reader.Close();
                 currentConnection.Close();
             }
             else
             {
+                //If no connection could be astablished compile error
                 res.Error = true;
                 res.Message = "Database not connected";
                 res.Type = "ConnectionError";
@@ -575,42 +592,62 @@ namespace SemesterProjekt2021
 
         public static Result ReadAllPerson(ref Person[] ps)
         {
+            //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
+
+            //Create a SQL string to read all person
             string sqlString = "SELECT * FROM Person;";
             currentCommand.CommandText = sqlString;
+
+            //Create list to contain all read person
             List<Person> plst = new List<Person>();
 
+            //Check whether a connection is able to be astablished
             if (connected)
             {
+                //Open the connection and read the information from the database
                 currentConnection.Open();
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
+                //Create an array of objects which length is the number of column of the database
                 object[] objs = new object[reader.FieldCount];
 
+                //While there is any data to be read
                 while (reader.Read())
                 {
+                    //Create person to hold data
                     Person p = new Person();
 
+                    //read all the values into the object array
                     reader.GetValues(objs);
 
+                    //Create propertie array based on person
                     Type type = p.GetType();
                     PropertyInfo[] props = type.GetProperties();
-                    int i = 0;
-                    foreach (PropertyInfo prop in props)
+
+                    //Loop through each propertie in person
+                    for (int i = 0; i < props.Length; i++)
                     {
+                        //If the value read is not null read it into the p object
                         if (objs[i].GetType() != typeof(DBNull))
-                            prop.SetValue(p, objs[i]);
-                        i++;
+                            props[i].SetValue(p, objs[i]);
                     }
+
+                    //Add p object to person list
                     plst.Add(p);
                 }
+
+                //Copy list into ref array
                 ps = plst.ToArray();
+
+                //Always close connection
                 reader.Close();
                 currentConnection.Close();
             }
             else
             {
+                //If no connection could be astablished compile error
                 res.Error = true;
                 res.Message = "Database not connected";
                 res.Type = "ConnectionError";
@@ -624,7 +661,7 @@ namespace SemesterProjekt2021
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
-            //Create a SQL string to read the bolig with the given id
+            //Create a SQL string to read the person with the given id
             string sqlString = "SELECT * FROM Person WHERE ID = @ID;";
             currentCommand.Parameters.AddWithValue("@ID", id);
             currentCommand.CommandText = sqlString;
@@ -642,7 +679,7 @@ namespace SemesterProjekt2021
                 //If there is any data to be read
                 if (reader.Read())
                 {
-                    //read all the values into the object area
+                    //read all the values into the object array
                     reader.GetValues(objs);
 
                     //Create propertie array based on person
