@@ -23,78 +23,110 @@ namespace SemesterProjekt2021
 
         public static Result ConnectToDatabase(string dbName)
         {
+            //Result object for compiling errors
             Result r = new Result();
 
+            //Connection string to local database based on input name and pc name
             string strconn = @"Data Source=" + Environment.MachineName + ";Initial Catalog=" + dbName + ";Integrated Security=True;TrustServerCertificate=True";
 
+            //Create sqlconnection based on the connection string
             currentConnection = new SqlConnection(strconn);
 
+            //Setup SQL string and lists for used ids and cprs
             string sqlString = "SELECT ID FROM Bolig;";
             usedBoligIDs = new List<int>();
             usedPersonIDs = new List<int>();
             usedPersonCPRs = new List<long>();
 
+            //Catch any error when connecting
             try
             {
+                //Open the connection to the database
                 currentConnection.Open();
+
+                //Create the command to get all the already used ids
                 currentCommand = new SqlCommand("", currentConnection);
                 currentCommand.CommandText = sqlString;
 
+                //Execute the reader
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
+                //Read all the used ids
                 while (reader.Read())
                 {
+                    //Add the used id to its list
                     usedBoligIDs.Add(reader.GetInt32(0));
                 }
 
+                //Close the connection
                 currentConnection.Close();
-
             }
             catch (Exception e)
             {
+                //If an error was caught compile error
                 r.Message = e.Message;
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
 
+            //Catch any error when connecting
             try
             {
+                //Open the connection to the database
                 currentConnection.Open();
+
+                //Create the command to get all the already used ids
                 sqlString = "SELECT ID FROM Person;";
                 currentCommand = new SqlCommand(sqlString, currentConnection);
                 currentCommand.CommandText = "SELECT ID FROM Person;";
+
+                //Execute the reader
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
+                //Read all the used ids
                 while (reader.Read())
                 {
+                    //Add the used id to its list
                     usedPersonIDs.Add(reader.GetInt32(0));
                 }
 
+                //Close the connection
                 currentConnection.Close();
             }
             catch (Exception e)
             {
+                //If an error was caught compile error
                 r.Message = e.Message;
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
 
+            //Catch any error when connecting
             try
             {
+                //Open the connection to the database
                 currentConnection.Open();
+
+                //Create the command to get all the already used ids
                 currentCommand = new SqlCommand("", currentConnection);
                 currentCommand.CommandText = "SELECT CPR FROM Person;";
+
+                //Execute the reader
                 SqlDataReader reader = currentCommand.ExecuteReader();
 
+                //Read all the used cprs
                 while (reader.Read())
                 {
+                    //Add the used cpr to its list
                     usedPersonCPRs.Add(reader.GetInt64(0));
                 }
 
+                //Close the connection
                 currentConnection.Close();
             }
             catch (Exception e)
             {
+                //If an error was caught compile error
                 r.Message = e.Message;
                 r.Type = e.GetType().ToString();
                 r.Error = true;
@@ -111,7 +143,7 @@ namespace SemesterProjekt2021
 
             MessageBox.Show(s);
             */
-
+            //If no error was had a connection later is able to be established
             connected = !r.Error;
             return r;
         }
