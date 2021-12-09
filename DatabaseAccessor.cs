@@ -426,11 +426,17 @@ namespace SemesterProjekt2021
             Bolig b = new Bolig();
             res = ReadBolig(id, ref b);
 
-            if (!res.Error)
+            if (!res.Error && b.Active)
             {
                 b.Active = false;
 
                 res = UpdateBolig(b);
+            }
+            else
+            {
+                res.Error = true;
+                res.Type = "AlreadyArchived";
+                res.Message = "The Bolig with the given ID has already been archived.";
             }
 
             return res;
@@ -594,7 +600,7 @@ namespace SemesterProjekt2021
                 else
                 {
                     res.Error = true;
-                    res.Message = "Person with ID not found";
+                    res.Message = "Person with ID not found. Try Create instead.";
                     res.Type = "IDNotFound";
                 }
                 reader.Close();
@@ -697,11 +703,35 @@ namespace SemesterProjekt2021
 
             if (connected)
             {
-                currentConnection.Open();
+                try
+                {
+                    currentConnection.Open();
 
-                currentCommand.ExecuteNonQuery();
+                    currentCommand.ExecuteNonQuery();
 
-                currentConnection.Close();
+                    currentConnection.Close();
+                }
+                catch (Exception e)
+                {
+                    if (e.GetType().ToString() == "Microsoft.Data.SqlClient.SqlException")
+                    {
+                        res.Error = true;
+                        res.Message = "Cannot delete a person linked to a Bolig in the database.";
+                        res.Type = "LinkError";
+                    }
+                    else
+                    {
+                        res.Error = true;
+                        res.Message = e.Message;
+                        res.Type = e.GetType().ToString();
+                    }
+                }
+                finally
+                {
+                    if (currentConnection.State == System.Data.ConnectionState.Open)
+                        currentConnection.Close();
+                }
+                
             }
             else
             {

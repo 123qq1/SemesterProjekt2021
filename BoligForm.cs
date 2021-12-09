@@ -300,6 +300,8 @@ namespace SemesterProjekt2021
                     SellerIDTextbox.Text = b.SellerId.ToString();
                     ActiveCheckbox.Checked = b.Active;
                 }
+                else
+                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
         }
 
@@ -432,7 +434,7 @@ namespace SemesterProjekt2021
                     if (!r2.Error)
                         MessageBox.Show("Success!");
                     else
-                        MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                        MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
                 }
                 else
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
@@ -579,6 +581,9 @@ namespace SemesterProjekt2021
                     break;
             }
 
+            if (r == null)
+                r = new Result("ValidationType", "Unknown Validation type.");
+
             return r;
         }
 
@@ -648,32 +653,37 @@ namespace SemesterProjekt2021
             string text = null;
             int recommendedPrice = 0;
 
-            // Validate Rooms
-            text = RoomsTextBox.Text;
-            if (!Validate(b, text, "Rooms"))
-                success = false;
-
-            // Validate InArea
-            text = InAreaTextBox.Text;
-            if (!Validate(b, text, "InArea"))
-                success = false;
-
-
-            // Validate OutArea
-            text = OutAreaTextBox.Text;
-            if (!Validate(b, text, "OutArea"))
-                success = false;
-
-            if (success)
+            if (RoomsTextBox.Text != "" && InAreaTextBox.Text != "" && OutAreaTextBox.Text != "")
             {
-                r = PriceSetter.AproximateBoligPris(b, ref recommendedPrice);
-                if (!r.Error)
-                    OfferPriceTextBox.Text = recommendedPrice.ToString();
+                // Validate Rooms
+                text = RoomsTextBox.Text;
+                if (!Validate(b, text, "Rooms"))
+                    success = false;
+
+                // Validate InArea
+                text = InAreaTextBox.Text;
+                if (!Validate(b, text, "InArea"))
+                    success = false;
+
+
+                // Validate OutArea
+                text = OutAreaTextBox.Text;
+                if (!Validate(b, text, "OutArea"))
+                    success = false;
+
+                if (success)
+                {
+                    r = PriceSetter.AproximateBoligPris(b, ref recommendedPrice);
+                    if (!r.Error)
+                        OfferPriceTextBox.Text = recommendedPrice.ToString();
+                    else
+                        MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                }
                 else
-                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                    MessageBox.Show("Cannot calculate price without valid input for InArea, OutArea and Rooms.");
             }
             else
-                MessageBox.Show("Cannot calculate price without valid input for InArea, OutArea and Rooms.");
+                MessageBox.Show("Cannot evaluate the price of the current Bolig without data on Rooms, In and Out Area.");
         }
 
         private void ValidBoligID_Click(object sender, EventArgs e)
