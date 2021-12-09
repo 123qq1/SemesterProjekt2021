@@ -24,6 +24,13 @@ namespace SemesterProjekt2021
             IDTooltip.ShowAlways = true;
             IDTooltip.SetToolTip(this.IDTextBox, "Indtast ID, skal være heltal");
 
+            ToolTip NextIDTooltip = new ToolTip();  //NÆSTE ID BUTTON TOOLTIP
+            NextIDTooltip.AutoPopDelay = 0;
+            NextIDTooltip.InitialDelay = 0;
+            NextIDTooltip.ReshowDelay = 100;
+            NextIDTooltip.ShowAlways = true;
+            NextIDTooltip.SetToolTip(this.ValidBoligID, "Henter et ledigt ID fra databasen");
+
             ToolTip TypeTooltip = new ToolTip(); //TYPE COMBOBOX TOOLTIP
             TypeTooltip.AutoPopDelay = 0;
             TypeTooltip.InitialDelay = 0;
@@ -276,7 +283,12 @@ namespace SemesterProjekt2021
             Bolig b = new Bolig();
             int i = 0;
 
-            if (!r.Error)
+
+            if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. No, this does not cause a memory-leak (as far as I know).
+            {
+                MessageBox.Show("ID not given.");
+            }
+            else if (!r.Error)
                 i = Convert.ToInt32(IDTextBox.Text);
             else
                 MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
@@ -464,7 +476,12 @@ namespace SemesterProjekt2021
         {
             string bIds = IDTextBox.Text;
             InputValidation.Result r1 = InputValidation.Generic.ID(bIds);
-            if (r1.Error)
+
+            if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. If I delete this, the program will still run (as far as I know).
+            {
+                MessageBox.Show("ID not given.");
+            }
+            else if (r1.Error)
             {
                 MessageBox.Show("Error: " + r1.Type + "\n" + r1.Message);
             }
