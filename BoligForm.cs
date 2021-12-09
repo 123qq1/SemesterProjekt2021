@@ -192,8 +192,16 @@ namespace SemesterProjekt2021
 
             // Validate ID
             text = IDTextBox.Text;
-            if (!Validate(b, text, "ID"))
+            if (text == "")
+            {
                 success = false;
+                MessageBox.Show("No ID given.");
+            }
+            else
+            {
+                if (!Validate(b, text, "ID"))
+                    success = false;
+            }
 
             // Validate Type
             text = TypeComboBox.Text.ToLower();
