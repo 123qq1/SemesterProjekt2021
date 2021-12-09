@@ -287,8 +287,16 @@ namespace SemesterProjekt2021
 
             // Validate ID
             text = IDTextBox.Text;
-            if (!Validate(p, text, "ID"))
+            if (text == "")
+            {
                 success = false;
+                MessageBox.Show("No ID given. Can't update unknown Person.");
+            }
+            else
+            {
+                if (!Validate(p, text, "ID"))
+                    success = false;
+            }
 
             // Validate Email
             text = EmailTextBox.Text;
