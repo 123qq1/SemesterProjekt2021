@@ -340,7 +340,7 @@
             this.panel1.Location = new System.Drawing.Point(312, 320);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(329, 118);
-            this.panel1.TabIndex = 55;
+            this.panel1.TabIndex = 61;
             // 
             // PriceEvalButton
             // 
