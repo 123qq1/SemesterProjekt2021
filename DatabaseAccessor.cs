@@ -533,11 +533,17 @@ namespace SemesterProjekt2021
             res = ReadBolig(id, ref b);
 
             //If the read didnt give errors
-            if (!res.Error)
+            if (!res.Error && b.Active)
             {
                 //Update the bolig to be inactive
                 b.Active = false;
                 res = UpdateBolig(b);
+            }
+            else
+            {
+                res.Error = true;
+                res.Type = "AlreadyArchived";
+                res.Message = "The Bolig with the given ID has already been archived.";
             }
 
             return res;
@@ -730,7 +736,7 @@ namespace SemesterProjekt2021
                 {
                     //If no info avaliable to read compile error
                     res.Error = true;
-                    res.Message = "Person with ID not found";
+                    res.Message = "Person with ID not found. Try Create instead.";
                     res.Type = "IDNotFound";
                 }
 

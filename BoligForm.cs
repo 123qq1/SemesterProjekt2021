@@ -24,6 +24,13 @@ namespace SemesterProjekt2021
             IDTooltip.ShowAlways = true;
             IDTooltip.SetToolTip(this.IDTextBox, "Indtast ID, skal være heltal");
 
+            ToolTip NextIDTooltip = new ToolTip();  //NÆSTE ID BUTTON TOOLTIP
+            NextIDTooltip.AutoPopDelay = 0;
+            NextIDTooltip.InitialDelay = 0;
+            NextIDTooltip.ReshowDelay = 100;
+            NextIDTooltip.ShowAlways = true;
+            NextIDTooltip.SetToolTip(this.ValidBoligID, "Henter et ledigt ID fra databasen");
+
             ToolTip TypeTooltip = new ToolTip(); //TYPE COMBOBOX TOOLTIP
             TypeTooltip.AutoPopDelay = 0;
             TypeTooltip.InitialDelay = 0;
@@ -276,7 +283,12 @@ namespace SemesterProjekt2021
             Bolig b = new Bolig();
             int i = 0;
 
-            if (!r.Error)
+
+            if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. No, this does not cause a memory-leak (as far as I know).
+            {
+                MessageBox.Show("ID not given.");
+            }
+            else if (!r.Error)
                 i = Convert.ToInt32(IDTextBox.Text);
             else
                 MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
@@ -300,6 +312,8 @@ namespace SemesterProjekt2021
                     SellerIDTextbox.Text = b.SellerId.ToString();
                     ActiveCheckbox.Checked = b.Active;
                 }
+                else
+                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
         }
 
@@ -432,7 +446,7 @@ namespace SemesterProjekt2021
                     if (!r2.Error)
                         MessageBox.Show("Success!");
                     else
-                        MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                        MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
                 }
                 else
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
@@ -464,7 +478,12 @@ namespace SemesterProjekt2021
         {
             string bIds = IDTextBox.Text;
             InputValidation.Result r1 = InputValidation.Generic.ID(bIds);
-            if (r1.Error)
+
+            if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. If I delete this, the program will still run (as far as I know).
+            {
+                MessageBox.Show("ID not given.");
+            }
+            else if (r1.Error)
             {
                 MessageBox.Show("Error: " + r1.Type + "\n" + r1.Message);
             }
@@ -579,6 +598,9 @@ namespace SemesterProjekt2021
                     break;
             }
 
+            if (r == null)
+                r = new Result("ValidationType", "Unknown Validation type.");
+
             return r;
         }
 
@@ -648,32 +670,37 @@ namespace SemesterProjekt2021
             string text = null;
             int recommendedPrice = 0;
 
-            // Validate Rooms
-            text = RoomsTextBox.Text;
-            if (!Validate(b, text, "Rooms"))
-                success = false;
-
-            // Validate InArea
-            text = InAreaTextBox.Text;
-            if (!Validate(b, text, "InArea"))
-                success = false;
-
-
-            // Validate OutArea
-            text = OutAreaTextBox.Text;
-            if (!Validate(b, text, "OutArea"))
-                success = false;
-
-            if (success)
+            if (RoomsTextBox.Text != "" && InAreaTextBox.Text != "" && OutAreaTextBox.Text != "")
             {
-                r = PriceSetter.AproximateBoligPris(b, ref recommendedPrice);
-                if (!r.Error)
-                    OfferPriceTextBox.Text = recommendedPrice.ToString();
+                // Validate Rooms
+                text = RoomsTextBox.Text;
+                if (!Validate(b, text, "Rooms"))
+                    success = false;
+
+                // Validate InArea
+                text = InAreaTextBox.Text;
+                if (!Validate(b, text, "InArea"))
+                    success = false;
+
+
+                // Validate OutArea
+                text = OutAreaTextBox.Text;
+                if (!Validate(b, text, "OutArea"))
+                    success = false;
+
+                if (success)
+                {
+                    r = PriceSetter.AproximateBoligPris(b, ref recommendedPrice);
+                    if (!r.Error)
+                        OfferPriceTextBox.Text = recommendedPrice.ToString();
+                    else
+                        MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                }
                 else
-                    MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
+                    MessageBox.Show("Cannot calculate price without valid input for InArea, OutArea and Rooms.");
             }
             else
-                MessageBox.Show("Cannot calculate price without valid input for InArea, OutArea and Rooms.");
+                MessageBox.Show("Cannot evaluate the price of the current Bolig without data on Rooms, In and Out Area.");
         }
 
         private void ValidBoligID_Click(object sender, EventArgs e)

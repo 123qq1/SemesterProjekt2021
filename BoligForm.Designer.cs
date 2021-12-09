@@ -64,6 +64,8 @@
             this.SellerLabel = new System.Windows.Forms.Label();
             this.SellerIDTextbox = new System.Windows.Forms.TextBox();
             this.ValidBoligID = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,7 +218,7 @@
             // 
             this.IDTextBox.Location = new System.Drawing.Point(70, 44);
             this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(139, 23);
+            this.IDTextBox.Size = new System.Drawing.Size(133, 23);
             this.IDTextBox.TabIndex = 40;
             // 
             // OfferPriceLabel
@@ -226,7 +228,7 @@
             this.OfferPriceLabel.Location = new System.Drawing.Point(351, 168);
             this.OfferPriceLabel.Name = "OfferPriceLabel";
             this.OfferPriceLabel.Size = new System.Drawing.Size(94, 21);
-            this.OfferPriceLabel.TabIndex = 39;
+            this.OfferPriceLabel.TabIndex = 99;
             this.OfferPriceLabel.Text = "Udbuds pris";
             // 
             // AddressLabel
@@ -236,7 +238,7 @@
             this.AddressLabel.Location = new System.Drawing.Point(351, 118);
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(65, 21);
-            this.AddressLabel.TabIndex = 38;
+            this.AddressLabel.TabIndex = 99;
             this.AddressLabel.Text = "Adresse";
             // 
             // ZipLabel
@@ -246,7 +248,7 @@
             this.ZipLabel.Location = new System.Drawing.Point(351, 70);
             this.ZipLabel.Name = "ZipLabel";
             this.ZipLabel.Size = new System.Drawing.Size(99, 21);
-            this.ZipLabel.TabIndex = 37;
+            this.ZipLabel.TabIndex = 99;
             this.ZipLabel.Text = "Postnummer";
             // 
             // CityLabel
@@ -256,7 +258,7 @@
             this.CityLabel.Location = new System.Drawing.Point(351, 20);
             this.CityLabel.Name = "CityLabel";
             this.CityLabel.Size = new System.Drawing.Size(27, 21);
-            this.CityLabel.TabIndex = 36;
+            this.CityLabel.TabIndex = 99;
             this.CityLabel.Text = "By";
             // 
             // RoomsLabel
@@ -266,7 +268,7 @@
             this.RoomsLabel.Location = new System.Drawing.Point(70, 320);
             this.RoomsLabel.Name = "RoomsLabel";
             this.RoomsLabel.Size = new System.Drawing.Size(79, 21);
-            this.RoomsLabel.TabIndex = 35;
+            this.RoomsLabel.TabIndex = 99;
             this.RoomsLabel.Text = "Antal rum";
             // 
             // BuiltLabel
@@ -276,7 +278,7 @@
             this.BuiltLabel.Location = new System.Drawing.Point(70, 270);
             this.BuiltLabel.Name = "BuiltLabel";
             this.BuiltLabel.Size = new System.Drawing.Size(78, 21);
-            this.BuiltLabel.TabIndex = 34;
+            this.BuiltLabel.TabIndex = 99;
             this.BuiltLabel.Text = "År bygget";
             // 
             // OutAreaLabel
@@ -286,7 +288,7 @@
             this.OutAreaLabel.Location = new System.Drawing.Point(70, 220);
             this.OutAreaLabel.Name = "OutAreaLabel";
             this.OutAreaLabel.Size = new System.Drawing.Size(76, 21);
-            this.OutAreaLabel.TabIndex = 33;
+            this.OutAreaLabel.TabIndex = 99;
             this.OutAreaLabel.Text = "Ude areal";
             // 
             // InAreaLabel
@@ -296,7 +298,7 @@
             this.InAreaLabel.Location = new System.Drawing.Point(70, 170);
             this.InAreaLabel.Name = "InAreaLabel";
             this.InAreaLabel.Size = new System.Drawing.Size(78, 21);
-            this.InAreaLabel.TabIndex = 32;
+            this.InAreaLabel.TabIndex = 99;
             this.InAreaLabel.Text = "Inde areal";
             // 
             // EnergyLabel
@@ -306,7 +308,7 @@
             this.EnergyLabel.Location = new System.Drawing.Point(70, 120);
             this.EnergyLabel.Name = "EnergyLabel";
             this.EnergyLabel.Size = new System.Drawing.Size(107, 21);
-            this.EnergyLabel.TabIndex = 31;
+            this.EnergyLabel.TabIndex = 99;
             this.EnergyLabel.Text = "Energi mærke";
             // 
             // TypeLabel
@@ -316,7 +318,7 @@
             this.TypeLabel.Location = new System.Drawing.Point(70, 70);
             this.TypeLabel.Name = "TypeLabel";
             this.TypeLabel.Size = new System.Drawing.Size(42, 21);
-            this.TypeLabel.TabIndex = 30;
+            this.TypeLabel.TabIndex = 99;
             this.TypeLabel.Text = "Type";
             // 
             // IDLabel
@@ -326,7 +328,7 @@
             this.IDLabel.Location = new System.Drawing.Point(70, 20);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(25, 21);
-            this.IDLabel.TabIndex = 29;
+            this.IDLabel.TabIndex = 99;
             this.IDLabel.Text = "ID";
             // 
             // panel1
@@ -338,7 +340,7 @@
             this.panel1.Location = new System.Drawing.Point(312, 320);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(329, 118);
-            this.panel1.TabIndex = 56;
+            this.panel1.TabIndex = 55;
             // 
             // PriceEvalButton
             // 
@@ -356,7 +358,7 @@
             this.MessageboxClearButton.Location = new System.Drawing.Point(70, 373);
             this.MessageboxClearButton.Name = "MessageboxClearButton";
             this.MessageboxClearButton.Size = new System.Drawing.Size(98, 23);
-            this.MessageboxClearButton.TabIndex = 61;
+            this.MessageboxClearButton.TabIndex = 99;
             this.MessageboxClearButton.Text = "Slet alt tekst";
             this.MessageboxClearButton.UseVisualStyleBackColor = true;
             this.MessageboxClearButton.Click += new System.EventHandler(this.MessageboxClearButton_Click);
@@ -368,7 +370,7 @@
             this.RealtorIDLabel.Location = new System.Drawing.Point(351, 218);
             this.RealtorIDLabel.Name = "RealtorIDLabel";
             this.RealtorIDLabel.Size = new System.Drawing.Size(151, 21);
-            this.RealtorIDLabel.TabIndex = 58;
+            this.RealtorIDLabel.TabIndex = 99;
             this.RealtorIDLabel.Text = "Ejendomsmælger ID";
             // 
             // RealtorTextbox
@@ -397,7 +399,7 @@
             this.SellerLabel.Location = new System.Drawing.Point(351, 266);
             this.SellerLabel.Name = "SellerLabel";
             this.SellerLabel.Size = new System.Drawing.Size(78, 21);
-            this.SellerLabel.TabIndex = 60;
+            this.SellerLabel.TabIndex = 99;
             this.SellerLabel.Text = "Sælger ID";
             // 
             // SellerIDTextbox
@@ -413,9 +415,26 @@
             this.ValidBoligID.Name = "ValidBoligID";
             this.ValidBoligID.Size = new System.Drawing.Size(75, 23);
             this.ValidBoligID.TabIndex = 41;
-            this.ValidBoligID.Text = "Valid ID";
+            this.ValidBoligID.Text = "Næste ID";
             this.ValidBoligID.UseVisualStyleBackColor = true;
             this.ValidBoligID.Click += new System.EventHandler(this.ValidBoligID_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(132)))));
+            this.panel2.Location = new System.Drawing.Point(208, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(82, 33);
+            this.panel2.TabIndex = 100;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(204)))), ((int)(((byte)(215)))));
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.Location = new System.Drawing.Point(68, 369);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(103, 31);
+            this.panel3.TabIndex = 101;
             // 
             // BoligForm
             // 
@@ -456,6 +475,8 @@
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BoligForm";
             this.Text = "BoligForm";
@@ -502,5 +523,7 @@
         private System.Windows.Forms.Label SellerLabel;
         private System.Windows.Forms.TextBox SellerIDTextbox;
         private System.Windows.Forms.Button ValidBoligID;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
