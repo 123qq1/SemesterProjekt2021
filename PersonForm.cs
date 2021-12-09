@@ -24,6 +24,13 @@ namespace SemesterProjekt2021
             IDTooltip.ShowAlways = true;
             IDTooltip.SetToolTip(this.IDTextBox, "Indtast ID, skal være heltal");
 
+            ToolTip NextIDTooltip = new ToolTip(); // NÆSTE ID BUTTON TOOLTIP
+            NextIDTooltip.AutoPopDelay = 0;
+            NextIDTooltip.InitialDelay = 0;
+            NextIDTooltip.ReshowDelay = 100;
+            NextIDTooltip.ShowAlways = true;
+            NextIDTooltip.SetToolTip(this.ValidPersonID, "Henter et ledigt ID fra databasen");
+
             ToolTip CPRTooltip = new ToolTip(); // CPR TEXTBOX TOOLTIP
             CPRTooltip.AutoPopDelay = 0;
             CPRTooltip.InitialDelay = 0;
@@ -234,7 +241,11 @@ namespace SemesterProjekt2021
             Person p = new Person();
             int i = 0;
 
-            if (!r.Error)
+            if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. ID not given, fucks not given(as far as I know).
+            {
+                MessageBox.Show("ID not given.");
+            }
+            else if (!r.Error)
                 i = Convert.ToInt32(IDTextBox.Text);
             else
                 MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
@@ -342,7 +353,12 @@ namespace SemesterProjekt2021
             */
 
             Result r = InputValidation.Generic.ID(IDTextBox.Text);
-            if (!r.Error)
+
+            if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. This is a band aid emoji 🩹 (as far as I know).
+            {
+                MessageBox.Show("ID not given.");
+            }
+            else if (!r.Error)
             {
                 Result r2 = DatabaseAccessor.DeletePerson(Convert.ToInt32(IDTextBox.Text));
                 if (!r2.Error)
