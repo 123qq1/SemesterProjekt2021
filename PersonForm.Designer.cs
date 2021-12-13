@@ -107,10 +107,10 @@
             // 
             // AddresseTextBox
             // 
-            this.AddresseTextBox.Location = new System.Drawing.Point(351, 144);
+            this.AddresseTextBox.Location = new System.Drawing.Point(351, 44);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
-            this.AddresseTextBox.TabIndex = 47;
+            this.AddresseTextBox.TabIndex = 45;
             // 
             // ZipTextBox
             // 
@@ -121,10 +121,10 @@
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(351, 44);
+            this.CityTextBox.Location = new System.Drawing.Point(351, 144);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CityTextBox.TabIndex = 45;
+            this.CityTextBox.TabIndex = 47;
             // 
             // LNameTextBox
             // 
@@ -158,7 +158,7 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddressLabel.Location = new System.Drawing.Point(351, 120);
+            this.AddressLabel.Location = new System.Drawing.Point(351, 20);
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(65, 21);
             this.AddressLabel.TabIndex = 36;
@@ -178,7 +178,7 @@
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CityLabel.Location = new System.Drawing.Point(351, 20);
+            this.CityLabel.Location = new System.Drawing.Point(351, 120);
             this.CityLabel.Name = "CityLabel";
             this.CityLabel.Size = new System.Drawing.Size(27, 21);
             this.CityLabel.TabIndex = 34;
@@ -315,7 +315,7 @@
             this.ValidPersonID.Name = "ValidPersonID";
             this.ValidPersonID.Size = new System.Drawing.Size(75, 23);
             this.ValidPersonID.TabIndex = 39;
-            this.ValidPersonID.Text = "Næste ID";
+            this.ValidPersonID.Text = "Nyt ID";
             this.ValidPersonID.UseVisualStyleBackColor = true;
             this.ValidPersonID.Click += new System.EventHandler(this.ValidPersonID_Click);
             // 

@@ -133,10 +133,10 @@
             // 
             // AddresseTextBox
             // 
-            this.AddresseTextBox.Location = new System.Drawing.Point(351, 142);
+            this.AddresseTextBox.Location = new System.Drawing.Point(351, 44);
             this.AddresseTextBox.Name = "AddresseTextBox";
             this.AddresseTextBox.Size = new System.Drawing.Size(216, 23);
-            this.AddresseTextBox.TabIndex = 51;
+            this.AddresseTextBox.TabIndex = 49;
             // 
             // ZipTextBox
             // 
@@ -148,10 +148,10 @@
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(351, 44);
+            this.CityTextBox.Location = new System.Drawing.Point(351, 142);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(216, 23);
-            this.CityTextBox.TabIndex = 49;
+            this.CityTextBox.TabIndex = 51;
             // 
             // RoomsTextBox
             // 
@@ -208,7 +208,8 @@
             "Ejerlejlighed",
             "Ideel anpart",
             "Andelsbolig",
-            "Lejlighed"});
+            "Lejlighed",
+            "Grund"});
             this.TypeComboBox.Location = new System.Drawing.Point(70, 94);
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(216, 23);
@@ -235,7 +236,7 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddressLabel.Location = new System.Drawing.Point(351, 118);
+            this.AddressLabel.Location = new System.Drawing.Point(351, 20);
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(65, 21);
             this.AddressLabel.TabIndex = 99;
@@ -255,7 +256,7 @@
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CityLabel.Location = new System.Drawing.Point(351, 20);
+            this.CityLabel.Location = new System.Drawing.Point(351, 118);
             this.CityLabel.Name = "CityLabel";
             this.CityLabel.Size = new System.Drawing.Size(27, 21);
             this.CityLabel.TabIndex = 99;
@@ -415,7 +416,7 @@
             this.ValidBoligID.Name = "ValidBoligID";
             this.ValidBoligID.Size = new System.Drawing.Size(75, 23);
             this.ValidBoligID.TabIndex = 41;
-            this.ValidBoligID.Text = "Næste ID";
+            this.ValidBoligID.Text = "Nyt ID";
             this.ValidBoligID.UseVisualStyleBackColor = true;
             this.ValidBoligID.Click += new System.EventHandler(this.ValidBoligID_Click);
             // 
