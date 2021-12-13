@@ -134,6 +134,7 @@ namespace SemesterProjekt2021
                 r.Error = true;
             }
 
+            //Catch any error when connecting
             try
             {
                 //Open the connection to the database
@@ -152,17 +153,11 @@ namespace SemesterProjekt2021
                     int id = reader.GetInt32(0);
                     //Add the types to its list
 
-                    int type = 0;
-
                     bool isE = reader.GetBoolean(1);
                     bool isK = reader.GetBoolean(2);
                     bool isS = reader.GetBoolean(3);
 
-                    if (isE) type += 1;
-                    if (isK) type += 2;
-                    if (isS) type += 4;
-
-                    usedPersonTypes.Add(id, type);
+                    AddToTypeList(id, isE, isK, isS);
                 }
 
                 //Close the connection
@@ -191,6 +186,17 @@ namespace SemesterProjekt2021
             //If no error was had a connection later is able to be established
             connected = !r.Error;
             return r;
+        }
+
+        private static void AddToTypeList(int id, bool isE, bool isK, bool isS)
+        {
+            int type = 0;
+
+            if (isE) type += 1;
+            if (isK) type += 2;
+            if (isS) type += 4;
+
+            usedPersonTypes.Add(id, type);
         }
 
         public static bool PersonIsOfType(int id, bool ofMælger, bool ofKøber, bool ofSælger)
@@ -690,6 +696,7 @@ namespace SemesterProjekt2021
             {
                 usedPersonIDs.Add(p.ID);
                 usedPersonCPRs.Add(p.CPR);
+                AddToTypeList(p.ID, p.IsEjendomsmælger, p.IsKøber, p.IsSælger);
             }
 
             return res;
