@@ -20,6 +20,7 @@ namespace SemesterProjekt2021
         private static List<int> usedBoligIDs;
         private static List<int> usedPersonIDs;
         private static List<long> usedPersonCPRs;
+        private static Dictionary<int,int> usedPersonTypes;
 
         public static Result ConnectToDatabase(string dbName)
         {
@@ -32,11 +33,12 @@ namespace SemesterProjekt2021
             //Create sqlconnection based on the connection string
             currentConnection = new SqlConnection(strconn);
 
-            //Setup SQL string and lists for used ids and cprs
+            //Setup SQL string and lists for used ids, cprs and types
             string sqlString = "SELECT ID FROM Bolig;";
             usedBoligIDs = new List<int>();
             usedPersonIDs = new List<int>();
             usedPersonCPRs = new List<long>();
+            usedPersonTypes = new Dictionary<int, int>();
 
             //Catch any error when connecting
             try
@@ -58,8 +60,6 @@ namespace SemesterProjekt2021
                     usedBoligIDs.Add(reader.GetInt32(0));
                 }
 
-                //Close the connection
-                currentConnection.Close();
             }
             catch (Exception e)
             {
@@ -68,6 +68,8 @@ namespace SemesterProjekt2021
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
+            //Close the connection
+            currentConnection.Close();
 
             //Catch any error when connecting
             try
@@ -90,8 +92,6 @@ namespace SemesterProjekt2021
                     usedPersonIDs.Add(reader.GetInt32(0));
                 }
 
-                //Close the connection
-                currentConnection.Close();
             }
             catch (Exception e)
             {
@@ -100,6 +100,8 @@ namespace SemesterProjekt2021
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
+            //Close the connection
+            currentConnection.Close();
 
             //Catch any error when connecting
             try
@@ -107,7 +109,7 @@ namespace SemesterProjekt2021
                 //Open the connection to the database
                 currentConnection.Open();
 
-                //Create the command to get all the already used ids
+                //Create the command to get all the already used CPRs
                 currentCommand = new SqlCommand("", currentConnection);
                 currentCommand.CommandText = "SELECT CPR FROM Person;";
 
@@ -121,8 +123,6 @@ namespace SemesterProjekt2021
                     usedPersonCPRs.Add(reader.GetInt64(0));
                 }
 
-                //Close the connection
-                currentConnection.Close();
             }
             catch (Exception e)
             {
@@ -131,6 +131,46 @@ namespace SemesterProjekt2021
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
+            //Close the connection
+            currentConnection.Close();
+
+            //Catch any error when connecting
+            try
+            {
+                //Open the connection to the database
+                currentConnection.Open();
+
+                //Create the command to get all the already used types
+                currentCommand = new SqlCommand("", currentConnection);
+                currentCommand.CommandText = "SELECT ID, isEjendomsmælger, isKøber, isSælger FROM Person;";
+
+                //Execute the reader
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                //Read all the used types
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    //Add the types to its list
+
+                    bool isE = reader.GetBoolean(1);
+                    bool isK = reader.GetBoolean(2);
+                    bool isS = reader.GetBoolean(3);
+
+                    AddToTypeList(id, isE, isK, isS);
+                }
+
+            }
+            catch (Exception e)
+            {
+                //If an error was caught compile error
+                r.Message = e.Message;
+                r.Type = e.GetType().ToString();
+                r.Error = true;
+            }
+
+            //Close the connection
+            currentConnection.Close();
 
             /*
             string s = "";
@@ -142,9 +182,43 @@ namespace SemesterProjekt2021
 
             MessageBox.Show(s);
             */
+
             //If no error was had a connection later is able to be established
             connected = !r.Error;
             return r;
+        }
+
+        private static void AddToTypeList(int id, bool isE, bool isK, bool isS)
+        {
+            int type = 0;
+
+            if (isE) type += 1;
+            if (isK) type += 2;
+            if (isS) type += 4;
+
+            usedPersonTypes.Add(id, type);
+        }
+
+        public static bool PersonIsOfType(int id, bool ofMælger, bool ofKøber, bool ofSælger)
+        {
+            bool res = false;
+
+            int type = usedPersonTypes[id];
+
+            if (ofMælger)
+            {
+                res = 0 < (type & 1);
+            }
+            if (ofKøber)
+            {
+                res = 0 < (type & 2);
+            }
+            if (ofSælger)
+            {
+                res = 0 < (type & 4);
+            }
+
+            return res;
         }
 
         // Missing parameters
@@ -622,6 +696,7 @@ namespace SemesterProjekt2021
             {
                 usedPersonIDs.Add(p.ID);
                 usedPersonCPRs.Add(p.CPR);
+                AddToTypeList(p.ID, p.IsEjendomsmælger, p.IsKøber, p.IsSælger);
             }
 
             return res;
@@ -844,7 +919,12 @@ namespace SemesterProjekt2021
         {
             //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
+
+            Person p = new Person();
+            res = ReadPerson(id, ref p);
+
             currentCommand = new SqlCommand("", currentConnection);
+
 
             //Compile SQL string to delete person with supplied id
             string strconn = "DELETE FROM Person WHERE ID = @ID;";
@@ -854,7 +934,12 @@ namespace SemesterProjekt2021
             //Error is the command could not be sent
             Result conRes = SendCommand();
             if (conRes.Error) res = conRes;
-
+            else 
+            {
+                usedPersonIDs.Remove(id);
+                usedPersonCPRs.Remove(p.CPR);
+                usedPersonTypes.Remove(id);
+            }
             return res;
         }
 
