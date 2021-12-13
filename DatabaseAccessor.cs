@@ -20,6 +20,7 @@ namespace SemesterProjekt2021
         private static List<int> usedBoligIDs;
         private static List<int> usedPersonIDs;
         private static List<long> usedPersonCPRs;
+        private static Dictionary<int,int> usedPersonTypes;
 
         public static Result ConnectToDatabase(string dbName)
         {
@@ -32,11 +33,12 @@ namespace SemesterProjekt2021
             //Create sqlconnection based on the connection string
             currentConnection = new SqlConnection(strconn);
 
-            //Setup SQL string and lists for used ids and cprs
+            //Setup SQL string and lists for used ids, cprs and types
             string sqlString = "SELECT ID FROM Bolig;";
             usedBoligIDs = new List<int>();
             usedPersonIDs = new List<int>();
             usedPersonCPRs = new List<long>();
+            usedPersonTypes = new Dictionary<int, int>();
 
             //Catch any error when connecting
             try
@@ -107,7 +109,7 @@ namespace SemesterProjekt2021
                 //Open the connection to the database
                 currentConnection.Open();
 
-                //Create the command to get all the already used ids
+                //Create the command to get all the already used CPRs
                 currentCommand = new SqlCommand("", currentConnection);
                 currentCommand.CommandText = "SELECT CPR FROM Person;";
 
@@ -132,6 +134,48 @@ namespace SemesterProjekt2021
                 r.Error = true;
             }
 
+            try
+            {
+                //Open the connection to the database
+                currentConnection.Open();
+
+                //Create the command to get all the already used types
+                currentCommand = new SqlCommand("", currentConnection);
+                currentCommand.CommandText = "SELECT ID, isEjendomsmælger, isKøber, isSælger FROM Person;";
+
+                //Execute the reader
+                SqlDataReader reader = currentCommand.ExecuteReader();
+
+                //Read all the used types
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    //Add the types to its list
+
+                    int type = 0;
+
+                    bool isE = reader.GetBoolean(1);
+                    bool isK = reader.GetBoolean(2);
+                    bool isS = reader.GetBoolean(3);
+
+                    if (isE) type += 1;
+                    if (isK) type += 2;
+                    if (isS) type += 4;
+
+                    usedPersonTypes.Add(id, type);
+                }
+
+                //Close the connection
+                currentConnection.Close();
+            }
+            catch (Exception e)
+            {
+                //If an error was caught compile error
+                r.Message = e.Message;
+                r.Type = e.GetType().ToString();
+                r.Error = true;
+            }
+
             /*
             string s = "";
 
@@ -143,9 +187,32 @@ namespace SemesterProjekt2021
 
             MessageBox.Show(s);
             */
+
             //If no error was had a connection later is able to be established
             connected = !r.Error;
             return r;
+        }
+
+        public static bool PersonIsOfType(int id, bool ofMælger, bool ofKøber, bool ofSælger)
+        {
+            bool res = false;
+
+            int type = usedPersonTypes[id];
+
+            if (ofMælger)
+            {
+                res = 0 < (type & 1);
+            }
+            if (ofKøber)
+            {
+                res = 0 < (type & 2);
+            }
+            if (ofSælger)
+            {
+                res = 0 < (type & 4);
+            }
+
+            return res;
         }
 
         // Missing parameters
@@ -847,6 +914,9 @@ namespace SemesterProjekt2021
             Result res = new Result();
             currentCommand = new SqlCommand("", currentConnection);
 
+            Person p = new Person();
+            res = ReadPerson(id, ref p);
+
             //Compile SQL string to delete person with supplied id
             string strconn = "DELETE FROM Person WHERE ID = @ID;";
             currentCommand.Parameters.AddWithValue("@ID", id);
@@ -855,7 +925,12 @@ namespace SemesterProjekt2021
             //Error is the command could not be sent
             Result conRes = SendCommand();
             if (conRes.Error) res = conRes;
-
+            else 
+            {
+                usedPersonIDs.Remove(id);
+                usedPersonCPRs.Remove(p.CPR);
+                usedPersonTypes.Remove(id);
+            }
             return res;
         }
 
