@@ -214,6 +214,7 @@
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(216, 23);
             this.TypeComboBox.TabIndex = 42;
+            this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
             // IDTextBox
             // 

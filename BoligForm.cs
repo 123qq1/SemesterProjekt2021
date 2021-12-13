@@ -715,5 +715,16 @@ namespace SemesterProjekt2021
         {
             IDTextBox.Text = DatabaseAccessor.ValidBoligID().ToString();
         }
+
+        private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TypeComboBox.Text == "Grund")
+            {
+                EnergyComboBox.Text = "G";
+                RoomsTextBox.Text = "0";
+                InAreaTextBox.Text = "0";
+                BuiltTextBox.Text = "";
+            }
+        }
     }
 }
