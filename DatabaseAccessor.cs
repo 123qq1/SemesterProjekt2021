@@ -60,8 +60,6 @@ namespace SemesterProjekt2021
                     usedBoligIDs.Add(reader.GetInt32(0));
                 }
 
-                //Close the connection
-                currentConnection.Close();
             }
             catch (Exception e)
             {
@@ -70,6 +68,8 @@ namespace SemesterProjekt2021
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
+            //Close the connection
+            currentConnection.Close();
 
             //Catch any error when connecting
             try
@@ -92,8 +92,6 @@ namespace SemesterProjekt2021
                     usedPersonIDs.Add(reader.GetInt32(0));
                 }
 
-                //Close the connection
-                currentConnection.Close();
             }
             catch (Exception e)
             {
@@ -102,6 +100,8 @@ namespace SemesterProjekt2021
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
+            //Close the connection
+            currentConnection.Close();
 
             //Catch any error when connecting
             try
@@ -123,8 +123,6 @@ namespace SemesterProjekt2021
                     usedPersonCPRs.Add(reader.GetInt64(0));
                 }
 
-                //Close the connection
-                currentConnection.Close();
             }
             catch (Exception e)
             {
@@ -133,6 +131,8 @@ namespace SemesterProjekt2021
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
+            //Close the connection
+            currentConnection.Close();
 
             //Catch any error when connecting
             try
@@ -160,8 +160,6 @@ namespace SemesterProjekt2021
                     AddToTypeList(id, isE, isK, isS);
                 }
 
-                //Close the connection
-                currentConnection.Close();
             }
             catch (Exception e)
             {
@@ -170,6 +168,9 @@ namespace SemesterProjekt2021
                 r.Type = e.GetType().ToString();
                 r.Error = true;
             }
+
+            //Close the connection
+            currentConnection.Close();
 
             /*
             string s = "";
