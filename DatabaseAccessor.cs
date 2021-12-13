@@ -920,10 +920,12 @@ namespace SemesterProjekt2021
         {
             //Create result for compiling errors, and a clean command for interfacing with the database
             Result res = new Result();
-            currentCommand = new SqlCommand("", currentConnection);
 
             Person p = new Person();
             res = ReadPerson(id, ref p);
+
+            currentCommand = new SqlCommand("", currentConnection);
+
 
             //Compile SQL string to delete person with supplied id
             string strconn = "DELETE FROM Person WHERE ID = @ID;";
