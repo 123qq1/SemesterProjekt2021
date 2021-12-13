@@ -43,7 +43,11 @@ namespace SemesterProjekt2021
         private void UCTestForm_Load(object sender, EventArgs e)
         {
             UCTestForm_Load(new HomeForm());
-            MessageBox.Show(DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021").Message);
+
+            InputValidation.Result r = DatabaseAccessor.ConnectToDatabase("SemesterProjekt2021");
+
+            if (r.Error)
+                MessageBox.Show(r.Message);
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
