@@ -220,7 +220,7 @@ namespace SemesterProjekt2021
             {
                 r = DatabaseAccessor.CreatePerson(p);
                 if (!r.Error)
-                    MessageBox.Show("Succes!");
+                    MessageBox.Show($"Succes!\nCreated Person with ID = {p.ID}");
                 else
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
@@ -349,7 +349,7 @@ namespace SemesterProjekt2021
             {
                 Result r2 = DatabaseAccessor.UpdatePerson(p);
                 if (!r2.Error)
-                    MessageBox.Show("Success");
+                    MessageBox.Show($"Success!\nUpdated Person with ID = {p.ID}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
@@ -372,7 +372,7 @@ namespace SemesterProjekt2021
             {
                 Result r2 = DatabaseAccessor.DeletePerson(Convert.ToInt32(IDTextBox.Text));
                 if (!r2.Error)
-                    MessageBox.Show("Success!");
+                    MessageBox.Show($"Success!\nDeleted Person with ID = {IDTextBox.Text}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }

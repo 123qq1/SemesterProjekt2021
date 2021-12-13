@@ -273,7 +273,7 @@ namespace SemesterProjekt2021
             {
                 Result r2 = DatabaseAccessor.CreateBolig(b);
                 if (!r2.Error) 
-                    MessageBox.Show("Success!");
+                    MessageBox.Show($"Success!\nCreated Bolig with ID = {b.Id}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
@@ -438,7 +438,7 @@ namespace SemesterProjekt2021
             {
                 r = DatabaseAccessor.UpdateBolig(b);
                 if (!r.Error)
-                    MessageBox.Show("Success");
+                    MessageBox.Show($"Success!\nUpdated Bolig with ID = {b.Id}");
                 else
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
@@ -460,7 +460,7 @@ namespace SemesterProjekt2021
                 {
                     Result r2 = DatabaseAccessor.ArchiveBolig(Convert.ToInt32(IDTextBox.Text));
                     if (!r2.Error)
-                        MessageBox.Show("Success!");
+                        MessageBox.Show($"Success!\nArchived Bolig with ID = {IDTextBox.Text}");
                     else
                         MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
                 }
