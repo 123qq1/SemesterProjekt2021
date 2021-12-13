@@ -308,15 +308,23 @@ namespace SemesterProjekt2021
                 {
                     TypeComboBox.Text = b.Type;
                     EnergyComboBox.Text = b.EnergyLabels;
-                    InAreaTextBox.Text = b.InArea.ToString();
-                    OutAreaTextBox.Text = b.OutArea.ToString();
-                    BuiltTextBox.Text = b.Built.ToString();
-                    RoomsTextBox.Text = b.Rooms.ToString();
+                    if (b.InArea != -1)
+                        InAreaTextBox.Text = b.InArea.ToString();
+                    if (b.OutArea != -1)
+                        OutAreaTextBox.Text = b.OutArea.ToString();
+                    if (b.Built != -1)
+                        BuiltTextBox.Text = b.Built.ToString();
+                    if (b.Rooms != -1)
+                        RoomsTextBox.Text = b.Rooms.ToString();
                     CityTextBox.Text = b.City;
-                    ZipTextBox.Text = b.Zip.ToString();
+                    if (b.Zip != -1)
+                        ZipTextBox.Text = b.Zip.ToString();
                     AddresseTextBox.Text = b.Address;
-                    OfferPriceTextBox.Text = b.OfferPrice.ToString();
-                    RealtorTextbox.Text = b.RealtorId.ToString();
+                    if (b.OfferPrice != -1)
+                        OfferPriceTextBox.Text = b.OfferPrice.ToString();
+                    if (b.RealtorId != -1)
+                        RealtorTextbox.Text = b.RealtorId.ToString();
+                    if (b.SellerId != -1)
                     SellerIDTextbox.Text = b.SellerId.ToString();
                     ActiveCheckbox.Checked = b.Active;
                 }

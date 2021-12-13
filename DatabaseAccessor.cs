@@ -140,7 +140,6 @@ namespace SemesterProjekt2021
                 s += usedPersonCPRs[i] + "\n";
             }
 
-
             MessageBox.Show(s);
             */
             //If no error was had a connection later is able to be established
