@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InputValidation;
 
 namespace SemesterProjekt2021
 {
@@ -33,35 +34,46 @@ namespace SemesterProjekt2021
         {
             Person p = new Person();
             Bolig b = new Bolig();
-
-            InputValidation.Result r1 = InputValidation.Generic.ID(indTastKøberId.Text);
-            InputValidation.Result r2 = InputValidation.Bolig.Price(indtastSolgtePris.Text);
-
-            int buyerId = Convert.ToInt32(indTastKøberId.Text);
-            int soldPrice = Convert.ToInt32(indtastSolgtePris.Text);
+            bool success = true;
+            int buyerId = 0;
+            int soldPrice = 0;
             int boligId = this.boligId;
+            Result r = new Result();
             DateTime dt = solgteDato.Value.Date;
 
-            InputValidation.Result r3 = DatabaseAccessor.ReadBolig(boligId, ref b);
-            InputValidation.Result r4 = DatabaseAccessor.ReadPerson(buyerId, ref p);
-
-            if (r1.Error)
-            {
-                MessageBox.Show(r1.Message);
-            }
-            else if (r2.Error)
-            {
-                MessageBox.Show(r2.Message);
-            }
-            else if (r3.Error)
-            {
-                MessageBox.Show(r3.Message);
-            }
-            else if (r4.Error)
-            {
-                MessageBox.Show(r4.Message);
-            }
+            r = InputValidation.Generic.ID(indTastKøberId.Text);
+            if (!r.Error)
+                buyerId = Convert.ToInt32(indTastKøberId.Text);
             else
+            {
+                success = false;
+                MessageBox.Show(r.Message);
+            }
+
+            r = InputValidation.Bolig.Price(indtastSolgtePris.Text);
+            if (!r.Error)
+                soldPrice = Convert.ToInt32(indtastSolgtePris.Text);
+            else
+            {
+                success = false;
+                MessageBox.Show(r.Message);
+            }
+
+            r = DatabaseAccessor.ReadBolig(boligId, ref b);
+            if (r.Error)
+            {
+                success = false;
+                MessageBox.Show(r.Message);
+            }
+
+            r = DatabaseAccessor.ReadPerson(buyerId, ref p);
+            if (r.Error)
+            {
+                success = false;
+                MessageBox.Show(r.Message);
+            }
+
+            if (success)
             {
                 if (p.IsKøber)
                 {

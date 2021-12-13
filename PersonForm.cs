@@ -220,7 +220,7 @@ namespace SemesterProjekt2021
             {
                 r = DatabaseAccessor.CreatePerson(p);
                 if (!r.Error)
-                    MessageBox.Show("Succes!");
+                    MessageBox.Show($"Succes!\nCreated Person with ID = {p.ID}");
                 else
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
@@ -257,11 +257,13 @@ namespace SemesterProjekt2021
                 {
                     CPRTextBox.Text = p.CPR.ToString();
                     EmailTextBox.Text = p.Email;
-                    PhoneNumberTextBox.Text = p.PhoneNr.ToString();
+                    if (p.PhoneNr != -1)
+                        PhoneNumberTextBox.Text = p.PhoneNr.ToString();
                     FNameTextBox.Text = p.FName;
                     LNameTextBox.Text = p.LName;
                     CityTextBox.Text = p.City;
-                    ZipTextBox.Text = p.Zip.ToString();
+                    if (p.Zip != -1)
+                        ZipTextBox.Text = p.Zip.ToString();
                     AddresseTextBox.Text = p.Address;
                     RealtorCheckbox.Checked = p.IsEjendomsmælger;
                     SellerCheckbox.Checked = p.IsSælger;
@@ -347,7 +349,7 @@ namespace SemesterProjekt2021
             {
                 Result r2 = DatabaseAccessor.UpdatePerson(p);
                 if (!r2.Error)
-                    MessageBox.Show("Success");
+                    MessageBox.Show($"Success!\nUpdated Person with ID = {p.ID}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
@@ -370,7 +372,7 @@ namespace SemesterProjekt2021
             {
                 Result r2 = DatabaseAccessor.DeletePerson(Convert.ToInt32(IDTextBox.Text));
                 if (!r2.Error)
-                    MessageBox.Show("Success!");
+                    MessageBox.Show($"Success!\nDeleted Person with ID = {IDTextBox.Text}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }

@@ -46,7 +46,7 @@ namespace InputValidation
     public static class RegExes
     {
         // Primary types
-        public static string pureInt = @"(?!\s*$)([0-9]+$)";
+        public static string pureInt = @"(?!\s*$)^[\d]+$";
         public static string pureDouble = @"(?!\s*$)(^[0-9,]*)";
 
         // Generic
@@ -60,7 +60,7 @@ namespace InputValidation
         // Person
         public static string cpr = @"(?!\s*$)^(([\d][\d][\d][\d][\d][\d])([ -])?([\d][\d][\d][\d]))";
         public static string phoneNr = @"(?!\s)^(((?:[+][\d]?[\d]?[\d][ ]?)|(?:[\d][\d][\d][\d][ ]))?([(][\d]+[)][ ]?)?((?:(?:[\d]+[ -]?))+))";
-        public static string email = @"(?!\s*$)(?:^[a-z0-9!#$%&'*+/=?^_`{|}~-]+)@(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+)(?:[.])(?:[a-z]+$)";
+        public static string email = @"(?!\s*$)(?:^[.a-z0-9!#$%&'*+/=?^_`{|}~-]+)@(?:[-a-z0-9!#$%&'*+/=?^_`{|}~-]+)(?:[.])(?:[a-z]+$)";
 
         // Blacklist
         public static string name = @"([\n<>*'{}:;-]+)";
@@ -138,7 +138,8 @@ namespace InputValidation
                 "ideel anpart",
                 "andelsbolig",
                 "lejlighed",
-            };
+                "grund",
+        };
 
         private static bool checkTypes(string input)
         {
@@ -233,8 +234,8 @@ namespace InputValidation
                 r = new Result(type, StdErr.regex);
             else
             {
-                if (input.Length != 4)
-                    r = new Result(type, StdErr.lng + "\nCannot excede 3 characters.");
+                if (input.Length > 4)
+                    r = new Result(type, StdErr.lng + "\nCannot excede 4 digits.");
                 else
                     r = new Result();
             }
@@ -295,7 +296,6 @@ namespace InputValidation
 
         public static Result PhoneNr(string input)
         {
-            // aktuel
             Regex reg = new Regex(RegExes.pureInt);
             Result r = null;
             string type = "Person_PhoneNumber";
