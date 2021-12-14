@@ -195,7 +195,7 @@ namespace SemesterProjekt2021
             if (text == "")
             {
                 success = false;
-                MessageBox.Show("No ID given.");
+                MessageBox.Show("ID ikke angivet.");
             }
             else
             {
@@ -273,7 +273,7 @@ namespace SemesterProjekt2021
             {
                 Result r2 = DatabaseAccessor.CreateBolig(b);
                 if (!r2.Error) 
-                    MessageBox.Show($"Success!\nCreated Bolig with ID = {b.Id}");
+                    MessageBox.Show($"Succes!\nOprettede Bolig med ID = {b.Id}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
@@ -294,7 +294,7 @@ namespace SemesterProjekt2021
 
             if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. No, this does not cause a memory-leak (as far as I know).
             {
-                MessageBox.Show("ID not given.");
+                MessageBox.Show("ID ikke angivet.");
             }
             else if (!r.Error)
                 i = Convert.ToInt32(IDTextBox.Text);
@@ -360,7 +360,7 @@ namespace SemesterProjekt2021
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
             else
-                MessageBox.Show("ID not given.\nCan't update a Bolig without knowing which Bolig to update.");
+                MessageBox.Show("ID ikke angivet..\nKan ikke opdatere en Bolig uden at hvide hvilken.");
 
 
             // Validate ID
@@ -438,7 +438,7 @@ namespace SemesterProjekt2021
             {
                 r = DatabaseAccessor.UpdateBolig(b);
                 if (!r.Error)
-                    MessageBox.Show($"Success!\nUpdated Bolig with ID = {b.Id}");
+                    MessageBox.Show($"Succes!\nOpdaterede Bolig med ID = {b.Id}");
                 else
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
@@ -460,7 +460,7 @@ namespace SemesterProjekt2021
                 {
                     Result r2 = DatabaseAccessor.ArchiveBolig(Convert.ToInt32(IDTextBox.Text));
                     if (!r2.Error)
-                        MessageBox.Show($"Success!\nArchived Bolig with ID = {IDTextBox.Text}");
+                        MessageBox.Show($"Succes!\nArkiverede Bolig med ID = {IDTextBox.Text}");
                     else
                         MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
                 }
@@ -468,7 +468,7 @@ namespace SemesterProjekt2021
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
             else
-                MessageBox.Show("Cannot delete Bolig when no ID is given.");
+                MessageBox.Show("Kan ikke slette Bolig. Intet ID er angivet.");
             
         }
 
@@ -497,7 +497,7 @@ namespace SemesterProjekt2021
 
             if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. If I delete this, the program will still run (as far as I know).
             {
-                MessageBox.Show("ID not given.");
+                MessageBox.Show("ID ikke angivet.");
             }
             else if (r1.Error)
             {
@@ -615,7 +615,7 @@ namespace SemesterProjekt2021
             }
 
             if (r == null)
-                r = new Result("ValidationType", "Unknown Validation type.");
+                r = new Result("ValidationType", "Ukendt Valideringstype.");
 
             return r;
         }
@@ -713,10 +713,10 @@ namespace SemesterProjekt2021
                         MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
                 }
                 else
-                    MessageBox.Show("Cannot calculate price without valid input for InArea, OutArea and Rooms.");
+                    MessageBox.Show("Kan ikke beregne prisen uden validt input for inde areal, ude areal og antal rum.");
             }
             else
-                MessageBox.Show("Cannot evaluate the price of the current Bolig without data on Rooms, In and Out Area.");
+                MessageBox.Show("Kan ikke beregne prisen uden information om inde areal, ude areal og antal rum.");
         }
 
         private void ValidBoligID_Click(object sender, EventArgs e)
