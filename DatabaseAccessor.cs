@@ -263,7 +263,7 @@ namespace SemesterProjekt2021
             else
             {
                 res.Error = true;
-                res.Message = "Database not connected";
+                res.Message = "Databasen er ikke forbundet.";
             }
 
             return res;
@@ -280,7 +280,7 @@ namespace SemesterProjekt2021
             {
                 res.Error = true;
                 res.Type = " Multiple ID's";
-                res.Message = "ID already exists";
+                res.Message = "ID'et eksisterer allerede.";
                 return res;
             }
 
@@ -360,7 +360,7 @@ namespace SemesterProjekt2021
             {
                 //If there is no connection compile an error message
                 res.Error = true;
-                res.Message = "Database not connected";
+                res.Message = "Databasen er ikke forbundet.";
                 res.Type = "ConnectionError";
             }
 
@@ -438,7 +438,7 @@ namespace SemesterProjekt2021
             {
                 //If no connection could be astablished compile error
                 res.Error = true;
-                res.Message = "Database not connected";
+                res.Message = "Databasen er ikke forbundet.";
                 res.Type = "ConnectionError";
             }
             return res;
@@ -498,7 +498,7 @@ namespace SemesterProjekt2021
             {
                 //Compile error if no connection can be established
                 res.Error = true;
-                res.Message = "Database not connected";
+                res.Message = "Databasen er ikke forbundet.";
                 res.Type = "ConnectionError";
             }
             return res;
@@ -589,7 +589,7 @@ namespace SemesterProjekt2021
             {
                 //If no data needs to updated compile an error
                 res.Error = true;
-                res.Message = "No new information given.";
+                res.Message = "Ingen ny information givet.";
                 res.Type = "LackingData";
             }
             return res;
@@ -616,7 +616,7 @@ namespace SemesterProjekt2021
             {
                 res.Error = true;
                 res.Type = "AlreadyArchived";
-                res.Message = "The Bolig with the given ID has already been archived.";
+                res.Message = "Boligen med den givne ID";
             }
 
             return res;
@@ -633,7 +633,7 @@ namespace SemesterProjekt2021
             {
                 res.Error = true;
                 res.Type = " Multiple ID's";
-                res.Message = "ID already exists";
+                res.Message = "ID'et eksisterer allerede.";
                 return res;
             }
 
@@ -642,7 +642,7 @@ namespace SemesterProjekt2021
             {
                 res.Error = true;
                 res.Type = " Multiple CPR's";
-                res.Message = "CPR already exists";
+                res.Message = "CPR'et eksisterer allerede.";
                 return res;
             }
 
@@ -761,7 +761,7 @@ namespace SemesterProjekt2021
             {
                 //If no connection could be astablished compile error
                 res.Error = true;
-                res.Message = "Database not connected";
+                res.Message = "Databasen er ikke forbundet.";
                 res.Type = "ConnectionError";
             }
             return res;
@@ -810,7 +810,7 @@ namespace SemesterProjekt2021
                 {
                     //If no info avaliable to read compile error
                     res.Error = true;
-                    res.Message = "Person with ID not found. Try Create instead.";
+                    res.Message = "Person med det givne ID blev ikke fundet. Prøv at oprette i stedet.";
                     res.Type = "IDNotFound";
                 }
 
@@ -822,7 +822,7 @@ namespace SemesterProjekt2021
             {
                 //If no connection could be astablished compile error
                 res.Error = true;
-                res.Message = "Database not connected";
+                res.Message = "Databasen er ikke forbundet.";
                 res.Type = "ConnectionError";
             }
             return res;
@@ -909,7 +909,7 @@ namespace SemesterProjekt2021
             {
                 //If no data needs to updated compile an error
                 res.Error = true;
-                res.Message = "No information given beyond ID";
+                res.Message = "Ingen information givet udover ID.";
                 res.Type = "LackingData";
             }
             return res;

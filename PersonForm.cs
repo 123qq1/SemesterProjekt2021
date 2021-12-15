@@ -220,12 +220,12 @@ namespace SemesterProjekt2021
             {
                 r = DatabaseAccessor.CreatePerson(p);
                 if (!r.Error)
-                    MessageBox.Show($"Succes!\nCreated Person with ID = {p.ID}");
+                    MessageBox.Show($"Succes!\nOprettede Person med ID = {p.ID}");
                 else
                     MessageBox.Show("Error: " + r.Type + "\n" + r.Message);
             }
             else if (success && !subsuccess)
-                MessageBox.Show("Cannot create Person without a valid ID and CPR.");
+                MessageBox.Show("Kan ikke oprette Person uden et gyldigt ID og CPR-nummer.");
             
         }
 
@@ -243,7 +243,7 @@ namespace SemesterProjekt2021
 
             if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. ID not given, fucks not given(as far as I know).
             {
-                MessageBox.Show("ID not given.");
+                MessageBox.Show("Intet ID angivet.");
             }
             else if (!r.Error)
                 i = Convert.ToInt32(IDTextBox.Text);
@@ -292,7 +292,7 @@ namespace SemesterProjekt2021
             if (text == "")
             {
                 success = false;
-                MessageBox.Show("No ID given. Can't update unknown Person.");
+                MessageBox.Show("Intet ID angivet.");
             }
             else
             {
@@ -349,7 +349,7 @@ namespace SemesterProjekt2021
             {
                 Result r2 = DatabaseAccessor.UpdatePerson(p);
                 if (!r2.Error)
-                    MessageBox.Show($"Success!\nUpdated Person with ID = {p.ID}");
+                    MessageBox.Show($"Succes!\nOpdaterede Person med ID = {p.ID}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }
@@ -366,13 +366,13 @@ namespace SemesterProjekt2021
 
             if (IDTextBox.Text == "") // Worlds biggest band-aid, unsure if error message will show properly. This is a band aid emoji 🩹 (as far as I know).
             {
-                MessageBox.Show("ID not given.");
+                MessageBox.Show("Intet ID angivet.");
             }
             else if (!r.Error)
             {
                 Result r2 = DatabaseAccessor.DeletePerson(Convert.ToInt32(IDTextBox.Text));
                 if (!r2.Error)
-                    MessageBox.Show($"Success!\nDeleted Person with ID = {IDTextBox.Text}");
+                    MessageBox.Show($"Succes!\nSlettede Person med ID = {IDTextBox.Text}");
                 else
                     MessageBox.Show("Error: " + r2.Type + "\n" + r2.Message);
             }

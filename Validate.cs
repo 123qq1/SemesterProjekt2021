@@ -32,14 +32,14 @@ namespace InputValidation
 
     public static class StdErr
     {
-        public static string regex = " does not match Regex resctrictions";
-        public static string dig4 = " needs to be 4 digits long.";
-        public static string lng = " is too long.";
-        public static string blckList = " cannot contain character such as: \"<>*'{}:;-\" or newlines.";
+        public static string regex = " er ikke gyldigt.";
+        public static string dig4 = " skal være 4 cifre lang.";
+        public static string lng = " er for lang.";
+        public static string blckList = " må ikke indeholde tegn som: \"<>*'{}:;-\" eller newlines.";
 
         public static string length(int number, string type)
         {
-            return $" needs to be exactly {number} {type} long.";
+            return $" skal være præcis {number} {type} lang.";
         }
     }
 
@@ -86,7 +86,7 @@ namespace InputValidation
         {
             Regex reg = new Regex(RegExes.address);
             Result r = null;
-            string type = "Generic_Address";
+            string type = "Generic_Adsress";
 
             if (!reg.IsMatch(input))
                 r = new Result(type, StdErr.regex);
@@ -166,7 +166,7 @@ namespace InputValidation
                 r = new Result(type, StdErr.regex);
 
             else if (!checkTypes(input))
-                r = new Result(type, " is not a known Bolig type");
+                r = new Result(type, " er ikke en kendt bolig type.");
 
             else
                 r = new Result();
@@ -184,7 +184,7 @@ namespace InputValidation
                 r = new Result(type, StdErr.regex);
 
             else if (input.Length > 3)
-                r = new Result(type, StdErr.lng + "\nCannot excede 3 digits");
+                r = new Result(type, StdErr.lng + "\nMå ikke være større end 3 cifre.");
 
             else
                 r = new Result();
@@ -216,7 +216,7 @@ namespace InputValidation
                 r = new Result(type, StdErr.regex);
 
             else if (input.Length > 3)
-                r = new Result(type, StdErr.lng + "\nCannot excede 3 characters.");
+                r = new Result(type, StdErr.lng + "\nMå ikke være større end 3 cifre.");
 
             else
                 r = new Result();
@@ -235,7 +235,7 @@ namespace InputValidation
             else
             {
                 if (input.Length > 4)
-                    r = new Result(type, StdErr.lng + "\nCannot excede 4 digits.");
+                    r = new Result(type, StdErr.lng + "\nMå ikke være større end 4 cifre.");
                 else
                     r = new Result();
             }
@@ -286,7 +286,7 @@ namespace InputValidation
             else
             {
                 if (input.Length != 10)
-                    r = new Result(type, StdErr.length(10, "digits"));
+                    r = new Result(type, StdErr.length(10, "cifre"));
                 else
                     r = new Result();
             }
